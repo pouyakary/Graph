@@ -1,0 +1,97 @@
+
+
+html {
+    background-color: #eee;
+    font-family: 'Avenir';
+    font-size: 16px;
+    overflow: hidden;
+    min-height: 400px;
+    min-width: 300px;
+}
+
+body {
+    margin: 0;
+}
+
+
+
+.heading {
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+	font-size: 2rem;
+	color: black;
+    height: 42px;
+    background-color: white;
+    overflow: hidden;
+}
+
+#HedronPaper {
+    width: 100vw;
+    height: calc( 100vh - 62px );
+}
+
+#header-left {
+    float: left;
+}
+
+#header-right {
+    float: right;
+    color: #ccc;
+    padding-top: 0.25rem;
+    font-size: 1.5rem;
+}
+
+
+
+.icon {
+    float: left;
+    height: 40;
+    width: 40;
+    margin-left: 10px;
+    margin-top: 1px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.icon:hover{
+    background-size: 38px 38px;
+}
+
+.icon-active {
+    background-size: 38px 38px;
+}
+
+#icon-move {
+    margin-left: 30px;
+    background-image: url('media/cursor.png');
+}
+
+#icon-edit {
+    background-image: url('media/edit.png');
+}
+
+#icon-remove {
+    background-image: url('media/remove.png');
+}
+
+#icon-select {
+    background-image: url('media/select.png');
+}
+
+
+
+#status-view {
+    float: left;
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}

@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>
+			Hedron - Experiment 5
+		</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="./source/snap.svg.js"></script>
+		<script src="./source/globals.js"></script>
+		<script src="./source/view.js"></script>
+        <script src="./source/toolbar.js"></script>
+	</head>
+	<body>
+		<div class="heading">
+			<div id="header-left">
+                Kary Graph
+            </div>
+
+			<div class="icon icon-active" id="icon-move" 
+				 onmouseover="onMoveIconHover()"
+				 onmouseout="doneTips()"
+				 onclick="onMoveIconClicked()">
+			</div>
+			<div class="icon" id="icon-remove" 
+				 onmouseover="onRemoveIconHover()"
+				 onmouseout="doneTips()"
+				 onclick="onRemoveIconClicked()">
+			</div>
+			<div class="icon" id="icon-edit" 
+				 onmouseover="onEditIconHover()"
+				 onmouseout="doneTips()"
+				 onclick="onEditIconClicked()">
+			</div>
+			<div class="icon" id="icon-select" 
+				 onmouseover="onSelectIconHover()"
+				 onmouseout="doneTips()"
+				 onclick="onSelectIconClicked()">
+			</div>
+
+			<div id="status-view"></div>
+
+            <div id="header-right">
+                Kary Foundation
+            </div>
+
+            <div style="clear: both;"></div>
+		</div>
+		
+		<svg id="HedronPaper"></svg>
+
+		<script>
+			main( );
+		</script>
+	</body>
+</html>
