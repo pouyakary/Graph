@@ -52,7 +52,7 @@
 
     // generats some 
     function generateSomeCircle( howManyCircle ) {
-        for( var counter = 0; counter < howManyCircle; counter++ ) {
+        for ( var counter = 0; counter < howManyCircle; counter++ ) {
             circles.push( generateRandomCircle( counter ) );
         }
     }
@@ -92,16 +92,27 @@
     function transformLinesBasedOnCircle( circle, x, y ) {
         // defs
         circleEntry = connections[ circle.id ];
-        var leftLine = circleEntry['left'];
-        var rightLine = circleEntry['right'];
+        var leftLines = circleEntry['left'];
+        var rightLines = circleEntry['right'];
         // body
-        if ( leftLine != undefined ) {
-            leftLine.attr({ x2: x, y2: y });
+        if ( leftLines.length !== 0 ) {
+            transformLineArray( leftLines , { 
+                x2: x, y2: y 
+            });
         }
-        if ( rightLine != undefined ) {
-            rightLine.attr({ x1: x, y1: y });
+        if ( rightLines.length !== 0 ) {
+            transformLineArray( rightLines , {
+                x1: x, y1: y
+            });
         }
     }
+
+    function transformLineArray( arr, attributes ) {
+        for ( var counter = 0; counter < arr.length; counter++ ) {
+            var line = arr[ counter ];
+            line.attr( attributes );
+        }
+    } 
 
 //
 // ─── LINES ──────────────────────────────────────────────────────────────────────
@@ -135,11 +146,15 @@
             for ( var index = 1; index < countOfCircles; index++ ) {
                 var c1 = circles[ index - 1];
                 var c2 = circles[ index ];
-                var line = createLineBasedOnCircles( c1, c2 );
-                attachLineToCircle( c1, line, 'right' );
-                attachLineToCircle( c2, line, 'left' );
+                connectCircles( c1, c2 );
             }
         }
+    }
+
+    function connectCircles( c1, c2 ) {
+        var line = createLineBasedOnCircles( c1, c2 );
+        attachLineToCircle( c1, line, 'right' );
+        attachLineToCircle( c2, line, 'left' );
     }
 
     // create a line based on circles
@@ -154,15 +169,15 @@
         for ( var count = 0; count < countOfCircles; count++ ) {
             var circleId = circles[ count ].id;
             connections[ circleId ] = {
-                'right': undefined,
-                'left': undefined,
+                'right': [ ],
+                'left': [ ],
             };
         }
     }
 
     // Attach line to circle
     function attachLineToCircle( circle, line, where ) {
-        connections[ circle.id ][ where ] = line;
+        connections[ circle.id ][ where ].push( line );
     }
 
 //
@@ -174,6 +189,7 @@
         // paper...
            paper = Snap(`#${ paperId }`);
         // Generate groups
+           graph = { };
            lines = [ ]
            circles = [ ]
            connections = { };

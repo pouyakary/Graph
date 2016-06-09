@@ -58,6 +58,11 @@
 
     // changes icons to active state
     function changeToActiveMode( id ) {
+        if ( activeMode === id ) {
+            changeStatusTo('This tool is already active!');
+            return;
+        }
+        activeMode = id;
         var icon = document.getElementById( id );
         changeToActiveClass( icon );
         changeStatusTo('Tool activated, ready to use');
