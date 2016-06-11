@@ -1,4 +1,9 @@
 
+//
+// Copyright 2016 Kary Foundation, Inc.
+//   Author: Pouya Kary <k@karyfoundation.org>
+//
+
 module KaryGraph {
 
     //
@@ -10,12 +15,8 @@ module KaryGraph {
         // Attributes
         //
 
-        interface ISnapAttributes {
-            [ id: string ]: any;
-        }
-
         interface ISnapAttributesFunction {
-            ( attributes: ISnapAttributes );
+            ( attributes: any );
         }
 
         //
@@ -23,7 +24,7 @@ module KaryGraph {
         //
 
         interface ISnapAnimateFunction {
-            ( attributes: ISnapAttributes , duration: number )
+            ( attributes: any , duration: number )
         }
 
         //
@@ -50,9 +51,11 @@ module KaryGraph {
         /** Implements Snap Objects (circle, line,... ) */
         export interface ISnapObject {
             /** Changes the attributes of the object */
-            attr: ISnapAnimateFunction;
+            attr: ISnapAttributesFunction;
+
             /** Animates the object */
             animate: ISnapAnimateFunction;
+            
             /** drag implementation */
             drag: ISnapDragFunction;
             data: ISnapDataFunction;
