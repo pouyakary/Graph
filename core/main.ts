@@ -1,7 +1,16 @@
 
 
-/// <reference path="shared.ts" />
+//
+// Copyright 2016 Kary Foundation, Inc.
+//   Author: Pouya Kary <k@karyfoundation.org>
+//
 
-function main ( ) {
-    
+/// <reference path="view.ts" />
+
+
+module KaryGraph {
+    function main ( ) {
+        InitScreenInformation( );
+    }
 }
+
