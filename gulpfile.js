@@ -13,7 +13,13 @@
     var util    = require('util')
     var fs      = require('fs-extra')
     var path    = require('path')
-    var ts      = require('gulp-typescript')
+    // var ts      = require('gulp-typescript')
+
+//
+// ─── CONSTS ─────────────────────────────────────────────────────────────────────
+//
+
+    const resultDirPath = '_compiled'
 
 //
 // ─── TOOLS ──────────────────────────────────────────────────────────────────────
@@ -43,7 +49,7 @@
             files.forEach( function ( name ) {
                 copyFile(
                     getLocalPath( path.join( dir , name ) ),
-                    getLocalPath( path.join( 'binary' , name ) )
+                    getLocalPath( path.join( resultDirPath , name ) )
                 )
             })
         })
@@ -71,7 +77,7 @@
     })
 
     gulp.task('uglifyjs', ['typescript'], function( cb ) {
-        shell('uglifyjs -m -o binary/core.js binary/core.js', cb)
+        shell(`uglifyjs -m -o ${resultDirPath}/core.js ${resultDirPath}/core.js`, cb)
     })
 
 //
@@ -84,7 +90,7 @@
     })
 
     gulp.task('lessc', function( cb ) {
-        shell('lessc sheets/style.less binary/style.css', cb)
+        shell(`lessc sheets/style.less ${resultDirPath}/style.css`, cb)
     })
 
 //
