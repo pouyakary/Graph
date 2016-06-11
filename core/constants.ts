@@ -1,4 +1,9 @@
 
+//
+// Copyright 2016 Kary Foundation, Inc.
+//   Author: Pouya Kary <k@karyfoundation.org>
+//
+
 module KaryGraph {
 
     //
@@ -6,7 +11,13 @@ module KaryGraph {
     //
 
         export const GraphViewId = 'GraphView';
+
+    //
+	// ─── GRAPH ──────────────────────────────────────────────────────────────────────
+	//
          
+        export const GraphColor = 'black';
+
     //
     // ─── CIRCLE ─────────────────────────────────────────────────────────────────────
     //
@@ -15,6 +26,12 @@ module KaryGraph {
         export const CircleRadiusAtHover = 14;
         export const CircleAnimationDurationAtStart = 40;
         export const CircleAnimationDurationAtStop = 100;
+
+	//
+	// ─── LINE ───────────────────────────────────────────────────────────────────────
+	//
+
+        export const LineWidth = 4;
         
     // ────────────────────────────────────────────────────────────────────────────────
 
