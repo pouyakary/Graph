@@ -4,7 +4,7 @@
         "target": "es5",
         "noImplicitAny": false,
         "sourceMap": false,
-        "outFile": "binary/core.js"
+        "outFile": "_compiled/core.js"
     },
     "exclude": [
         "node_modules"
