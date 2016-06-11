@@ -8,11 +8,12 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    var gulp    = require('gulp');
-    var exec    = require('child_process').exec;
-    var util    = require('util');
-    var fs      = require('fs-extra');
-    var path    = require('path');
+    var gulp    = require('gulp')
+    var exec    = require('child_process').exec
+    var util    = require('util')
+    var fs      = require('fs-extra')
+    var path    = require('path')
+    var ts      = require('gulp-typescript')
 
 //
 // ─── TOOLS ──────────────────────────────────────────────────────────────────────
@@ -21,9 +22,9 @@
     /** Run shell commands easy! */
     function shell( command , cb ) {
         exec(command, function( err ) {
-            if ( err ) return cb( err );
-            cb( );
-        });
+            if ( err ) return cb( err )
+            cb( )
+        })
     }
 
 //
@@ -32,33 +33,33 @@
 
     /** Copy to binary from dir */
     function copyToBinaryFromDir( dir ) {
-        console.log(`Copying files from ${dir} to`);
+        console.log(`Copying files from ${dir} to`)
         fs.readdir( dir , function ( err , files ) {
             // if error
             if ( err ) {
-                console.log(`Could not get files from directory ${dir}`);
-            };
+                console.log(`Could not get files from directory ${dir}`)
+            }
             // if right
             files.forEach( function ( name ) {
                 copyFile(
                     getLocalPath( path.join( dir , name ) ),
                     getLocalPath( path.join( 'binary' , name ) )
-                );
-            });
-        });
+                )
+            })
+        })
     }
 
     /** Copy file `A` to `B` */
     function copyFile( A , B ) {
         fs.copy( A, B, function ( err ) {
-            if ( err ) return console.error( err );
-            console.log(`--> Copied ${A} to ${B}`);
-        });
+            if ( err ) return console.error( err )
+            console.log(`--> Copied ${A} to ${B}`)
+        })
     }
 
     /** Get Local Path in the current directory */
     function getLocalPath( adrs ) {
-        return path.join( path.dirname( ) , adrs );
+        return path.join( path.dirname( ) , adrs )
     }
 
 //
@@ -66,27 +67,30 @@
 //
 
     gulp.task('typescript', function( cb ) {
-        shell('tsc', cb);
-    });
+        shell('tsc', cb)
+    })
 
     gulp.task('uglifyjs', ['typescript'], function( cb ) {
-        shell('uglifyjs -m -o binary/core.js binary/core.js', cb);
-    });
+        shell('uglifyjs -m -o binary/core.js binary/core.js', cb)
+    })
 
 //
 // ─── COPY FILES ─────────────────────────────────────────────────────────────────
 //
 
     gulp.task('copyfiles', function ( cb ) {
-        copyToBinaryFromDir('media');
-        copyToBinaryFromDir('view');
-        copyToBinaryFromDir('style');
+        copyToBinaryFromDir('media')
+        copyToBinaryFromDir('view')
+    })
+
+    gulp.task('lessc', function( cb ) {
+        shell('lessc sheets/style.less binary/style.css', cb)
     })
 
 //
 // ─── MAIN ───────────────────────────────────────────────────────────────────────
 //
 
-    gulp.task('default', ['uglifyjs', 'copyfiles']);
+    gulp.task('default', ['uglifyjs', 'copyfiles'])
 
 // ────────────────────────────────────────────────────────────────────────────────
