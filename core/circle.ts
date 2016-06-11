@@ -5,10 +5,9 @@
 //
 
 /// <reference path="../dfiles/snapsvg.d.ts" />
-/// <reference path="shared.ts" />
+/// <reference path="view.ts" />
 /// <reference path="constants.ts" />
 /// <reference path="snapobject.ts" />
-
 
 module KaryGraph.Circle {
 
@@ -27,7 +26,7 @@ module KaryGraph.Circle {
     //
 
         var circleDragOnMove = function ( dx:number, dy:number, posx:number, posy:number ) {
-            
+
         }
 
         var circleDragOnStart = function ( ) {
@@ -37,4 +36,11 @@ module KaryGraph.Circle {
         var circleDragOnStop = function ( ) {
             
         }
+
+    //
+    // ─── MOVE MODE ──────────────────────────────────────────────────────────────────
+    //
+
+
+
 }
