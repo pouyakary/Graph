@@ -85,7 +85,7 @@
 //
 
     gulp.task('copyfiles', function ( cb ) {
-        copyToBinaryFromDir('media')
+        copyToBinaryFromDir('resources')
         copyToBinaryFromDir('view')
     })
 
