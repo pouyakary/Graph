@@ -3,8 +3,9 @@
         "typescript": "*",
         "uglifyjs": "2.4.10",
         "less": "2.7.1",
-        "gulp-typescript": "2.13.6",
-        "gulp-uglifyjs": "0.6.2",
-        "fs-extra": "0.30.0"
+        "gulp-uglify": "1.5.3",
+        "gulp-less": "3.1.0",
+        "fs-extra": "0.30.0",
+        "bower": "*"
     }
 }
