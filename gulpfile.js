@@ -8,12 +8,13 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    var gulp    = require('gulp')
-    var exec    = require('child_process').exec
-    var util    = require('util')
-    var fs      = require('fs-extra')
-    var path    = require('path')
-    // var ts      = require('gulp-typescript')
+    var gulp = require('gulp')
+    var exec = require('child_process').exec
+    var util = require('util')
+    var fs   = require('fs-extra')
+    var path = require('path')
+    var ugly = require('gulp-uglify')
+    var less = require('gulp-less')
 
 //
 // ─── CONSTS ─────────────────────────────────────────────────────────────────────
@@ -76,27 +77,41 @@
         shell('tsc', cb)
     })
 
-    gulp.task('uglifyjs', ['typescript'], function( cb ) {
-        shell(`uglifyjs -m -o ${resultDirPath}/core.js ${resultDirPath}/core.js`, cb)
+//
+// ─── UGLIFYING ──────────────────────────────────────────────────────────────────
+//
+
+    gulp.task( 'uglifyjs', ['typescript'], function( cb ) {
+        return gulp.src( `${resultDirPath}/*.js` )
+            .pipe( ugly( ) )
+            .pipe( gulp.dest( `${resultDirPath}` ) )
     })
 
 //
 // ─── COPY FILES ─────────────────────────────────────────────────────────────────
 //
 
-    gulp.task('copyfiles', function ( cb ) {
-        copyToBinaryFromDir('resources')
-        copyToBinaryFromDir('view')
+    gulp.task( 'copyfiles', function ( cb ) {
+        copyToBinaryFromDir( 'resources' )
+        copyToBinaryFromDir( 'view' )
     })
 
-    gulp.task('lessc', function( cb ) {
-        shell(`lessc sheets/style.less ${resultDirPath}/style.css`, cb)
+//
+// ─── SHEETS ─────────────────────────────────────────────────────────────────────
+//
+
+    gulp.task( 'sheets', function( cb ) {
+        return gulp.src( getLocalPath( 'sheets/*.less' ) )
+            .pipe( less ({
+                paths: [ path.join( __dirname , 'sheets' ) ]
+            }))
+            .pipe( gulp.dest( `${ resultDirPath }/css` ))
     })
 
 //
 // ─── MAIN ───────────────────────────────────────────────────────────────────────
 //
 
-    gulp.task('default', ['uglifyjs', 'copyfiles'])
+    gulp.task('default', ['uglifyjs', 'copyfiles', 'sheets'])
 
 // ────────────────────────────────────────────────────────────────────────────────
