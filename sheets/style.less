@@ -1,97 +1,129 @@
 
+//
+// ─── DEFS ───────────────────────────────────────────────────────────────────────
+//
 
-html {
-    background-color: #eee;
-    font-family: 'Avenir';
-    font-size: 16px;
-    overflow: hidden;
-    min-height: 400px;
-    min-width: 300px;
-}
+    @color-1: #eee;
+    @color-2: white;
+    @color-3: black;
+    @color-4: #424242;
 
-body {
-    margin: 0;
-}
+    @font-family: 'Avenir';
+    @base-font-size: 16px;
 
+//
+// ─── SIZING ─────────────────────────────────────────────────────────────────────
+//
 
-
-.heading {
-    background-size: contain;
-    background-position: left;
-    background-repeat: no-repeat;
-    padding-top: 8px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-	font-size: 2rem;
-	color: black;
-    height: 42px;
-    background-color: white;
-    overflow: hidden;
-}
-
-#HedronPaper {
-    width: 100vw;
-    height: calc( 100vh - 62px );
-}
-
-#header-left {
-    float: left;
-}
-
-#header-right {
-    float: right;
-    color: #ccc;
-    padding-top: 0.25rem;
-    font-size: 1.5rem;
-}
+    @header-padding-top: 8px;
 
 
+    @icon-box-size: 40px;
+    @icon-size: 30px;
+    @active-icon-size: 38px;
 
-.icon {
-    float: left;
-    height: 40;
-    width: 40;
-    margin-left: 10px;
-    margin-top: 1px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 30px 30px;
-    border: 1px solid white;
-    border-radius: 3px;
-}
+    @toolbar-padding-top: 10px;
 
-.icon:hover{
-    background-size: 38px 38px;
-}
+//
+// ─── BASE ───────────────────────────────────────────────────────────────────────
+//
 
-.icon-active {
-    background-size: 38px 38px;
-}
+    html {
+        background-color: @color-1;
+        font-family: @font-family;
+        font-size: @base-font-size;
+        overflow: hidden;
+        min-height: 400px;
+        min-width: 300px;
+    }
 
-#icon-move {
-    margin-left: 30px;
-    background-image: url('media/cursor.png');
-}
+    body {
+        margin: 0;
+    }
 
-#icon-edit {
-    background-image: url('media/edit.png');
-}
+//
+// ─── HEADING ────────────────────────────────────────────────────────────────────
+//
 
-#icon-remove {
-    background-image: url('media/remove.png');
-}
+    .heading {
+        background-size: contain;
+        background-position: left;
+        background-repeat: no-repeat;
+        padding-top: 8px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 2rem;
+        color: black;
+        height: 42px;
+        background-color: @color-2;
+        overflow: hidden;
+    }
 
-#icon-select {
-    background-image: url('media/select.png');
-}
+    #GraphView {
+        width: 100vw;
+        height: calc( 100vh - 62px );
+    }
 
+    #header-left {
+        float: left;
+    }
 
+    #header-right {
+        float: right;
+        color: @color-4;
+        padding-top: 0.25rem;
+        font-size: 1.5rem;
+    }
 
-#status-view {
-    float: left;
-    margin-left: 30px;
-    margin-top: 10px;
-    font-size: 1.1rem;
-}
+//
+// ─── TOOLBAR ────────────────────────────────────────────────────────────────────
+//
+
+    .icon {
+        float: left;
+        height: @icon-box-size;
+        width: @icon-box-size;
+        margin-left: 10px;
+        margin-top: 1px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: @icon-size @icon-size;
+    }
+
+    .icon:hover{
+        background-size: @active-icon-size @active-icon-size;
+    }
+
+    .icon-active {
+        background-size: @active-icon-size @active-icon-size;
+    }
+
+    #icon-move {
+        margin-left: 30px;
+        background-image: url('cursor.png');
+    }
+
+    #icon-edit {
+        background-image: url('edit.png');
+    }
+
+    #icon-remove {
+        background-image: url('remove.png');
+    }
+
+    #icon-select {
+        background-image: url('select.png');
+    }
+
+//
+// ─── STATUS BAR ─────────────────────────────────────────────────────────────────
+//
+
+    #status-view {
+        float: left;
+        margin-left: @icon-size;
+        margin-top: 10px;
+        font-size: 1.1rem;
+    }
