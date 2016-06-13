@@ -105,7 +105,7 @@
             .pipe( less ({
                 paths: [ path.join( __dirname , 'sheets' ) ]
             }))
-            .pipe( gulp.dest( `${ resultDirPath }/css` ))
+            .pipe( gulp.dest( `${ resultDirPath }` ))
     })
 
 //
