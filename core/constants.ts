@@ -48,6 +48,8 @@ module KaryGraph {
         export const ToolbarIconEdit    = 'icon-edit';
         export const ToolbarIconSelect  = 'icon-select';
 
+        export const ToolbarActiveIconClass = 'icon-active';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
