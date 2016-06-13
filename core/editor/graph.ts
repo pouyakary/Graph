@@ -5,8 +5,8 @@
 //
 
 /// <reference path="dot.ts" />
-/// <reference path="view.ts" />
-/// <reference path="constants.ts" />
+/// <reference path="view.ts" /> 
+/// <reference path="../constants.ts" />
 
 module KaryGraph {
 
@@ -26,4 +26,11 @@ module KaryGraph {
         function GenerateSomeRandomNodes( howManyNodes: number ) {
             
         }
+
+        function GenerateRandomCoordinations (  ) {
+            
+        }
+
+    // ────────────────────────────────────────────────────────────────────────────────
+    
 } 

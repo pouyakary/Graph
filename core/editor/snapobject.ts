@@ -48,6 +48,10 @@ module KaryGraph {
         }
 
 
+        //
+        // Snap Object
+        //
+
         /** Implements Snap Objects (circle, line,... ) */
         export interface ISnapObject {
             /** Changes the attributes of the object */

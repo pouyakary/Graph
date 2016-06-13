@@ -6,7 +6,7 @@
 //
 
 /// <reference path="dot.ts" />
-/// <reference path="constants.ts" />
+/// <reference path="../constants.ts" />
 
 
 module KaryGraph {
@@ -17,6 +17,7 @@ module KaryGraph {
 
         /** Main memory containing the graph. Designed in a MVVC model in mind */
         export var Graph = new Array<Dot> ( );
+        
     //
     // ─── PAPER ──────────────────────────────────────────────────────────────────────
     //

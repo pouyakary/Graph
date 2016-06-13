@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../dfiles/snapsvg.d.ts" />
+/// <reference path="../../dfiles/snapsvg.d.ts" />
 /// <reference path="circle.ts" />
 /// <reference path="line.ts" />
 

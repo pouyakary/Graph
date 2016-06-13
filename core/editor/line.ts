@@ -5,7 +5,7 @@
 //
 
 /// <reference path="view.ts" />
-/// <reference path="../dfiles/snapsvg.d.ts" />
+/// <reference path="../../dfiles/snapsvg.d.ts" />
 /// <reference path="snapobject.ts" />
 
 module KaryGraph.Line {
