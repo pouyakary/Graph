@@ -14,24 +14,24 @@
             </div>
 
 			<div class="icon icon-active" id="icon-move" 
-				 onmouseover="onMoveIconHover()"
-				 onmouseout="doneTips()"
-				 onclick="onMoveIconClicked()">
+				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-move')"
+				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
+				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-move')">
 			</div>
 			<div class="icon" id="icon-remove" 
-				 onmouseover="onRemoveIconHover()"
-				 onmouseout="doneTips()"
-				 onclick="onRemoveIconClicked()">
+				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-remove')"
+				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()" 
+				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-remove')">
 			</div>
 			<div class="icon" id="icon-edit" 
-				 onmouseover="onEditIconHover()"
-				 onmouseout="doneTips()"
-				 onclick="onEditIconClicked()">
+				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-edit')"
+				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
+				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-edit')">
 			</div>
 			<div class="icon" id="icon-select" 
-				 onmouseover="onSelectIconHover()"
-				 onmouseout="doneTips()"
-				 onclick="onSelectIconClicked()">
+				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-select')"
+				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
+				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-select')">
 			</div>
 
 			<div id="status-view"></div>
@@ -43,7 +43,7 @@
             <div style="clear: both;"></div>
 		</div>
 		
-		<svg id="HedronPaper"></svg>
+		<svg id="GraphView"></svg>
 
 		<script>
 			KaryGraph.INIT();
