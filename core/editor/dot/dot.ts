@@ -67,7 +67,7 @@ module KaryGraph {
 			//
 
                 constructor ( x: number, y: number ) {
-                    
+
                     // basic allocation
                     this.X = x;
                     this.Y = y;
@@ -119,7 +119,30 @@ module KaryGraph {
 			//
 
                 public MoveTo( x: number, y: number ) {
-                    
+                    this.SnapCircle.attr({
+                        cx: x,
+                        cy: y
+                    });
+                    this.ApplyTransformationToOutputs( x , y );
+                    this.ApplyTransformationToInputs( x , y );
+                }
+
+                ApplyTransformationToOutputs( x: number, y: number ) {
+                    this.Outputs.forEach( connection => {
+                        connection.LineToCircle.attr({
+                            x1: x,
+                            y1: y
+                        })
+                    });
+                }
+
+                ApplyTransformationToInputs( x: number, y: number ) {
+                    this.Inputs.forEach( connection => {
+                        connection.LineToCircle.attr({
+                            x2: x,
+                            y2: y
+                        })
+                    });
                 }
 
 			// ────────────────────────────────────────────────────────────
