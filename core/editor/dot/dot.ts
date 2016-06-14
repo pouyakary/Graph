@@ -118,6 +118,9 @@ module KaryGraph {
 			// ─── MOVE TO ────────────────────────────────────────────────
 			//
 
+                /**
+                 * Moves the coordinations of the object.
+                 */
                 public MoveTo( x: number, y: number ) {
                     this.SnapCircle.attr({
                         cx: x,
@@ -129,19 +132,13 @@ module KaryGraph {
 
                 ApplyTransformationToOutputs( x: number, y: number ) {
                     this.Outputs.forEach( connection => {
-                        connection.LineToCircle.attr({
-                            x1: x,
-                            y1: y
-                        })
+                        connection.LineToCircle.attr({ x1: x, y1: y });
                     });
                 }
 
                 ApplyTransformationToInputs( x: number, y: number ) {
                     this.Inputs.forEach( connection => {
-                        connection.LineToCircle.attr({
-                            x2: x,
-                            y2: y
-                        })
+                        connection.LineToCircle.attr({ x2: x, y2: y });
                     });
                 }
 

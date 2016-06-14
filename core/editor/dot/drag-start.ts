@@ -40,7 +40,7 @@ module KaryGraph {
         export function DragStartFunctionEditMode( circle: ISnapObject ) {
             
         }
-
+ 
     //
 	// ─── DRAG START - SELECT MOVE ───────────────────────────────────────────────────
 	//
