@@ -27,7 +27,7 @@ module KaryGraph {
         /**
          * The **main** view, a ***Snap SVG Paper*** contatining the whole model.
          */
-        export var GraphView = Snap(`#${ GraphViewId }`);
+        export var GraphView: Paper;
 
         /** Width of the graph paper */
         export var GraphWidth: number;
@@ -47,6 +47,7 @@ module KaryGraph {
          * properties.
          */
         export function InitScreenInformation ( ) {
+            GraphView = Snap(`#${ GraphViewId }`);
             // getting the paper...
             var paperObject = document.getElementById( GraphViewId );
             var paperStyle  = window.getComputedStyle( paperObject, null );
