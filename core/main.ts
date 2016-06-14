@@ -4,12 +4,15 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="editor/view.ts" />
+/// <reference path="ui/view.ts" />
+/// <reference path="editor/graph.ts" />
 
 
 module KaryGraph {
+    /** What starts the code when it starts. */
     export function INIT ( ) {
         InitScreenInformation( );
+        GenerateSomeRandomNodes( 10 );
     }
 }
 
