@@ -2,10 +2,12 @@
 // ─── KARY GRAPH ─────────────────────────────────────────────────────────────────
 //
 
-    Kary Graph - Graph Studio by Kary Foundation
-      Copyright (c) 2016 Kary Foundation, Inc.
-      Author: Pouya Kary <k@karyfoundation.org>
+               Kary Graph - Graph Studio by Kary Foundation
+                 Copyright (c) 2016 Kary Foundation, Inc.
+             Developed By: Pouya Kary <k@karyfoundation.org>
 
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
                       GNU GENERAL PUBLIC LICENSE
                           Version 3, 29 June 2007
 
@@ -1461,5 +1463,5 @@
     LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-    
+
 // ────────────────────────────────────────────────────────────────────────────────
