@@ -22,7 +22,8 @@ module KaryGraph {
 	//
 
         export function DragModeFunctionMoveMode( circle: ISnapObject, dx: number, dy: number, posx: number, posy: number ) {
-               
+            posy -= GraphMarginTop;
+            ( <Dot> Graph[ circle.id ] ).MoveTo( posx , posy );
         }
 
     //
