@@ -5,7 +5,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../editor/dot.ts" />
+/// <reference path="../editor/dot/dot.ts" />
 /// <reference path="../constants.ts" />
 
 

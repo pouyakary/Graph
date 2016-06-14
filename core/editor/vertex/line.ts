@@ -4,9 +4,9 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../ui/view.ts" />
-/// <reference path="../../dfiles/snapsvg.d.ts" />
-/// <reference path="snapobject.ts" />
+/// <reference path="../../ui/view.ts" />
+/// <reference path="../../../dfiles/snapsvg.d.ts" />
+/// <reference path="../snapobject.ts" />
 
 module KaryGraph.Line {
 

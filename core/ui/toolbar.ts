@@ -16,6 +16,7 @@ module KaryGraph.UI.Toolbar {
             Move, Remove, Edit, Select
         }
 
+        /** To get the mode of the toolbar */
         export var ToolbarMode: EToolbarMode = EToolbarMode.Move;
 
     //

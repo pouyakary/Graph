@@ -4,9 +4,9 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../../dfiles/snapsvg.d.ts" />
+/// <reference path="../../../dfiles/snapsvg.d.ts" />
 /// <reference path="circle.ts" />
-/// <reference path="line.ts" />
+/// <reference path="../vertex/line.ts" />
 
 module KaryGraph {
 
@@ -74,6 +74,7 @@ module KaryGraph {
 
                     // generating the circle
                     this.SnapCircle = Circle.Create( x, y );
+                    console.log( this.SnapCircle );
                     this.Id = this.SnapCircle.id;
 
                     // number id
