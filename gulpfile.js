@@ -73,6 +73,7 @@
 // ─── COMPILING TYPE SCRIPT ──────────────────────────────────────────────────────
 //
 
+    /** Compiles the TypeScript code */
     gulp.task('typescript', function( cb ) {
         shell('tsc', cb)
     })
@@ -81,6 +82,7 @@
 // ─── UGLIFYING ──────────────────────────────────────────────────────────────────
 //
 
+    /** Minifies the result code from TypeScript */
     gulp.task( 'uglifyjs', ['typescript'], function( cb ) {
         return gulp.src( `${resultDirPath}/*.js` )
             .pipe( ugly( ) )
@@ -91,6 +93,7 @@
 // ─── COPY FILES ─────────────────────────────────────────────────────────────────
 //
 
+    /** Copies static resource files into the result directory */
     gulp.task( 'copyfiles', function ( cb ) {
         copyToBinaryFromDir( 'resources' )
         copyToBinaryFromDir( 'view' )
@@ -100,6 +103,7 @@
 // ─── SHEETS ─────────────────────────────────────────────────────────────────────
 //
 
+    /** Compiles the Less style sheets */
     gulp.task( 'sheets', function( cb ) {
         return gulp.src( getLocalPath( 'sheets/*.less' ) )
             .pipe( less ({
@@ -112,6 +116,7 @@
 // ─── MAIN ───────────────────────────────────────────────────────────────────────
 //
 
+    /** Where everything starts */
     gulp.task('default', ['uglifyjs', 'copyfiles', 'sheets'])
 
 // ────────────────────────────────────────────────────────────────────────────────
