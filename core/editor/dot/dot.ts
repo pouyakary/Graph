@@ -74,7 +74,6 @@ module KaryGraph {
 
                     // generating the circle
                     this.SnapCircle = Circle.Create( x, y );
-                    console.log( this.SnapCircle );
                     this.Id = this.SnapCircle.id;
 
                     // number id
