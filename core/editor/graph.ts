@@ -5,7 +5,7 @@
 //
 
 /// <reference path="dot.ts" />
-/// <reference path="view.ts" /> 
+/// <reference path="../ui/view.ts" /> 
 /// <reference path="../constants.ts" />
 
 module KaryGraph {
@@ -16,19 +16,27 @@ module KaryGraph {
 
         export function CreateNode ( x: number, y: number ) {
             var circle = new Dot( x, y );
-            Graph[ circle.Id ] = circle; 
+            console.log( circle.Id );
+            Graph.push( circle ); 
         }
 
     //
     // ─── GENERATE RANDOM NODES ──────────────────────────────────────────────────────
     //
 
-        function GenerateSomeRandomNodes( howManyNodes: number ) {
-            
+        /** Generates some random nodes on the screen */
+        export function GenerateSomeRandomNodes( howManyNodes: number ) {
+            for ( var counter = 0; counter < howManyNodes; counter++ ) {
+                var x: number = GenerateRandomCoordinations( GraphWidth );
+                var y: number = GenerateRandomCoordinations( GraphHeight );
+                CreateNode( x , y );
+            }   
         }
 
-        function GenerateRandomCoordinations (  ) {
-            
+        /** Generates a random screen cordinates */
+        function GenerateRandomCoordinations ( input: number ) {
+            input /= 2;
+		    return ( input / 2 ) + ( Math.floor( Math.random( ) * input ) ) - 30;
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
