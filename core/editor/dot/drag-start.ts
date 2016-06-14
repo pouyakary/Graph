@@ -11,10 +11,10 @@ module KaryGraph {
 	//
 
         export const DragStartFunctions = [
-            DragRemoveFunctionMoveMode,
-            DragRemoveFunctionRemoveMode,
-            DragRemoveFunctionEditMode,
-            DragRemoveFunctionSelectMode
+            DragStartFunctionMoveMode,
+            DragStartFunctionRemoveMode,
+            DragStartFunctionEditMode,
+            DragStartFunctionSelectMode
         ];
 
     //

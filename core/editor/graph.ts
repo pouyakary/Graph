@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="dot.ts" />
+/// <reference path="dot/dot.ts" />
 /// <reference path="../ui/view.ts" /> 
 /// <reference path="../constants.ts" />
 
@@ -16,7 +16,6 @@ module KaryGraph {
 
         export function CreateNode ( x: number, y: number ) {
             var circle = new Dot( x, y );
-            console.log( circle.Id );
             Graph.push( circle ); 
         }
 
@@ -29,7 +28,6 @@ module KaryGraph {
             for ( var counter = 0; counter < howManyNodes; counter++ ) {
                 var x: number = GenerateRandomCoordinations( GraphWidth );
                 var y: number = GenerateRandomCoordinations( GraphHeight );
-                CreateNode( x , y );
             }   
         }
 
