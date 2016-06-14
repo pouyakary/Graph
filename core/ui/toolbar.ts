@@ -12,12 +12,12 @@ module KaryGraph.UI.Toolbar {
     // ─── TOOLBAR MODE ───────────────────────────────────────────────────────────────
     //
 
-        export enum EToolbarMode { 
+        export enum ToolbarModeEnum { 
             Move, Remove, Edit, Select
         }
 
         /** To get the mode of the toolbar */
-        export var ToolbarMode: EToolbarMode = EToolbarMode.Move;
+        export var ToolbarMode: ToolbarModeEnum = ToolbarModeEnum.Move;
 
     //
     // ─── ICON ON HOVER ──────────────────────────────────────────────────────────────
@@ -36,16 +36,16 @@ module KaryGraph.UI.Toolbar {
         function ChangeModeByElementId( id: string ) {
             switch ( id ) {
                 case 'icon-move':
-                    ToolbarMode = EToolbarMode.Move;
+                    ToolbarMode = ToolbarModeEnum.Move;
                     break;
                 case 'icon-remove':
-                    ToolbarMode = EToolbarMode.Remove;
+                    ToolbarMode = ToolbarModeEnum.Remove;
                     break;
                 case 'icon-edit':
-                    ToolbarMode = EToolbarMode.Edit;
+                    ToolbarMode = ToolbarModeEnum.Edit;
                     break;
                 case 'icon-select':
-                    ToolbarMode = EToolbarMode.Select;
+                    ToolbarMode = ToolbarModeEnum.Select;
                     break;
             }
         }
