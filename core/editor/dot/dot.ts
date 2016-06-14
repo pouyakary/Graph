@@ -67,6 +67,7 @@ module KaryGraph {
 			//
 
                 constructor ( x: number, y: number ) {
+                    
                     // basic allocation
                     this.X = x;
                     this.Y = y;
@@ -89,6 +90,14 @@ module KaryGraph {
 			//
 
                 public ConnectTo( input: Dot ) {
+
+                    // Is that already a connection?
+                    this.Inputs.forEach( element => {
+                        if ( element.CircleId = input.Id ) {
+                            return;
+                        }
+                    });
+
                     // the line
                     let line = Line.CreateLineBetweenDots( this, input );
 
