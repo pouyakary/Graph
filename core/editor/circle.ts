@@ -5,7 +5,7 @@
 //
 
 /// <reference path="../../dfiles/snapsvg.d.ts" />
-/// <reference path="view.ts" />
+/// <reference path="../ui/view.ts" />
 /// <reference path="../constants.ts" />
 /// <reference path="snapobject.ts" />
 

@@ -15,55 +15,57 @@ module KaryGraph {
         // Attributes
         //
 
-        interface ISnapAttributesFunction {
-            ( attributes: any );
-        }
+            interface ISnapAttributesFunction {
+                ( attributes: any );
+            }
 
         //
         // Animation
         //
 
-        interface ISnapAnimateFunction {
-            ( attributes: any , duration: number )
-        }
+            interface ISnapAnimateFunction {
+                ( attributes: any , duration: number )
+            }
 
         //
         // Data
         //
 
-        interface ISnapDataFunction {
-            ( string, any? )
-        }
+            interface ISnapDataFunction {
+                ( string, any? )
+            }
 
         //
         // Drag
         //
 
-        interface ISnapDragMoveFunction {
-            ( dx: number, dy: number, posx: number, posy: number )
-        }
+            interface ISnapDragMoveFunction {
+                ( dx: number, dy: number, posx: number, posy: number )
+            }
 
-        interface ISnapDragFunction {
-            ( move: ISnapDragMoveFunction, start: Function, stop: Function  )
-        }
+            interface ISnapDragFunction {
+                ( move: ISnapDragMoveFunction, start: Function, stop: Function  )
+            }
 
 
         //
         // Snap Object
         //
 
-        /** Implements Snap Objects (circle, line,... ) */
-        export interface ISnapObject {
-            /** Changes the attributes of the object */
-            attr: ISnapAttributesFunction;
+            /** Implements Snap Objects (circle, line,... ) */
+            export interface ISnapObject {
+                /** Changes the attributes of the object */
+                attr: ISnapAttributesFunction;
 
-            /** Animates the object */
-            animate: ISnapAnimateFunction;
-            
-            /** drag implementation */
-            drag: ISnapDragFunction;
-            data: ISnapDataFunction;
-            id: string;
-        }
+                /** Animates the object */
+                animate: ISnapAnimateFunction;
+                
+                /** drag implementation */
+                drag: ISnapDragFunction;
+                data: ISnapDataFunction;
+                id: string;
+            }
 
+    // ────────────────────────────────────────────────────────────────────────────────
+    
 }
