@@ -26,23 +26,29 @@ module KaryGraph {
         /** Generates some random nodes on the screen */
         export function GenerateSomeRandomNodes( howManyNodes: number ) {
             // defs
-            const widthUnit = 10;
-            const heightUnit = 4;
-            const padding = 2;
+            const baseUnit = 120;
+            const widthUnit = Math.floor( GraphWidth / baseUnit );
+            const heightUnit = Math.floor( GraphHeight / baseUnit );
+            const paddingLeftRight = 1;
+            const paddingTopBottom = 1;
+
+            // places map
             var map: Array<number> = CreatePlacesArray( widthUnit, heightUnit );
+
             // funcs
-            function isPlaceNotTakenAt( x: number, y: number ) {
-                return ( map[ widthUnit * x + y ] === 0 );
+            function isPlaceNotTakenAt( x: number, y: number ) { 
+                return ( map[ ( widthUnit * y ) + x ] == 0 );
             }
             function takeMapAt( x: number, y: number ) {
-                map[ widthUnit * x + y ] = 1;
+                map[ ( widthUnit * y ) + x ] = 1;
             }
             function ComputeRealXCoordinate( unit: number ) {
-                return ( ( ( padding + unit ) * GraphWidth ) / ( widthUnit + 2 * padding ) ) * 2;
+                return ( GraphWidth / ( widthUnit + 3 * paddingLeftRight ) ) * ( unit + 2 *  paddingLeftRight );
             }
             function ComputeRealYCoordinate( unit: number ) {
-                return ( ( ( padding + unit ) * GraphHeight ) / ( heightUnit + 2 * padding ) ) * 1.1;
+                return ( GraphHeight / ( heightUnit + 2 * paddingTopBottom ) ) * ( unit + paddingTopBottom );
             }
+
             // body
             var counter = 0;
             while ( counter < howManyNodes ) {
@@ -70,10 +76,6 @@ module KaryGraph {
         
         /** Connects some of the dots to each other randomly */
         export function AddRandomConnections ( howManyTimes: number ) {
-            // defs
-            var widthUnit = 10;
-            var heightUnit = 6;
-            var places: Array<number> = CreatePlacesArray( widthUnit, heightUnit );
             // generate
             for ( var index = 0; index < howManyTimes; index++ ) {
                 var d1 = GetRandomDot( );
