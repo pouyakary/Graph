@@ -15,8 +15,8 @@ module KaryGraph {
     //
 
         export function CreateNode ( x: number, y: number ) {
-            var circle = new Dot( x , y );
-            Graph.push( circle ); 
+            var node = new Dot( x , y );
+            Graph[ node.Id ] = node;
         }
 
     //
@@ -95,7 +95,8 @@ module KaryGraph {
 
         /** Picks up a dot randomly */
         function GetRandomDot( ) {
-            return Graph[ Random( Graph.length ) ];
+            var keys = Object.keys( Graph );
+            return Graph[ keys[ Random( keys.length ) ] ];
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

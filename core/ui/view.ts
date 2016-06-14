@@ -17,8 +17,14 @@ module KaryGraph {
 
         /** 
          * Main ***memory*** containing the graph. Designed in a MVVC model in mind 
+         * structure of this any type is:
+         * ```
+         * Graph = {
+         *    DotObjectId : Dot
+         * }
+         * ```
          */
-        export var Graph = new Array<Dot>( );
+        export var Graph: any;
         
     //
     // ─── PAPER ──────────────────────────────────────────────────────────────────────
@@ -47,10 +53,17 @@ module KaryGraph {
          * properties.
          */
         export function InitScreenInformation ( ) {
+
+            // The paper
             GraphView = Snap(`#${ GraphViewId }`);
+
+            // the memory
+            Graph = { };
+
             // getting the paper...
             var paperObject = document.getElementById( GraphViewId );
             var paperStyle  = window.getComputedStyle( paperObject, null );
+
             // computing numbers we need...
             GraphWidth  = parseInt( paperStyle.getPropertyValue('width') );
             GraphHeight = parseInt( paperStyle.getPropertyValue('height') );
