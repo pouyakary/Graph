@@ -22,7 +22,7 @@ module KaryGraph {
 	//
 
         export function DragModeFunctionMoveMode( circle: ISnapObject, dx: number, dy: number, posx: number, posy: number ) {
-            
+               
         }
 
     //

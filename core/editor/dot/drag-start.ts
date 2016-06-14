@@ -22,7 +22,7 @@ module KaryGraph {
 	//
 
         export function DragStartFunctionMoveMode( circle: ISnapObject ) {
-            
+            circle.animate( { "r": CircleRadiusAtDrag }, CircleAnimationDurationAtStart );
         }
 
     //
