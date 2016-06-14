@@ -30,12 +30,7 @@ module KaryGraph.Line {
 
         /** Creates a line based on coordinates of two dots */
         export function CreateLineBetweenDots ( d1: Dot, d2: Dot ): ISnapObject  {
-            return Line.Create(
-                d1.X + CircleRadius,
-                d1.Y + CircleRadius,
-                d2.X + CircleRadius,
-                d2.Y + CircleRadius
-            );
+            return Line.Create( d1.X, d1.Y, d2.X, d2.Y );
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

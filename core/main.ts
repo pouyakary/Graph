@@ -13,6 +13,7 @@ module KaryGraph {
     export function INIT ( ) {
         InitScreenInformation( );
         GenerateSomeRandomNodes( 10 );
+        AddRandomConnections( 10 );
     }
 }
 
