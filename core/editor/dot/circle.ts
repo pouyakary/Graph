@@ -10,6 +10,11 @@
 /// <reference path="../../ui/toolbar.ts" />
 /// <reference path="../snapobject.ts" />
 
+/// <reference path="drag-move.ts" />
+/// <reference path="drag-start.ts" />
+/// <reference path="drag-stop.ts" />
+
+
 module KaryGraph.Circle {
 
     //
@@ -18,44 +23,46 @@ module KaryGraph.Circle {
 
         export function Create ( x: number, y: number ): ISnapObject {
             var circle = <ISnapObject> GraphView.circle( x, y, CircleRadius );
-            circle.drag( circleDragOnMove, circleDragOnStart, circleDragOnStop );
+            circle.drag( CircleDragOnMove, CircleDragOnStart, CircleDragOnStop );
             return circle;
         }
-    
+
+    //
+	// ─── GET ARRAY INDEX ────────────────────────────────────────────────────────────
+	//
+
+        function GetArrayIndexBasedOnModes( ): number {
+            switch ( UI.Toolbar.ToolbarMode ) {
+                case UI.Toolbar.ToolbarModeEnum.Move:
+                    return 0;
+                case UI.Toolbar.ToolbarModeEnum.Remove:
+                    return 1;
+                case UI.Toolbar.ToolbarModeEnum.Edit:
+                    return 2;
+                case UI.Toolbar.ToolbarModeEnum.Select:
+                    return 3;
+            }
+        }  
+
     //
     // ─── EVENT HANDLERS ─────────────────────────────────────────────────────────────
     //
 
-        var circleDragOnMove = function ( dx:number, dy:number, posx:number, posy:number ) {
-            
+        var CircleDragOnMove = function ( dx:number, dy:number, posx:number, posy:number ) {
+            var func = DragMoveFunctions[ GetArrayIndexBasedOnModes( ) ];
+            func( ( <ISnapObject> this ) , dx, dy, posx, posy );
         }
 
-        var circleDragOnStart = function ( ) {
-            
+        var CircleDragOnStart = function ( ) {
+            var func = DragStartFunctions[ GetArrayIndexBasedOnModes( ) ];
+            func( ( <ISnapObject> this ) );
         }
 
-        var circleDragOnStop = function ( ) {
-            
+        var CircleDragOnStop = function ( ) {
+            var func = DragStopFunctions[ GetArrayIndexBasedOnModes( ) ];   
+            func( ( <ISnapObject> this ) );
         }
 
-    //
-    // ─── FUNCTION SELECTOR ──────────────────────────────────────────────────────────
-    //
-
-        function ModeBasedFunctionSelector( funcs: Array<Function> ) {
-            switch ( UI.Toolbar.ToolbarMode ) {
-                case UI.Toolbar.EToolbarMode.Move:
-                    break;
-
-                case UI.Toolbar.EToolbarMode.Remove:
-                    break;
-
-                case UI.Toolbar.EToolbarMode.Edit:
-                    break;
-
-                case UI.Toolbar.EToolbarMode.Select:
-                    break;
-            }
-        }
+    // ────────────────────────────────────────────────────────────────────────────────
 
 }
