@@ -97,6 +97,10 @@
     gulp.task( 'copyfiles', function ( cb ) {
         copyToBinaryFromDir( 'resources' )
         copyToBinaryFromDir( 'view' )
+        copyFile( 
+            getLocalPath( 'www/lib/Snap.svg/dist/snap.svg-min.js' ),
+            getLocalPath( `${ resultDirPath }/snap.svg-min.js` )
+        )
     })
 
 //
