@@ -6,6 +6,7 @@
         "gulp-uglify": "1.5.3",
         "gulp-less": "3.1.0",
         "fs-extra": "0.30.0",
+        "bower": "*",
         "sloc": "0.1.10"
     }
 }

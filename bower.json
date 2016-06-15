@@ -1,0 +1,13 @@
+{
+  "name": "Kary Graph",
+  "description": "Graph Studio by Kary Foundation",
+  "main": "",
+  "authors": [
+    "Pouya Kary <k@karyfoundation.org>"
+  ],
+  "license": "GNU General Public License",
+  "homepage": "https://github.com/karyfoundation/graph",
+  "dependencies": {
+    "Snap.svg": "snap.svg#^0.4.1"
+  }
+}
