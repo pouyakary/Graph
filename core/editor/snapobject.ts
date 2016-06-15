@@ -66,6 +66,19 @@ module KaryGraph {
                 id: string;
             }
 
+
+        //
+        // SNAP GROUP
+        //
+
+            interface ISnapAddFunction {
+                ( ISnapObject )
+            }
+
+            export interface ISnapGroup {
+                add: ISnapAddFunction
+            }
+
     // ────────────────────────────────────────────────────────────────────────────────
     
 }
