@@ -72,7 +72,7 @@ interface Paper extends Snap.Element {
 	image(src:string,x:number,y:number,width:number,height:number):Object;
 	ellipse(x:number,y:number,rx:number,ry:number):Object;
 	path(pathString?:string):void;
-	g(varargs:any):Object;
+	g(varargs?:any):Object;
 	group(varargs:any):Object;
 	text(x:number,y:number,text:string):Object;
 	text(x:number,y:number,text:Array<string>):Object;
