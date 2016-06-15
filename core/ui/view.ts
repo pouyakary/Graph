@@ -5,6 +5,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
+/// <reference path="../../typings/snapsvg.d.ts" />
 /// <reference path="../editor/dot/dot.ts" />
 /// <reference path="../constants.ts" />
 
@@ -44,6 +45,16 @@ module KaryGraph {
         /** Graphs distance to the window top */
         export var GraphMarginTop: number;
 
+    //
+	// ─── GROUPS ─────────────────────────────────────────────────────────────────────
+	//
+
+        /** Where the lines are stored within the paper */
+        export var GraphLines: ISnapGroup;
+
+        /** Where the circles are stored within the paper */
+        export var GraphCircles: ISnapGroup;
+
 	//
 	// ─── INIT WINDOW SIZES ──────────────────────────────────────────────────────────
 	//
@@ -56,6 +67,9 @@ module KaryGraph {
 
             // The paper
             GraphView = Snap(`#${ GraphViewId }`);
+
+            // Groups (notice the order...)
+            GraphLines = <ISnapGroup> GraphView.g();
 
             // the memory
             Graph = { };
