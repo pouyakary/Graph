@@ -38,7 +38,10 @@ module KaryGraph {
 	//
 
         export function DragStartFunctionEditMode( circle: ISnapObject ) {
-            
+            Circle.ResetCircleColors();
+            circle.attr({
+                fill: GraphSelectColor
+            });
         }
  
     //
