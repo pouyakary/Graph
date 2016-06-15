@@ -90,6 +90,58 @@ module KaryGraph {
                     this.Outputs = new Array<IConnection> ( );
                 }
 
+
+            //
+			// ─── REMOVER ────────────────────────────────────────────────
+			//
+
+                public Remove( ) {
+                    // remove the circle
+                    this.SnapCircle.remove();
+                    // remove the label
+                    if ( this.SnapLabel != null )
+                        this.SnapLabel.remove();
+                    // remove the input connections
+                    this.Inputs.forEach( connection => {
+                        this.RemoveInputConnection( connection );
+                    });
+                    // remove the output connections
+                    this.Outputs.forEach( connection => {
+                        this.RemoveOutputConnection( connection );
+                    });
+                }
+    
+            //
+			// ─── CONNECTION REMOVERS ────────────────────────────────────
+			//
+
+                /** Removes a connection */
+                public RemoveInputConnection( connection: IConnection ) {
+                    var connectedNode = <Dot> Graph[ connection.CircleId ];
+                    connection.LineToCircle.remove();
+                    var index = 0;
+                    connectedNode.Outputs.forEach( input => {
+                        if ( input.CircleId == connection.CircleId ) {
+                            connectedNode.Outputs.splice( index, 1 );
+                            return;
+                        }
+                        index++;
+                    });
+                }
+
+                public RemoveOutputConnection( connection: IConnection ) {
+                    var connectedNode = <Dot> Graph[ connection.CircleId ];
+                    connection.LineToCircle.remove();
+                    var index = 0;
+                    connectedNode.Inputs.forEach( input => {
+                        if ( input.CircleId == connection.CircleId ) {
+                            connectedNode.Inputs.splice( index, 1 );
+                            return;
+                        }
+                        index++;
+                    });
+                }
+
 			//
 			// ─── CONNECT TO ─────────────────────────────────────────────
 			//

@@ -59,11 +59,15 @@ module KaryGraph {
 
                 /** Animates the object */
                 animate: ISnapAnimateFunction;
+
+                /** removes the object */
+                remove();
                 
                 /** drag implementation */
                 drag: ISnapDragFunction;
                 data: ISnapDataFunction;
                 id: string;
+
             }
 
 

@@ -30,7 +30,9 @@ module KaryGraph {
 	//
 
         export function DragStartFunctionRemoveMode( circle: ISnapObject ) {
-            
+            var dot = ( <Dot> Graph[ circle.id ] );
+            dot.Remove();
+            dot = dot;
         }
 
     //
