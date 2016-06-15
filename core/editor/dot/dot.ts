@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../../../dfiles/snapsvg.d.ts" />
+/// <reference path="../../../typings/snapsvg.d.ts" />
 /// <reference path="circle.ts" />
 /// <reference path="../vertex/line.ts" />
 
@@ -42,7 +42,10 @@ module KaryGraph {
                 public Id: string;
 
                 /** For displaying the object */
-                private SnapCircle: ISnapObject;
+                public SnapCircle: ISnapObject;
+
+                /** Snap Label */
+                public SnapLabel: ISnapObject;
 
                 /** Keeps the Inputs of the dot */
                 private Inputs: Array<IConnection>;
@@ -75,6 +78,8 @@ module KaryGraph {
 
                     // generating the circle
                     this.SnapCircle = Circle.Create( x, y );
+
+                    // Initing the ID
                     this.Id = this.SnapCircle.id;
 
                     // number id
@@ -100,6 +105,7 @@ module KaryGraph {
 
                     // the line
                     let line = Line.CreateLineBetweenDots( this, input );
+                    GraphLines.add( line );
 
                     // connecting to self
                     this.Outputs.push({
