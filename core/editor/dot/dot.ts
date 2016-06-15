@@ -11,16 +11,6 @@
 module KaryGraph {
 
     //
-    // ─── OBJECT INTERFACES ──────────────────────────────────────────────────────────
-    //
-
-        /** Implements a connection */
-        export interface IConnection {
-            CircleId: string;
-            LineToCircle: ISnapObject;
-        }
-
-    //
     // ─── DOT OBJECT ─────────────────────────────────────────────────────────────────
     //
 
@@ -47,11 +37,21 @@ module KaryGraph {
                 /** Snap Label */
                 public SnapLabel: ISnapObject;
 
-                /** Keeps the Inputs of the dot */
-                private Inputs: Array<IConnection>;
+                /** 
+                 * Keeps the Inputs of the dot 
+                 * Inputs = {
+                 *    **Connected Dot Id** : ***Snap Line Object***
+                 * }
+                 */
+                private Inputs: any;
 
-                /** Keeps the Outputs of the dot */
-                private Outputs: Array<IConnection>;
+                /** 
+                 * Keeps the Outputs of the dot
+                 * Inputs = {
+                 *    **Connected Dot Id** : ***Snap Line Object***
+                 * }
+                 */
+                private Outputs: any;
 
                 /** X Coordinates of the dot */
                 public X: number;
@@ -86,8 +86,8 @@ module KaryGraph {
                     this.NumeberId = ++Dot.TotalDots;
 
                     // inputs and outputs
-                    this.Inputs  = new Array<IConnection> ( );
-                    this.Outputs = new Array<IConnection> ( );
+                    this.Inputs = { }
+                    this.Outputs = { };
                 }
 
 
@@ -96,19 +96,20 @@ module KaryGraph {
 			//
 
                 public Remove( ) {
+
                     // remove the circle
                     this.SnapCircle.remove();
+
                     // remove the label
                     if ( this.SnapLabel != null )
                         this.SnapLabel.remove();
-                    // remove the input connections
-                    this.Inputs.forEach( connection => {
-                        this.RemoveInputConnection( connection );
-                    });
-                    // remove the output connections
-                    this.Outputs.forEach( connection => {
-                        this.RemoveOutputConnection( connection );
-                    });
+
+                    // remove the connections
+                    this.RemoveInputConnection( );
+                    this.RemoveOutputConnection( );
+
+                    // removing self
+                    delete Graph[ this.Id ];
                 }
     
             //
@@ -116,29 +117,34 @@ module KaryGraph {
 			//
 
                 /** Removes a connection */
-                public RemoveInputConnection( connection: IConnection ) {
-                    var connectedNode = <Dot> Graph[ connection.CircleId ];
-                    connection.LineToCircle.remove();
-                    var index = 0;
-                    connectedNode.Outputs.forEach( input => {
-                        if ( input.CircleId == connection.CircleId ) {
-                            connectedNode.Outputs.splice( index, 1 );
-                            return;
-                        }
-                        index++;
+                public RemoveInputConnection( ) {
+                    this.ForeachConnection( this.Inputs , key => {
+                        var connectedNode = <Dot> Graph[ key ];
+                        var connectionLine = <ISnapObject> this.Inputs[ key ];
+                        connectionLine.remove( );
+                        delete connectedNode.Outputs[ this.Id ];
+                        delete this.Inputs[ key ];
                     });
                 }
 
-                public RemoveOutputConnection( connection: IConnection ) {
-                    var connectedNode = <Dot> Graph[ connection.CircleId ];
-                    connection.LineToCircle.remove();
-                    var index = 0;
-                    connectedNode.Inputs.forEach( input => {
-                        if ( input.CircleId == connection.CircleId ) {
-                            connectedNode.Inputs.splice( index, 1 );
-                            return;
-                        }
-                        index++;
+                public RemoveOutputConnection( ) {
+                    this.ForeachConnection( this.Outputs , key => {
+                        var connectedNode = <Dot> Graph[ key ];
+                        var connectionLine = <ISnapObject> this.Outputs[ key ];
+                        connectionLine.remove( );
+                        delete connectedNode.Inputs[ this.Id ];
+                        delete this.Outputs[ key ];
+                    });
+                }
+
+            //
+			// ─── FOR EACH CONNECTION DO ─────────────────────────────────
+			//
+
+                public ForeachConnection( connections: any, func: ( connectionKey: string ) => void ) {
+                    var keys = Object.keys( connections );
+                    keys.forEach( connectionKey => {
+                        func( connectionKey );
                     });
                 }
 
@@ -146,30 +152,25 @@ module KaryGraph {
 			// ─── CONNECT TO ─────────────────────────────────────────────
 			//
 
-                public ConnectTo( input: Dot ) {
+                public ConnectTo( dotToBeConnected: Dot ): boolean {
 
                     // Is that already a connection?
-                    this.Inputs.forEach( element => {
-                        if ( element.CircleId = input.Id ) {
-                            return;
-                        }
-                    });
+                    if ( this.Outputs[ dotToBeConnected.Id ] != undefined ) {
+                        return false;
+                    }
 
                     // the line
-                    let line = Line.CreateLineBetweenDots( this, input );
+                    let line = Line.CreateLineBetweenDots( this, dotToBeConnected );
                     GraphLines.add( line );
 
                     // connecting to self
-                    this.Outputs.push({
-                        CircleId: input.Id,
-                        LineToCircle: line
-                    });
+                    this.Outputs[ dotToBeConnected.Id ] = line;
                     
                     // connecting to dest
-                    input.Inputs.push({
-                        CircleId: this.Id,
-                        LineToCircle: line
-                    });
+                    dotToBeConnected.Inputs[ this.Id ] = line;
+
+                    // done
+                    return true;
                 }
 
 			//
@@ -188,17 +189,29 @@ module KaryGraph {
                     this.ApplyTransformationToInputs( x , y );
                 }
 
-                ApplyTransformationToOutputs( x: number, y: number ) {
-                    this.Outputs.forEach( connection => {
-                        connection.LineToCircle.attr({ x1: x, y1: y });
+                private ApplyTransformationToOutputs( x: number, y: number ) {
+                    this.ForeachConnection( this.Outputs , key => {
+                        ( <ISnapObject> this.Outputs[ key ] ).attr({ 
+                            x1: x, 
+                            y1: y 
+                        });
                     });
                 }
 
-                ApplyTransformationToInputs( x: number, y: number ) {
-                    this.Inputs.forEach( connection => {
-                        connection.LineToCircle.attr({ x2: x, y2: y });
+                private ApplyTransformationToInputs( x: number, y: number ) {
+                    this.ForeachConnection( this.Inputs , key => {
+                        ( <ISnapObject> this.Inputs[ key ] ).attr({ 
+                            x2: x, 
+                            y2: y 
+                        });
                     });
                 }
+
+            //
+			// ─── FOR EACH CONNECTION DO ─────────────────────────────────
+			//
+
+
 
 			// ────────────────────────────────────────────────────────────
 

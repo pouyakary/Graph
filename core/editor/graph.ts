@@ -77,10 +77,12 @@ module KaryGraph {
         /** Connects some of the dots to each other randomly */
         export function AddRandomConnections ( howManyTimes: number ) {
             // generate
-            for ( var index = 0; index < howManyTimes; index++ ) {
+            for ( var index = 0; index < howManyTimes; ) {
                 var d1 = GetRandomDot( );
                 var d2 = GetRandomDot( );
-                d1.ConnectTo( d2 );
+                if ( d1.ConnectTo( d2 ) ) {
+                    index++;
+                }
             }
         }
 
