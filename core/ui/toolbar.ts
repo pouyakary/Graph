@@ -78,6 +78,9 @@ module KaryGraph.UI.Toolbar {
 
         /** Changes the active icon to the icon with 'id' */
         export function ChangeIconToActiveMode( id: string ) {
+            // what to do before changing to active mode:
+            Circle.ResetCircleColors( );
+            // body
             ForEachIconDo( function ( icon: HTMLDivElement ) {
                 icon.classList.remove( ToolbarActiveIconClass );
             })
