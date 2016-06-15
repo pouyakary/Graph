@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../../../dfiles/snapsvg.d.ts" />
+/// <reference path="../../../typings/snapsvg.d.ts" />
 /// <reference path="../../ui/view.ts" />
 /// <reference path="../../constants.ts" />
 /// <reference path="../../ui/toolbar.ts" />
@@ -21,9 +21,21 @@ module KaryGraph.Circle {
     // ─── GENERATOR ──────────────────────────────────────────────────────────────────
     //
 
+        /** Generates a standard circle object */
         export function Create ( x: number, y: number ): ISnapObject {
+            
+            // the circle
             var circle = <ISnapObject> GraphView.circle( x, y, CircleRadius );
+
+            // adding the drap functions 
             circle.drag( CircleDragOnMove, CircleDragOnStart, CircleDragOnStop );
+
+            // applying style
+            circle.attr({
+                fill: GraphColor
+            });
+
+            // done
             return circle;
         }
 
@@ -61,6 +73,29 @@ module KaryGraph.Circle {
         var CircleDragOnStop = function ( ) {
             var func = DragStopFunctions[ GetArrayIndexBasedOnModes( ) ];   
             func( ( <ISnapObject> this ) );
+        }
+
+    //
+	// ─── FOR EACH CIRCLE DO ─────────────────────────────────────────────────────────
+	//
+
+        export function ForeachCircle( func: ( circle: ISnapObject ) => void ) {
+            var keys = Object.keys( Graph );
+            keys.forEach( dotId => {
+                func( ( <Dot> Graph[ dotId ] ).SnapCircle );
+            });
+        }
+
+    //
+	// ─── RESET ALL COLORS ───────────────────────────────────────────────────────────
+	//
+
+        export function ResetCircleColors( ) {
+            ForeachCircle( circle => {
+                circle.attr({
+                    fill: GraphColor
+                });
+            });
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
