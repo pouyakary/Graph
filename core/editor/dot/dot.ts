@@ -216,6 +216,7 @@ module KaryGraph {
 			// ─── INIT LABEL ─────────────────────────────────────────────
 			//
 
+                /** Creates a Snap Label object to present the graph node number */
                 private CreateNumberLabel ( ) : ISnapObject {
                     var label = <ISnapObject> GraphView.text( 
                         this.X - DotNumberLabelDisplacementX, 

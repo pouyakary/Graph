@@ -22,12 +22,12 @@
 	let mainWindow;
 	
 	function createWindow ( ) {
-		const window_width = 1100;
-		const window_height = 640;
+		const window_width = 800;
+		const window_height = 300;
 		mainWindow = new BrowserWindow({ 
 			width: window_width, 	minWidth: window_width - 140, 
 			height: window_height,	minHeight: window_height,
-			backgroundColor: "#2E2E2E"
+			backgroundColor: "#EEEEEE"
 		});
 
 		mainWindow.loadURL( 'file://' + __dirname + '/index.html' );
