@@ -37,6 +37,12 @@ module KaryGraph {
                 /** Snap Label */
                 public SnapNumberLabel: ISnapObject;
 
+                /** Local number label X distance */
+                public NumberLabelDistanceX: number;
+
+                /** Local number label Y distance */
+                public NumberLobelDistanceY: number;
+
                 /** 
                  * Keeps the Inputs of the dot 
                  * Inputs = {
@@ -84,6 +90,10 @@ module KaryGraph {
 
                     // number id
                     this.NumeberId = ++Dot.TotalDots;
+                    this.NumberLabelDistanceX = DotNumberLabelDisplacementX;
+                    this.NumberLobelDistanceY = DotNumberLabelDisplacementY;
+
+                    // the snap svg 
                     this.SnapNumberLabel = this.CreateNumberLabel();
 
                     // inputs and outputs
@@ -97,6 +107,10 @@ module KaryGraph {
 			// ─── REMOVER ────────────────────────────────────────────────
 			//
 
+                /**
+                 * Deconstructs the class. Remove the connections
+                 * and Snap objects and the other parts
+                 */
                 public Remove( ) {
 
                     // remove the circle
@@ -118,7 +132,7 @@ module KaryGraph {
 			// ─── CONNECTION REMOVERS ────────────────────────────────────
 			//
 
-                /** Removes a connection */
+                /** Removes a input connection and lines of the dot */
                 public RemoveInputConnection( ) {
                     this.ForeachConnection( this.Inputs , key => {
                         var connectedNode = <Dot> Graph[ key ];
@@ -129,6 +143,7 @@ module KaryGraph {
                     });
                 }
 
+                /** Removes a output connection and lines of the dot */
                 public RemoveOutputConnection( ) {
                     this.ForeachConnection( this.Outputs , key => {
                         var connectedNode = <Dot> Graph[ key ];
@@ -143,6 +158,10 @@ module KaryGraph {
 			// ─── FOR EACH CONNECTION DO ─────────────────────────────────
 			//
 
+                /** 
+                 * Applis a funnction to a set of ***connections*** 
+                 * (`this.Inputs` / `this.Outputs`) 
+                 */
                 public ForeachConnection( connections: any, func: ( connectionKey: string ) => void ) {
                     var keys = Object.keys( connections );
                     keys.forEach( connectionKey => {
@@ -154,6 +173,7 @@ module KaryGraph {
 			// ─── CONNECT TO ─────────────────────────────────────────────
 			//
 
+                /** Connects a ***Dot*** object  */
                 public ConnectTo( dotToBeConnected: Dot ): boolean {
 
                     // Is that already a connection?
@@ -194,6 +214,7 @@ module KaryGraph {
                     this.ApplyTransformationToInputs( );
                 }
 
+                /** Transforms the output connections when the dot is moved. */
                 private ApplyTransformationToOutputs( ) {
                     this.ForeachConnection( this.Outputs , key => {
                         ( <ISnapObject> this.Outputs[ key ] ).attr({ 
@@ -203,6 +224,7 @@ module KaryGraph {
                     });
                 }
 
+                /** Transforms the input connections when the dot is moved. */
                 private ApplyTransformationToInputs( ) {
                     this.ForeachConnection( this.Inputs , key => {
                         ( <ISnapObject> this.Inputs[ key ] ).attr({ 
@@ -234,10 +256,11 @@ module KaryGraph {
 			// ─── MOVE NUMBER LABEL ──────────────────────────────────────
 			//
 
+                /** Moves the Number Label when the dot is moved */
                 private MoveNumberLabel ( ) {
                     this.SnapNumberLabel.attr({
-                        x: this.X - DotNumberLabelDisplacementX,
-                        y: this.Y - DotNumberLabelDisplacementY
+                        x: this.X - this.NumberLabelDistanceX,
+                        y: this.Y - this.NumberLobelDistanceY
                     });
                 }
 
