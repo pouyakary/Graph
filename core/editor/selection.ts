@@ -67,6 +67,7 @@ module KaryGraph {
 		// ─── MOVE MOUSE  ────────────────────────────────────────────────────────────────
 		//
 
+            /** At the point of mouse move event this function must be called. */
             public MoveMouse( mouseX: number, mouseY: number ) {
 
             }

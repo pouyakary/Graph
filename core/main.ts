@@ -7,6 +7,7 @@
 /// <reference path="ui/view.ts" />
 /// <reference path="editor/graph.ts" />
 
+/// <reference path="editor/selection.ts" />
 
 'use strict';
 
@@ -16,6 +17,8 @@ module KaryGraph {
         InitScreenInformation( );
         GenerateSomeRandomNodes( 10 );
         AddRandomConnections( 10 );
+
+        // var selection = new SelectionBox( 800, 100 );
     }
 }
 
