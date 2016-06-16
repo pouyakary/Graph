@@ -2,12 +2,15 @@
   "dependencies": {
     "bower": "*",
     "fs-extra": "0.30.0",
+    "electron-prebuilt": "1.2.3",
+    "gulp-cli": "1.2.1",
+    "gulp": "3.9.1",
     "gulp-less": "3.1.0",
     "gulp-uglify": "1.5.3",
     "less": "2.7.1",
     "sloc": "0.1.10",
     "snapsvg": "^0.4.0",
-    "typescript": "*",
+    "typescript": "1.8.10",
     "uglifyjs": "2.4.10"
   }
 }
