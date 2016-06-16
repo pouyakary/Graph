@@ -57,12 +57,19 @@ module KaryGraph {
             private InitRect( ) {
                 let rect = <ISnapObject> GraphView.rect( this.X, this.Y, this.Width, this.Height );
                 rect.attr({
-                    fill: "#E2AEFF",
-                    fillOpacity: 0.5,
+                    fill: SelectBoxColor,
+                    fillOpacity: SelectBoxOpacity,
                 });
                 this.Rect = rect;
             }
         
+        //
+		// ─── MOVE MOUSE  ────────────────────────────────────────────────────────────────
+		//
+
+            public MoveMouse( mouseX: number, mouseY: number ) {
+
+            }
 
     }
 }

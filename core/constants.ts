@@ -77,6 +77,17 @@ module KaryGraph {
          */
         export const ToolbarActiveIconClass = 'icon-active';
 
+    //
+	// ─── SELECTIONBOX ───────────────────────────────────────────────────────────────
+	//
+
+
+        /** Background color of the select box */
+        export const SelectBoxColor = "#E2AEFF";
+
+        /** Opactiy of the *SelectBox* so that the select nodes can be seen */
+        export const SelectBoxOpacity = 0.5;
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
