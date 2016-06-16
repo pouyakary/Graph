@@ -84,9 +84,9 @@
 
     /** Minifies the result code from TypeScript */
     gulp.task( 'uglifyjs', ['typescript'], function( cb ) {
-        return gulp.src( `${resultDirPath}/*.js` )
-            .pipe( ugly( ) )
-            .pipe( gulp.dest( `${resultDirPath}` ) )
+        return gulp.src( `${ resultDirPath }/*.js` )
+          .pipe( ugly( ) )
+          .pipe( gulp.dest( `${ resultDirPath }` ) )
     })
 
 //
@@ -97,6 +97,7 @@
     gulp.task( 'copyfiles', function ( cb ) {
         copyToBinaryFromDir( 'resources' )
         copyToBinaryFromDir( 'view' )
+        copyToBinaryFromDir( 'electron' )
         copyFile( 
             getLocalPath( 'www/lib/Snap.svg/dist/snap.svg-min.js' ),
             getLocalPath( `${ resultDirPath }/snap.svg-min.js` )
