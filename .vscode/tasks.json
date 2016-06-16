@@ -1,15 +1,7 @@
 {
     "version": "0.1.0",
-    "command": "gulp",
+    "command": "bash",
     "isShellCommand": false,
-    "args": [
-        "--no-color"
-    ],
-    "tasks": [
-        {
-            "taskName": "default",
-            "isBuildCommand": true,
-            "showOutput": "silent"
-        }
-    ]
+    "args": ["build.sh"],
+    "showOutput": "silent"
 }

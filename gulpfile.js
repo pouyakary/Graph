@@ -84,9 +84,10 @@
 
     /** Minifies the result code from TypeScript */
     gulp.task( 'uglifyjs', ['typescript'], function( cb ) {
-        return gulp.src( `${ resultDirPath }/*.js` )
-          .pipe( ugly( ) )
-          .pipe( gulp.dest( `${ resultDirPath }` ) )
+        //return gulp.src( `${ resultDirPath }/*.js` )
+        //  .pipe( ugly( ) )
+        //.pipe( gulp.dest( `${ resultDirPath }` ) )
+        cb()
     })
 
 //
