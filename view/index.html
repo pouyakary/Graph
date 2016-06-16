@@ -4,7 +4,6 @@
 			Kary Graph
 		</title>
 		<link rel="stylesheet" href="style.css">
-		<script src="snap.svg-min.js"></script>
 		<script src="core.js"></script>
 	</head>
 	<body>
@@ -46,6 +45,7 @@
 		<svg id="GraphView"></svg>
 
 		<script>
+			window.Snap = require('snapsvg');
 			KaryGraph.INIT();
 		</script>
 	</body>

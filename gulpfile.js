@@ -98,10 +98,6 @@
         copyToBinaryFromDir( 'resources' )
         copyToBinaryFromDir( 'view' )
         copyToBinaryFromDir( 'electron' )
-        copyFile( 
-            getLocalPath( 'www/lib/Snap.svg/dist/snap.svg-min.js' ),
-            getLocalPath( `${ resultDirPath }/snap.svg-min.js` )
-        )
     })
 
 //

@@ -8,6 +8,8 @@
 /// <reference path="editor/graph.ts" />
 
 
+'use strict';
+
 module KaryGraph {
     /** What starts the code when it starts. */
     export function INIT ( ) {
