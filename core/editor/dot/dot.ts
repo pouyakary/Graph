@@ -59,10 +59,16 @@ module KaryGraph {
                  */
                 private Outputs: any;
 
-                /** X Coordinates of the dot */
+                /** 
+                 * X Coordinates of the dot 
+                 * ***Changing won't make effect, use MoveTo instead*** 
+                 */
                 public X: number;
 
-                /** Y Coordintaes of the dot */
+                /** 
+                 * Y Coordintaes of the dot 
+                 * ***Changing won't make effect, use MoveTo instead***
+                 */
                 public Y: number;
 
                 /** Unique number id of the dot */
