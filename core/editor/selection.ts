@@ -1,0 +1,68 @@
+
+//
+// Copyright 2016 Kary Foundation, Inc.
+//   Author: Pouya Kary <k@karyfoundation.org>
+//
+
+/// <reference path="snapobject.ts" />
+/// <reference path="../ui/view.ts" />
+/// <reference path="graph.ts" />
+/// <reference path="../constants.ts" />
+
+module KaryGraph {
+
+    /**
+     * Selection - Creates a selction box and at the end of the selction
+     * creates a list of selcted nodes
+     */
+    export class SelectionBox {
+
+        //
+		// ─── DEFS ───────────────────────────────────────────────────────────────────────
+		//
+
+            /** Keeps the *X coordinates* of start of the selection box. */
+            private X: number;
+
+            /** Keeps the *Y coordinates* of end of the selection box .*/
+            private Y: number;
+
+            /** Keeps the *width* of the selection box. */
+            private Width: number;
+
+            /** Keeps the *height* of the selection box. */
+            private Height: number;
+
+            /** The *Snap rect* that represents the selection box on the screen. */
+            private Rect: ISnapObject;
+
+        //
+		// ─── INIT ───────────────────────────────────────────────────────────────────────
+		//
+
+            /** Starts a SelectionBox at the given coordinates. */
+            constructor( startingX: number, startingY: number ) {
+                this.X = startingX;
+                this.Y = startingY;
+                this.Width = 100;
+                this.Height = 100;
+                this.InitRect( );
+            }
+
+        //
+		// ─── INIT THE SNAP BOX ──────────────────────────────────────────────────────────
+		//
+
+            /** Inits the Snap Rect object assosiated with the SelectionBox */
+            private InitRect( ) {
+                let rect = <ISnapObject> GraphView.rect( this.X, this.Y, this.Width, this.Height );
+                rect.attr({
+                    fill: "#E2AEFF",
+                    fillOpacity: 0.5,
+                });
+                this.Rect = rect;
+            }
+        
+
+    }
+}
