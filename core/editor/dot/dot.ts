@@ -35,7 +35,7 @@ module KaryGraph {
                 public SnapCircle: ISnapObject;
 
                 /** Snap Label */
-                public SnapLabel: ISnapObject;
+                public SnapNumberLabel: ISnapObject;
 
                 /** 
                  * Keeps the Inputs of the dot 
@@ -84,10 +84,12 @@ module KaryGraph {
 
                     // number id
                     this.NumeberId = ++Dot.TotalDots;
+                    this.SnapNumberLabel = this.CreateNumberLabel();
 
                     // inputs and outputs
                     this.Inputs = { }
                     this.Outputs = { };
+
                 }
 
 
@@ -101,8 +103,8 @@ module KaryGraph {
                     this.SnapCircle.remove();
 
                     // remove the label
-                    if ( this.SnapLabel != null )
-                        this.SnapLabel.remove();
+                    if ( this.SnapNumberLabel != null )
+                        this.SnapNumberLabel.remove();
 
                     // remove the connections
                     this.RemoveInputConnection( );
@@ -181,37 +183,62 @@ module KaryGraph {
                  * Moves the coordinations of the object.
                  */
                 public MoveTo( x: number, y: number ) {
+                    this.X = x;
+                    this.Y = y;
                     this.SnapCircle.attr({
-                        cx: x,
-                        cy: y
+                        cx: this.X,
+                        cy: this.Y
                     });
-                    this.ApplyTransformationToOutputs( x , y );
-                    this.ApplyTransformationToInputs( x , y );
+                    this.MoveNumberLabel();
+                    this.ApplyTransformationToOutputs( );
+                    this.ApplyTransformationToInputs( );
                 }
 
-                private ApplyTransformationToOutputs( x: number, y: number ) {
+                private ApplyTransformationToOutputs( ) {
                     this.ForeachConnection( this.Outputs , key => {
                         ( <ISnapObject> this.Outputs[ key ] ).attr({ 
-                            x1: x, 
-                            y1: y 
+                            x1: this.X, 
+                            y1: this.Y 
                         });
                     });
                 }
 
-                private ApplyTransformationToInputs( x: number, y: number ) {
+                private ApplyTransformationToInputs( ) {
                     this.ForeachConnection( this.Inputs , key => {
                         ( <ISnapObject> this.Inputs[ key ] ).attr({ 
-                            x2: x, 
-                            y2: y 
+                            x2: this.X, 
+                            y2: this.Y
                         });
                     });
                 }
 
             //
-			// ─── FOR EACH CONNECTION DO ─────────────────────────────────
+			// ─── INIT LABEL ─────────────────────────────────────────────
 			//
 
+                private CreateNumberLabel ( ) : ISnapObject {
+                    var label = <ISnapObject> GraphView.text( 
+                        this.X - DotNumberLabelDisplacementX, 
+                        this.Y - DotNumberLabelDisplacementY, 
+                        this.NumeberId.toString( ) 
+                    );
+                    label.attr({
+                        'font-size': DotNumberLabelFontSize,
+                        'color': GraphColor
+                    });
+                    return label;
+                }
 
+            //
+			// ─── MOVE NUMBER LABEL ──────────────────────────────────────
+			//
+
+                private MoveNumberLabel ( ) {
+                    this.SnapNumberLabel.attr({
+                        x: this.X - DotNumberLabelDisplacementX,
+                        y: this.Y - DotNumberLabelDisplacementY
+                    });
+                }
 
 			// ────────────────────────────────────────────────────────────
 

@@ -33,6 +33,15 @@ module KaryGraph {
         /** Radius of the node circles when draggings */
         export const CircleRadiusAtDrag = 7;
 
+        /** Font size of the don't *number* label */
+        export const DotNumberLabelFontSize = 10;
+
+        /** X displacement of *number* label */
+        export const DotNumberLabelDisplacementX = 3;
+
+        /** Y displacement of *number* label */
+        export const DotNumberLabelDisplacementY = 16;
+
         /** Time of changing the size of node circle from normal to drag mode */
         export const CircleAnimationDurationAtStart = 40;
 
