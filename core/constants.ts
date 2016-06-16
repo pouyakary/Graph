@@ -28,10 +28,10 @@ module KaryGraph {
     //
 
         /** Radius of the node circles */
-        export const CircleRadius = 17;
+        export const CircleRadius = 10;
 
         /** Radius of the node circles when draggings */
-        export const CircleRadiusAtDrag = 14;
+        export const CircleRadiusAtDrag = 7;
 
         /** Time of changing the size of node circle from normal to drag mode */
         export const CircleAnimationDurationAtStart = 40;
@@ -44,7 +44,7 @@ module KaryGraph {
 	//
 
         /** Wdith of the vertices */
-        export const LineWidth = 4;
+        export const LineWidth = 2;
 
     //
     // ─── STATUS BAR ─────────────────────────────────────────────────────────────────
