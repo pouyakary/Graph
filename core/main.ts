@@ -11,6 +11,9 @@
 
 'use strict';
 
+/**
+ * **Kary Graph** - Full featured Graph Theory Studio
+ */
 module KaryGraph {
     /** What starts the code when it starts. */
     export function INIT ( ) {
