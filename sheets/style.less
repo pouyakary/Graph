@@ -11,6 +11,13 @@
     @font-family: 'Avenir';
     @base-font-size: 12px;
 
+
+//
+// ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
+//
+
+    @inspector-width: 360px;
+
 //
 // ─── SIZING ─────────────────────────────────────────────────────────────────────
 //
@@ -60,10 +67,73 @@
         overflow: hidden;
     }
 
+//
+// ─── GRAPH VIEW ─────────────────────────────────────────────────────────────────
+//
+
     #GraphView {
-        width: 100vw;
-        height: ~'calc( 100vh - 62px )';
+        width: calc( ~'100vw' - @inspector-width );
+        height: ~'calc( 100vh - 50px )';
+        float: left;
     }
+
+//
+// ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
+//
+
+    @inspector-width-padding: 10px;
+
+    #inspector {
+        width: @inspector-width - 2 * @inspector-width-padding;
+        height: ~'calc( 100vh - 50px )';
+        float: left;
+        padding: @inspector-width-padding;
+        background-color: #ddd;
+    }
+
+    @inspector-border-radius: 7px;
+
+    .inspector-section-title {
+        background-color: white;
+        font-size: 1.3rem;
+        border-top-left-radius: @inspector-border-radius;
+        border-top-right-radius: @inspector-border-radius;
+        border-bottom: 2px solid #eee;
+    }
+
+    .inspector-section-title-text {
+        width: @inspector-width - 100px;
+        padding: 5px;
+        padding-left: 10px;
+        color: black;
+        font-size: 1.3rem;
+        float: left;
+    }
+
+    .inspector-section-title-icon {
+        margin-top: 2px;
+        margin-right: 6px;
+        width: 28px;
+        height: 28px;
+        float: right;
+    }
+
+    #run-button {
+        width: 28px;
+        height: 28px;
+    }
+
+    .inspector-section-body {
+        background-color: #eee;
+        //padding: 10px;
+        border-bottom-left-radius: @inspector-border-radius;
+        border-bottom-right-radius: @inspector-border-radius;
+        font-size: 1.1rem;
+    }
+
+//
+// ─── HEADER ─────────────────────────────────────────────────────────────────────
+//
 
     #header-left {
         float: left;
