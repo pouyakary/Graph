@@ -119,6 +119,13 @@ module KaryGraph {
                     return this.NumeberId;
                 }
 
+            //
+			// ─── RESET TOTAL DOTS ───────────────────────────────────────
+			//
+
+                public static ResetNumberIdPlace( ) {
+                    Dot.TotalDots = 0;
+                }
 
             //
 			// ─── REMOVER ────────────────────────────────────────────────
