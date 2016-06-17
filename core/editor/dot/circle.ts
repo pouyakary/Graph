@@ -89,7 +89,7 @@ module KaryGraph.Circle {
     //
 	// ─── RESET ALL COLORS ───────────────────────────────────────────────────────────
 	//
-
+        
         export function ResetCircleColors( ) {
             ForeachCircle( circle => {
                 circle.attr({

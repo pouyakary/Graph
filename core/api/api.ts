@@ -28,8 +28,8 @@
         try {
             return a.ConnectTo( b );
         } catch ( err ) {
-            var d1 = getdot( a );
-            var d2 = getdot( b );
+            let d1 = getdot( a );
+            let d2 = getdot( b );
             return d1.ConnectTo( d2 );
         }
     }
@@ -38,8 +38,14 @@
 // ─── DISCONNECT ─────────────────────────────────────────────────────────────────
 //
 
-    function disconnect( a: KaryGraph.Dot, b: KaryGraph.Dot ) {
-        return a.DisconnectFrom( b );
+    function disconnect( a: any, b: any ) {
+        try {
+            return a.DisconnectFrom( b );
+        } catch ( err ) {
+            let d1 = getdot( a );
+            let d2 = getdot( b );
+            return d1.DisconnectFrom( b );
+        }
     }
 
 //
