@@ -13,6 +13,14 @@
     }
 
 //
+// ─── NEW DOT AT ─────────────────────────────────────────────────────────────────
+//
+
+    function newdotat( x: number, y: number ) {
+        return KaryGraph.AbstractionLayer.NewDotAt( x, y );
+    }
+
+//
 // ─── GETDOT ─────────────────────────────────────────────────────────────────────
 //
 

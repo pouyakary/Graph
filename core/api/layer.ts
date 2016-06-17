@@ -24,6 +24,14 @@ module KaryGraph.AbstractionLayer {
             let padding = 20;
             let x = padding + Random( GraphWidth - ( 2 * padding ) );
             let y = padding + Random( GraphHeight - ( 2 * padding ) );
+            return NewDotAt( x, y );
+        }
+        
+    //
+	// ─── NEW DOT AT ─────────────────────────────────────────────────────────────────
+	//
+
+        export function NewDotAt ( x: number, y: number ) {
             let dot = new Dot( x, y );
             Graph[ dot.Id ] = dot;
             return dot;
