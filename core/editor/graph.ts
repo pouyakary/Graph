@@ -66,7 +66,7 @@ module KaryGraph {
         }
 
         /** Gets a random number in range of ***0..input*** */
-        function Random( input: number ) {
+        export function Random( input: number ) {
             return Math.floor( Math.random( ) * input );
         }
 
