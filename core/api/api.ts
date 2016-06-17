@@ -4,12 +4,19 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
+
+//
+// ────────────────────────────────────────────────── I ──────────
+//  :::::: G R A P H : :  :   :    :     :        :          :
+// ────────────────────────────────────────────────────────────
+//
+
 //
 // ─── CREATE DOT ─────────────────────────────────────────────────────────────────
 //
 
     function newdot( ): KaryGraph.Dot {
-        return KaryGraph.AbstractionLayer.AddNewDot( );
+        return KaryGraph.API.AbstractionLayer.AddNewDot( );
     }
 
 //
@@ -17,7 +24,7 @@
 //
 
     function newdotat( x: number, y: number ) {
-        return KaryGraph.AbstractionLayer.NewDotAt( x, y );
+        return KaryGraph.API.AbstractionLayer.NewDotAt( x, y );
     }
 
 //
@@ -25,7 +32,7 @@
 //
 
     function getdot( numberId: number ): KaryGraph.Dot {
-        return KaryGraph.AbstractionLayer.GetDotByNumberId( numberId );
+        return KaryGraph.API.AbstractionLayer.GetDotByNumberId( numberId );
     }
 
 //
@@ -61,7 +68,7 @@
 //
 
     function reset ( ) {
-        KaryGraph.AbstractionLayer.Reset( );
+        KaryGraph.API.AbstractionLayer.Reset( );
     }
 
 //
@@ -69,7 +76,7 @@
 //
 
     function countdots( ): number {
-        return KaryGraph.AbstractionLayer.GetCountOfDots( );
+        return KaryGraph.API.AbstractionLayer.GetCountOfDots( );
     }
 
 //
@@ -83,6 +90,33 @@
             dot = getdot( dot );
             dot.MoveTo( x, y );
         }
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+//
+// ────────────────────────────────────────────────────── II ──────────
+//  :::::: C O N S O L E : :  :   :    :     :        :          :
+// ────────────────────────────────────────────────────────────────
+//
+
+//
+// ─── PRINT ──────────────────────────────────────────────────────────────────────
+//
+
+    function print( input: any ) {
+        KaryGraph.UI.Console.Print( input );
+    }
+
+//
+// ─── CLS ────────────────────────────────────────────────────────────────────────
+//
+
+    function cls( ) {
+        KaryGraph.UI.Console.Clean( );
     }
 
 // ────────────────────────────────────────────────────────────────────────────────

@@ -81,25 +81,26 @@
 // ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
 //
 
-    @inspector-width-padding: 0px;
+    @inspector-width-padding: 15px;
 
     #inspector {
         width: @inspector-width - 2 * @inspector-width-padding;
         height: ~'calc( 100vh - 50px )';
         float: left;
         padding: @inspector-width-padding;
+        padding-top: 0;
         background-color: #ddd;
     }
 
-    @inspector-border-radius: 0;
+    @inspector-border-radius: 7px;
 
     .inspector-section-title {
+        margin-top: @inspector-width-padding;
         background-color: white;
         font-size: 1.3rem;
         border-top-left-radius: @inspector-border-radius;
         border-top-right-radius: @inspector-border-radius;
         border-bottom: 2px solid #eee;
-        border-top: 2px solid #eee;
     }
 
     .inspector-section-title-text {
@@ -130,6 +131,14 @@
         border-bottom-left-radius: @inspector-border-radius;
         border-bottom-right-radius: @inspector-border-radius;
         font-size: 1.1rem;
+    }
+
+    #console {
+        height: 100px;
+        background-color: white;
+        padding: 10px;
+        margin-top: 0;
+        font-family: 'SourceCodePro-Medium';
     }
 
 //
