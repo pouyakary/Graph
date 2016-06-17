@@ -108,6 +108,14 @@ module KaryGraph {
 
                 }
 
+            //
+			// ─── GET NUMBER ID ──────────────────────────────────────────
+			//
+
+                public GetNumberId( ): number {
+                    return this.NumeberId;
+                }
+
 
             //
 			// ─── REMOVER ────────────────────────────────────────────────
