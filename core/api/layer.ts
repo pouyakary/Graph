@@ -25,7 +25,7 @@ module KaryGraph.AbstractionLayer {
             let x = padding + Random( GraphWidth - ( 2 * padding ) );
             let y = padding + Random( GraphHeight - ( 2 * padding ) );
             let dot = new Dot( x, y );
-            Graph[ dot.Id ];
+            Graph[ dot.Id ] = dot;
             return dot;
         }
 
@@ -43,6 +43,17 @@ module KaryGraph.AbstractionLayer {
                 }
             });
             return dot;
+        }
+
+    //
+	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
+	//
+
+        export function ClearScreen( ) {
+            let keys = Object.keys( Graph );
+            keys.forEach( key => {
+                ( <Dot> Graph[ key ] ).Remove( );
+            });
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
