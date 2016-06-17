@@ -171,6 +171,7 @@ module KaryGraph {
                         return true;
                     } else if ( this.Outputs[ dot.Id ] != undefined ) {
                         this.DisconnectOutput( dot );
+                        return true;
                     }
                     return false;
                 }
