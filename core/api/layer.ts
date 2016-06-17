@@ -11,7 +11,7 @@
  * the API to reduce complexity when scripting
  */
 
-module KaryGraph.AbstractionLayer {
+module KaryGraph.API.AbstractionLayer {
 
     //
 	// ─── ADD NEW DOT ────────────────────────────────────────────────────────────────
@@ -59,6 +59,7 @@ module KaryGraph.AbstractionLayer {
 
         export function Reset( ) {
             Dot.ResetNumberIdPlace( );
+            KaryGraph.UI.Console.Clean( );
             let keys = Object.keys( Graph );
             keys.forEach( key => {
                 ( <Dot> Graph[ key ] ).Remove( );

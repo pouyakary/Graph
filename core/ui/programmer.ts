@@ -8,9 +8,15 @@ declare function GetProgrammerCode( ): string;
 
 module KaryGraph.UI.Programmer {
 
+    //
+	// ─── RUN CODE... ────────────────────────────────────────────────────────────────
+	//
+
         export function RunCode( ) {
             let code = GetProgrammerCode( );
             KaryGraph.ScriptEngine.Run( code );
         }
 
+    // ────────────────────────────────────────────────────────────────────────────────
+    
 }
