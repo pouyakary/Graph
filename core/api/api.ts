@@ -8,7 +8,7 @@
 // ─── CREATE DOT ─────────────────────────────────────────────────────────────────
 //
 
-    function adddot( ): KaryGraph.Dot {
+    function newdot( ): KaryGraph.Dot {
         return KaryGraph.AbstractionLayer.AddNewDot( );
     }
 
@@ -24,8 +24,14 @@
 // ─── CONNECT ────────────────────────────────────────────────────────────────────
 //
 
-    function connect( a: KaryGraph.Dot, b: KaryGraph.Dot ) {
-        return a.ConnectTo( b );
+    function connect( a: any, b: any ) {
+        try {
+            return a.ConnectTo( b );
+        } catch ( err ) {
+            var d1 = getdot( a );
+            var d2 = getdot( b );
+            return d1.ConnectTo( d2 );
+        }
     }
 
 //
@@ -34,6 +40,14 @@
 
     function disconnect( a: KaryGraph.Dot, b: KaryGraph.Dot ) {
         return a.DisconnectFrom( b );
+    }
+
+//
+// ─── CLEAN SCREEN ───────────────────────────────────────────────────────────────
+//
+
+    function clean ( ) {
+        KaryGraph.AbstractionLayer.ClearScreen( );
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
