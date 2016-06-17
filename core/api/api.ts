@@ -60,8 +60,8 @@
 // ─── CLEAN SCREEN ───────────────────────────────────────────────────────────────
 //
 
-    function clean ( ) {
-        KaryGraph.AbstractionLayer.ClearScreen( );
+    function reset ( ) {
+        KaryGraph.AbstractionLayer.Reset( );
     }
 
 //
