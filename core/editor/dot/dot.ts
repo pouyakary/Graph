@@ -149,23 +149,46 @@ module KaryGraph {
                 /** Removes a input connection and lines of the dot */
                 public RemoveInputConnection( ) {
                     this.ForeachConnection( this.Inputs , key => {
-                        var connectedNode = <Dot> Graph[ key ];
-                        var connectionLine = <ISnapObject> this.Inputs[ key ];
-                        connectionLine.remove( );
-                        delete connectedNode.Outputs[ this.Id ];
-                        delete this.Inputs[ key ];
+                        this.DisconnectInput( <Dot> Graph[ key ] );
                     });
                 }
 
                 /** Removes a output connection and lines of the dot */
                 public RemoveOutputConnection( ) {
                     this.ForeachConnection( this.Outputs , key => {
-                        var connectedNode = <Dot> Graph[ key ];
-                        var connectionLine = <ISnapObject> this.Outputs[ key ];
-                        connectionLine.remove( );
-                        delete connectedNode.Inputs[ this.Id ];
-                        delete this.Outputs[ key ];
+                        this.DisconnectOutput( <Dot> Graph[ key ] );
                     });
+                }
+
+            //
+			// ─── DISCONNECT FROM ────────────────────────────────────────
+			//
+
+                /** Disconnect dot from Dot */
+                public DisconnectFrom( dot: Dot ): boolean {
+                    if ( this.Inputs[ dot.Id ] != undefined ) {
+                        this.DisconnectInput( dot );
+                        return true;
+                    } else if ( this.Outputs[ dot.Id ] != undefined ) {
+                        this.DisconnectOutput( dot );
+                    }
+                    return false;
+                }
+
+                /** Disconnects input dot */
+                private DisconnectInput( dot: Dot ) {
+                    var connectionLine = <ISnapObject> this.Inputs[ dot.Id ];
+                    connectionLine.remove( );
+                    delete dot.Outputs[ this.Id ];
+                    delete this.Inputs[ dot.Id ];
+                }
+
+                /** Disconnects output dot */
+                private DisconnectOutput( dot: Dot ) {
+                    var connectionLine = <ISnapObject> this.Outputs[ dot.Id ];
+                    connectionLine.remove( );
+                    delete dot.Inputs[ this.Id ];
+                    delete this.Outputs[ dot.Id ];
                 }
 
             //

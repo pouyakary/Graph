@@ -28,4 +28,12 @@
         return a.ConnectTo( b );
     }
 
+//
+// ─── DISCONNECT ─────────────────────────────────────────────────────────────────
+//
+
+    function disconnect( a: KaryGraph.Dot, b: KaryGraph.Dot ) {
+        return a.DisconnectFrom( b );
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────
