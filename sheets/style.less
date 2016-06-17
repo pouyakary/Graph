@@ -48,6 +48,15 @@
         margin: 0;
     }
 
+
+    @font-face {
+        font-family: 'GraphSourceCodePro';
+        src: url('sourcecodepro-medium-webfont.woff2') format('woff2'),
+            url('sourcecodepro-medium-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
 //
 // ─── HEADING ────────────────────────────────────────────────────────────────────
 //
@@ -82,6 +91,7 @@
 //
 
     @inspector-width-padding: 15px;
+    @inspector-border-radius: 7px;
 
     #inspector {
         width: @inspector-width - 2 * @inspector-width-padding;
@@ -92,7 +102,10 @@
         background-color: #ddd;
     }
 
-    @inspector-border-radius: 7px;
+    .inspector-section {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: @inspector-border-radius;
+    }
 
     .inspector-section-title {
         margin-top: @inspector-width-padding;
@@ -120,11 +133,6 @@
         float: right;
     }
 
-    #run-button {
-        width: 28px;
-        height: 28px;
-    }
-
     .inspector-section-body {
         background-color: #eee;
         //padding: 10px;
@@ -133,12 +141,34 @@
         font-size: 1.1rem;
     }
 
+//
+// ─── RUN BUTTON ─────────────────────────────────────────────────────────────────
+//
+
+    #run-button {
+        width: 28px;
+        height: 28px;
+    }
+
+//
+// ─── CONSOLE ────────────────────────────────────────────────────────────────────
+//
+
     #console {
-        height: 100px;
+        height: 120px;
         background-color: white;
         padding: 10px;
         margin-top: 0;
-        font-family: 'SourceCodePro-Medium';
+        font-family: 'GraphSourceCodePro';
+        border-bottom-left-radius: @inspector-border-radius;
+        border-bottom-right-radius: @inspector-border-radius;
+    }
+
+    #console-bottom {
+        background-color: white;
+        height: @inspector-border-radius;
+        border-bottom-left-radius: @inspector-border-radius;
+        border-bottom-right-radius: @inspector-border-radius;
     }
 
 //
