@@ -15,9 +15,9 @@ module KaryGraph {
     /** What starts the code when it starts. */
     export function INIT ( ) {
         InitScreenInformation( );
+        //Dot.DisplayNumberLabels = false;
         GenerateSomeRandomNodes( 20 );
         AddRandomConnections( 20 );
-
         // var selection = new SelectionBox( 800, 100 );
     }
 }

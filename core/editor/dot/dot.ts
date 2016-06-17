@@ -24,6 +24,8 @@ module KaryGraph {
                 /** For counting how many nodes are created. */
                 static TotalDots : number = 0;
 
+                static DisplayNumberLabels : boolean = true;
+
 			//
 			// ─── DEFS ───────────────────────────────────────────────────
 			//
@@ -100,7 +102,8 @@ module KaryGraph {
                     this.NumberLobelDistanceY = DotNumberLabelDisplacementY;
 
                     // the snap svg 
-                    this.SnapNumberLabel = this.CreateNumberLabel();
+                    if ( Dot.DisplayNumberLabels )
+                        this.SnapNumberLabel = this.CreateNumberLabel();
 
                     // inputs and outputs
                     this.Inputs = { }
@@ -296,10 +299,12 @@ module KaryGraph {
 
                 /** Moves the Number Label when the dot is moved */
                 private MoveNumberLabel ( ) {
-                    this.SnapNumberLabel.attr({
-                        x: this.X - this.NumberLabelDistanceX,
-                        y: this.Y - this.NumberLobelDistanceY
-                    });
+                    if ( Dot.DisplayNumberLabels ) {
+                        this.SnapNumberLabel.attr({
+                            x: this.X - this.NumberLabelDistanceX,
+                            y: this.Y - this.NumberLobelDistanceY
+                        });
+                    }
                 }
 
 			// ────────────────────────────────────────────────────────────
