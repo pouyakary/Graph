@@ -64,4 +64,17 @@
         return KaryGraph.AbstractionLayer.GetCountOfDots( );
     }
 
+//
+// ─── MOVE COMMAND ───────────────────────────────────────────────────────────────
+//
+
+    function move( dot: any, x: number, y: number ) {
+        try {
+            ( <KaryGraph.Dot> dot ).MoveTo( x, y );
+        } catch ( err ) {
+            dot = getdot( dot );
+            dot.MoveTo( x, y );
+        }
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────
