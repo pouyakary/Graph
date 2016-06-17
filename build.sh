@@ -1,5 +1,5 @@
 gulp
 
-cd _compiled
-
+cd ./_compiled
 electron main.js
+cd ..
