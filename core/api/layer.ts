@@ -57,7 +57,8 @@ module KaryGraph.AbstractionLayer {
 	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
 	//
 
-        export function ClearScreen( ) {
+        export function Reset( ) {
+            Dot.ResetNumberIdPlace( );
             let keys = Object.keys( Graph );
             keys.forEach( key => {
                 ( <Dot> Graph[ key ] ).Remove( );
