@@ -56,6 +56,14 @@ module KaryGraph.AbstractionLayer {
             });
         }
 
+    //
+	// ─── COUNT OF DOTS ──────────────────────────────────────────────────────────────
+	//
+
+        export function GetCountOfDots( ): number {
+            return Object.keys( Graph ).length;
+        }
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }

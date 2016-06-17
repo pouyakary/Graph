@@ -24,7 +24,7 @@
 // ─── CONNECT ────────────────────────────────────────────────────────────────────
 //
 
-    function connect( a: any, b: any ) {
+    function connect( a: any, b: any ): boolean {
         try {
             return a.ConnectTo( b );
         } catch ( err ) {
@@ -38,7 +38,7 @@
 // ─── DISCONNECT ─────────────────────────────────────────────────────────────────
 //
 
-    function disconnect( a: any, b: any ) {
+    function disconnect( a: any, b: any ): boolean {
         try {
             return a.DisconnectFrom( b );
         } catch ( err ) {
@@ -54,6 +54,14 @@
 
     function clean ( ) {
         KaryGraph.AbstractionLayer.ClearScreen( );
+    }
+
+//
+// ─── GET COUNT OF DOTS ──────────────────────────────────────────────────────────
+//
+
+    function countdots( ): number {
+        return KaryGraph.AbstractionLayer.GetCountOfDots( );
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
