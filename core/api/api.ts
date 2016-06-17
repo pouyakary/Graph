@@ -28,6 +28,16 @@
     }
 
 //
+// ─── NEW DOTS ───────────────────────────────────────────────────────────────────
+//
+
+    function newdots( howmuch: number ) {
+        for ( var counter = 0; counter < howmuch; counter++ ) {
+            newdot();
+        }
+    }
+
+//
 // ─── GETDOT ─────────────────────────────────────────────────────────────────────
 //
 
@@ -94,6 +104,11 @@
 
 // ────────────────────────────────────────────────────────────────────────────────
 
+
+
+    function completegraph( size: number ) {
+        KaryGraph.API.StandardLibrary.CreateCompleteGraph( size );
+    }
 
 
 
