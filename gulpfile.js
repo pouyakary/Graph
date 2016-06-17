@@ -99,6 +99,7 @@
         copyToBinaryFromDir( 'resources' )
         copyToBinaryFromDir( 'view' )
         copyToBinaryFromDir( 'electron' )
+        copyToBinaryFromDir( 'libs' )
     })
 
 //
@@ -119,6 +120,6 @@
 //
 
     /** Where everything starts */
-    gulp.task('default', ['uglifyjs', 'copyfiles', 'sheets'])
+    gulp.task('default', ['typescript', 'copyfiles', 'sheets'])
 
 // ────────────────────────────────────────────────────────────────────────────────
