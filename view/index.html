@@ -54,23 +54,28 @@
 			<!--- SCRIPT EDITOR --->
 			<div id="inspector">
 				<!-- Programmer -->
-				<div class="inspector-section-title">
-					<div class="inspector-section-title-text">Programmer</div>
-					<div class="inspector-section-title-icon">
-						<img src="playbutton.png" id="run-button" onclick="KaryGraph.UI.Programmer.RunCode( );">
+				<div class="inspector-section">
+					<div class="inspector-section-title">
+						<div class="inspector-section-title-text">Programmer</div>
+						<div class="inspector-section-title-icon">
+							<img src="playbutton.png" id="run-button" onclick="KaryGraph.UI.Programmer.RunCode( );">
+						</div>
+						<div style="clear: both;"></div>
 					</div>
-					<div style="clear: both;"></div>
-				</div>
-				<div class="inspector-section-body">
-					<textarea id="ScriptEditor"></textarea>
+					<div class="inspector-section-body">
+						<textarea id="ScriptEditor"></textarea>
+						<div id="console-bottom"></div>
+					</div>
 				</div>
 				<!-- Console -->
-				<div class="inspector-section-title">
-					<div class="inspector-section-title-text">Console</div>
-					<div style="clear: both;"></div>
-				</div>
-				<div class="inspector-section-body">
-					<pre id="console"></pre>
+				<div class="inspector-section">
+					<div class="inspector-section-title">
+						<div class="inspector-section-title-text">Console</div>
+						<div style="clear: both;"></div>
+					</div>
+					<div class="inspector-section-body">
+						<pre id="console"></pre>
+					</div>
 				</div>
 			</div>
 		</div>
