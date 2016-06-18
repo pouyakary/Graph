@@ -77,17 +77,16 @@ module KaryGraph.API.AbstractionLayer {
   // ─── CREATE MATRIX OF GRAPH ────────────────────────────────────────────────────
   //
 
-        export function CreateMatrix( ): number[][] {
-
-          var matrix: number[][] = new Array(GetCountOfDots());
-          for (var m = 0; m < matrix.length; m++) {
-            matrix[m] = new Array(GetCountOfDots());
-            for (var n = 0; n < matrix[m].length; n++) {
-              matrix[m][n] = + (GetDotByNumberId( m + 1 ).IsConnectedTo( GetDotByNumberId( n + 1 ) ));
+        export function CreateMatrix( ): number[ ][ ] {
+            var matrix: number[ ][ ] = new Array( GetCountOfDots( ) );
+            for ( var m = 0; m < matrix.length; m++ ) {
+                matrix[ m ] = new Array( GetCountOfDots( ) );
+                for ( var n = 0; n < matrix[m].length; n++ ) {
+                    matrix[ m ][ n ] = + ( GetDotByNumberId( m + 1 ).IsConnectedTo( GetDotByNumberId( n + 1 ) ) );
+                }
             }
-          }
-
-          return matrix;
+            return matrix;
+        }
 
     //
 	// ─── RENDERING ──────────────────────────────────────────────────────────────────
@@ -97,8 +96,10 @@ module KaryGraph.API.AbstractionLayer {
             switch ( text ) {
                 case 'circle':
                     Rendering.RenderCircluar();
+                    break;
                 default:
                     UI.Console.PrintError(`Graph API: No rendering option ${text}`);
+                    break;
             }
         }
 
