@@ -4,6 +4,7 @@
   /* Set height, width, borders, and global font properties here */
   font-family: 'GraphSourceCodePro';
   font-size: 1rem;
+  letter-spacing: 1px;
   height: 300px;
   color: black;
 }
