@@ -12,7 +12,15 @@ module KaryGraph.UI.Console {
 
         export function Print( input: any ) {
             let console = document.getElementById( ConsoleId );
-            console.innerText = `${ input.toString() }\n${ console.innerText }`;
+            console.innerHTML = `${ ToConsoleString( input ) }\n${ console.innerHTML }`;
+        }
+
+    //
+	// ─── TO CONSOLE STRING ──────────────────────────────────────────────────────────
+	//
+
+        function ToConsoleString( input: any ): string {
+            return input.toString( ).replace( '<' , '&lt;' ).replace( '>' ,'&gt;' );
         }
 
     //
@@ -23,6 +31,17 @@ module KaryGraph.UI.Console {
             let console = document.getElementById( ConsoleId );
             console.innerHTML = (
                 `<span class="console-error">${ error.toString() }</span>\n${ console.innerText }`
+            );
+        }
+
+    //
+	// ─── PRINT MATRIX ───────────────────────────────────────────────────────────────
+	//
+
+        export function PrintMatrix( ) {
+            let console = document.getElementById( ConsoleId );
+            console.innerHTML = (
+                `$$ \frac{1}{2} $$\n${ console.innerText }`
             );
         }
 

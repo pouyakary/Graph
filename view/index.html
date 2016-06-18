@@ -8,8 +8,6 @@
 		<script src="codemirror.js"></script>
 		<link rel="stylesheet" href="codemirror.css">
 		<script src="javascript.js"></script>
-		<!-- MathJax -->
-		<script src="mathjax.js"></script>
 	</head>
 	<body>
 		<div class="heading">
@@ -96,15 +94,6 @@
 			function GetProgrammerCode ( ) {
 				return ScriptEditor.getValue();
 			}
-
-			// a simple TeX-input example
-			var mjAPI = require("mathjax-node/lib/mj-single.js");
-			mjAPI.config({
-				MathJax: {
-					tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-				}
-			});
-			mjAPI.start();
 		</script>
 	</body>
 </html>
