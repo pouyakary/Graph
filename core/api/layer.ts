@@ -5,9 +5,9 @@
 //
 
 /**
- * This is a very importantn module. It provides an 
+ * This is a very importantn module. It provides an
  * ***abstraction layer*** over the main `KaryGraph`
- * to create a ***simple functional*** layer over for 
+ * to create a ***simple functional*** layer over for
  * the API to reduce complexity when scripting
  */
 
@@ -25,7 +25,7 @@ module KaryGraph.API.AbstractionLayer {
             let y = 20 + Random( GraphHeight - 40 );
             return NewDotAt( x, y );
         }
-        
+
     //
 	// ─── NEW DOT AT ─────────────────────────────────────────────────────────────────
 	//
@@ -72,6 +72,22 @@ module KaryGraph.API.AbstractionLayer {
         export function GetCountOfDots( ): number {
             return Object.keys( Graph ).length;
         }
+
+  //
+  // ─── CREATE MATRIX OF GRAPH ────────────────────────────────────────────────────
+  //
+
+        export function CreateMatrix( ): number[][] {
+
+          var matrix: number[][] = new Array(GetCountOfDots());
+          for (var m = 0; m < matrix.length; m++) {
+            matrix[m] = new Array(GetCountOfDots());
+            for (var n = 0; n < matrix[m].length; n++) {
+              matrix[m][n] = + (GetDotByNumberId( m + 1 ).IsConnectedTo( GetDotByNumberId( n + 1 ) ));
+            }
+          }
+
+          return matrix;
 
     //
 	// ─── RENDERING ──────────────────────────────────────────────────────────────────

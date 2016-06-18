@@ -82,6 +82,14 @@
     }
 
 //
+// ─── GET MATRIX OF GRAPH ────────────────────────────────────────────────────────
+//
+
+    function matrix ( ): number[][] {
+        return KaryGraph.API.AbstractionLayer.CreateMatrix( );
+    }
+
+//
 // ─── GET COUNT OF DOTS ──────────────────────────────────────────────────────────
 //
 
@@ -99,6 +107,58 @@
         } catch ( err ) {
             dot = getdot( dot );
             dot.MoveTo( x, y );
+        }
+    }
+
+//
+// ─── MOVE TO X ──────────────────────────────────────────────────────────────────
+//
+
+    function movex( dot: any, x: number ) {
+        try {
+            ( <KaryGraph.Dot> dot ).MoveTo( x, ( <KaryGraph.Dot> dot ).Y );
+        } catch ( err ) {
+            dot = getdot( dot );
+            dot.MoveTo( x, dot.Y );
+        }
+    }
+
+//
+// ─── MOVE TO Y ──────────────────────────────────────────────────────────────────
+//
+
+    function movey( dot: any, y: number ) {
+        try {
+            ( <KaryGraph.Dot> dot ).MoveTo( ( <KaryGraph.Dot> dot ).X, y );
+        } catch ( err ) {
+            dot = getdot( dot );
+            dot.MoveTo( dot.X, y );
+        }
+    }
+
+//
+// ─── MOVE BY X ──────────────────────────────────────────────────────────────────
+//
+
+    function movebx( dot: any, x: number ) {
+        try {
+            ( <KaryGraph.Dot> dot ).MoveTo( ( <KaryGraph.Dot> dot ).X + x, ( <KaryGraph.Dot> dot ).Y );
+        } catch ( err ) {
+            dot = getdot( dot );
+            dot.MoveTo( dot.X + x, dot.Y );
+        }
+    }
+
+//
+// ─── MOVE BY Y ──────────────────────────────────────────────────────────────────
+//
+
+    function moveby( dot: any, y: number ) {
+        try {
+            ( <KaryGraph.Dot> dot ).MoveTo( ( <KaryGraph.Dot> dot ).X, ( <KaryGraph.Dot> dot ).Y + y );
+        } catch ( err ) {
+            dot = getdot( dot );
+            dot.MoveTo( dot.X, dot.Y + y );
         }
     }
 
@@ -139,6 +199,8 @@
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
+<<<<<<< HEAD
+=======
 
 
 
@@ -202,3 +264,4 @@
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
+>>>>>>> master
