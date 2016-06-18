@@ -14,8 +14,10 @@ module KaryGraph.ScriptEngine {
             try {
                 eval( script );
             } catch ( err ) {
-                console.log( err );
+                UI.Console.PrintError( err.toString( ) );
             }
         }
+
+    // ────────────────────────────────────────────────────────────────────────────────
 
 }

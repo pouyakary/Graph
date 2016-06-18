@@ -16,6 +16,17 @@ module KaryGraph.UI.Console {
         }
 
     //
+	// ─── PRINT ERROR ────────────────────────────────────────────────────────────────
+	//
+
+        export function PrintError( error: string ) {
+            let console = document.getElementById( ConsoleId );
+            console.innerHTML = (
+                `<span class="console-error">${ error.toString() }</span>\n${ console.innerText }`
+            );
+        }
+
+    //
 	// ─── CLEAN ──────────────────────────────────────────────────────────────────────
 	//
 
