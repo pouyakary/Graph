@@ -102,13 +102,17 @@
         }
     }
 
+//
+// ─── RENDERING ──────────────────────────────────────────────────────────────────
+//
+
+    function render( option: string ) {
+        KaryGraph.API.AbstractionLayer.Render( option );
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────
 
 
-
-    function completegraph( size: number ) {
-        KaryGraph.API.StandardLibrary.CreateCompleteGraph( size );
-    }
 
 
 
@@ -132,6 +136,26 @@
 
     function cls( ) {
         KaryGraph.UI.Console.Clean( );
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+//
+// ──────────────────────────────────────────────────────────────────────── III ──────────
+//  :::::: S T A N D A R D   L I B R A R Y : :  :   :    :     :        :          :
+// ──────────────────────────────────────────────────────────────────────────────────
+//
+
+//
+// ─── COMLETE GRAPH ──────────────────────────────────────────────────────────────
+//
+
+    function completegraph( size: number ) {
+        KaryGraph.API.StandardLibrary.CreateCompleteGraph( size );
     }
 
 // ────────────────────────────────────────────────────────────────────────────────

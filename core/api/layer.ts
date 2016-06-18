@@ -73,6 +73,19 @@ module KaryGraph.API.AbstractionLayer {
             return Object.keys( Graph ).length;
         }
 
+    //
+	// ─── RENDERING ──────────────────────────────────────────────────────────────────
+	//
+
+        export function Render( text: string ) {
+            switch ( text ) {
+                case 'circle':
+                    Rendering.RenderCircluar();
+                default:
+                    UI.Console.PrintError(`Graph API: No rendering option ${text}`);
+            }
+        }
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
