@@ -69,7 +69,7 @@
         } catch ( err ) {
             let d1 = getdot( a );
             let d2 = getdot( b );
-            return d1.DisconnectFrom( b );
+            return d1.DisconnectFrom( d2 );
         }
     }
 
