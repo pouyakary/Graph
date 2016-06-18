@@ -122,7 +122,7 @@
 // ─── PRINT ──────────────────────────────────────────────────────────────────────
 //
 
-    function print( input: any ) {
+    function say( input: any ) {
         KaryGraph.UI.Console.Print( input );
     }
 
