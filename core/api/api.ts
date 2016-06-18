@@ -98,6 +98,25 @@
     }
 
 //
+// ─── CREATE GRAPH FROM MATRIX ───────────────────────────────────────────────────
+//
+
+    function graphfrommatrix ( matrix: number[][] ) {
+        var numberOfNodes = matrix.length;
+        for (var i = 0; i < numberOfNodes; i++) if (matrix[i].length != numberOfNodes) {
+          KaryGraph.UI.Console.PrintError("Invalid matrix.");
+          return;
+        }
+        var offset = countdots() + 1;
+        newdots(numberOfNodes);
+        for (var m = 0; m < numberOfNodes; m++) {
+          for (var n = 0; n < numberOfNodes; n++) {
+            if (matrix[m][n] == 1 && !hasEdge(m + offset, n + offset)) connect(m + offset, n + offset);
+          }
+        }
+    }
+
+//
 // ─── GET COUNT OF DOTS ──────────────────────────────────────────────────────────
 //
 
