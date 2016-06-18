@@ -170,6 +170,37 @@
         KaryGraph.API.AbstractionLayer.Render( option );
     }
 
+//
+// ─── GET ORDER OF GRAPH ─────────────────────────────────────────────────────────
+//
+
+    function order( ): number {
+        return countdots();
+    }
+
+//
+// ─── GET SIZE OF GRAPH ──────────────────────────────────────────────────────────
+//
+
+    function size( ): number {
+        var size: number = 0;
+        for (var i = 0; i < countdots(); i++) size += getdot(i + 1).NumberOfInputs();
+        return size;
+    }
+
+//
+// ─── GET DEGREE OF VERTEX ───────────────────────────────────────────────────────
+//
+
+    function degree( dot: any ): number {
+        try {
+            return ( <KaryGraph.Dot> dot ).GetDegree();
+        } catch ( err ) {
+            dot = getdot( dot );
+            return dot.GetDegree();
+        }
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────
 
 

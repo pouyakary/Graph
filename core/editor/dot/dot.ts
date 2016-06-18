@@ -259,6 +259,30 @@ module KaryGraph {
                 }
 
 			//
+			// ─── NUMBER OF INPUTS ───────────────────────────────────────
+			//
+
+                public NumberOfInputs( ): number {
+                    return Object.keys( this.Inputs ).length;
+                }
+
+			//
+			// ─── NUMBER OF INPUTS ───────────────────────────────────────
+			//
+
+                public NumberOfOutputs( ): number {
+                    return Object.keys( this.Outputs ).length;
+                }
+
+			//
+			// ─── DEGREE OF VERTEX ───────────────────────────────────────
+			//
+
+                public GetDegree( ): number {
+                    return this.NumberOfInputs() + this.NumberOfOutputs();
+                }
+
+			//
 			// ─── MOVE TO ────────────────────────────────────────────────
 			//
 
