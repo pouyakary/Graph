@@ -74,6 +74,14 @@
     }
 
 //
+// ─── Has Edge ─────────────────────────────────────────────────────────────────
+//
+
+      function hasEdge(start : any, end : any) {
+          return getdot(start).IsConnectedTo(getdot(end));
+      }
+
+//
 // ─── CLEAN SCREEN ───────────────────────────────────────────────────────────────
 //
 
