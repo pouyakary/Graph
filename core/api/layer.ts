@@ -73,15 +73,15 @@ module KaryGraph.API.AbstractionLayer {
             return Object.keys( Graph ).length;
         }
 
-  //
-  // ─── CREATE MATRIX OF GRAPH ────────────────────────────────────────────────────
-  //
+    //
+    // ─── CREATE MATRIX OF GRAPH ────────────────────────────────────────────────────
+    //
 
-        export function CreateMatrix( ): number[ ][ ] {
+        export function CreateMatrix( ): number[][] {
             var matrix: number[ ][ ] = new Array( GetCountOfDots( ) );
             for ( var m = 0; m < matrix.length; m++ ) {
                 matrix[ m ] = new Array( GetCountOfDots( ) );
-                for ( var n = 0; n < matrix[m].length; n++ ) {
+                for ( var n = 0; n < matrix[ m ].length; n++ ) {
                     matrix[ m ][ n ] = + ( GetDotByNumberId( m + 1 ).IsConnectedTo( GetDotByNumberId( n + 1 ) ) );
                 }
             }
