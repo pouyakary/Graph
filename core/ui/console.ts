@@ -38,11 +38,22 @@ module KaryGraph.UI.Console {
 	// ─── PRINT MATRIX ───────────────────────────────────────────────────────────────
 	//
 
-        export function PrintMatrix( ) {
-            let console = document.getElementById( ConsoleId );
-            console.innerHTML = (
-                `$$ \frac{1}{2} $$\n${ console.innerText }`
-            );
+        export function PrintMatrix( matrix: number[ ][ ] ) {
+            // Generating the HTML code
+            function generateMatrixHTML( ): string {
+                var matrixInside = '';
+                for ( var i = 0; i < matrix.length; i++ ) {
+                    var line = '';
+                    for ( var j = 0; j < matrix[ i ].length; j++ ) {
+                        line += `<td>${ matrix[ i ][ j ] }</td>`;
+                    }
+                    matrixInside += line + `<tr>${ matrixInside }</tr>`;
+                }
+                return `<table class="matrix">${ matrixInside }</table>`;
+            }
+            // printing
+            var console = document.getElementById( ConsoleId );
+            console.innerHTML = `${ generateMatrixHTML() }<br/>${ console.innerHTML }`;
         }
 
     //
