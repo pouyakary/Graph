@@ -52,7 +52,20 @@ module KaryGraph.API.AbstractionLayer {
             return dot;
         }
 
-    //
+  //
+	// ─── GET NUMBER OF VERTICES WITH ODD DEGREE ─────────────────────────────────────
+	//
+
+        export function NumberOfOddVertices( ): number {
+            var verticesWithOddDegree: number = 0;
+            var keys = Object.keys( Graph );
+            keys.forEach( key => {
+              if ( ( <Dot> Graph[ key ] ).GetDegree() % 2 ) verticesWithOddDegree++;
+            });
+            return verticesWithOddDegree;
+        }
+
+  //
 	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
 	//
 
@@ -65,7 +78,7 @@ module KaryGraph.API.AbstractionLayer {
             });
         }
 
-    //
+  //
 	// ─── COUNT OF DOTS ──────────────────────────────────────────────────────────────
 	//
 
@@ -85,6 +98,7 @@ module KaryGraph.API.AbstractionLayer {
                     matrix[ m ][ n ] = + ( GetDotByNumberId( m + 1 ).IsConnectedTo( GetDotByNumberId( n + 1 ) ) );
                 }
             }
+
             return matrix;
         }
 
