@@ -201,6 +201,32 @@
         }
     }
 
+//
+// ─── CHECK IF DOTS ARE NEIGHBORS ────────────────────────────────────────────────
+//
+
+    function neighbors( a: any, b: any ): boolean {
+        try {
+            return ( <KaryGraph.Dot> a ).IsConnectedTo(b);
+        } catch ( err ) {
+            let d1 = getdot( a );
+            let d2 = getdot( b );
+            return d1.IsConnectedTo(d2);
+        }
+    }
+
+//
+// ─── GET NEIGHBORHOOD ───────────────────────────────────────────────────────────
+//
+
+    function neighborhood( dot: any ): KaryGraph.Dot[] {
+        try {
+            return ( <KaryGraph.Dot> dot ).GetNeighbors();
+        } catch ( err ) {
+            return getdot(dot).GetNeighbors();
+        }
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────
 
 
