@@ -1,8 +1,6 @@
 <html>
 	<head>
-		<title>
-			Graph
-		</title>
+		<title>Graph</title>
 		<!-- Main Graph Tools -->
 		<link rel="stylesheet" href="style.css">
 		<script src="core.js"></script>
@@ -10,12 +8,12 @@
 		<script src="codemirror.js"></script>
 		<link rel="stylesheet" href="codemirror.css">
 		<script src="javascript.js"></script>
+		<!-- MathJax -->
+		<script src="mathjax.js"></script>
 	</head>
 	<body>
 		<div class="heading">
-			<div id="header-left">
-            	Graph
-            </div>
+			<div id="header-left">Graph</div>
 
 			<div class="icon icon-active" id="icon-move" 
 				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-move')"
@@ -98,6 +96,15 @@
 			function GetProgrammerCode ( ) {
 				return ScriptEditor.getValue();
 			}
+
+			// a simple TeX-input example
+			var mjAPI = require("mathjax-node/lib/mj-single.js");
+			mjAPI.config({
+				MathJax: {
+					tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+				}
+			});
+			mjAPI.start();
 		</script>
 	</body>
 </html>
