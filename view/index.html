@@ -81,16 +81,17 @@
 		</div>
 		
 		<div style="clear: both;"></div>
-
+			
 		<script>
 			window.Snap = require('snapsvg');
+
 			KaryGraph.INIT();
 
 			var ScriptEditor = CodeMirror.fromTextArea(document.getElementById("ScriptEditor" ), {
 				lineNumbers: true,
 				lineWrapping: true,
 				tabSize: 3,
-				extraKeys: {"Ctrl-Space": "autocomplete"},
+				extraKeys: { "Ctrl-Space": "autocomplete" },
 				mode: {name: "javascript", globalVars: true}
 			});
 
