@@ -100,7 +100,6 @@ module KaryGraph.API.AbstractionLayer {
             }
 
             return matrix;
-
         }
 
     //
