@@ -170,6 +170,81 @@
         KaryGraph.API.AbstractionLayer.Render( option );
     }
 
+//
+// ─── GET ORDER OF GRAPH ─────────────────────────────────────────────────────────
+//
+
+    function order( ): number {
+        return countdots();
+    }
+
+//
+// ─── GET SIZE OF GRAPH ──────────────────────────────────────────────────────────
+//
+
+    function size( ): number {
+        var size: number = 0;
+        for (var i = 0; i < countdots(); i++) size += getdot(i + 1).NumberOfInputs();
+        return size;
+    }
+
+//
+// ─── GET DEGREE OF VERTEX ───────────────────────────────────────────────────────
+//
+
+    function degree( dot: any ): number {
+        try {
+            return ( <KaryGraph.Dot> dot ).GetDegree();
+        } catch ( err ) {
+            dot = getdot( dot );
+            return dot.GetDegree();
+        }
+    }
+
+//
+// ─── CHECK IF DOTS ARE NEIGHBORS ────────────────────────────────────────────────
+//
+
+    function neighbors( a: any, b: any ): boolean {
+        try {
+            return ( <KaryGraph.Dot> a ).IsConnectedTo(b);
+        } catch ( err ) {
+            let d1 = getdot( a );
+            let d2 = getdot( b );
+            return d1.IsConnectedTo(d2);
+        }
+    }
+
+//
+// ─── GET NEIGHBORHOOD ───────────────────────────────────────────────────────────
+//
+
+    function neighborhood( dot: any ): KaryGraph.Dot[] {
+        try {
+            return ( <KaryGraph.Dot> dot ).GetNeighbors();
+        } catch ( err ) {
+            return getdot(dot).GetNeighbors();
+        }
+    }
+
+//
+// ─── EULERIAN PATH ? ────────────────────────────────────────────────────────────
+//
+
+    function eulerianpath( ): boolean {
+        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
+        return (verticesWithOddDegree == 0 || verticesWithOddDegree == 2);
+    }
+
+//
+// ─── EULERIAN CYCLE ? ───────────────────────────────────────────────────────────
+//
+
+    function euleriancycle( ): boolean {
+        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
+        return (verticesWithOddDegree == 0);
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────
 
 

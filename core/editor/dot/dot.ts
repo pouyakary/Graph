@@ -259,6 +259,57 @@ module KaryGraph {
                 }
 
 			//
+			// ─── NUMBER OF INPUTS ───────────────────────────────────────
+			//
+
+                public NumberOfInputs( ): number {
+                    return Object.keys( this.Inputs ).length;
+                }
+
+			//
+			// ─── NUMBER OF INPUTS ───────────────────────────────────────
+			//
+
+                public NumberOfOutputs( ): number {
+                    return Object.keys( this.Outputs ).length;
+                }
+
+			//
+			// ─── DEGREE OF VERTEX ───────────────────────────────────────
+			//
+
+                public GetDegree( ): number {
+                    return this.NumberOfInputs() + this.NumberOfOutputs();
+                }
+
+			//
+			// ─── GET NEIGHBORS ──────────────────────────────────────────
+			//
+
+                public GetNeighbors( ): KaryGraph.Dot[] {
+
+                    var neighbors: KaryGraph.Dot[] = [];
+                    var keys = Object.keys( Graph );
+                    keys.forEach( key => {
+
+                        Object.keys( this.Inputs ).forEach( input => {
+                          if ( ( <Dot> Graph[ key ] ).Id == input ) {
+                              neighbors.push(Graph[ key ]);
+                          }
+                        });
+
+                        Object.keys( this.Outputs ).forEach( output => {
+                          if ( ( <Dot> Graph[ key ] ).Id == output ) {
+                              neighbors.push(Graph[ key ]);
+                          }
+                        });
+
+                    });
+
+                    return neighbors;
+                }
+
+			//
 			// ─── MOVE TO ────────────────────────────────────────────────
 			//
 
