@@ -227,6 +227,24 @@
         }
     }
 
+//
+// ─── EULERIAN PATH ? ────────────────────────────────────────────────────────────
+//
+
+    function eulerianpath( ): boolean {
+        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
+        return (verticesWithOddDegree == 0 || verticesWithOddDegree == 2);
+    }
+
+//
+// ─── EULERIAN CYCLE ? ───────────────────────────────────────────────────────────
+//
+
+    function euleriancycle( ): boolean {
+        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
+        return (verticesWithOddDegree == 0;
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────
 
 
