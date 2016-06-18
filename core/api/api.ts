@@ -242,7 +242,7 @@
 
     function euleriancycle( ): boolean {
         var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
-        return (verticesWithOddDegree == 0;
+        return (verticesWithOddDegree == 0);
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
