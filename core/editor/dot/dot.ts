@@ -29,7 +29,7 @@ module KaryGraph {
 			//
 			// ─── DEFS ───────────────────────────────────────────────────
 			//
-            
+
                 /** To be used as the hash key in dictionaries */
                 public Id: string;
 
@@ -45,15 +45,15 @@ module KaryGraph {
                 /** Local number label Y distance */
                 public NumberLobelDistanceY: number;
 
-                /** 
-                 * Keeps the Inputs of the dot 
+                /**
+                 * Keeps the Inputs of the dot
                  * Inputs = {
                  *    **Connected Dot Id** : ***Snap Line Object***
                  * }
                  */
                 private Inputs: any;
 
-                /** 
+                /**
                  * Keeps the Outputs of the dot
                  * Inputs = {
                  *    **Connected Dot Id** : ***Snap Line Object***
@@ -61,14 +61,14 @@ module KaryGraph {
                  */
                 private Outputs: any;
 
-                /** 
-                 * X Coordinates of the dot 
-                 * ***Changing won't make effect, use MoveTo instead*** 
+                /**
+                 * X Coordinates of the dot
+                 * ***Changing won't make effect, use MoveTo instead***
                  */
                 public X: number;
 
-                /** 
-                 * Y Coordintaes of the dot 
+                /**
+                 * Y Coordintaes of the dot
                  * ***Changing won't make effect, use MoveTo instead***
                  */
                 public Y: number;
@@ -101,7 +101,7 @@ module KaryGraph {
                     this.NumberLabelDistanceX = DotNumberLabelDisplacementX;
                     this.NumberLobelDistanceY = DotNumberLabelDisplacementY;
 
-                    // the snap svg 
+                    // the snap svg
                     if ( Dot.DisplayNumberLabels )
                         this.SnapNumberLabel = this.CreateNumberLabel();
 
@@ -151,7 +151,7 @@ module KaryGraph {
                     // removing self
                     delete Graph[ this.Id ];
                 }
-    
+
             //
 			// ─── CONNECTION REMOVERS ────────────────────────────────────
 			//
@@ -206,9 +206,9 @@ module KaryGraph {
 			// ─── FOR EACH CONNECTION DO ─────────────────────────────────
 			//
 
-                /** 
-                 * Applis a funnction to a set of ***connections*** 
-                 * (`this.Inputs` / `this.Outputs`) 
+                /**
+                 * Applis a funnction to a set of ***connections***
+                 * (`this.Inputs` / `this.Outputs`)
                  */
                 public ForeachConnection( connections: any, func: ( connectionKey: string ) => void ) {
                     var keys = Object.keys( connections );
@@ -235,12 +235,27 @@ module KaryGraph {
 
                     // connecting to self
                     this.Outputs[ dotToBeConnected.Id ] = line;
-                    
+
                     // connecting to dest
                     dotToBeConnected.Inputs[ this.Id ] = line;
 
                     // done
                     return true;
+                }
+
+			//
+			// ─── CHECK IF CONNECTED TO ──────────────────────────────────
+			//
+
+                public IsConnectedTo( dot: Dot ): boolean {
+
+                    if ( this.Outputs[ dot.Id ] != undefined ) {
+                        return true;
+                    } else if ( this.Inputs[ dot.Id ] != undefined ) {
+                        return true;
+                    }
+
+                    return false;
                 }
 
 			//
@@ -265,9 +280,9 @@ module KaryGraph {
                 /** Transforms the output connections when the dot is moved. */
                 private ApplyTransformationToOutputs( ) {
                     this.ForeachConnection( this.Outputs , key => {
-                        ( <ISnapObject> this.Outputs[ key ] ).attr({ 
-                            x1: this.X, 
-                            y1: this.Y 
+                        ( <ISnapObject> this.Outputs[ key ] ).attr({
+                            x1: this.X,
+                            y1: this.Y
                         });
                     });
                 }
@@ -275,8 +290,8 @@ module KaryGraph {
                 /** Transforms the input connections when the dot is moved. */
                 private ApplyTransformationToInputs( ) {
                     this.ForeachConnection( this.Inputs , key => {
-                        ( <ISnapObject> this.Inputs[ key ] ).attr({ 
-                            x2: this.X, 
+                        ( <ISnapObject> this.Inputs[ key ] ).attr({
+                            x2: this.X,
                             y2: this.Y
                         });
                     });
@@ -288,10 +303,10 @@ module KaryGraph {
 
                 /** Creates a Snap Label object to present the graph node number */
                 private CreateNumberLabel ( ) : ISnapObject {
-                    var label = <ISnapObject> GraphView.text( 
-                        this.X - DotNumberLabelDisplacementX, 
-                        this.Y - DotNumberLabelDisplacementY, 
-                        this.NumeberId.toString( ) 
+                    var label = <ISnapObject> GraphView.text(
+                        this.X - DotNumberLabelDisplacementX,
+                        this.Y - DotNumberLabelDisplacementY,
+                        this.NumeberId.toString( )
                     );
                     label.attr({
                         'font-size': DotNumberLabelFontSize,

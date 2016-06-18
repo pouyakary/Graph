@@ -82,6 +82,14 @@
     }
 
 //
+// ─── GET MATRIX OF GRAPH ────────────────────────────────────────────────────────
+//
+
+    function matrix ( ): number[][] {
+        return KaryGraph.API.AbstractionLayer.CreateMatrix( );
+    }
+
+//
 // ─── GET COUNT OF DOTS ──────────────────────────────────────────────────────────
 //
 
