@@ -19,17 +19,17 @@ module KaryGraph.API.StandardLibrary {
 	//
 
         export function CreateCompleteGraph( size: number ) {
-            let dots = new Array<Dot>( );
+            let keys = new Array<string>( );
             // creating dots
             for ( var counter = 0; counter < size; counter++ ) {
-                dots.push( KaryGraph.API.AbstractionLayer.AddNewDot( ) );
+                keys.push( API.AbstractionLayer.AddNewDot( ).Id );
             }
             // connecting
-            dots.forEach( dot => {
+            keys.forEach( key => {
                 for ( var index = 0; index < size; index++ ) {
-                    var cdot = dots[ index ];
-                    if ( cdot != dot ) {
-                        dot.ConnectTo( cdot );
+                    var cdot = keys[ index ];
+                    if ( cdot != Graph[ key ] ) {
+                        Graph[ key ].ConnectTo( Graph[ keys[ index] ] );
                     }
                 }
             });

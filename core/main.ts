@@ -19,9 +19,9 @@ module KaryGraph {
     export function INIT ( ) {
         InitScreenInformation( );
         //Dot.DisplayNumberLabels = false;
-        GenerateSomeRandomNodes( 20 );
-        AddRandomConnections( 20 );
         // var selection = new SelectionBox( 800, 100 );
+        API.StandardLibrary.CreateCompleteGraph( 20 );
+        Rendering.RenderCircluar();
     }
 }
 

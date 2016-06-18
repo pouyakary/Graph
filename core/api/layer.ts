@@ -21,9 +21,8 @@ module KaryGraph.API.AbstractionLayer {
          * Generates a new random dot on the screen
          */
         export function AddNewDot( ): Dot {
-            let padding = 20;
-            let x = padding + Random( GraphWidth - ( 2 * padding ) );
-            let y = padding + Random( GraphHeight - ( 2 * padding ) );
+            let x = 20 + Random( GraphWidth - 40 );
+            let y = 20 + Random( GraphHeight - 40 );
             return NewDotAt( x, y );
         }
 
@@ -89,6 +88,18 @@ module KaryGraph.API.AbstractionLayer {
           }
 
           return matrix;
+
+    //
+	// ─── RENDERING ──────────────────────────────────────────────────────────────────
+	//
+
+        export function Render( text: string ) {
+            switch ( text ) {
+                case 'circle':
+                    Rendering.RenderCircluar();
+                default:
+                    UI.Console.PrintError(`Graph API: No rendering option ${text}`);
+            }
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
