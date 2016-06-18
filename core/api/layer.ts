@@ -97,8 +97,10 @@ module KaryGraph.API.AbstractionLayer {
             switch ( text ) {
                 case 'circle':
                     Rendering.RenderCircluar();
+                    break;
                 default:
                     UI.Console.PrintError(`Graph API: No rendering option ${text}`);
+                    break;
             }
         }
 
