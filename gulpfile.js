@@ -100,6 +100,7 @@
         copyToBinaryFromDir( 'view' )
         copyToBinaryFromDir( 'electron' )
         copyToBinaryFromDir( 'libs' )
+        copyToBinaryFromDir( 'wrappers' )
     })
 
 //
