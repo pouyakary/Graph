@@ -5,11 +5,6 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../../typings/snapsvg.d.ts" />
-/// <reference path="../editor/dot/dot.ts" />
-/// <reference path="../constants.ts" />
-
-
 module KaryGraph {
     
     //

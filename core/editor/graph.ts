@@ -4,10 +4,6 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="dot/dot.ts" />
-/// <reference path="../ui/view.ts" /> 
-/// <reference path="../constants.ts" />
-
 module KaryGraph {
 
     //

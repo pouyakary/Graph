@@ -4,10 +4,6 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../../ui/view.ts" />
-/// <reference path="../../../typings/snapsvg.d.ts" />
-/// <reference path="../snapobject.ts" />
-
 module KaryGraph.Line {
 
     //

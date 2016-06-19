@@ -4,17 +4,6 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../../../typings/snapsvg.d.ts" />
-/// <reference path="../../ui/view.ts" />
-/// <reference path="../../constants.ts" />
-/// <reference path="../../ui/toolbar.ts" />
-/// <reference path="../snapobject.ts" />
-
-/// <reference path="drag-move.ts" />
-/// <reference path="drag-start.ts" />
-/// <reference path="drag-stop.ts" />
-
-
 module KaryGraph.Circle {
 
     //
