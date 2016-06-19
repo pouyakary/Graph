@@ -5,6 +5,11 @@
 //
 
 //
+// To reduce TypeScript's decleration complexities, these wrappers introduce 
+// simpler ways to model their functionings. 
+//
+
+//
 // ─── PRISM HIGHLIGHTING WRAPPER ─────────────────────────────────────────────────
 //
 
