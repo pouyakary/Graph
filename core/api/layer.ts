@@ -52,7 +52,7 @@ module KaryGraph.API.AbstractionLayer {
             return dot;
         }
 
-  //
+    //
 	// ─── GET NUMBER OF VERTICES WITH ODD DEGREE ─────────────────────────────────────
 	//
 
@@ -65,7 +65,7 @@ module KaryGraph.API.AbstractionLayer {
             return verticesWithOddDegree;
         }
 
-  //
+    //
 	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
 	//
 
@@ -78,7 +78,7 @@ module KaryGraph.API.AbstractionLayer {
             });
         }
 
-  //
+    //
 	// ─── COUNT OF DOTS ──────────────────────────────────────────────────────────────
 	//
 
