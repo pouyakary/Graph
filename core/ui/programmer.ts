@@ -37,7 +37,11 @@ module KaryGraph.UI.Programmer {
         /** The main notebook view */
         var notebook: HTMLDivElement;
 
-        /** Current input box id */
+        /** Current prompt */
+        var prompt: HTMLDivElement;
+
+        /** Input of the prompt */
+        var promptInput: HTMLInputElement;
 
     //
 	// ─── INIT NOTEBOOK ──────────────────────────────────────────────────────────────
@@ -46,6 +50,52 @@ module KaryGraph.UI.Programmer {
         /** Starts the notebook view at start. */
         export function INIT ( ) {
             notebook = <HTMLDivElement> document.getElementById( NotebookId );
+            ClearScreen( );
+            StartPrompt( );
+        }
+
+    //
+	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
+	//
+
+        /** Cleans the screen of the notebook and restarts the code of the notebook*/
+        function ClearScreen () {
+            notebook.innerHTML = '';
+        }
+
+    //
+	// ─── START PROMPT ───────────────────────────────────────────────────────────────
+	//
+
+        /** Initilizes a prompt into the notebook */
+        function StartPrompt( ) {
+            CreateThePrompt( );
+            notebook.appendChild( prompt );
+        }
+
+    //
+	// ─── CREATE PROMPT ──────────────────────────────────────────────────────────────
+	//
+
+        /** Creates the coresponding object that presents the prompt. */
+        function CreateThePrompt ( ) {
+            // Prompt Object
+            prompt = document.createElement( 'div' );
+            prompt.className = NotebookPromptClass;
+            // Prompt Input Object
+            promptInput = document.createElement( 'input' );
+            promptInput.className = NotebookPromptInputClass;
+            // Prompt 
+            prompt.appendChild( promptInput );
+        }
+
+    //
+	// ─── GENERATE ROW ───────────────────────────────────────────────────────────────
+	//
+
+        function GenerateRowHTML ( ) {
+
+            
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
