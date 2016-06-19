@@ -4,10 +4,6 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../../../typings/snapsvg.d.ts" />
-/// <reference path="circle.ts" />
-/// <reference path="../vertex/line.ts" />
-
 module KaryGraph {
 
     //
