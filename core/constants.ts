@@ -116,6 +116,8 @@ module KaryGraph {
 
         export const NotebookPromptInputClass = "notebook-prompt-input";
 
+        export const NotebookError = "notebook-error";
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
