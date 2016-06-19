@@ -16,6 +16,8 @@
     @font-family: 'Avenir';
     @base-font-size: 12px;
 
+    @mono-type: 'GraphSourceCodePro';
+
 //
 // ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
 //
@@ -52,9 +54,17 @@
         margin: 0;
     }
 
+    :focus {
+		outline-color: transparent;
+  		outline-style: none;
+	}
+
+//
+// ─── FONTS ──────────────────────────────────────────────────────────────────────
+//
 
     @font-face {
-        font-family: 'GraphSourceCodePro';
+        font-family: @mono-type;
         src: url('sourcecodepro-medium-webfont.woff2') format('woff2'),
             url('sourcecodepro-medium-webfont.woff') format('woff');
         font-weight: normal;
@@ -165,7 +175,7 @@
         background-color: white;
         padding: 10px;
         margin-top: 0;
-        font-family: 'GraphSourceCodePro';
+        font-family: @mono-type;
         border-bottom-left-radius: @inspector-border-radius;
         border-bottom-right-radius: @inspector-border-radius;
         font-size: 0.9rem;
@@ -181,6 +191,31 @@
 
     .console-error {
         color: #A80300;
+    }
+
+//
+// ─── PROMPT ─────────────────────────────────────────────────────────────────────
+//
+
+    .notebook {
+        height: calc( ~'100vh' - 180px - @inspector-width-padding * 2 );
+        background-color: white;
+        padding: @inspector-width-padding;
+        border-bottom-left-radius: @inspector-border-radius;
+        border-bottom-right-radius: @inspector-border-radius;
+    }
+
+    .notebook-rom {
+
+    }
+
+    .notebook-prompt {
+    }
+
+    .notebook-prompt input {
+        font-family: @mono-type;
+        border: none;
+        width: 100%;
     }
 
 //
