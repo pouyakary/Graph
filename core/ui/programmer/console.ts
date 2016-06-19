@@ -30,7 +30,7 @@ module KaryGraph.UI.Console {
         export function PrintError( error: string ) {
             let console = document.getElementById( ConsoleId );
             console.innerHTML = (
-                `<span class="console-error">${ error.toString() }</span>\n${ console.innerText }`
+                \n${ console.innerText }`
             );
         }
 

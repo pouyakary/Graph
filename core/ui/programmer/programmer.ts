@@ -44,6 +44,12 @@ module KaryGraph.UI.Programmer {
         var promptInput: HTMLInputElement;
 
     //
+	// ─── WRAPPERS ───────────────────────────────────────────────────────────────────
+	//
+
+        declare function PrismHighlight ( code: string ) : string;
+
+    //
 	// ─── INIT NOTEBOOK ──────────────────────────────────────────────────────────────
 	//
 
@@ -85,17 +91,55 @@ module KaryGraph.UI.Programmer {
             // Prompt Input Object
             promptInput = document.createElement( 'input' );
             promptInput.className = NotebookPromptInputClass;
+            promptInput.addEventListener( 'keypress' , OnPromptEnterClicked );
             // Prompt 
             prompt.appendChild( promptInput );
+        }
+    
+    //
+	// ─── ON PROMPT ENTER ────────────────────────────────────────────────────────────
+	//
+
+        /** Starts when the enter key is pressed on the input  */
+        function OnPromptEnterClicked( ev: KeyboardEvent ) {
+            let key = ev.which || ev.keyCode;
+            if ( key === 13 ) {
+                var code = FetchAndResetInput( );
+
+            }
+        }
+
+    //
+	// ─── FETCH AND RESET INPUT VALUE ────────────────────────────────────────────────
+	//
+        
+        /** Fetchs and resets the input box value */
+        function FetchAndResetInput( ): string {
+            let result = promptInput.value;
+            promptInput.value = '';
+            return result;
         }
 
     //
 	// ─── GENERATE ROW ───────────────────────────────────────────────────────────────
 	//
 
-        function GenerateRowHTML ( ) {
-
+        function GenerateRowHTML ( code: string ) {
+            let htmlCode = PrismHighlight( code );
             
+        }
+
+    //
+	// ─── RUN AND GENERATE RESULTS ───────────────────────────────────────────────────
+	//
+
+        function RunAndGenerateResults( code: string ) {
+            var runResults = KaryGraph.ScriptEngine.Run( code );
+            if ( ScriptEngine.RunStatus ) {
+
+            } else {
+                return `<div class="${ NotebookError }">${ runResults }</div>`
+            }
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
