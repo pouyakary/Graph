@@ -4,24 +4,28 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="ui/view.ts" />
-/// <reference path="editor/graph.ts" />
-
-/// <reference path="editor/selection.ts" />
-
-'use strict';
-
 /**
  * **Kary Graph** - Full featured Graph Theory Studio
  */
 module KaryGraph {
-    /** What starts the code when it starts. */
-    export function INIT ( ) {
-        InitScreenInformation( );
-        //Dot.DisplayNumberLabels = false;
-        // var selection = new SelectionBox( 800, 100 );
-        API.StandardLibrary.CreateCompleteGraph( 20 );
-        Rendering.RenderCircluar();
-    }
+
+    //
+	// ─── INIT ───────────────────────────────────────────────────────────────────────
+	//
+
+        /** What starts the code when it starts. */
+        export function INIT ( ) {
+            InitScreenInformation( );
+            UI.Programmer.INIT();
+
+            //Dot.DisplayNumberLabels = false;
+            // var selection = new SelectionBox( 800, 100 );
+
+            API.StandardLibrary.CreateCompleteGraph( 20 );
+            Rendering.RenderCircluar();
+        }
+
+    // ────────────────────────────────────────────────────────────────────────────────
+
 }
 

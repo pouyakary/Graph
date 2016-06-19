@@ -4,17 +4,14 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-declare function GetProgrammerCode( ): string;
-
 module KaryGraph.UI.Programmer {
 
     //
-	// ─── RUN CODE... ────────────────────────────────────────────────────────────────
+	// ─── INIT NOTEBOOK ──────────────────────────────────────────────────────────────
 	//
 
-        export function RunCode( ) {
-            let code = GetProgrammerCode( );
-            KaryGraph.ScriptEngine.Run( code );
+        export function INIT ( ) {
+            
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

@@ -102,6 +102,12 @@ module KaryGraph {
 
         export const ConsoleId = "console";
 
+    //
+	// ─── PROGRAMMER ─────────────────────────────────────────────────────────────────
+	//
+
+        export const Notebook = "ProgrammerNotebook";
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
