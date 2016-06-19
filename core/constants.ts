@@ -100,13 +100,21 @@ module KaryGraph {
 	// ─── CONSOLE ────────────────────────────────────────────────────────────────────
 	//
 
+        /** Id of the main div containing the console. */
         export const ConsoleId = "console";
 
     //
 	// ─── PROGRAMMER ─────────────────────────────────────────────────────────────────
 	//
 
-        export const Notebook = "ProgrammerNotebook";
+        /** Id of the main div containing the notebook. */
+        export const NotebookId = "ProgrammerNotebook";
+
+        export const NotebookRowClass = "notebook-row";
+
+        export const NotebookPromptClass = "notebook-prompt";
+
+        export const NotebookPromptInputClass = "notebook-prompt-input";
 
     // ────────────────────────────────────────────────────────────────────────────────
 
