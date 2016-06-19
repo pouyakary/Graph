@@ -7,14 +7,23 @@
 module KaryGraph.ScriptEngine {
 
     //
+	// ─── STATUS VARS ────────────────────────────────────────────────────────────────
+	//
+
+        /** Shows the status of runtime, good run or bad run. */
+        export var RunStatus: boolean = true;
+
+    //
 	// ─── RUNNER ─────────────────────────────────────────────────────────────────────
 	//
 
-        export function Run( script: string ) {
+        export function Run( script: string ): string {
             try {
-                eval( script );
+                RunStatus = true;
+                return eval( script );
             } catch ( err ) {
-                UI.Console.PrintError( err.toString( ) );
+                RunStatus = false;
+                return err.toString( );
             }
         }
 
