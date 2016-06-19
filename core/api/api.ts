@@ -322,15 +322,12 @@
         return (verticesWithOddDegree == 0);
     }
 
-// ────────────────────────────────────────────────────────────────────────────────
-
-
 //
 // ─── BFS Without Steps ──────────────────────────────────────────────────────────────
 //
 
-    function bfs( start: number) {
-        return KaryGraph.API.StandardLibrary.Algorithms.BFS(getdot(start),-1);
+    function bfs( start: number ) {
+        return KaryGraph.API.StandardLibrary.Algorithms.BFS( getdot( start ), -1 );
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
