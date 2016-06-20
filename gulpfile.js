@@ -99,8 +99,8 @@
         copyToBinaryFromDir( 'resources' )
         copyToBinaryFromDir( 'view' )
         copyToBinaryFromDir( 'electron' )
-        copyToBinaryFromDir( 'libs' )
         copyToBinaryFromDir( 'wrappers' )
+        copyToBinaryFromDir( 'libs' )
     })
 
 //
