@@ -24,14 +24,13 @@ module KaryGraph.UI.Programmer {
                 return SayImplementations.Undefined( );
             }
 
+            // if we have type
             switch ( input.constructor.name ) {
                 case "String":
-                    SayImplementations.Text( <string> input );
-                    break;
+                    return SayImplementations.Text( <string> input );
 
-                case "Object":
                 default:
-                    break;
+                    return SayImplementations.Object( input );
             }
         }
 
@@ -56,9 +55,17 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	// ─── SAY TEXT ───────────────────────────────────────────────────────────────────
 	//
 
-        export function Text ( input: string ) {
+        export function Text ( input: string ): string {
             return `<div class="">'${ input }'</div>`;
-        }    
+        } 
+    
+    //
+	// ─── NUMBER ─────────────────────────────────────────────────────────────────────
+	//
+
+        export function Number ( input: number ) {
+            return `<div class"">${ input.toString( ) }</div>`;
+        }
 
     //
 	// ─── OBJECT ─────────────────────────────────────────────────────────────────────
