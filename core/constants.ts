@@ -120,6 +120,14 @@ module KaryGraph {
 
         export const NotebookResultCodeClass = 'notebook-row-code'; 
 
+        export const NotebookResultSayBaseCase = 'notebook-row-say-base';
+
+    //
+	// ─── SAY IMPLEMENTATIONS ────────────────────────────────────────────────────────
+	//
+
+        export const SayStringClass = 'say-string';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
