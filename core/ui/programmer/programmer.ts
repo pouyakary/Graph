@@ -105,7 +105,7 @@ module KaryGraph.UI.Programmer {
             let key = ev.which || ev.keyCode;
             if ( key === 13 ) {
                 var code = FetchAndResetInput( );
-
+                var result = RunAndGenerateResults( code );
             }
         }
 
@@ -124,9 +124,14 @@ module KaryGraph.UI.Programmer {
 	// ─── GENERATE ROW ───────────────────────────────────────────────────────────────
 	//
 
-        function GenerateRowHTML ( code: string ) {
-            let htmlCode = PrismHighlight( code );
-            
+        function GenerateResultRowHTML ( code: string, result: string ): string {
+            let highlightedCode = PrismHighlight( code );
+            return (
+                `<div class=${ NotebookReseltRowClass }>` +
+                    `<div class="${ NotebookResultCodeClass }">${ highlightedCode }</div>` +
+                    result +
+                '</div>'
+            );
         }
 
     //
@@ -136,7 +141,7 @@ module KaryGraph.UI.Programmer {
         function RunAndGenerateResults( code: string ) {
             var runResults = KaryGraph.ScriptEngine.Run( code );
             if ( ScriptEngine.RunStatus ) {
-
+                return KaryGraph.UI.Programmer.Say( runResults );
             } else {
                 return `<div class="${ NotebookError }">${ runResults }</div>`
             }
