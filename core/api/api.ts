@@ -104,7 +104,7 @@
     function graphfrommatrix ( matrix: number[][] ) {
         var numberOfNodes = matrix.length;
         for ( var i = 0; i < numberOfNodes; i++ ) if ( matrix[ i ].length != numberOfNodes ) {
-            KaryGraph.UI.Console.PrintError( "Invalid matrix." );
+            // KaryGraph.UI.Console.PrintError( "Invalid matrix." );
             return ;
         }
         var offset = countdots( ) + 1;
