@@ -17,7 +17,13 @@ module KaryGraph.ScriptEngine {
 	// ─── RUNNER ─────────────────────────────────────────────────────────────────────
 	//
 
-        export function Run( script: string ): string {
+        /** 
+         * Runs a js code a returns the ***evaluation***, and then sets 
+         * the ***run status*** to what true or false based on if it 
+         * was with success or not.
+         */
+
+        export function Run( script: string ): any {
             try {
                 RunStatus = true;
                 return eval( script );
