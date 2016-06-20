@@ -104,9 +104,22 @@ module KaryGraph.UI.Programmer {
         function OnPromptEnterClicked( ev: KeyboardEvent ) {
             let key = ev.which || ev.keyCode;
             if ( key === 13 ) {
-                var code = FetchAndResetInput( );
-                var result = RunAndGenerateResults( code );
+                let code = FetchAndResetInput( );
+                let result = RunAndGenerateResults( code );
+                let html = GenerateResultRowHTML( code , result );
+                AppendRow( html );
             }
+        }
+
+    //
+	// ─── APPEND ROW ─────────────────────────────────────────────────────────────────
+	//
+
+        function AppendRow( html: string ) {
+            let row = document.createElement('div');
+            row.className = NotebookReseltRowClass;
+            row.innerHTML = html;
+            notebook.insertBefore( row , prompt );
         }
 
     //
@@ -126,12 +139,7 @@ module KaryGraph.UI.Programmer {
 
         function GenerateResultRowHTML ( code: string, result: string ): string {
             let highlightedCode = PrismHighlight( code );
-            return (
-                `<div class=${ NotebookReseltRowClass }>` +
-                    `<div class="${ NotebookResultCodeClass }">${ highlightedCode }</div>` +
-                    result +
-                '</div>'
-            );
+            return `<div class="${ NotebookResultCodeClass }">${ highlightedCode }</div>${ result }`;
         }
 
     //
@@ -139,7 +147,7 @@ module KaryGraph.UI.Programmer {
 	//
 
         function RunAndGenerateResults( code: string ) {
-            var runResults = KaryGraph.ScriptEngine.Run( code );
+            let runResults = KaryGraph.ScriptEngine.Run( code );
             if ( ScriptEngine.RunStatus ) {
                 return KaryGraph.UI.Programmer.Say( runResults );
             } else {
