@@ -10,27 +10,6 @@
 module KaryGraph.UI.Programmer {
 
     //
-	// ─── NOTE ───────────────────────────────────────────────────────────────────────
-	//
-
-        //
-        // Notebook works as an interacive console. You have a prompt, when you hit 
-        // enter it adds a DIV. The structure of the view is somehow like this:
-        //
-        // <div id="ProgrammerNotebook">
-        //    <div class="NotebookRow">
-        //       <pre class="Command"> ... </pre>
-        //       <div class="Result"> ... </div>
-        //    </div>
-        //    ...
-        //    <div class="Prompt">
-        //       <div class="PromptSign"> ... </div>
-        //       <input class="PromptInput"> ... </div>
-        //    <div>
-        // </div>
-        //
-
-    //
 	// ─── DEFS ───────────────────────────────────────────────────────────────────────
 	//
 
@@ -102,6 +81,7 @@ module KaryGraph.UI.Programmer {
 
         /** Starts when the enter key is pressed on the input  */
         function OnPromptEnterClicked( ev: KeyboardEvent ) {
+            // if ( !ev.metaKey ) return;
             let key = ev.which || ev.keyCode;
             if ( key === 13 ) {
                 let code = FetchAndResetInput( );
