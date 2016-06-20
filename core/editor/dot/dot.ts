@@ -105,6 +105,8 @@ module KaryGraph {
                     this.Inputs = { }
                     this.Outputs = { };
 
+                    // Adding self to the Graph 
+                    Graph[ this.Id ] = this;
                 }
 
             //

@@ -23,17 +23,7 @@ module KaryGraph.API.AbstractionLayer {
         export function AddNewDot( ): Dot {
             let x = 20 + Random( GraphWidth - 40 );
             let y = 20 + Random( GraphHeight - 40 );
-            return NewDotAt( x, y );
-        }
-
-    //
-	// ─── NEW DOT AT ─────────────────────────────────────────────────────────────────
-	//
-
-        export function NewDotAt ( x: number, y: number ) {
-            let dot = new Dot( x, y );
-            Graph[ dot.Id ] = dot;
-            return dot;
+            return new Dot( x, y );
         }
 
     //

@@ -24,7 +24,7 @@
 //
 
     function newdotat( x: number, y: number ) {
-        return KaryGraph.API.AbstractionLayer.NewDotAt( x, y );
+        return new KaryGraph.Dot( x , y ); 
     }
 
 //
@@ -33,7 +33,7 @@
 
     function newdots( howmuch: number ) {
         for ( var counter = 0; counter < howmuch; counter++ ) {
-            newdot();
+            KaryGraph.API.AbstractionLayer.AddNewDot( );
         }
     }
 
