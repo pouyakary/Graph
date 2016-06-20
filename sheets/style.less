@@ -59,6 +59,10 @@
   		outline-style: none;
 	}
 
+    input {
+        font-size: 1rem;
+    }
+
 //
 // ─── FONTS ──────────────────────────────────────────────────────────────────────
 //
@@ -204,10 +208,13 @@
     .notebook-row {
         font-family: @mono-type;
         font-size: 1rem;
+        border-left: 2px solid #eee;
+        padding-left: 7px;
+        margin-bottom: 7px;
     }
 
     .notebook-row-code {
-        color: #00A7FF;
+        color: black;
     }
 
     .notebook-row-say-base {
@@ -216,6 +223,8 @@
     }
 
     .notebook-prompt {
+        border-left: 2px solid #E0C700;
+        padding-left: 7px;   
     }
 
     .notebook-prompt input {
@@ -227,6 +236,31 @@
 
     .notebook-error {
         color: #A80300;
+    }
+
+//
+// ─── SAY IMPLEMENTATIONS ────────────────────────────────────────────────────────
+//
+
+    .say-object {
+
+    }
+
+    .say-string {
+        color: #008A2A;
+        font-size: 1.1rem;
+    }
+
+    .say-matrix {
+        text-align: center;
+        font-family: 'GraphSourceCodePro';
+        font-size: 0.9rem;
+        padding-left: 1px;
+        border-image-slice: 22 22 22 22;
+        border-image-width: 20px 20px 20px 20px;
+        border-image-outset: 0px 0px 0px 0px;
+        border-image-repeat: stretch stretch;
+        border-image-source: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAABKCAYAAAA11z32AAAAAXNSR0IArs4c6QAAAJpJREFUaAXt2jEKg0AARUE3t9wT7jENFtO5IEhSPZsHRtkw/NKx1jqPm2vOOW5uv7q1O+vY/vDquOcvX+d/nj/+uyf7E2yTSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAjt13Vv/82OsLo94UYanCbyYAAAAASUVORK5CYII=");
     }
 
 //
@@ -303,22 +337,6 @@
     #kf-logo {
         margin-top: 6px;
         height: 24px;
-    }
-
-//
-// ─── MATRIX ─────────────────────────────────────────────────────────────────────
-//
-
-    .matrix {
-        text-align: center;
-        font-family: 'GraphSourceCodePro';
-        font-size: 0.9rem;
-        padding-left: 1px;
-        border-image-slice: 22 22 22 22;
-        border-image-width: 20px 20px 20px 20px;
-        border-image-outset: 0px 0px 0px 0px;
-        border-image-repeat: stretch stretch;
-        border-image-source: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAABKCAYAAAA11z32AAAAAXNSR0IArs4c6QAAAJpJREFUaAXt2jEKg0AARUE3t9wT7jENFtO5IEhSPZsHRtkw/NKx1jqPm2vOOW5uv7q1O+vY/vDquOcvX+d/nj/+uyf7E2yTSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAjt13Vv/82OsLo94UYanCbyYAAAAASUVORK5CYII=");
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
