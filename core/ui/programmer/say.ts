@@ -29,6 +29,14 @@ module KaryGraph.UI.Programmer {
                 case "String":
                     return SayImplementations.Text( <string> input );
 
+                case "Array":
+                    if ( input[ 0 ].constructor.name == "Array" ) {
+                        alert('here');
+                        return SayImplementations.Matrix( input );
+                    } else {
+
+                    }
+
                 default:
                     return SayImplementations.Object( input );
             }
@@ -48,7 +56,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	//
 
         export function Undefined ( ): string {
-            return '<div>:D</div>'
+            return '';
         }
 
     //
@@ -63,15 +71,33 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	// ─── NUMBER ─────────────────────────────────────────────────────────────────────
 	//
 
-        export function Number ( input: number ) {
+        export function Number ( input: number ): string {
             return `<div class"">${ input.toString( ) }</div>`;
+        }
+
+    //
+	// ─── MATRIX ─────────────────────────────────────────────────────────────────────
+	//
+
+        export function Matrix ( input: number[ ][ ] ) {
+            let matrixHTML = '';
+            for ( let rowCounter = 0; rowCounter < input.length; rowCounter++ ) {
+                let row = input[ rowCounter ];
+                let rowHTML = ''
+                for ( let cloumnCounter = 0; cloumnCounter < row.length; cloumnCounter++ ) {
+                    let cell = row[ cloumnCounter ];
+                    rowHTML += `<td>${ cell }</td>`
+                }
+                matrixHTML += `<tr>${ rowHTML }</tr>`
+            }
+            return `<table class="say-matrix">${ matrixHTML}</table>`
         }
 
     //
 	// ─── OBJECT ─────────────────────────────────────────────────────────────────────
 	//
 
-        export function Object ( input: Object ) {
+        export function Object ( input: Object ): string {
             return `<div class="notebook-object">${ input.toString() }</div>`;
         }
 
