@@ -27,14 +27,15 @@ module KaryGraph.UI.Programmer {
             // if we have type
             switch ( input.constructor.name ) {
                 case "String":
-                    return SayImplementations.Text( <string> input );
+                    return SayImplementations.String( input );
 
                 case "Array":
                     if ( input[ 0 ].constructor.name == "Array" ) {
-                        alert('here');
+                        // Matrix
                         return SayImplementations.Matrix( input );
                     } else {
-
+                        // Normal Array
+                        return SayImplementations.Array( input );
                     }
 
                 default:
@@ -63,16 +64,36 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	// ─── SAY TEXT ───────────────────────────────────────────────────────────────────
 	//
 
-        export function Text ( input: string ): string {
+        export function String ( input: string ): string {
             return `<div class="say-string">"${ input }"</div>`;
         } 
-    
+
     //
 	// ─── NUMBER ─────────────────────────────────────────────────────────────────────
 	//
 
         export function Number ( input: number ): string {
             return `<div class"">${ input.toString( ) }</div>`;
+        }
+
+    //
+	// ─── ARRAY ──────────────────────────────────────────────────────────────────────
+	//
+
+        export function Array ( input: Array<number> ) {
+            // indexs 
+            let indexRow = '';
+            for ( let index = 0; index < input.length; index++ ) {
+                indexRow += `<td>${ index.toString( ) }</td>`;
+            }
+            let arrayHTML = `<tr class="say-array-indexes">${ indexRow }</tr>`;
+            // cells
+            let cellRow = '';
+            for ( let index = 0; index < input.length; index++ ) {
+                cellRow += `<td class="say-array-cells">${ input[ index ] }</td>`;
+            }
+            // done
+            return `<table>${ indexRow }${ cellRow }</table>`;
         }
 
     //
