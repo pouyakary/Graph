@@ -110,13 +110,15 @@ module KaryGraph {
         /** Id of the main div containing the notebook. */
         export const NotebookId = "ProgrammerNotebook";
 
-        export const NotebookRowClass = "notebook-row";
-
         export const NotebookPromptClass = "notebook-prompt";
 
         export const NotebookPromptInputClass = "notebook-prompt-input";
 
         export const NotebookError = "notebook-error";
+
+        export const NotebookReseltRowClass = 'notebook-row';
+
+        export const NotebookResultCodeClass = 'notebook-row-code'; 
 
     // ────────────────────────────────────────────────────────────────────────────────
 
