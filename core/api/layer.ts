@@ -61,7 +61,6 @@ module KaryGraph.API.AbstractionLayer {
 
         export function Reset( ) {
             Dot.ResetNumberIdPlace( );
-            KaryGraph.UI.Console.Clean( );
             let keys = Object.keys( Graph );
             keys.forEach( key => {
                 ( <Dot> Graph[ key ] ).Remove( );
@@ -102,7 +101,7 @@ module KaryGraph.API.AbstractionLayer {
                     Rendering.RenderCircluar();
                     break;
                 default:
-                    UI.Console.PrintError(`Graph API: No rendering option ${text}`);
+                    // UI.Console.PrintError(`Graph API: No rendering option ${text}`);
                     break;
             }
         }
