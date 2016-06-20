@@ -56,7 +56,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	//
 
         export function Text ( input: string ): string {
-            return `<div class="">'${ input }'</div>`;
+            return `<div class="say-string">"${ input }"</div>`;
         } 
     
     //
@@ -72,7 +72,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	//
 
         export function Object ( input: Object ) {
-            return `<div class="">${ input.toString() }</div>`;
+            return `<div class="notebook-object">${ input.toString() }</div>`;
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
