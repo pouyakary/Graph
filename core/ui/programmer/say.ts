@@ -24,6 +24,11 @@ module KaryGraph.UI.Programmer {
                 return SayImplementations.Undefined( );
             }
 
+            // number
+            if ( typeof( input ) === "number" ) {
+                return SayImplementations.Number( input );
+            }
+
             // if we have type
             switch ( input.constructor.name ) {
 
@@ -89,7 +94,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	//
 
         export function Number ( input: number ): string {
-            return `<div class"">${ input.toString( ) }</div>`;
+            return `<span class"say-number">${ input }</span>`;
         }
 
     //
@@ -123,7 +128,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
                 }
                 matrixHTML += `<tr>${ rowHTML }</tr>`
             }
-            return `<table class="say-matrix">${ matrixHTML}</table>`
+            return `<div class="say-matrix"><table>${ matrixHTML}</table></div>`
         }
 
     //
