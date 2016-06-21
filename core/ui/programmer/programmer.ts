@@ -138,7 +138,7 @@ module KaryGraph.UI.Programmer {
         function RunAndGenerateResults( code: string ) {
             let runResults = KaryGraph.ScriptEngine.Run( code );
             if ( ScriptEngine.RunStatus ) {
-                return KaryGraph.UI.Programmer.Say( runResults );
+                return KaryGraph.UI.Programmer.GenerateSayHTML( runResults );
             } else {
                 return `<div class="${ NotebookError }">${ runResults }</div>`
             }

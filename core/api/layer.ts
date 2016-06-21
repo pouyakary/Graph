@@ -100,6 +100,9 @@ module KaryGraph.API.AbstractionLayer {
                 case 'circle':
                     Rendering.RenderCircluar();
                     break;
+                case 'order':
+                    KaryGraph.API.StandardLibrary.Sortings.Tree( );
+                    break;
                 default:
                     // UI.Console.PrintError(`Graph API: No rendering option ${text}`);
                     break;

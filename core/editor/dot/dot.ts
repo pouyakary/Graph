@@ -273,6 +273,27 @@ module KaryGraph {
                 }
 
 			//
+			// ─── GET ALL CHILDREN ───────────────────────────────────────
+			//
+
+                public GetChildren( ids?: number[] ): any {
+                    if ( !ids ) var ids: number[] = [];
+                    var map = new Map();
+                    var keys = Object.keys( Graph );
+                    keys.forEach( key => {
+                        var dot = <Dot> Graph[ key ];
+                        if ( this.Outputs[ dot.Id ] != undefined ) {
+                            if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) return -1;
+                            ids.push( dot.GetNumberId( ) );
+                            var children = dot.GetChildren( ids );
+                            if ( children == -1 ) return -1;
+                            map.set( dot, children );
+                        }
+                    });
+                    return map;
+                }
+
+			//
 			// ─── DEGREE OF VERTEX ───────────────────────────────────────
 			//
 
