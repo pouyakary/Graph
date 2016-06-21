@@ -202,7 +202,7 @@
 //
 
     function sort( ) {
-        KaryGraph.API.AbstractionLayer.SortByInputs( );
+        KaryGraph.API.StandardLibrary.Sortings.Tree( );
     }
 
 //

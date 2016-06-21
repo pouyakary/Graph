@@ -276,12 +276,17 @@ module KaryGraph {
 			// ─── GET ALL CHILDREN ───────────────────────────────────────
 			//
 
-                public GetChildren( ): any {
+                public GetChildren( ids?: number[] ): any {
+                    if ( !ids ) var ids: number[] = [];
                     var map = new Map();
                     var keys = Object.keys( Graph );
                     keys.forEach( key => {
                         var dot = <Dot> Graph[ key ];
-                        if ( this.Outputs[ dot.Id ] != undefined ) map.set( dot, dot.GetChildren() );
+                        if ( this.Outputs[ dot.Id ] != undefined ) {
+                            if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) return -1;
+                            ids.push( dot.GetNumberId( ) );
+                            map.set( dot, dot.GetChildren( ids ) );
+                        }
                     });
                     return map;
                 }
