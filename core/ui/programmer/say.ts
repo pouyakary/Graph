@@ -17,38 +17,38 @@ module KaryGraph.UI.Programmer {
 	// ─── SAY MAIN ───────────────────────────────────────────────────────────────────
 	//
 
-        export function Say ( input: any ): string {
+        export function GenerateSayHTML ( input: any ): string {
             
             // if were going to have an undefined type.
             if ( input == undefined ) {
-                return SayImplementations.Undefined( );
+                return SayImplementations.SayUndefined( );
             }
 
             // number
             if ( typeof( input ) === "number" ) {
-                return SayImplementations.Number( input );
+                return SayImplementations.SayNumber( input );
             }
 
             // if we have type
             switch ( input.constructor.name ) {
 
                 case "Dot":
-                    return SayImplementations.Dot( input );
+                    return SayImplementations.SayDot( input );
 
                 case "String":
-                    return SayImplementations.String( input );
+                    return SayImplementations.SayString( input );
 
                 case "Array":
                     if ( input[ 0 ].constructor.name == "Array" ) {
                         // Matrix
-                        return SayImplementations.Matrix( input );
+                        return SayImplementations.SayMatrix( input );
                     } else {
                         // Normal Array
-                        return SayImplementations.Array( input );
+                        return SayImplementations.SayArray( input );
                     }
 
                 default:
-                    return SayImplementations.Object( input );
+                    return SayImplementations.SayObject( input );
             }
         }
 
@@ -61,12 +61,17 @@ module KaryGraph.UI.Programmer {
 
 module KaryGraph.UI.Programmer.SayImplementations {
 
+    //
+	// ────────────────────────────────────────────────────────────────────────────── I ──────────
+	//  :::::: S A Y   I M P L E M E N T A T I O N S : :  :   :    :     :        :          :
+	// ────────────────────────────────────────────────────────────────────────────────────────
+	//
 
     //
 	// ─── DOT ────────────────────────────────────────────────────────────────────────
 	//
 
-        export function Dot ( input: Dot ): string {
+        export function SayDot ( input: Dot ): string {
             return (
                 `<div><div class="say-dot">${ input.GetNumberId( ) }</div>` +
                 '<div class="say-dot-dot"></div></div>'
@@ -77,7 +82,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	// ─── UNDEFINED ──────────────────────────────────────────────────────────────────
 	//
 
-        export function Undefined ( ): string {
+        export function SayUndefined ( ): string {
             return '';
         }
 
@@ -85,7 +90,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	// ─── SAY TEXT ───────────────────────────────────────────────────────────────────
 	//
 
-        export function String ( input: string ): string {
+        export function SayString ( input: string ): string {
             return `<div class="say-string">"${ input }"</div>`;
         } 
 
@@ -93,22 +98,21 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	// ─── NUMBER ─────────────────────────────────────────────────────────────────────
 	//
 
-        export function Number ( input: number ): string {
-            return `<span class"say-number">${ input }</span>`;
+        export function SayNumber ( input: number ): string {
+            return `<span class="say-number">${ input }</span>`;
         }
 
     //
 	// ─── ARRAY ──────────────────────────────────────────────────────────────────────
 	//
 
-        export function Array ( input: Array<number> ) {
-            // indexs 
+        export function SayArray ( input: Array<number> ) {
             let row = '';
             for ( let index = 0; index < input.length; index++ ) {
                 row += ( `<td class="say-array-cell">` +
                          `<div class="say-array-index">${ index }</div>`  +
-                         `<div class="say-array-value">${ input[ index ]}<div>`   +
-                         '</td>');
+                         `<div class="say-array-value">${ ArraySayIncoder( input[ index ] ) }<div>` +
+                         '</td>' );
             }
             return `<table class="say-array"><tr>${ row }</tr></table>`;
         }
@@ -117,7 +121,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	// ─── MATRIX ─────────────────────────────────────────────────────────────────────
 	//
 
-        export function Matrix ( input: number[ ][ ] ) {
+        export function SayMatrix ( input: number[ ][ ] ) {
             let matrixHTML = '';
             for ( let rowCounter = 0; rowCounter < input.length; rowCounter++ ) {
                 let row = input[ rowCounter ];
@@ -135,8 +139,39 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	// ─── OBJECT ─────────────────────────────────────────────────────────────────────
 	//
 
-        export function Object ( input: Object ): string {
+        export function SayObject ( input: Object ): string {
             return `<div class="notebook-object">${ input.toString() }</div>`;
+        }
+
+    // ────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+    //
+	// ────────────────────────────────────────────────── I ──────────
+	//  :::::: T O O L S : :  :   :    :     :        :          :
+	// ────────────────────────────────────────────────────────────
+	//
+
+    //
+	// ─── ARRAY SWITCHER ─────────────────────────────────────────────────────────────
+	//
+
+        function ArraySayIncoder( input: any ): string {
+            if ( typeof( input ) === "number" ) {
+                return SayNumber( input );
+            }
+
+            switch ( input.constructor.name ) {
+                case "Dot":
+                    return SayDot( input );
+                case "String":
+                    return SayString( input );
+                default:
+                    return input;
+            }
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
