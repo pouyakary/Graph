@@ -61,14 +61,42 @@
 // ─── CONNECT ────────────────────────────────────────────────────────────────────
 //
 
-    function connect( a: any, b: any ): boolean {
-        try {
-            return a.ConnectTo( b );
-        } catch ( err ) {
-            let d1 = getdot( a );
-            let d2 = getdot( b );
-            return d1.ConnectTo( d2 );
+    function connect( ...a: any[ ] ): boolean {
+        if ( a.length < 2 ) return false;
+        var dots: KaryGraph.Dot[ ] = [ ];
+        a.forEach ( b => {
+            if ( typeof b == "number" ) {
+                dots.push( getdot( b ) );
+            } else {
+                dots.push( b );
+            }
+        });
+        for ( var i = 1; i < dots.length; i++ ) {
+            var success = dots[ i - 1 ].ConnectTo( dots[ i ] );
+            if ( !success ) return false;
         }
+        return true;
+    }
+
+//
+// ─── CONNECT AS FAN ─────────────────────────────────────────────────────────────
+//
+
+    function fan( ...a: any[ ] ): boolean {
+        if ( a.length < 2 ) return false;
+        var dots: KaryGraph.Dot[ ] = [ ];
+        a.forEach ( b => {
+            if ( typeof b == "number" ) {
+                dots.push( getdot( b ) );
+            } else {
+                dots.push( b );
+            }
+        });
+        for ( var i = 1; i < dots.length; i++ ) {
+            var success = dots[ 0 ].ConnectTo( dots[ i ] );
+            if ( !success ) return false;
+        }
+        return true;
     }
 
 //
@@ -214,7 +242,7 @@
 //
 
     function sort( ) {
-        KaryGraph.API.AbstractionLayer.SortByInputs( );
+        KaryGraph.API.StandardLibrary.Sortings.Tree( );
     }
 
 //
