@@ -62,7 +62,10 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	//
 
         export function Dot ( input: Dot ): string {
-            return `<div class="say-dot">${ input.GetNumberId( ) }<div>`;
+            return (
+                `<div><div class="say-dot">${ input.GetNumberId( ) }</div>` +
+                '<div class="say-dot-dot"></div></div>'
+            );
         }
 
     //
