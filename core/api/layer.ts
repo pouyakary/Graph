@@ -111,15 +111,22 @@ module KaryGraph.API.AbstractionLayer {
 	//
 
         export function SortByInputs( ) {
-            var array = [];
+            var map = new Map( );
             var keys = Object.keys( Graph );
             keys.forEach( key => {
                 var dot = <Dot> Graph[ key ];
-                var i = dot.NumberOfInputs( );
-                while ( array.length <= i ) array.push(new Array());
-                array[i].push( dot );
+                if ( dot.NumberOfInputs( ) == 0 ) map.set( dot, dot.GetChildren( ) );
             });
-            return array;
+            function moveDots ( map: any, width: number, ypos: number, xoff: number ) {
+                var count = map.size;
+                var x = 0;
+                for ( var [ key, value ] of map.entries() ) {
+                    var xpos = width / count * x++ + (width / count / 2) + xoff;
+                    ( <Dot> key ).MoveTo( xpos, ypos );
+                    if ( value.size > 0 ) moveDots( value, width / count, ypos + 40, xpos - (width / count / 2) );
+                }
+            }
+            moveDots( map, GraphWidth, 40, 0 );
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

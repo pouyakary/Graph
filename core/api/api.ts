@@ -202,15 +202,7 @@
 //
 
     function sort( ) {
-        var array = KaryGraph.API.AbstractionLayer.SortByInputs( );
-        for ( var i = 0; i < array.length; i++ ) {
-            var count = array[i].length;
-            for ( var j = 0; j < count; j++ ) {
-                var xpos = KaryGraph.GraphWidth / count * j + ( KaryGraph.GraphWidth / count / 2 );
-                var ypos = KaryGraph.GraphHeight / array.length * i + ( KaryGraph.GraphHeight / array.length / 2 );
-                array[i][j].MoveTo( xpos, ypos );
-            }
-        }
+        KaryGraph.API.AbstractionLayer.SortByInputs( );
     }
 
 //
