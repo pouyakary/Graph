@@ -198,6 +198,14 @@
     }
 
 //
+// ─── SORT BY INPUTS ─────────────────────────────────────────────────────────────
+//
+
+    function sort( ) {
+        KaryGraph.API.AbstractionLayer.SortByInputs( );
+    }
+
+//
 // ─── GET ORDER OF GRAPH ─────────────────────────────────────────────────────────
 //
 
