@@ -99,7 +99,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	//
 
         export function SayNumber ( input: number ): string {
-            return `<span class"say-number">${ input }</span>`;
+            return `<span class="say-number">${ input }</span>`;
         }
 
     //
@@ -160,6 +160,10 @@ module KaryGraph.UI.Programmer.SayImplementations {
 	//
 
         function ArraySayIncoder( input: any ): string {
+            if ( typeof( input ) === "number" ) {
+                return SayNumber( input );
+            }
+
             switch ( input.constructor.name ) {
                 case "Dot":
                     return SayDot( input );

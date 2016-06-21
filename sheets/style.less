@@ -13,7 +13,7 @@
     @color-3: black;
     @color-4: #424242;
 
-    @font-family: 'Avenir';
+    @font-sans-serif: 'Avenir';
     @base-font-size: 12px;
 
     @mono-type: 'GraphSourceCodePro';
@@ -37,13 +37,15 @@
 
     @toolbar-padding-top: 10px;
 
+    @notebook-blue-color: #007AE0;
+
 //
 // ─── BASE ───────────────────────────────────────────────────────────────────────
 //
 
     html {
         background-color: @color-1;
-        font-family: @font-family;
+        font-family: @font-sans-serif;
         font-size: @base-font-size;
         overflow: hidden;
         min-height: 400px;
@@ -263,18 +265,19 @@
     }
 
     .say-string {
-        color: #008A2A;
-        font-size: 1.1rem;
+        color: black;
+        font-size: 1.3rem;
+        font-family: @font-sans-serif;
     }
 
     .say-number {
-        font-size: 2rem;
-        color: #840AFF;
+        font-size: 1.3rem;
+        color: @notebook-blue-color;
     }
 
     .say-array {
         overflow-x: scroll;
-        font-family: @font-family;
+        font-family: @font-sans-serif;
         border: 0;
     }
 
@@ -295,7 +298,6 @@
         background-color: #F5F5F5;
         border-radius: 3px;
         padding-bottom: 6px;
-        margin-right: 10px;
     }
 
     .say-array-value {
