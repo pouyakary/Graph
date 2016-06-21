@@ -40,11 +40,20 @@ module KaryGraph.UI.Programmer {
         }
 
     //
+	// ─── RESTART SCREEN ─────────────────────────────────────────────────────────────
+	//
+
+        export function ClearNotebookScreen ( ) {
+            ClearScreen( );
+            StartPrompt( );
+        }
+
+    //
 	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
 	//
 
         /** Cleans the screen of the notebook and restarts the code of the notebook*/
-        function ClearScreen () {
+        function ClearScreen ( ) {
             notebook.innerHTML = '';
         }
 
