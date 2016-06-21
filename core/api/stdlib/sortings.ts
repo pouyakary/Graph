@@ -10,7 +10,7 @@ module KaryGraph.API.StandardLibrary.Sortings {
     // ─── CLASSIC TREE ───────────────────────────────────────────────────────
   	//
 
-        export function Tree( ) {
+        export function Tree( ): boolean {
 
             // vars
             var map = new Map( );
@@ -20,7 +20,11 @@ module KaryGraph.API.StandardLibrary.Sortings {
             // create tree map
             keys.forEach( key => {
                 var dot = <Dot> Graph[ key ];
-                if ( dot.NumberOfInputs( ) == 0 ) map.set( dot, dot.GetChildren( ) );
+                if ( dot.NumberOfInputs( ) == 0 ) {
+                    var children = dot.GetChildren( );
+                    if ( children == -1 ) return false;
+                    map.set( dot, children );
+                }
             });
 
             // count layers
@@ -44,6 +48,7 @@ module KaryGraph.API.StandardLibrary.Sortings {
             }
             moveDots( map, GraphWidth, GraphHeight / layers - ( GraphHeight / layers / 2 ), 0 );
 
+            return true;
         }
 
     // ────────────────────────────────────────────────────────────────────────

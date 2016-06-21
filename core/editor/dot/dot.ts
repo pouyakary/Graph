@@ -285,7 +285,9 @@ module KaryGraph {
                         if ( this.Outputs[ dot.Id ] != undefined ) {
                             if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) return -1;
                             ids.push( dot.GetNumberId( ) );
-                            map.set( dot, dot.GetChildren( ids ) );
+                            var children = dot.GetChildren( ids );
+                            if ( children == -1 ) return -1;
+                            map.set( dot, children );
                         }
                     });
                     return map;
