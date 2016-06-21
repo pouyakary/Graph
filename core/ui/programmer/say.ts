@@ -82,18 +82,14 @@ module KaryGraph.UI.Programmer.SayImplementations {
 
         export function Array ( input: Array<number> ) {
             // indexs 
-            let indexRow = '';
+            let row = '';
             for ( let index = 0; index < input.length; index++ ) {
-                indexRow += `<td>${ index.toString( ) }</td>`;
+                row += ( `<td class="say-array-cell">` +
+                         `<div class="say-array-index">${ index }</div>`  +
+                         `<div class="say-array-value">${ input[ index ]}<div>`   +
+                         '</td>');
             }
-            let arrayHTML = `<tr class="say-array-indexes">${ indexRow }</tr>`;
-            // cells
-            let cellRow = '';
-            for ( let index = 0; index < input.length; index++ ) {
-                cellRow += `<td class="say-array-cells">${ input[ index ] }</td>`;
-            }
-            // done
-            return `<table>${ indexRow }${ cellRow }</table>`;
+            return `<table class="say-array"><tr>${ row }</tr></table>`;
         }
 
     //
