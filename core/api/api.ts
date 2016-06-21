@@ -104,7 +104,7 @@
     function graphfrommatrix ( matrix: number[][] ) {
         var numberOfNodes = matrix.length;
         for ( var i = 0; i < numberOfNodes; i++ ) if ( matrix[ i ].length != numberOfNodes ) {
-            KaryGraph.UI.Console.PrintError( "Invalid matrix." );
+            // KaryGraph.UI.Console.PrintError( "Invalid matrix." );
             return ;
         }
         var offset = countdots( ) + 1;
@@ -261,32 +261,6 @@
 
 
 
-//
-// ────────────────────────────────────────────────────── II ──────────
-//  :::::: C O N S O L E : :  :   :    :     :        :          :
-// ────────────────────────────────────────────────────────────────
-//
-
-//
-// ─── PRINT ──────────────────────────────────────────────────────────────────────
-//
-
-    function say( input: any ) {
-        KaryGraph.UI.Console.Print( input );
-    }
-
-//
-// ─── CLS ────────────────────────────────────────────────────────────────────────
-//
-
-    function cls( ) {
-        KaryGraph.UI.Console.Clean( );
-    }
-
-// ────────────────────────────────────────────────────────────────────────────────
-
-
-
 
 
 //
@@ -318,8 +292,8 @@
 //
 
     function euleriancycle( ): boolean {
-        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
-        return (verticesWithOddDegree == 0);
+        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices( );
+        return ( verticesWithOddDegree == 0 );
     }
 
 //
