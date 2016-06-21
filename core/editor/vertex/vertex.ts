@@ -45,6 +45,15 @@ module KaryGraph {
                     this.EndY = endDot.Y;
                     this.CreateLineObject( );
                 }
+
+            //
+			// ─── REMOVER ────────────────────────────────────────────────
+			//
+
+                public Remove ( ) {
+                    this.LineObject.remove( );
+                    delete this;
+                }
             
             //
 			// ─── CREATE LINE OBJECT ─────────────────────────────────────
