@@ -17,7 +17,7 @@ module KaryGraph.UI.Programmer {
 	// ─── SAY MAIN ───────────────────────────────────────────────────────────────────
 	//
 
-        export function Say ( input: any ): string {
+        export function GenerateSayHTML ( input: any ): string {
             
             // if were going to have an undefined type.
             if ( input == undefined ) {
