@@ -4,10 +4,6 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="../../../typings/snapsvg.d.ts" />
-/// <reference path="circle.ts" />
-/// <reference path="../vertex/line.ts" />
-
 module KaryGraph {
 
     //
@@ -109,6 +105,8 @@ module KaryGraph {
                     this.Inputs = { }
                     this.Outputs = { };
 
+                    // Adding self to the Graph 
+                    Graph[ this.Id ] = this;
                 }
 
             //

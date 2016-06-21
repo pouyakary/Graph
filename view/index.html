@@ -4,12 +4,9 @@
 		<!-- Main Graph Tools -->
 		<link rel="stylesheet" href="style.css">
 		<script src="core.js"></script>
-		<!-- Code Mirorr -->
-		<script src="codemirror.js"></script>
-		<link rel="stylesheet" href="codemirror.css">
-		<script src="javascript.js"></script>
-		<!-- MathJax -->
-		<script src="mathjax.js"></script>
+		<script src="wrappers.js"></script>
+		<!-- Prism -->
+		<link rel="stylesheet" href="prism.css">
 	</head>
 	<body>
 		<div class="heading">
@@ -55,24 +52,11 @@
 				<div class="inspector-section">
 					<div class="inspector-section-title">
 						<div class="inspector-section-title-text">Programmer</div>
-						<div class="inspector-section-title-icon">
-							<img src="playbutton.png" id="run-button" onclick="KaryGraph.UI.Programmer.RunCode( );">
-						</div>
 						<div style="clear: both;"></div>
 					</div>
 					<div class="inspector-section-body">
-						<textarea id="ScriptEditor"></textarea>
+						<div id="ProgrammerNotebook" class="notebook"></div>
 						<div id="console-bottom"></div>
-					</div>
-				</div>
-				<!-- Console -->
-				<div class="inspector-section">
-					<div class="inspector-section-title">
-						<div class="inspector-section-title-text">Console</div>
-						<div style="clear: both;"></div>
-					</div>
-					<div class="inspector-section-body">
-						<pre id="console"></pre>
 					</div>
 				</div>
 			</div>
@@ -80,31 +64,11 @@
 		
 		<div style="clear: both;"></div>
 			
+		<!-- INIT Part -->
 		<script>
 			window.Snap = require('snapsvg');
-
-			KaryGraph.INIT();
-
-			var ScriptEditor = CodeMirror.fromTextArea(document.getElementById("ScriptEditor" ), {
-				lineNumbers: true,
-				lineWrapping: true,
-				tabSize: 3,
-				extraKeys: { "Ctrl-Space": "autocomplete" },
-				mode: {name: "javascript", globalVars: true}
-			});
-
-			function GetProgrammerCode ( ) {
-				return ScriptEditor.getValue();
-			}
-
-			// a simple TeX-input example
-			var mjAPI = require("mathjax-node/lib/mj-single.js");
-			mjAPI.config({
-				MathJax: {
-					tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-				}
-			});
-			mjAPI.start();
+			var Prism = require('prismjs');
+			KaryGraph.INIT();;
 		</script>
 	</body>
 </html>

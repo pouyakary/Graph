@@ -4,11 +4,6 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="snapobject.ts" />
-/// <reference path="../ui/view.ts" />
-/// <reference path="graph.ts" />
-/// <reference path="../constants.ts" />
-
 module KaryGraph {
 
     /**

@@ -100,7 +100,33 @@ module KaryGraph {
 	// ─── CONSOLE ────────────────────────────────────────────────────────────────────
 	//
 
+        /** Id of the main div containing the console. */
         export const ConsoleId = "console";
+
+    //
+	// ─── PROGRAMMER ─────────────────────────────────────────────────────────────────
+	//
+
+        /** Id of the main div containing the notebook. */
+        export const NotebookId = "ProgrammerNotebook";
+
+        export const NotebookPromptClass = "notebook-prompt";
+
+        export const NotebookPromptInputClass = "notebook-prompt-input";
+
+        export const NotebookError = "notebook-error";
+
+        export const NotebookReseltRowClass = 'notebook-row';
+
+        export const NotebookResultCodeClass = 'notebook-row-code'; 
+
+        export const NotebookResultSayBaseCase = 'notebook-row-say-base';
+
+    //
+	// ─── SAY IMPLEMENTATIONS ────────────────────────────────────────────────────────
+	//
+
+        export const SayStringClass = 'say-string';
 
     // ────────────────────────────────────────────────────────────────────────────────
 

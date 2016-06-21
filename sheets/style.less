@@ -1,5 +1,10 @@
 
 //
+// Copyright 2016 Kary Foundation, Inc.
+//   Author: Pouya Kary <k@karyfoundation.org>
+//
+
+//
 // ─── DEFS ───────────────────────────────────────────────────────────────────────
 //
 
@@ -11,6 +16,7 @@
     @font-family: 'Avenir';
     @base-font-size: 12px;
 
+    @mono-type: 'GraphSourceCodePro';
 
 //
 // ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
@@ -48,9 +54,21 @@
         margin: 0;
     }
 
+    :focus {
+		outline-color: transparent;
+  		outline-style: none;
+	}
+
+    input {
+        font-size: 1rem;
+    }
+
+//
+// ─── FONTS ──────────────────────────────────────────────────────────────────────
+//
 
     @font-face {
-        font-family: 'GraphSourceCodePro';
+        font-family: @mono-type;
         src: url('sourcecodepro-medium-webfont.woff2') format('woff2'),
             url('sourcecodepro-medium-webfont.woff') format('woff');
         font-weight: normal;
@@ -120,10 +138,10 @@
         padding: 5px;
         padding-left: 10px;
         margin-top: 2px;
-        color: #ccc;
+        color: #A693D4;
         font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 4px;
+        // text-transform: uppercase;
+        // letter-spacing: 4px;
         float: left;
     }
 
@@ -161,10 +179,11 @@
         background-color: white;
         padding: 10px;
         margin-top: 0;
-        font-family: 'GraphSourceCodePro';
+        font-family: @mono-type;
         border-bottom-left-radius: @inspector-border-radius;
         border-bottom-right-radius: @inspector-border-radius;
         font-size: 0.9rem;
+        overflow: scroll;
     }
 
     #console-bottom {
@@ -174,8 +193,121 @@
         border-bottom-right-radius: @inspector-border-radius;
     }
 
-    .console-error {
+//
+// ─── PROMPT ─────────────────────────────────────────────────────────────────────
+//
+
+    .notebook {
+        height: calc( ~'100vh' - 180px - @inspector-width-padding * 2 );
+        background-color: white;
+        padding: @inspector-width-padding;
+        border-bottom-left-radius: @inspector-border-radius;
+        border-bottom-right-radius: @inspector-border-radius;
+        overflow-y: scroll;
+    }
+
+    .notebook-row {
+        font-family: @mono-type;
+        font-size: 1rem;
+        border-left: 2px solid #eee;
+        padding-left: 7px;
+        margin-bottom: 7px;
+        overflow-x: hidden;
+    }
+
+    .notebook-row-code {
+        color: black;
+    }
+
+    .notebook-row-say-base {
+        border-left: 2px solid #00A7FF;
+        padding-left: 10px;
+    }
+
+    .notebook-prompt {
+        border-left: 2px solid #ccc;
+        padding-left: 7px;   
+    }
+
+    .notebook-prompt input {
+        font-family: @mono-type;
+        font-size: 1rem;
+        border: none;
+        width: 100%;
+    }
+
+    .notebook-error {
         color: #A80300;
+    }
+
+//
+// ─── SAY IMPLEMENTATIONS ────────────────────────────────────────────────────────
+//
+
+    .say-dot {
+        width: auto;
+        font-size: 0.8rem;
+        padding-left: 3px;
+    }
+
+    .say-dot-dot {
+        width: 16px;
+        height: 16px;
+        background-color: black;
+        border-radius: 8px;
+        margin-right: 7px;
+    }
+
+    .say-object {
+
+    }
+
+    .say-string {
+        color: #008A2A;
+        font-size: 1.1rem;
+    }
+
+    .say-array {
+        overflow-x: scroll;
+        font-family: @font-family;
+        border: 0;
+    }
+
+    .say-array-index {
+        color: #C7C7C7;
+        font-size: 0.8rem;
+        font-weight: bold;
+        overflow: hidden;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        text-align: center;
+        padding: 2px;
+    }
+
+    .say-array-cell {
+        position: relative;
+        margin-top: 0;
+        background-color: #F5F5F5;
+        border-radius: 3px;
+        padding-bottom: 6px;
+        margin-right: 10px;
+    }
+
+    .say-array-value {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .say-matrix {
+        text-align: center;
+        font-family: 'GraphSourceCodePro';
+        font-size: 0.9rem;
+        padding-left: 1px;
+        border-image-slice: 22 22 22 22;
+        border-image-width: 20px 20px 20px 20px;
+        border-image-outset: 0px 0px 0px 0px;
+        border-image-repeat: stretch stretch;
+        border-image-source: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAABKCAYAAAA11z32AAAAAXNSR0IArs4c6QAAAJpJREFUaAXt2jEKg0AARUE3t9wT7jENFtO5IEhSPZsHRtkw/NKx1jqPm2vOOW5uv7q1O+vY/vDquOcvX+d/nj/+uyf7E2yTSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAjt13Vv/82OsLo94UYanCbyYAAAAASUVORK5CYII=");
     }
 
 //

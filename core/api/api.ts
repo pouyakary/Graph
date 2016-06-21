@@ -24,7 +24,7 @@
 //
 
     function newdotat( x: number, y: number ) {
-        return KaryGraph.API.AbstractionLayer.NewDotAt( x, y );
+        return new KaryGraph.Dot( x , y ); 
     }
 
 //
@@ -33,7 +33,7 @@
 
     function newdots( howmuch: number ) {
         for ( var counter = 0; counter < howmuch; counter++ ) {
-            newdot();
+            KaryGraph.API.AbstractionLayer.AddNewDot( );
         }
     }
 
@@ -77,8 +77,8 @@
 // ─── Has Edge ─────────────────────────────────────────────────────────────────
 //
 
-      function hasEdge(start : any, end : any) {
-          return getdot(start).IsConnectedTo(getdot(end));
+      function hasEdge( start : any, end : any ) {
+          return getdot( start ).IsConnectedTo( getdot( end ));
       }
 
 //
@@ -103,15 +103,15 @@
 
     function graphfrommatrix ( matrix: number[][] ) {
         var numberOfNodes = matrix.length;
-        for (var i = 0; i < numberOfNodes; i++) if (matrix[i].length != numberOfNodes) {
-          KaryGraph.UI.Console.PrintError("Invalid matrix.");
-          return;
+        for ( var i = 0; i < numberOfNodes; i++ ) if ( matrix[ i ].length != numberOfNodes ) {
+            // KaryGraph.UI.Console.PrintError( "Invalid matrix." );
+            return ;
         }
-        var offset = countdots() + 1;
-        newdots(numberOfNodes);
-        for (var m = 0; m < numberOfNodes; m++) {
-          for (var n = 0; n < numberOfNodes; n++) {
-            if (matrix[m][n] == 1 && !hasEdge(m + offset, n + offset)) connect(m + offset, n + offset);
+        var offset = countdots( ) + 1;
+        newdots( numberOfNodes );
+        for ( var m = 0; m < numberOfNodes; m++ ) {
+          for ( var n = 0; n < numberOfNodes; n++ ) {
+            if ( matrix[ m ][ n ] == 1 && !hasEdge( m + offset, n + offset ) ) connect( m + offset , n + offset );
           }
         }
     }
@@ -211,7 +211,9 @@
 
     function size( ): number {
         var size: number = 0;
-        for (var i = 0; i < countdots(); i++) size += getdot(i + 1).NumberOfInputs();
+        for ( var i = 0; i < countdots(); i++ ) {
+            size += getdot(i + 1).NumberOfInputs();
+        }
         return size;
     }
 
@@ -234,11 +236,11 @@
 
     function neighbors( a: any, b: any ): boolean {
         try {
-            return ( <KaryGraph.Dot> a ).IsConnectedTo(b);
+            return ( <KaryGraph.Dot> a ).IsConnectedTo( b );
         } catch ( err ) {
             let d1 = getdot( a );
             let d2 = getdot( b );
-            return d1.IsConnectedTo(d2);
+            return d1.IsConnectedTo( d2 );
         }
     }
 
@@ -248,59 +250,14 @@
 
     function neighborhood( dot: any ): KaryGraph.Dot[] {
         try {
-            return ( <KaryGraph.Dot> dot ).GetNeighbors();
+            return ( <KaryGraph.Dot> dot ).GetNeighbors( );
         } catch ( err ) {
-            return getdot(dot).GetNeighbors();
+            return getdot( dot ).GetNeighbors( );
         }
     }
 
-//
-// ─── EULERIAN PATH ? ────────────────────────────────────────────────────────────
-//
-
-    function eulerianpath( ): boolean {
-        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
-        return (verticesWithOddDegree == 0 || verticesWithOddDegree == 2);
-    }
-
-//
-// ─── EULERIAN CYCLE ? ───────────────────────────────────────────────────────────
-//
-
-    function euleriancycle( ): boolean {
-        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
-        return (verticesWithOddDegree == 0);
-    }
-
 // ────────────────────────────────────────────────────────────────────────────────
 
-
-
-
-
-//
-// ────────────────────────────────────────────────────── II ──────────
-//  :::::: C O N S O L E : :  :   :    :     :        :          :
-// ────────────────────────────────────────────────────────────────
-//
-
-//
-// ─── PRINT ──────────────────────────────────────────────────────────────────────
-//
-
-    function say( input: any ) {
-        KaryGraph.UI.Console.Print( input );
-    }
-
-//
-// ─── CLS ────────────────────────────────────────────────────────────────────────
-//
-
-    function cls( ) {
-        KaryGraph.UI.Console.Clean( );
-    }
-
-// ────────────────────────────────────────────────────────────────────────────────
 
 
 
@@ -320,8 +277,34 @@
         KaryGraph.API.StandardLibrary.CreateCompleteGraph( size );
     }
 
-// ────────────────────────────────────────────────────────────────────────────────
 
+//
+// ─── EULERIAN PATH ? ────────────────────────────────────────────────────────────
+//
+
+    function eulerianpath( ): boolean {
+        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
+        return (verticesWithOddDegree == 0 || verticesWithOddDegree == 2);
+    }
+
+//
+// ─── EULERIAN CYCLE ? ───────────────────────────────────────────────────────────
+//
+
+    function euleriancycle( ): boolean {
+        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices( );
+        return ( verticesWithOddDegree == 0 );
+    }
+
+//
+// ─── BFS Without Steps ──────────────────────────────────────────────────────────────
+//
+
+    function bfs( start: number ) {
+        return KaryGraph.API.StandardLibrary.Algorithms.BFS( getdot( start ), -1 );
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
 
 
 

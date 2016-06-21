@@ -4,20 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="dot/dot.ts" />
-/// <reference path="../ui/view.ts" /> 
-/// <reference path="../constants.ts" />
-
 module KaryGraph {
-
-    //
-    // ─── CREATE NODE ────────────────────────────────────────────────────────────────
-    //
-
-        export function CreateNode ( x: number, y: number ) {
-            var node = new Dot( x , y );
-            Graph[ node.Id ] = node;
-        }
 
     //
     // ─── GENERATE RANDOM NODES ──────────────────────────────────────────────────────
@@ -55,7 +42,7 @@ module KaryGraph {
                 var x: number = Random( widthUnit  );
                 var y: number = Random( heightUnit );
                 if ( isPlaceNotTakenAt( x, y ) ) {
-                    CreateNode( 
+                    new Dot(
                         ComputeRealXCoordinate( x ),
                         ComputeRealYCoordinate( y )
                     );

@@ -23,17 +23,7 @@ module KaryGraph.API.AbstractionLayer {
         export function AddNewDot( ): Dot {
             let x = 20 + Random( GraphWidth - 40 );
             let y = 20 + Random( GraphHeight - 40 );
-            return NewDotAt( x, y );
-        }
-
-    //
-	// ─── NEW DOT AT ─────────────────────────────────────────────────────────────────
-	//
-
-        export function NewDotAt ( x: number, y: number ) {
-            let dot = new Dot( x, y );
-            Graph[ dot.Id ] = dot;
-            return dot;
+            return new Dot( x, y );
         }
 
     //
@@ -52,7 +42,7 @@ module KaryGraph.API.AbstractionLayer {
             return dot;
         }
 
-  //
+    //
 	// ─── GET NUMBER OF VERTICES WITH ODD DEGREE ─────────────────────────────────────
 	//
 
@@ -65,20 +55,19 @@ module KaryGraph.API.AbstractionLayer {
             return verticesWithOddDegree;
         }
 
-  //
+    //
 	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
 	//
 
         export function Reset( ) {
             Dot.ResetNumberIdPlace( );
-            KaryGraph.UI.Console.Clean( );
             let keys = Object.keys( Graph );
             keys.forEach( key => {
                 ( <Dot> Graph[ key ] ).Remove( );
             });
         }
 
-  //
+    //
 	// ─── COUNT OF DOTS ──────────────────────────────────────────────────────────────
 	//
 
@@ -112,7 +101,7 @@ module KaryGraph.API.AbstractionLayer {
                     Rendering.RenderCircluar();
                     break;
                 default:
-                    UI.Console.PrintError(`Graph API: No rendering option ${text}`);
+                    // UI.Console.PrintError(`Graph API: No rendering option ${text}`);
                     break;
             }
         }
