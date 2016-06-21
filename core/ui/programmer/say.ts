@@ -26,6 +26,10 @@ module KaryGraph.UI.Programmer {
 
             // if we have type
             switch ( input.constructor.name ) {
+
+                case "Dot":
+                    return SayImplementations.Dot( input );
+
                 case "String":
                     return SayImplementations.String( input );
 
@@ -51,6 +55,15 @@ module KaryGraph.UI.Programmer {
 
 
 module KaryGraph.UI.Programmer.SayImplementations {
+
+
+    //
+	// ─── DOT ────────────────────────────────────────────────────────────────────────
+	//
+
+        export function Dot ( input: Dot ): string {
+            return `<div class="say-dot">${ input.GetNumberId( ) }<div>`;
+        }
 
     //
 	// ─── UNDEFINED ──────────────────────────────────────────────────────────────────
