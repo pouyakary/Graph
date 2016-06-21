@@ -102,7 +102,7 @@ module KaryGraph {
                         this.SnapNumberLabel = this.CreateNumberLabel();
 
                     // inputs and outputs
-                    this.Inputs = { }
+                    this.Inputs = { };
                     this.Outputs = { };
 
                     // Adding self to the Graph 
@@ -187,7 +187,7 @@ module KaryGraph {
                 /** Disconnects input dot */
                 private DisconnectInput( dot: Dot ) {
                     var connectionLine = <ISnapObject> this.Inputs[ dot.Id ];
-                    connectionLine.remove( );
+                    connectionLine.remove( ); 
                     delete dot.Outputs[ this.Id ];
                     delete this.Inputs[ dot.Id ];
                 }
@@ -283,10 +283,14 @@ module KaryGraph {
                     keys.forEach( key => {
                         var dot = <Dot> Graph[ key ];
                         if ( this.Outputs[ dot.Id ] != undefined ) {
-                            if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) return -1;
+                            if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) { 
+                                return -1
+                            }
                             ids.push( dot.GetNumberId( ) );
                             var children = dot.GetChildren( ids );
-                            if ( children == -1 ) return -1;
+                            if ( children == -1 ) { 
+                                return -1
+                            }
                             map.set( dot, children );
                         }
                     });
