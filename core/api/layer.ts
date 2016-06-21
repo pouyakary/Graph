@@ -100,6 +100,9 @@ module KaryGraph.API.AbstractionLayer {
                 case 'circle':
                     Rendering.RenderCircluar();
                     break;
+                case 'order':
+                    SortByInputs();
+                    break;
                 default:
                     // UI.Console.PrintError(`Graph API: No rendering option ${text}`);
                     break;
@@ -113,20 +116,28 @@ module KaryGraph.API.AbstractionLayer {
         export function SortByInputs( ) {
             var map = new Map( );
             var keys = Object.keys( Graph );
+            var layers: number = 0;
             keys.forEach( key => {
                 var dot = <Dot> Graph[ key ];
                 if ( dot.NumberOfInputs( ) == 0 ) map.set( dot, dot.GetChildren( ) );
             });
+            function dive ( map: any, layer: number ) {
+                layers = layer;
+                for ( var [ key, value ] of map.entries() ) {
+                    if ( value.size > 0 ) dive( value, layer + 1 );
+                }
+            }
+            dive( map, 1 );
             function moveDots ( map: any, width: number, ypos: number, xoff: number ) {
                 var count = map.size;
                 var x = 0;
                 for ( var [ key, value ] of map.entries() ) {
                     var xpos = width / count * x++ + (width / count / 2) + xoff;
                     ( <Dot> key ).MoveTo( xpos, ypos );
-                    if ( value.size > 0 ) moveDots( value, width / count, ypos + 40, xpos - (width / count / 2) );
+                    if ( value.size > 0 ) moveDots( value, width / count, ypos + GraphHeight / layers, xpos - (width / count / 2) );
                 }
             }
-            moveDots( map, GraphWidth, 40, 0 );
+            moveDots( map, GraphWidth, GraphHeight / layers - ( GraphHeight / layers / 2 ), 0 );
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
