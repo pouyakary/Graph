@@ -100,6 +100,9 @@ module KaryGraph.API.AbstractionLayer {
                 case 'circle':
                     Rendering.RenderCircluar();
                     break;
+                case 'spiral':
+                    Rendering.RenderSpiral();
+                    break;
                 case 'order':
                     KaryGraph.API.StandardLibrary.Sortings.Tree( );
                     break;
