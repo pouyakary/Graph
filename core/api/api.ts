@@ -46,6 +46,18 @@
     }
 
 //
+// ─── GET DOTS ───────────────────────────────────────────────────────────────────
+//
+
+    function getdots( ...ids: number[ ] ) {
+        let result = new Array<KaryGraph.Dot>( );
+        ids.forEach( id => {
+            result.push( getdot( id ) );
+        });
+        return result;
+    }
+
+//
 // ─── CONNECT ────────────────────────────────────────────────────────────────────
 //
 
