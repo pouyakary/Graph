@@ -67,6 +67,27 @@
     }
 
 //
+// ─── CONNECT AS FAN ─────────────────────────────────────────────────────────────
+//
+
+    function fan( ...a: any[ ] ): boolean {
+        if ( a.length < 2 ) return false;
+        var dots: KaryGraph.Dot[ ] = [ ];
+        a.forEach ( b => {
+            if ( typeof b == "number" ) {
+                dots.push( getdot( b ) );
+            } else {
+                dots.push( b );
+            }
+        });
+        for ( var i = 1; i < dots.length; i++ ) {
+            var success = dots[ 0 ].ConnectTo( dots[ i ] );
+            if ( !success ) return false;
+        }
+        return true;
+    }
+
+//
 // ─── DISCONNECT ─────────────────────────────────────────────────────────────────
 //
 
