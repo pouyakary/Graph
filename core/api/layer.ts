@@ -106,6 +106,22 @@ module KaryGraph.API.AbstractionLayer {
             }
         }
 
+    //
+	// ─── SORT BY INPUTS ─────────────────────────────────────────────────────────────
+	//
+
+        export function SortByInputs( ) {
+            var array = [];
+            var keys = Object.keys( Graph );
+            keys.forEach( key => {
+                var dot = <Dot> Graph[ key ];
+                var i = dot.NumberOfInputs( );
+                while ( array.length <= i ) array.push(new Array());
+                array[i].push( dot );
+            });
+            return array;
+        }
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }

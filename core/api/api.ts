@@ -198,6 +198,21 @@
     }
 
 //
+// ─── SORT BY INPUTS ─────────────────────────────────────────────────────────────
+//
+
+    function sort( ) {
+        var array = KaryGraph.API.AbstractionLayer.SortByInputs( );
+        for ( var i = 0; i < array.length; i++ ) {
+            var count = array[i].length;
+            for ( var j = 0; j < count; j++ ) {
+                var xpos = KaryGraph.GraphWidth / count * j + (KaryGraph.GraphWidth / count / 2);
+                array[i][j].MoveTo( xpos, i * 40 + 40 );
+            }
+        }
+    }
+
+//
 // ─── GET ORDER OF GRAPH ─────────────────────────────────────────────────────────
 //
 
