@@ -69,9 +69,9 @@ module KaryGraph.Circle {
 	//
 
         export function ForeachCircle( func: ( circle: ISnapObject ) => void ) {
-            var keys = Object.keys( Graph );
+            var keys = Object.keys( Storage.Nodes );
             keys.forEach( dotId => {
-                func( ( <Dot> Graph[ dotId ] ).SnapCircle );
+                func( ( <Dot> Storage.Nodes[ dotId ] ).SnapCircle );
             });
         }
 

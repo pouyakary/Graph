@@ -50,10 +50,10 @@ module KaryGraph.API.AbstractionLayer {
 
         export function GetDotByNumberId( numberId: number ): Dot {
             let dot: Dot;
-            let keys = Object.keys( Graph );
+            let keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-                if ( ( <Dot> Graph[ key ] ).GetNumberId( ) == numberId ) {
-                    dot = Graph[ key ];
+                if ( ( <Dot> Storage.Nodes[ key ] ).GetNumberId( ) == numberId ) {
+                    dot = Storage.Nodes[ key ];
                     return;
                 }
             });
@@ -66,9 +66,9 @@ module KaryGraph.API.AbstractionLayer {
 
         export function NumberOfOddVertices( ): number {
             var verticesWithOddDegree: number = 0;
-            var keys = Object.keys( Graph );
+            var keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-              if ( ( <Dot> Graph[ key ] ).GetDegree() % 2 ) verticesWithOddDegree++;
+              if ( ( <Dot> Storage.Nodes[ key ] ).GetDegree() % 2 ) verticesWithOddDegree++;
             });
             return verticesWithOddDegree;
         }
@@ -79,9 +79,9 @@ module KaryGraph.API.AbstractionLayer {
 
         export function Reset( ) {
             Dot.ResetNumberIdPlace( );
-            let keys = Object.keys( Graph );
+            let keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-                ( <Dot> Graph[ key ] ).Remove( );
+                ( <Dot> Storage.Nodes[ key ] ).Remove( );
             });
         }
 

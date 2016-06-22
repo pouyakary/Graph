@@ -22,9 +22,9 @@ module KaryGraph.Rendering {
             var add = 2;
 
             // move
-            let keys = Object.keys( Graph );
+            let keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-                var dot: Dot = ( <Dot> Graph[ key ] );
+                var dot: Dot = ( <Dot> Storage.Nodes[ key ] );
                 dot.MoveTo( x, y );
                 switch (direction) {
                     case 0:

@@ -13,7 +13,7 @@ module KaryGraph.Rendering {
         /** Rearanges the dots in a circular way */
         export function RenderCircluar( ) {
             // defs
-            let keys = Object.keys( Graph );
+            let keys = Object.keys( Storage.Nodes );
             let radius = GetRadius( );
             let originX = GraphWidth / 2;
             let originY = GraphHeight / 2;
@@ -32,7 +32,7 @@ module KaryGraph.Rendering {
             for ( var i = 0; i < count; i++ ) {
                 let x = computeX( i );
                 let y = computeY( i );
-                ( <Dot> Graph[ keys[ i ] ] ).MoveTo( x, y );
+                ( <Dot> Storage.Nodes[ keys[ i ] ] ).MoveTo( x, y );
             }
         }
 

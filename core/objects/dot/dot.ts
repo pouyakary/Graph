@@ -47,7 +47,7 @@ module KaryGraph {
                  *    **Connected Dot Id** : ***Snap Line Object***
                  * }
                  */
-                private Inputs: any;
+                private Inputs: Object;
 
                 /**
                  * Keeps the Outputs of the dot
@@ -55,7 +55,7 @@ module KaryGraph {
                  *    **Connected Dot Id** : ***Snap Line Object***
                  * }
                  */
-                private Outputs: any;
+                private Outputs: Object;
 
                 /**
                  * X Coordinates of the dot
@@ -106,7 +106,7 @@ module KaryGraph {
                     this.Outputs = { };
 
                     // Adding self to the Graph 
-                    Graph[ this.Id ] = this;
+                    Storage.Nodes[ this.Id ] = this;
                 }
 
             //
@@ -147,7 +147,7 @@ module KaryGraph {
                     this.RemoveOutputConnection( );
 
                     // removing self
-                    delete Graph[ this.Id ];
+                    delete Storage.Nodes[ this.Id ];
                 }
 
             //
@@ -157,14 +157,14 @@ module KaryGraph {
                 /** Removes a input connection and lines of the dot */
                 public RemoveInputConnection( ) {
                     this.ForeachConnection( this.Inputs , key => {
-                        this.DisconnectInput( <Dot> Graph[ key ] );
+                        this.DisconnectInput( <Dot> Storage.Nodes[ key ] );
                     });
                 }
 
                 /** Removes a output connection and lines of the dot */
                 public RemoveOutputConnection( ) {
                     this.ForeachConnection( this.Outputs , key => {
-                        this.DisconnectOutput( <Dot> Graph[ key ] );
+                        this.DisconnectOutput( <Dot> Storage.Nodes[ key ] );
                     });
                 }
 
@@ -279,9 +279,9 @@ module KaryGraph {
                 public GetChildren( ids?: number[] ): any {
                     if ( !ids ) var ids: number[] = [];
                     var map = new Map();
-                    var keys = Object.keys( Graph );
+                    var keys = Object.keys( Storage.Nodes );
                     keys.forEach( key => {
-                        var dot = <Dot> Graph[ key ];
+                        var dot = <Dot> Storage.Nodes[ key ];
                         if ( this.Outputs[ dot.Id ] != undefined ) {
                             if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) { 
                                 return -1
@@ -312,18 +312,18 @@ module KaryGraph {
                 public GetNeighbors( ): KaryGraph.Dot[] {
 
                     var neighbors: KaryGraph.Dot[] = [];
-                    var keys = Object.keys( Graph );
+                    var keys = Object.keys( Storage.Nodes );
                     keys.forEach( key => {
 
                         Object.keys( this.Inputs ).forEach( input => {
-                          if ( ( <Dot> Graph[ key ] ).Id == input ) {
-                              neighbors.push(Graph[ key ]);
+                          if ( ( <Dot> Storage.Nodes[ key ] ).Id == input ) {
+                              neighbors.push( Storage.Nodes[ key ] );
                           }
                         });
 
                         Object.keys( this.Outputs ).forEach( output => {
-                          if ( ( <Dot> Graph[ key ] ).Id == output ) {
-                              neighbors.push(Graph[ key ]);
+                          if ( ( <Dot> Storage.Nodes[ key ] ).Id == output ) {
+                              neighbors.push( Storage.Nodes[ key ] );
                           }
                         });
 

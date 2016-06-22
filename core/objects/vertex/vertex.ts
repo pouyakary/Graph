@@ -22,6 +22,12 @@ module KaryGraph {
                 /** Line object representing the line */
                 private LineObject: ISnapObject;
 
+                /** Statirng dot */
+                private StartDot: Dot;
+
+                /** Ending dot */
+                private EndingDot: Dot;
+
                 /** Line's start coordintation X */
                 private StartX: number;
 
@@ -39,10 +45,15 @@ module KaryGraph {
 			//
 
                 constructor ( startDot: Dot, endDot: Dot ) {
+                    // start
+                    this.StartDot = startDot;
                     this.StartX = startDot.X;
                     this.StratY = startDot.Y;
+                    // end
+                    this.EndingDot = endDot;
                     this.EndX = endDot.X;
                     this.EndY = endDot.Y;
+                    // init line object
                     this.CreateLineObject( );
                 }
 

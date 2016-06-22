@@ -28,8 +28,8 @@ module KaryGraph.API.StandardLibrary {
             keys.forEach( key => {
                 for ( var index = 0; index < size; index++ ) {
                     var cdot = keys[ index ];
-                    if ( cdot != Graph[ key ] ) {
-                        Graph[ key ].ConnectTo( Graph[ keys[ index] ] );
+                    if ( cdot != Storage.Nodes[ key ] ) {
+                        Storage.Nodes[ key ].ConnectTo( Storage.Nodes[ keys[ index] ] );
                     }
                 }
             });
