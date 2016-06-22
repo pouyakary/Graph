@@ -17,7 +17,7 @@ module KaryGraph {
 			//
 
                 /** Unique id of the object */
-                private Id: string;
+                public Id: string;
 
                 /** Line object representing the line */
                 private LineObject: ISnapObject;
