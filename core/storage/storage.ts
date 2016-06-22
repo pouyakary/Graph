@@ -10,11 +10,18 @@
 module KaryGraph.Storage {
 
     //
-	// ─── STORAGE ────────────────────────────────────────────────────────────────────
+	// ─── CONNECTIONS ────────────────────────────────────────────────────────────────
 	//
 
+        /** Connection Key */
+        export type ConnectionKey = [ string, string ];
+
         /** Contains all the vector objects assosiated to their ids. */
-        export var Connections: Object;
+        export var Connections = new Map<ConnectionKey,Vertex> ( );
+
+    //
+	// ─── NODES ──────────────────────────────────────────────────────────────────────
+	//
 
         /** Contains all the dot objects assosiated to their ids. */
         export var Nodes: Object;
