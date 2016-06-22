@@ -23,7 +23,7 @@
 // ─── NEW DOT AT ─────────────────────────────────────────────────────────────────
 //
 
-    function newdotat( x: number, y: number ) {
+    function newdotat( x: number, y: number ): KaryGraph.Dot {
         return new KaryGraph.Dot( x , y ); 
     }
 
@@ -31,10 +31,12 @@
 // ─── NEW DOTS ───────────────────────────────────────────────────────────────────
 //
 
-    function newdots( howmuch: number ) {
+    function newdots( howmuch: number ): Array<KaryGraph.Dot> {
+        var dots = new Array<KaryGraph.Dot>( );
         for ( var counter = 0; counter < howmuch; counter++ ) {
-            KaryGraph.API.AbstractionLayer.AddNewDot( );
+            dots.push( KaryGraph.API.AbstractionLayer.AddNewDot( ) );
         }
+        return dots;
     }
 
 //
@@ -49,7 +51,7 @@
 // ─── GET DOTS ───────────────────────────────────────────────────────────────────
 //
 
-    function getdots( ...ids: number[ ] ) {
+    function getdots( ...ids: number[ ] ): Array<KaryGraph.Dot> {
         let result = new Array<KaryGraph.Dot>( );
         ids.forEach( id => {
             result.push( getdot( id ) );
@@ -161,7 +163,7 @@
 //
 
     function countdots( ): number {
-        return KaryGraph.API.AbstractionLayer.GetCountOfDots( );
+        return KaryGraph.Dot.TotalDots;
     }
 
 //

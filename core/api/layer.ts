@@ -66,15 +66,7 @@ module KaryGraph.API.AbstractionLayer {
                 ( <Dot> Graph[ key ] ).Remove( );
             });
         }
-
-    //
-	// ─── COUNT OF DOTS ──────────────────────────────────────────────────────────────
-	//
-
-        export function GetCountOfDots( ): number {
-            return Object.keys( Graph ).length;
-        }
-
+        
     //
     // ─── CREATE MATRIX OF GRAPH ────────────────────────────────────────────────────
     //
