@@ -26,7 +26,7 @@ module KaryGraph {
                 private StartDot: Dot;
 
                 /** Ending dot */
-                private EndingDot: Dot;
+                private EndDot: Dot;
 
                 /** Line's start coordintation X */
                 private StartX: number;
@@ -50,11 +50,19 @@ module KaryGraph {
                     this.StartX = startDot.X;
                     this.StratY = startDot.Y;
                     // end
-                    this.EndingDot = endDot;
+                    this.EndDot = endDot;
                     this.EndX = endDot.X;
                     this.EndY = endDot.Y;
                     // init line object
                     this.CreateLineObject( );
+                    // registering self
+                    Storage.Connections.set( 
+                        [ 
+                            this.StartDot.Id, 
+                            this.EndDot.Id 
+                        ], 
+                        this 
+                    );
                 }
 
             //
