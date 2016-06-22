@@ -14,6 +14,24 @@
 module KaryGraph.API.AbstractionLayer {
 
     //
+	// ─── TYPES ──────────────────────────────────────────────────────────────────────
+	//
+
+        export type DotObjectOrDotID = Dot | number;
+
+    //
+	// ─── DOT BY DOT OR ID ───────────────────────────────────────────────────────────
+	//
+
+        export function DotByDotOrId( dotOrId: DotObjectOrDotID ): Dot {
+            if ( typeof ( dotOrId ) === "number" ) {
+                return GetDotByNumberId( <number> dotOrId );
+            } else {
+                return <Dot> dotOrId;
+            }
+        }
+
+    //
 	// ─── ADD NEW DOT ────────────────────────────────────────────────────────────────
 	//
 
