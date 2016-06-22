@@ -23,7 +23,7 @@
 // ─── NEW DOT AT ─────────────────────────────────────────────────────────────────
 //
 
-    function newdotat( x: number, y: number ) {
+    function newdotat( x: number, y: number ): KaryGraph.Dot {
         return new KaryGraph.Dot( x , y ); 
     }
 
@@ -51,7 +51,7 @@
 // ─── GET DOTS ───────────────────────────────────────────────────────────────────
 //
 
-    function getdots( ...ids: number[ ] ) {
+    function getdots( ...ids: number[ ] ): Array<KaryGraph.Dot> {
         let result = new Array<KaryGraph.Dot>( );
         ids.forEach( id => {
             result.push( getdot( id ) );
