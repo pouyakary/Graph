@@ -163,7 +163,7 @@
 //
 
     function countdots( ): number {
-        return KaryGraph.API.AbstractionLayer.GetCountOfDots( );
+        return KaryGraph.Dot.TotalDots;
     }
 
 //
