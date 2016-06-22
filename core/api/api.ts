@@ -65,7 +65,7 @@
 
     function connect( ...a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID[ ] ): boolean {
         if ( a.length < 2 ) return false;
-        var dots: KaryGraph.Dot[ ] = [ ];
+        var dots = new Array<KaryGraph.Dot> ( );
         a.forEach ( b => {
             dots.push( KaryGraph.API.AbstractionLayer.DotByDotOrId( b ) );
         });
@@ -80,14 +80,14 @@
 // ─── CONNECT AS FAN ─────────────────────────────────────────────────────────────
 //
 
-    function fan( ...a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID[ ] ): boolean {
-        if ( a.length < 2 ) return false;
-        var dots: KaryGraph.Dot[ ] = [ ];
-        a.forEach ( b => {
-            dots.push( KaryGraph.API.AbstractionLayer.DotByDotOrId( b ) );
+    function fan( ...dotArgs: KaryGraph.API.AbstractionLayer.DotObjectOrDotID[ ] ): boolean {
+        if ( dotArgs.length < 2 ) return false;
+        var dots = new Array<KaryGraph.Dot> ( );
+        dotArgs.forEach ( dot => {
+            dots.push( KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ) );
         });
-        for ( var i = 1; i < dots.length; i++ ) {
-            var success = dots[ 0 ].ConnectTo( dots[ i ] );
+        for ( var index = 1; index < dots.length; index++ ) {
+            var success = dots[ 0 ].ConnectTo( dots[ index ] );
             if ( !success ) return false;
         }
         return true;
@@ -137,9 +137,11 @@
 
     function graphfrommatrix ( matrix: number[][] ) {
         var numberOfNodes = matrix.length;
-        for ( var i = 0; i < numberOfNodes; i++ ) if ( matrix[ i ].length != numberOfNodes ) {
-            // KaryGraph.UI.Console.PrintError( "Invalid matrix." );
-            return ;
+        for ( var index = 0; index < numberOfNodes; index++ ) {
+            if ( matrix[ index ].length != numberOfNodes ) {
+                // KaryGraph.UI.Console.PrintError( "Invalid matrix." );
+                return ;
+            }
         }
         var offset = countdots( ) + 1;
         newdots( numberOfNodes );
