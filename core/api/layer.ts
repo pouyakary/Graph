@@ -72,7 +72,7 @@ module KaryGraph.API.AbstractionLayer {
 	//
 
         export function GetCountOfDots( ): number {
-            return Object.keys( Graph ).length;
+            return KaryGraph.Dot.TotalDots;
         }
 
     //
