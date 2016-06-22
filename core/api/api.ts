@@ -31,10 +31,12 @@
 // ─── NEW DOTS ───────────────────────────────────────────────────────────────────
 //
 
-    function newdots( howmuch: number ) {
+    function newdots( howmuch: number ): Array<KaryGraph.Dot> {
+        var dots = new Array<KaryGraph.Dot>( );
         for ( var counter = 0; counter < howmuch; counter++ ) {
-            KaryGraph.API.AbstractionLayer.AddNewDot( );
+            dots.push( KaryGraph.API.AbstractionLayer.AddNewDot( ) );
         }
+        return dots;
     }
 
 //
