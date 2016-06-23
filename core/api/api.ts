@@ -102,8 +102,11 @@
 // ─── Has Edge ─────────────────────────────────────────────────────────────────
 //
 
-      function hasEdge( start : any, end : any ) {
-          return getdot( start ).IsConnectedTo( getdot( end ));
+      function hasEdge( start: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, 
+                        end: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ) {
+          let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( start );
+          let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( end );
+          return d1.IsConnectedTo( d2 );
       }
 
 //
@@ -128,16 +131,20 @@
 
     function graphfrommatrix ( matrix: number[][] ) {
         var numberOfNodes = matrix.length;
-        for ( var i = 0; i < numberOfNodes; i++ ) if ( matrix[ i ].length != numberOfNodes ) {
-            // KaryGraph.UI.Console.PrintError( "Invalid matrix." );
-            return ;
+        for ( var i = 0; i < numberOfNodes; i++ ) {
+            if ( matrix[ i ].length != numberOfNodes ) {
+                // KaryGraph.UI.Console.PrintError( "Invalid matrix." );
+                return ;
+            }
         }
         var offset = countdots( ) + 1;
         newdots( numberOfNodes );
         for ( var m = 0; m < numberOfNodes; m++ ) {
-          for ( var n = 0; n < numberOfNodes; n++ ) {
-            if ( matrix[ m ][ n ] == 1 && !hasEdge( m + offset, n + offset ) ) connect( m + offset , n + offset );
-          }
+            for ( var n = 0; n < numberOfNodes; n++ ) {
+                if ( matrix[ m ][ n ] == 1 && !hasEdge( m + offset, n + offset ) ) {
+                    connect([ m + offset , n + offset ]);
+                }
+            }
         }
     }
 
@@ -153,7 +160,8 @@
 // ─── MOVE COMMAND ───────────────────────────────────────────────────────────────
 //
 
-    function move( dot: any, x: number, y: number ) {
+    function move( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number, y: number ) {
+        KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ).MoveTo( x, y );
         try {
             ( <KaryGraph.Dot> dot ).MoveTo( x, y );
         } catch ( err ) {
