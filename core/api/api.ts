@@ -186,22 +186,18 @@
 // ─── MOVE BY X ──────────────────────────────────────────────────────────────────
 //
 
-    function movebx( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
+    function movebx( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
         let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
-        d.MoveTo( d.X, y );
+        d.MoveTo( d.X + x, d.Y );
     }
 
 //
 // ─── MOVE BY Y ──────────────────────────────────────────────────────────────────
 //
 
-    function moveby( dot: any, y: number ) {
-        try {
-            ( <KaryGraph.Dot> dot ).MoveTo( ( <KaryGraph.Dot> dot ).X, ( <KaryGraph.Dot> dot ).Y + y );
-        } catch ( err ) {
-            dot = getdot( dot );
-            dot.MoveTo( dot.X, dot.Y + y );
-        }
+    function moveby( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
+        let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
+        d.MoveTo( d.X, d.Y + y );
     }
 
 //
