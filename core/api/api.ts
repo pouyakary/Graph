@@ -240,10 +240,16 @@
 // ─── GET SIZE OF GRAPH ──────────────────────────────────────────────────────────
 //
 
-    function size( ): number {
+    function size( dots?: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): number {
         var size: number = 0;
-        for ( var i = 0; i < countdots(); i++ ) {
-            size += getdot(i + 1).NumberOfInputs();
+        if ( dots === undefined ) {
+            for ( var i = 0; i < KaryGraph.Dot.TotalDots; i++ ) {
+                size += getdot(i + 1).NumberOfInputs();
+            }
+        } else {
+            for ( var i = 0; i < dots.length; i++ ) {
+                size += KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dots[ i ] ).NumberOfInputs( );
+            }
         }
         return size;
     }
