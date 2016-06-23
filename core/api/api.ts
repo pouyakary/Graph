@@ -74,8 +74,8 @@
     function connect( args: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): boolean {
         let result = false;
         for ( var i = 1; i < args.length; i++ ) {
-            let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( args[ i - 1 ] );
-            let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( args[ i ] );
+            let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i - 1 ] );
+            let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i ] );
             result = d1.ConnectTo( d2 );
         }
         return result;
@@ -88,8 +88,8 @@
     function fan( args: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): boolean {
         let result = false;
         for ( var i = 1; i < args.length; i++ ) {
-            let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( args[ 0 ] );
-            let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( args[ i ] );
+            let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ 0 ] );
+            let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i ] );
             result = d1.ConnectTo( d2 );
         }
         return result;
@@ -101,8 +101,8 @@
 
     function disconnect( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, 
                          b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
-        let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( a );
-        let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( b );
+        let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( a );
+        let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( b );
         return d1.DisconnectFrom( d2 );
     }
 
@@ -112,8 +112,8 @@
 
       function hasEdge( start: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, 
                         end: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ) {
-          let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( start );
-          let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( end );
+          let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( start );
+          let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( end );
           return d1.IsConnectedTo( d2 );
       }
 
@@ -169,7 +169,7 @@
 //
 
     function move( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number, y: number ) {
-        KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ).MoveTo( x, y );
+        KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot ).MoveTo( x, y );
     }
 
 //
@@ -177,7 +177,7 @@
 //
 
     function movex( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
-        let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
+        let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
         d.MoveTo( x, d.Y );
     }
 
@@ -186,7 +186,7 @@
 //
 
     function movey( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
-        let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
+        let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
         d.MoveTo( d.X, y );
     }
 
@@ -195,7 +195,7 @@
 //
 
     function movebx( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
-        let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
+        let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
         d.MoveTo( d.X + x, d.Y );
     }
 
@@ -204,7 +204,7 @@
 //
 
     function moveby( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
-        let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
+        let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
         d.MoveTo( d.X, d.Y + y );
     }
 
@@ -249,7 +249,7 @@
 //
 
     function degree( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): number {
-        return KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ).GetDegree( );
+        return KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot ).GetDegree( );
     }
 
 //
@@ -258,8 +258,8 @@
 
     function neighbors( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID,
                         b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
-        let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( a );
-        let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( b );
+        let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( a );
+        let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( b );
         return d1.IsConnectedTo( d2 );
     }
 
@@ -268,7 +268,7 @@
 //
 
     function neighborhood( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): KaryGraph.Dot[] {
-        return KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ).GetNeighbors( );
+        return KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot ).GetNeighbors( );
     }
 
 //
