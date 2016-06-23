@@ -240,7 +240,7 @@
 // ─── GET DEGREE OF VERTEX ───────────────────────────────────────────────────────
 //
 
-    function degree( dot: any ): number {
+    function degree( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): number {
         return KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ).GetDegree( );
     }
 
@@ -248,14 +248,11 @@
 // ─── CHECK IF DOTS ARE NEIGHBORS ────────────────────────────────────────────────
 //
 
-    function neighbors( a: any, b: any ): boolean {
-        try {
-            return ( <KaryGraph.Dot> a ).IsConnectedTo( b );
-        } catch ( err ) {
-            let d1 = getdot( a );
-            let d2 = getdot( b );
-            return d1.IsConnectedTo( d2 );
-        }
+    function neighbors( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID,
+                        b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
+        let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( a );
+        let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( b );
+        return d1.IsConnectedTo( d2 );
     }
 
 //
