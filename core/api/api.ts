@@ -77,21 +77,14 @@
 // ─── CONNECT AS FAN ─────────────────────────────────────────────────────────────
 //
 
-    function fan( ...a: any[ ] ): boolean {
-        if ( a.length < 2 ) return false;
-        var dots: KaryGraph.Dot[ ] = [ ];
-        a.forEach ( b => {
-            if ( typeof b == "number" ) {
-                dots.push( getdot( b ) );
-            } else {
-                dots.push( b );
-            }
-        });
-        for ( var i = 1; i < dots.length; i++ ) {
-            var success = dots[ 0 ].ConnectTo( dots[ i ] );
-            if ( !success ) return false;
+    function fan( args: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): boolean {
+        let result = false;
+        for ( var i = 1; i < args.length; i++ ) {
+            let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( args[ 0 ] );
+            let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( args[ i ] );
+            result = d1.ConnectTo( d2 );
         }
-        return true;
+        return result;
     }
 
 //
