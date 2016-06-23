@@ -259,12 +259,8 @@
 // ─── GET NEIGHBORHOOD ───────────────────────────────────────────────────────────
 //
 
-    function neighborhood( dot: any ): KaryGraph.Dot[] {
-        try {
-            return ( <KaryGraph.Dot> dot ).GetNeighbors( );
-        } catch ( err ) {
-            return getdot( dot ).GetNeighbors( );
-        }
+    function neighborhood( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): KaryGraph.Dot[] {
+        return KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ).GetNeighbors( );
     }
 
 //
