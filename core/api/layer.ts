@@ -92,15 +92,14 @@ module KaryGraph.API.AbstractionLayer {
 
         export function CreateMatrix( idOrDots: Array<DotObjectOrDotID> ): number[ ][ ] {
             var idsLeght = idOrDots.length;
-            var matrix: number[ ][ ] = [ ];
+            var matrix: number[ ][ ] = new Array( idsLeght );
             for ( let row = 0; row < idsLeght; row++ ) {
-                var rowArray = [ ];
+                matrix[ row ] = new Array( idsLeght );
                 var d1 = GetDotByDotOrId( idOrDots[ row ] );
                 for ( let column = 0; column < idsLeght; column++ ) {
                     let d2 = GetDotByDotOrId( idOrDots[ column ] );
-                    rowArray.push( + d1.IsConnectedTo( d2 ) );
+                    matrix[ row ][ column ] = + d1.IsConnectedTo( d2 );
                 }
-                matrix.push( rowArray );
             }
             return matrix;
         }
