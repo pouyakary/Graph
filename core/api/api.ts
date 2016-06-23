@@ -328,6 +328,14 @@
 //
 
 //
+// ─── RANGE ──────────────────────────────────────────────────────────────────────
+//
+
+    function range( start: number, end: number ): Array<number> {
+        return Array.from( new Array( end - start + 1 ), ( x, i ) => i + start )
+    }
+
+//
 // ─── COMLETE GRAPH ──────────────────────────────────────────────────────────────
 //
 
