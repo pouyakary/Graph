@@ -51,7 +51,7 @@
 // ─── GET DOTS ───────────────────────────────────────────────────────────────────
 //
 
-    function getdots( ...ids: number[ ] ): Array<KaryGraph.Dot> {
+    function getdots( ids: Array<number> ): Array<KaryGraph.Dot> {
         let result = new Array<KaryGraph.Dot>( );
         ids.forEach( id => {
             result.push( getdot( id ) );
