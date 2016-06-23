@@ -129,8 +129,12 @@
 // ─── GET MATRIX OF GRAPH ────────────────────────────────────────────────────────
 //
 
-    function matrix ( ): number[][] {
-        return KaryGraph.API.AbstractionLayer.CreateMatrix( );
+    function matrix ( input?: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID>): number[][] {
+        if ( input === undefined ) {
+            return KaryGraph.API.AbstractionLayer.CreateMatrix( all( ) );
+        } else {
+            return KaryGraph.API.AbstractionLayer.CreateMatrix( input );
+        }
     }
 
 //
