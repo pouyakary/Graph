@@ -162,51 +162,33 @@
 
     function move( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number, y: number ) {
         KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ).MoveTo( x, y );
-        try {
-            ( <KaryGraph.Dot> dot ).MoveTo( x, y );
-        } catch ( err ) {
-            dot = getdot( dot );
-            dot.MoveTo( x, y );
-        }
     }
 
 //
 // ─── MOVE TO X ──────────────────────────────────────────────────────────────────
 //
 
-    function movex( dot: any, x: number ) {
-        try {
-            ( <KaryGraph.Dot> dot ).MoveTo( x, ( <KaryGraph.Dot> dot ).Y );
-        } catch ( err ) {
-            dot = getdot( dot );
-            dot.MoveTo( x, dot.Y );
-        }
+    function movex( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
+        let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
+        d.MoveTo( x, d.Y );
     }
 
 //
 // ─── MOVE TO Y ──────────────────────────────────────────────────────────────────
 //
 
-    function movey( dot: any, y: number ) {
-        try {
-            ( <KaryGraph.Dot> dot ).MoveTo( ( <KaryGraph.Dot> dot ).X, y );
-        } catch ( err ) {
-            dot = getdot( dot );
-            dot.MoveTo( dot.X, y );
-        }
+    function movey( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
+        let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
+        d.MoveTo( d.X, y );
     }
 
 //
 // ─── MOVE BY X ──────────────────────────────────────────────────────────────────
 //
 
-    function movebx( dot: any, x: number ) {
-        try {
-            ( <KaryGraph.Dot> dot ).MoveTo( ( <KaryGraph.Dot> dot ).X + x, ( <KaryGraph.Dot> dot ).Y );
-        } catch ( err ) {
-            dot = getdot( dot );
-            dot.MoveTo( dot.X + x, dot.Y );
-        }
+    function movebx( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
+        let d = KaryGraph.API.AbstractionLayer.DotByDotOrId( dot );
+        d.MoveTo( d.X, y );
     }
 
 //
