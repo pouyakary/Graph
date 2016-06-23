@@ -241,12 +241,7 @@
 //
 
     function degree( dot: any ): number {
-        try {
-            return ( <KaryGraph.Dot> dot ).GetDegree();
-        } catch ( err ) {
-            dot = getdot( dot );
-            return dot.GetDegree();
-        }
+        return KaryGraph.API.AbstractionLayer.DotByDotOrId( dot ).GetDegree( );
     }
 
 //
