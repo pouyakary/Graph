@@ -91,14 +91,11 @@
 // ─── DISCONNECT ─────────────────────────────────────────────────────────────────
 //
 
-    function disconnect( a: any, b: any ): boolean {
-        try {
-            return a.DisconnectFrom( b );
-        } catch ( err ) {
-            let d1 = getdot( a );
-            let d2 = getdot( b );
-            return d1.DisconnectFrom( d2 );
-        }
+    function disconnect( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, 
+                         b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
+        let d1 = KaryGraph.API.AbstractionLayer.DotByDotOrId( a );
+        let d2 = KaryGraph.API.AbstractionLayer.DotByDotOrId( b );
+        return d1.DisconnectFrom( d2 );
     }
 
 //
