@@ -14,14 +14,14 @@
 module KaryGraph.API.AbstractionLayer {
 
     //
-	// ─── TYPES ──────────────────────────────────────────────────────────────────────
-	//
+    // ─── TYPES ──────────────────────────────────────────────────────────────────────
+    //
 
         export type DotObjectOrDotID = Dot | number;
 
     //
-	// ─── DOT BY DOT OR ID ───────────────────────────────────────────────────────────
-	//
+    // ─── DOT BY DOT OR ID ───────────────────────────────────────────────────────────
+    //
 
         export function GetDotByDotOrId( dotOrId: DotObjectOrDotID ): Dot {
             if ( typeof ( dotOrId ) === "number" ) {
@@ -32,8 +32,8 @@ module KaryGraph.API.AbstractionLayer {
         }
 
     //
-	// ─── ADD NEW DOT ────────────────────────────────────────────────────────────────
-	//
+    // ─── ADD NEW DOT ────────────────────────────────────────────────────────────────
+    //
 
         /**
          * Generates a new random dot on the screen
@@ -45,8 +45,8 @@ module KaryGraph.API.AbstractionLayer {
         }
 
     //
-	// ─── GET DOT BY NUMBER ID ───────────────────────────────────────────────────────
-	//
+    // ─── GET DOT BY NUMBER ID ───────────────────────────────────────────────────────
+    //
 
         export function GetDotByNumberId( numberId: number ): Dot {
             let dot: Dot;
@@ -61,8 +61,8 @@ module KaryGraph.API.AbstractionLayer {
         }
 
     //
-	// ─── GET NUMBER OF VERTICES WITH ODD DEGREE ─────────────────────────────────────
-	//
+    // ─── GET NUMBER OF VERTICES WITH ODD DEGREE ─────────────────────────────────────
+    //
 
         export function NumberOfOddVertices( ): number {
             var verticesWithOddDegree: number = 0;
@@ -74,8 +74,8 @@ module KaryGraph.API.AbstractionLayer {
         }
 
     //
-	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
-	//
+    // ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
+    //
 
         export function Reset( ) {
             Dot.ResetNumberIdPlace( );
@@ -104,8 +104,8 @@ module KaryGraph.API.AbstractionLayer {
         }
 
     //
-	// ─── RENDERING ──────────────────────────────────────────────────────────────────
-	//
+    // ─── RENDERING ──────────────────────────────────────────────────────────────────
+    //
 
         export function Render( text: string ) {
             switch ( text ) {

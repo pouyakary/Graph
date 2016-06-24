@@ -29,8 +29,8 @@ module KaryGraph.UI.Toolbar {
         }
 
     //
-	// ─── CHANGE MODE BY ELEMENT ID ──────────────────────────────────────────────────
-	//
+    // ─── CHANGE MODE BY ELEMENT ID ──────────────────────────────────────────────────
+    //
 
         /** Changes the active mode to the one with ID */
         function ChangeModeByElementId( id: string ) {
@@ -50,9 +50,9 @@ module KaryGraph.UI.Toolbar {
             }
         }
 
-	//
-	// ─── ON TOOLBAR ICON HOVER ──────────────────────────────────────────────────────
-	//
+    //
+    // ─── ON TOOLBAR ICON HOVER ──────────────────────────────────────────────────────
+    //
 
         /** What happens after mouse on hower of toolbar icons */
         export function OnToolbarIconHover( id: string ) {
@@ -72,9 +72,9 @@ module KaryGraph.UI.Toolbar {
             }
         }
 
-	//
-	// ─── ICON CHANGE TO ACTIVE MODE ─────────────────────────────────────────────────
-	//
+    //
+    // ─── ICON CHANGE TO ACTIVE MODE ─────────────────────────────────────────────────
+    //
 
         /** Changes the active icon to the icon with 'id' */
         export function ChangeIconToActiveMode( id: string ) {
@@ -85,20 +85,20 @@ module KaryGraph.UI.Toolbar {
                 icon.classList.remove( ToolbarActiveIconClass );
             })
             document.getElementById( id ).classList.add( ToolbarActiveIconClass );
-        }    
+        }
 
     //
-	// ─── CLEAR STATUS ───────────────────────────────────────────────────────────────
-	//
+    // ─── CLEAR STATUS ───────────────────────────────────────────────────────────────
+    //
 
         /** Clears the satutsbar */
         export function ClearStuatus(  ) {
             document.getElementById( StatusbarId ).innerText = '';
         }
-    
-  	//
-	// ─── CHANGE STATUS TEXT ─────────────────────────────────────────────────────────
-	//
+
+    //
+    // ─── CHANGE STATUS TEXT ─────────────────────────────────────────────────────────
+    //
 
         /** Changes the status bar text to the provided text */
         function ChangeStatusTo( text: string ) {
@@ -106,15 +106,15 @@ module KaryGraph.UI.Toolbar {
         }
 
     //
-	// ─── FOR EACH ICON DO ───────────────────────────────────────────────────────────
-	//
+    // ─── FOR EACH ICON DO ───────────────────────────────────────────────────────────
+    //
 
         /** Applies a function to all icons */
         function ForEachIconDo( func: Function ) {
             // icons
-            var icons = [ 
-                ToolbarIconMove,    ToolbarIconRemove, 
-                ToolbarIconEdit ,   ToolbarIconSelect 
+            var icons = [
+                ToolbarIconMove,    ToolbarIconRemove,
+                ToolbarIconEdit ,   ToolbarIconSelect
             ];
             // for each 
             icons.forEach( iconId => {

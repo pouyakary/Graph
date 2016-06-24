@@ -7,8 +7,8 @@
 module KaryGraph.Rendering {
 
     //
-	// ─── SPIRAL RENDERING ───────────────────────────────────────────────────────────
-	//
+    // ─── SPIRAL RENDERING ───────────────────────────────────────────────────────────
+    //
 
         /** Rearrange dots in a spiral way */
         export function RenderSpiral( ) {

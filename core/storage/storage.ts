@@ -10,8 +10,8 @@
 module KaryGraph.Storage {
 
     //
-	// ─── CONNECTIONS ────────────────────────────────────────────────────────────────
-	//
+    // ─── CONNECTIONS ────────────────────────────────────────────────────────────────
+    //
 
         /** Connection Key */
         export type ConnectionKey = [ string, string ];
@@ -35,12 +35,12 @@ module KaryGraph.Storage {
         }
 
     //
-	// ─── NODES ──────────────────────────────────────────────────────────────────────
-	//
+    // ─── NODES ──────────────────────────────────────────────────────────────────────
+    //
 
         /** Contains all the dot objects assosiated to their ids. */
-        export var Nodes: Object;
+        export var Nodes: Object = { };
 
     // ────────────────────────────────────────────────────────────────────────────────
-     
+
 }

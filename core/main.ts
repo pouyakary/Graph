@@ -10,16 +10,16 @@
 module KaryGraph {
 
     //
-	// ─── INIT ───────────────────────────────────────────────────────────────────────
-	//
+    // ─── INIT ───────────────────────────────────────────────────────────────────────
+    //
 
         /** What starts the code when it starts. */
         export function INIT ( ) {
-            // init 
+            // init
             InitScreenInformation( );
             UI.Programmer.INIT();
-            // creating a demo graph 
-            API.StandardLibrary.CreateCompleteGraph( 20 );
+            // creating a demo graph
+            API.StandardLibrary.CreateCompleteGraph( 5 );
             Rendering.RenderCircluar();
         }
 

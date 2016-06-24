@@ -10,8 +10,8 @@
 module KaryGraph.UI.Programmer {
 
     //
-	// ─── DEFS ───────────────────────────────────────────────────────────────────────
-	//
+    // ─── DEFS ───────────────────────────────────────────────────────────────────────
+    //
 
         /** The main notebook view */
         var notebook: HTMLDivElement;
@@ -23,14 +23,14 @@ module KaryGraph.UI.Programmer {
         var promptInput: HTMLInputElement;
 
     //
-	// ─── WRAPPERS ───────────────────────────────────────────────────────────────────
-	//
+    // ─── WRAPPERS ───────────────────────────────────────────────────────────────────
+    //
 
         declare function PrismHighlight ( code: string ) : string;
 
     //
-	// ─── INIT NOTEBOOK ──────────────────────────────────────────────────────────────
-	//
+    // ─── INIT NOTEBOOK ──────────────────────────────────────────────────────────────
+    //
 
         /** Starts the notebook view at start. */
         export function INIT ( ) {
@@ -40,8 +40,8 @@ module KaryGraph.UI.Programmer {
         }
 
     //
-	// ─── RESTART SCREEN ─────────────────────────────────────────────────────────────
-	//
+    // ─── RESTART SCREEN ─────────────────────────────────────────────────────────────
+    //
 
         export function ClearNotebookScreen ( ) {
             ClearScreen( );
@@ -49,8 +49,8 @@ module KaryGraph.UI.Programmer {
         }
 
     //
-	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
-	//
+    // ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
+    //
 
         /** Cleans the screen of the notebook and restarts the code of the notebook*/
         function ClearScreen ( ) {
@@ -58,8 +58,8 @@ module KaryGraph.UI.Programmer {
         }
 
     //
-	// ─── START PROMPT ───────────────────────────────────────────────────────────────
-	//
+    // ─── START PROMPT ───────────────────────────────────────────────────────────────
+    //
 
         /** Initilizes a prompt into the notebook */
         function StartPrompt( ) {
@@ -68,8 +68,8 @@ module KaryGraph.UI.Programmer {
         }
 
     //
-	// ─── CREATE PROMPT ──────────────────────────────────────────────────────────────
-	//
+    // ─── CREATE PROMPT ──────────────────────────────────────────────────────────────
+    //
 
         /** Creates the coresponding object that presents the prompt. */
         function CreateThePrompt ( ) {
@@ -85,8 +85,8 @@ module KaryGraph.UI.Programmer {
         }
     
     //
-	// ─── ON PROMPT ENTER ────────────────────────────────────────────────────────────
-	//
+    // ─── ON PROMPT ENTER ────────────────────────────────────────────────────────────
+    //
 
         /** Starts when the enter key is pressed on the input  */
         function OnPromptEnterClicked( ev: KeyboardEvent ) {
@@ -101,8 +101,8 @@ module KaryGraph.UI.Programmer {
         }
 
     //
-	// ─── APPEND ROW ─────────────────────────────────────────────────────────────────
-	//
+    // ─── APPEND ROW ─────────────────────────────────────────────────────────────────
+    //
 
         function AppendRow( html: string ) {
             let row = document.createElement('div');
@@ -112,8 +112,8 @@ module KaryGraph.UI.Programmer {
         }
 
     //
-	// ─── FETCH AND RESET INPUT VALUE ────────────────────────────────────────────────
-	//
+    // ─── FETCH AND RESET INPUT VALUE ────────────────────────────────────────────────
+    //
         
         /** Fetchs and resets the input box value */
         function FetchAndResetInput( ): string {
@@ -123,8 +123,8 @@ module KaryGraph.UI.Programmer {
         }
 
     //
-	// ─── GENERATE ROW ───────────────────────────────────────────────────────────────
-	//
+    // ─── GENERATE ROW ───────────────────────────────────────────────────────────────
+    //
 
         function GenerateResultRowHTML ( code: string, result: string ): string {
             let highlightedCode = PrismHighlight( code );
@@ -132,8 +132,8 @@ module KaryGraph.UI.Programmer {
         }
 
     //
-	// ─── RUN AND GENERATE RESULTS ───────────────────────────────────────────────────
-	//
+    // ─── RUN AND GENERATE RESULTS ───────────────────────────────────────────────────
+    //
 
         function RunAndGenerateResults( code: string ) {
             let runResults = KaryGraph.ScriptEngine.Run( code );
@@ -145,5 +145,5 @@ module KaryGraph.UI.Programmer {
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
-    
+
 }

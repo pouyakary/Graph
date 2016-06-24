@@ -7,8 +7,8 @@
 module KaryGraph.Rendering {
 
     //
-	// ─── CIRCULAR RENDERING ─────────────────────────────────────────────────────────
-	//
+    // ─── CIRCULAR RENDERING ─────────────────────────────────────────────────────────
+    //
 
         /** Rearanges the dots in a circular way */
         export function RenderCircluar( ) {
@@ -37,16 +37,16 @@ module KaryGraph.Rendering {
         }
 
     //
-	// ─── GET RADIUS ─────────────────────────────────────────────────────────────────
-	//
+    // ─── GET RADIUS ─────────────────────────────────────────────────────────────────
+    //
 
         function GetRadius( ): number {
             return 0.35 * Math.min( GraphHeight, GraphWidth );
         }
 
     //
-	// ─── TO RADIANS ─────────────────────────────────────────────────────────────────
-	//
+    // ─── TO RADIANS ─────────────────────────────────────────────────────────────────
+    //
 
         /** Converts degrees to radians */
         function ToRadians ( angle: number ) {

@@ -7,15 +7,15 @@
 module KaryGraph.ScriptEngine {
 
     //
-	// ─── STATUS VARS ────────────────────────────────────────────────────────────────
-	//
+    // ─── STATUS VARS ────────────────────────────────────────────────────────────────
+    //
 
         /** Shows the status of runtime, good run or bad run. */
         export var RunStatus: boolean = true;
 
     //
-	// ─── RUNNER ─────────────────────────────────────────────────────────────────────
-	//
+    // ─── RUNNER ─────────────────────────────────────────────────────────────────────
+    //
 
         /** 
          * Runs a js code a returns the ***evaluation***, and then sets 

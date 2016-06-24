@@ -7,8 +7,8 @@
 module KaryGraph {
 
     //
-	// ─── DRAG MOVE FUNCTION LIST ────────────────────────────────────────────────────
-	//
+    // ─── DRAG MOVE FUNCTION LIST ────────────────────────────────────────────────────
+    //
 
         export const DragMoveFunctions = [
             DragModeFunctionMoveMode,
@@ -18,10 +18,11 @@ module KaryGraph {
         ];
 
     //
-	// ─── DRAG MOVE - MOVE MODE ──────────────────────────────────────────────────────
-	//
+    // ─── DRAG MOVE - MOVE MODE ──────────────────────────────────────────────────────
+    //
 
-        export function DragModeFunctionMoveMode( circle: ISnapObject, dx: number, dy: number, posx: number, posy: number ) {
+        export function DragModeFunctionMoveMode( circle: ISnapObject, dx: number, 
+                                                  dy: number, posx: number, posy: number ) {
             posy -= GraphMarginTop;
             ( <Dot> Storage.Nodes[ circle.id ] ).MoveTo( posx , posy );
         }
@@ -30,15 +31,17 @@ module KaryGraph {
 	// ─── DRAG MOVE - REMOVE MODE ────────────────────────────────────────────────────
 	//
 
-        export function DragModeFunctionRemoveMode( circle: ISnapObject, dx: number, dy: number, posx: number, posy: number ) {
+        export function DragModeFunctionRemoveMode( circle: ISnapObject, dx: number, 
+                                                    dy: number, posx: number, posy: number ) {
             
         }
 
     //
-	// ─── DRAG MOVE - EDIT MOVE ──────────────────────────────────────────────────────
-	//
+    // ─── DRAG MOVE - EDIT MOVE ──────────────────────────────────────────────────────
+    //
 
-        export function DragModeFunctionEditMode( circle: ISnapObject, dx: number, dy: number, posx: number, posy: number ) {
+        export function DragModeFunctionEditMode( circle: ISnapObject, dx: number, 
+                                                  dy: number, posx: number, posy: number ) {
             
         }
 
@@ -46,7 +49,8 @@ module KaryGraph {
 	// ─── DRAG MOVE - SELECT MOVE ────────────────────────────────────────────────────
 	//
 
-        export function DragModeFunctionSelectMode( circle: ISnapObject, dx: number, dy: number, posx: number, posy: number ) {
+        export function DragModeFunctionSelectMode( circle: ISnapObject, dx: number, 
+                                                    dy: number, posx: number, posy: number ) {
             
         }
 

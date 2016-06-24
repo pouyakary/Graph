@@ -8,14 +8,14 @@ module KaryGraph.API.StandardLibrary.Algorithms {
 
     //
     // ─── BFS ────────────────────────────────────────────────────────────────────────
-  	//
+    //
 
 
         export function BFS( start:Dot, steps:number ){
             let bfs = new Array<Array<Dot>>( );
             let checked = new Array<Boolean>( );
-            for ( let it = 0; it < KaryGraph.Dot.TotalDots ; it++ ) { 
-                checked.push( false ); 
+            for ( let it = 0; it < KaryGraph.Dot.TotalDots ; it++ ) {
+                checked.push( false );
             }
             let step = 0;
             bfs.push( [ start ] );

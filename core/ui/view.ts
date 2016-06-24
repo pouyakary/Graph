@@ -11,7 +11,7 @@ module KaryGraph {
     // ─── GRAPH ──────────────────────────────────────────────────────────────────────
     //
 
-        /** 
+        /**
          * Main ***memory*** containing the graph. Designed in a MVVC model in mind 
          * structure of this any type is:
          * ```
@@ -21,7 +21,7 @@ module KaryGraph {
          * ```
          */
         export var Graph: any;
-        
+
     //
     // ─── PAPER ──────────────────────────────────────────────────────────────────────
     //
@@ -41,8 +41,8 @@ module KaryGraph {
         export var GraphMarginTop: number;
 
     //
-	// ─── GROUPS ─────────────────────────────────────────────────────────────────────
-	//
+    // ─── GROUPS ─────────────────────────────────────────────────────────────────────
+    //
 
         /** Where the lines are stored within the paper */
         export var GraphLines: ISnapGroup;
@@ -50,11 +50,11 @@ module KaryGraph {
         /** Where the circles are stored within the paper */
         export var GraphCircles: ISnapGroup;
 
-	//
-	// ─── INIT WINDOW SIZES ──────────────────────────────────────────────────────────
-	//
+    //
+    // ─── INIT WINDOW SIZES ──────────────────────────────────────────────────────────
+    //
 
-        /** 
+        /**
          * At the *start* of the windw, this function initilizes the window 
          * properties.
          */
@@ -79,10 +79,10 @@ module KaryGraph {
             GraphMarginTop = paperObject.getBoundingClientRect().top;
         }
 
-	//
-	// ─── SCREEN CLICK EVENTS ────────────────────────────────────────────────────────
-	//
+    //
+    // ─── SCREEN CLICK EVENTS ────────────────────────────────────────────────────────
+    //
 
     // ────────────────────────────────────────────────────────────────────────────────
-    
+
 }

@@ -8,7 +8,7 @@ module KaryGraph.API.StandardLibrary.Sortings {
 
     //
     // ─── CLASSIC TREE ───────────────────────────────────────────────────────
-  	//
+    //
 
         export function Tree( ): boolean {
 
