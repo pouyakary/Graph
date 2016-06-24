@@ -60,13 +60,7 @@ module KaryGraph {
                     this.CreateLineObject( );
 
                     // registering self
-                    Storage.Connections.set(
-                        [
-                            this.StartDot.Id,
-                            this.EndDot.Id
-                        ],
-                        this
-                    );
+                    Storage.Connections[ this.StartDot.Id + this.EndDot.Id ] = this;
                 }
 
             //

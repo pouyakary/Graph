@@ -186,14 +186,14 @@ module KaryGraph {
 
                 /** Disconnects input dot */
                 private DisconnectInput( dot: Dot ) {
-                    Storage.RemoveVertex( dot , this );
+                    delete Storage.Connections[ dot.Id + this.Id ];
                     delete dot.Outputs[ this.Id ];
                     delete this.Inputs[ dot.Id ];
                 }
 
                 /** Disconnects output dot */
                 private DisconnectOutput( dot: Dot ) {
-                    Storage.RemoveVertex( this , dot );
+                    delete Storage.Connections[ this.Id + dot.Id ];
                     delete dot.Inputs[ this.Id ];
                     delete this.Outputs[ dot.Id ];
                 }
@@ -206,6 +206,7 @@ module KaryGraph {
                  * Applis a funnction to a set of ***connections***
                  * (`this.Inputs` / `this.Outputs`)
                  */
+
                 public ForeachConnection( connections: any, func: ( connectionKey: string ) => void ) {
                     var keys = Object.keys( connections );
                     keys.forEach( connectionKey => {
@@ -221,7 +222,7 @@ module KaryGraph {
                 public ConnectTo( dotToBeConnected: Dot ) {
                     let vertex = new Vertex( this, dotToBeConnected );
                     this.Outputs.push( dotToBeConnected.Id );
-                    dotToBeConnected.Inputs.push( this.Id ); 
+                    dotToBeConnected.Inputs.push( this.Id );
                 }
 
             //
@@ -334,15 +335,15 @@ module KaryGraph {
 
                 /** Transforms the output connections when the dot is moved. */
                 private ApplyTransformationToOutputs( ) {
-                    this.ForeachConnection( this.Outputs , output => {
-                        Storage.Connections.get([ this , Storage.Nodes[ output ] ]).MoveStart( this.X, this.Y );
+                    this.Outputs.forEach( outputID => {
+                        Storage.Connections[ this.Id + outputID ].MoveStart( this.X, this.Y );
                     });
                 }
 
                 /** Transforms the input connections when the dot is moved. */
                 private ApplyTransformationToInputs( ) {
-                    this.ForeachConnection( this.Inputs , input => {
-                        Storage.GetVertex( Storage.Nodes[ input ], this ).MoveStart( this.X, this.Y );
+                    this.Inputs.forEach( inputID => {
+                        Storage.Connections[ inputID + this.Id ].MoveEnd( this.X, this.Y );
                     });
                 }
 
