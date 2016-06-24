@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "bower": "*",
-    "codemirror": "^5.15.2",
     "electron-prebuilt": "1.2.3",
     "fs-extra": "0.30.0",
     "gulp": "3.9.1",

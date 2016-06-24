@@ -45,16 +45,20 @@ module KaryGraph {
 			//
 
                 constructor ( startDot: Dot, endDot: Dot ) {
+
                     // start
                     this.StartDot = startDot;
                     this.StartX = startDot.X;
                     this.StratY = startDot.Y;
+
                     // end
                     this.EndDot = endDot;
                     this.EndX = endDot.X;
                     this.EndY = endDot.Y;
+
                     // init line object
                     this.CreateLineObject( );
+
                     // registering self
                     Storage.Connections.set( 
                         [ 

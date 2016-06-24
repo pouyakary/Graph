@@ -19,6 +19,21 @@ module KaryGraph.Storage {
         /** Contains all the vector objects assosiated to their ids. */
         export var Connections = new Map<ConnectionKey,Vertex> ( );
 
+        /** Register vertex */
+        export function RegisterVertex( dot1: Dot, dot2: Dot, vertex: Vertex ) {
+            Connections.set( [ dot1.Id, dot2.Id ] , vertex );
+        }
+
+        /** RemoveVertex */
+        export function RemoveVertex( dot1: Dot, dot2: Dot ) {
+            Connections.delete( [ dot1.Id , dot2.Id ] );
+        }
+
+        /** Get Vertex */
+        export function GetVertex( dot1: Dot, dot2: Dot ): Vertex {
+            return Connections.get( [ dot1.Id , dot2.Id ] );
+        }
+
     //
 	// ─── NODES ──────────────────────────────────────────────────────────────────────
 	//

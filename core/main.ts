@@ -15,12 +15,10 @@ module KaryGraph {
 
         /** What starts the code when it starts. */
         export function INIT ( ) {
+            // init 
             InitScreenInformation( );
             UI.Programmer.INIT();
-
-            //Dot.DisplayNumberLabels = false;
-            // var selection = new SelectionBox( 800, 100 );
-
+            // creating a demo graph 
             API.StandardLibrary.CreateCompleteGraph( 20 );
             Rendering.RenderCircluar();
         }

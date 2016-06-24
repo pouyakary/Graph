@@ -47,7 +47,7 @@ module KaryGraph {
                  *    **Connected Dot Id** : ***Snap Line Object***
                  * }
                  */
-                private Inputs: Object;
+                private Inputs: Array<string>;
 
                 /**
                  * Keeps the Outputs of the dot
@@ -55,7 +55,7 @@ module KaryGraph {
                  *    **Connected Dot Id** : ***Snap Line Object***
                  * }
                  */
-                private Outputs: Object;
+                private Outputs: Array<string>;
 
                 /**
                  * X Coordinates of the dot
@@ -102,8 +102,8 @@ module KaryGraph {
                         this.SnapNumberLabel = this.CreateNumberLabel();
 
                     // inputs and outputs
-                    this.Inputs = { };
-                    this.Outputs = { };
+                    this.Inputs = new Array<string> ( );
+                    this.Outputs = new Array<string> ( );
 
                     // Adding self to the Graph 
                     Storage.Nodes[ this.Id ] = this;
@@ -220,25 +220,10 @@ module KaryGraph {
 			//
 
                 /** Connects a ***Dot*** object  */
-                public ConnectTo( dotToBeConnected: Dot ): boolean {
-
-                    // Is that already a connection?
-                    if ( this.Outputs[ dotToBeConnected.Id ] != undefined ) {
-                        return false;
-                    }
-
-                    // the line
-                    let line = Line.CreateLineBetweenDots( this, dotToBeConnected );
-                    GraphLines.add( line );
-
-                    // connecting to self
-                    this.Outputs[ dotToBeConnected.Id ] = line;
-
-                    // connecting to dest
-                    dotToBeConnected.Inputs[ this.Id ] = line;
-
-                    // done
-                    return true;
+                public ConnectTo( dotToBeConnected: Dot ) {
+                    let vertex = new Vertex( this, dotToBeConnected );
+                    this.Inputs.push( dotToBeConnected.Id );
+                    dotToBeConnected.Outputs.push( vertex.Id ); 
                 }
 
 			//
