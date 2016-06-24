@@ -17,9 +17,9 @@ module KaryGraph.ScriptEngine {
     // ─── RUNNER ─────────────────────────────────────────────────────────────────────
     //
 
-        /** 
-         * Runs a js code a returns the ***evaluation***, and then sets 
-         * the ***run status*** to what true or false based on if it 
+        /**
+         * Runs a js code a returns the ***evaluation***, and then sets
+         * the ***run status*** to what true or false based on if it
          * was with success or not.
          */
 
