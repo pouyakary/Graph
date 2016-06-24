@@ -76,7 +76,7 @@
         for ( var i = 1; i < args.length; i++ ) {
             let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i - 1 ] );
             let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i ] );
-            result = d1.ConnectTo( d2 );
+            d1.ConnectTo( d2 );
         }
         return result;
     }
@@ -90,7 +90,7 @@
         for ( var i = 1; i < args.length; i++ ) {
             let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ 0 ] );
             let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i ] );
-            result = d1.ConnectTo( d2 );
+            d1.ConnectTo( d2 );
         }
         return result;
     }
