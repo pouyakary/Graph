@@ -30,7 +30,7 @@ module KaryGraph {
     //
 
         export function DragStopFunctionRemoveMode( circle: ISnapObject ) {
-            
+
         }
 
     //
@@ -38,7 +38,7 @@ module KaryGraph {
     //
 
         export function DragStopFunctionEditMode( circle: ISnapObject ) {
-            
+
         }
 
     //
@@ -46,7 +46,7 @@ module KaryGraph {
     //
 
         export function DragStopFunctionSelectMode( circle: ISnapObject ) {
-            
+
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

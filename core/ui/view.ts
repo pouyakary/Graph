@@ -12,8 +12,8 @@ module KaryGraph {
     //
 
         /**
-         * Main ***memory*** containing the graph. Designed in a MVVC model in mind 
-         * structure of this any type is:
+         * Main ***memory*** containing the graph. Designed in
+         * a MVVC model in mind structure of this any type is:
          * ```
          * Graph = {
          *    DotObjectId : Dot
@@ -27,7 +27,8 @@ module KaryGraph {
     //
 
         /**
-         * The **main** view, a ***Snap SVG Paper*** contatining the whole model.
+         * The **main** view, a ***Snap SVG Paper*** contatining 
+         * the whole model.
          */
         export var GraphView: Paper;
 
@@ -55,8 +56,8 @@ module KaryGraph {
     //
 
         /**
-         * At the *start* of the windw, this function initilizes the window 
-         * properties.
+         * At the *start* of the windw, this function initilizes 
+         * the window properties.
          */
         export function InitScreenInformation ( ) {
 
