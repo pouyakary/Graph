@@ -7,14 +7,14 @@
 module KaryGraph {
 
     //
-	// ─── VERTEX CLASS ───────────────────────────────────────────────────────────────
-	//
+    // ─── VERTEX CLASS ───────────────────────────────────────────────────────────────
+    //
 
         export class Vertex {
 
             //
-			// ─── VARIABLES ──────────────────────────────────────────────
-			//
+            // ─── VARIABLES ──────────────────────────────────────────────
+            //
 
                 /** Unique id of the object */
                 public Id: string;
@@ -41,8 +41,8 @@ module KaryGraph {
                 private EndY: number;
 
             //
-			// ─── CONSTRUCTOR ────────────────────────────────────────────
-			//
+            // ─── CONSTRUCTOR ────────────────────────────────────────────
+            //
 
                 constructor ( startDot: Dot, endDot: Dot ) {
 
@@ -60,18 +60,18 @@ module KaryGraph {
                     this.CreateLineObject( );
 
                     // registering self
-                    Storage.Connections.set( 
+                    Storage.Connections.set(
                         [ 
-                            this.StartDot.Id, 
-                            this.EndDot.Id 
-                        ], 
-                        this 
+                            this.StartDot.Id,
+                            this.EndDot.Id
+                        ],
+                        this
                     );
                 }
 
             //
-			// ─── REMOVER ────────────────────────────────────────────────
-			//
+            // ─── REMOVER ────────────────────────────────────────────────
+            //
 
                 public Remove ( ) {
                     this.LineObject.remove( );
@@ -79,18 +79,18 @@ module KaryGraph {
                 }
             
             //
-			// ─── CREATE LINE OBJECT ─────────────────────────────────────
-			//
+            // ─── CREATE LINE OBJECT ─────────────────────────────────────
+            //
 
                 /** Inits the line object for representing the object */
                 private CreateLineObject ( ) {
-                    this.LineObject = <ISnapObject> GraphView.line( 
+                    this.LineObject = <ISnapObject> GraphView.line(
                         this.StartX,
                         this.StratY,
                         this.EndX,
                         this.EndY
                     );
-	                this.LineObject.attr({
+                    this.LineObject.attr({
                         stroke: GraphColor,
                         strokeWidth: LineWidth
                     });
@@ -98,8 +98,8 @@ module KaryGraph {
                 }
 
             //
-			// ─── MOVE START ─────────────────────────────────────────────
-			//
+            // ─── MOVE START ─────────────────────────────────────────────
+            //
 
                 /** Moves the start of the line to _x_ and _y_ */
                 public MoveStart ( x: number, y: number ) {
@@ -111,8 +111,8 @@ module KaryGraph {
                 }
 
             //
-			// ─── MOVE END ───────────────────────────────────────────────
-			//
+            // ─── MOVE END ───────────────────────────────────────────────
+            //
 
                 /** Moves the end of the line to _x_ and _y_ */
                 public MoveEnd ( x: number, y: number ) {

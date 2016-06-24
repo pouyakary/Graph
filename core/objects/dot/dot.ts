@@ -14,17 +14,17 @@ module KaryGraph {
         export class Dot {
 
             //
-			// ─── GLOBALS ────────────────────────────────────────────────
-			//
+            // ─── GLOBALS ────────────────────────────────────────────────
+            //
 
                 /** For counting how many nodes are created. */
                 static TotalDots : number = 0;
 
                 static DisplayNumberLabels : boolean = true;
 
-			//
-			// ─── DEFS ───────────────────────────────────────────────────
-			//
+            //
+            // ─── DEFS ───────────────────────────────────────────────────
+            //
 
                 /** To be used as the hash key in dictionaries */
                 public Id: string;
@@ -75,9 +75,9 @@ module KaryGraph {
                 /** Optional label of the dot */
                 private Label: string;
 
-			//
-			// ─── CONSTRUCTOR ────────────────────────────────────────────
-			//
+            //
+            // ─── CONSTRUCTOR ────────────────────────────────────────────
+            //
 
                 constructor ( x: number, y: number ) {
 
@@ -110,24 +110,24 @@ module KaryGraph {
                 }
 
             //
-			// ─── GET NUMBER ID ──────────────────────────────────────────
-			//
+            // ─── GET NUMBER ID ──────────────────────────────────────────
+            //
 
                 public GetNumberId( ): number {
                     return this.NumeberId;
                 }
 
             //
-			// ─── RESET TOTAL DOTS ───────────────────────────────────────
-			//
+            // ─── RESET TOTAL DOTS ───────────────────────────────────────
+            //
 
                 public static ResetNumberIdPlace( ) {
                     Dot.TotalDots = 0;
                 }
 
             //
-			// ─── REMOVER ────────────────────────────────────────────────
-			//
+            // ─── REMOVER ────────────────────────────────────────────────
+            //
 
                 /**
                  * Deconstructs the class. Remove the connections
@@ -151,8 +151,8 @@ module KaryGraph {
                 }
 
             //
-			// ─── CONNECTION REMOVERS ────────────────────────────────────
-			//
+            // ─── CONNECTION REMOVERS ────────────────────────────────────
+            //
 
                 /** Removes a input connection and lines of the dot */
                 public RemoveInputConnection( ) {
@@ -169,8 +169,8 @@ module KaryGraph {
                 }
 
             //
-			// ─── DISCONNECT FROM ────────────────────────────────────────
-			//
+            // ─── DISCONNECT FROM ────────────────────────────────────────
+            //
 
                 /** Disconnect dot from Dot */
                 public DisconnectFrom( dot: Dot ): boolean {
@@ -186,23 +186,21 @@ module KaryGraph {
 
                 /** Disconnects input dot */
                 private DisconnectInput( dot: Dot ) {
-                    var connectionLine = <ISnapObject> this.Inputs[ dot.Id ];
-                    connectionLine.remove( ); 
+                    Storage.RemoveVertex( dot , this );
                     delete dot.Outputs[ this.Id ];
                     delete this.Inputs[ dot.Id ];
                 }
 
                 /** Disconnects output dot */
                 private DisconnectOutput( dot: Dot ) {
-                    var connectionLine = <ISnapObject> this.Outputs[ dot.Id ];
-                    connectionLine.remove( );
+                    Storage.RemoveVertex( this , dot );
                     delete dot.Inputs[ this.Id ];
                     delete this.Outputs[ dot.Id ];
                 }
 
             //
-			// ─── FOR EACH CONNECTION DO ─────────────────────────────────
-			//
+            // ─── FOR EACH CONNECTION DO ─────────────────────────────────
+            //
 
                 /**
                  * Applis a funnction to a set of ***connections***
@@ -215,51 +213,49 @@ module KaryGraph {
                     });
                 }
 
-			//
-			// ─── CONNECT TO ─────────────────────────────────────────────
-			//
+            //
+            // ─── CONNECT TO ─────────────────────────────────────────────
+            //
 
                 /** Connects a ***Dot*** object  */
                 public ConnectTo( dotToBeConnected: Dot ) {
                     let vertex = new Vertex( this, dotToBeConnected );
-                    this.Inputs.push( dotToBeConnected.Id );
-                    dotToBeConnected.Outputs.push( vertex.Id ); 
+                    this.Outputs.push( dotToBeConnected.Id );
+                    dotToBeConnected.Inputs.push( this.Id ); 
                 }
 
-			//
-			// ─── CHECK IF CONNECTED TO ──────────────────────────────────
-			//
+            //
+            // ─── CHECK IF CONNECTED TO ──────────────────────────────────
+            //
 
                 public IsConnectedTo( dot: Dot ): boolean {
-
                     if ( this.Outputs[ dot.Id ] != undefined ) {
                         return true;
                     } else if ( this.Inputs[ dot.Id ] != undefined ) {
                         return true;
                     }
-
                     return false;
                 }
 
-			//
-			// ─── NUMBER OF INPUTS ───────────────────────────────────────
-			//
+            //
+            // ─── NUMBER OF INPUTS ───────────────────────────────────────
+            //
 
                 public NumberOfInputs( ): number {
                     return Object.keys( this.Inputs ).length;
                 }
 
-			//
-			// ─── NUMBER OF INPUTS ───────────────────────────────────────
-			//
+            //
+            // ─── NUMBER OF INPUTS ───────────────────────────────────────
+            //
 
                 public NumberOfOutputs( ): number {
                     return Object.keys( this.Outputs ).length;
                 }
 
-			//
-			// ─── GET ALL CHILDREN ───────────────────────────────────────
-			//
+            //
+            // ─── GET ALL CHILDREN ───────────────────────────────────────
+            //
 
                 public GetChildren( ids?: number[] ): any {
                     if ( !ids ) var ids: number[] = [];
@@ -282,17 +278,17 @@ module KaryGraph {
                     return map;
                 }
 
-			//
-			// ─── DEGREE OF VERTEX ───────────────────────────────────────
-			//
+            //
+            // ─── DEGREE OF VERTEX ───────────────────────────────────────
+            //
 
                 public GetDegree( ): number {
                     return this.NumberOfInputs() + this.NumberOfOutputs();
                 }
 
-			//
-			// ─── GET NEIGHBORS ──────────────────────────────────────────
-			//
+            //
+            // ─── GET NEIGHBORS ──────────────────────────────────────────
+            //
 
                 public GetNeighbors( ): KaryGraph.Dot[] {
 
@@ -317,9 +313,9 @@ module KaryGraph {
                     return neighbors;
                 }
 
-			//
-			// ─── MOVE TO ────────────────────────────────────────────────
-			//
+            //
+            // ─── MOVE TO ────────────────────────────────────────────────
+            //
 
                 /**
                  * Moves the coordinations of the object.
@@ -338,27 +334,21 @@ module KaryGraph {
 
                 /** Transforms the output connections when the dot is moved. */
                 private ApplyTransformationToOutputs( ) {
-                    this.ForeachConnection( this.Outputs , key => {
-                        ( <ISnapObject> this.Outputs[ key ] ).attr({
-                            x1: this.X,
-                            y1: this.Y
-                        });
+                    this.ForeachConnection( this.Outputs , output => {
+                        Storage.Connections.get([ this , Storage.Nodes[ output ] ]).MoveStart( this.X, this.Y );
                     });
                 }
 
                 /** Transforms the input connections when the dot is moved. */
                 private ApplyTransformationToInputs( ) {
-                    this.ForeachConnection( this.Inputs , key => {
-                        ( <ISnapObject> this.Inputs[ key ] ).attr({
-                            x2: this.X,
-                            y2: this.Y
-                        });
+                    this.ForeachConnection( this.Inputs , input => {
+                        Storage.GetVertex( Storage.Nodes[ input ], this ).MoveStart( this.X, this.Y );
                     });
                 }
 
             //
-			// ─── INIT LABEL ─────────────────────────────────────────────
-			//
+            // ─── INIT LABEL ─────────────────────────────────────────────
+            //
 
                 /** Creates a Snap Label object to present the graph node number */
                 private CreateNumberLabel ( ) : ISnapObject {
@@ -375,8 +365,8 @@ module KaryGraph {
                 }
 
             //
-			// ─── MOVE NUMBER LABEL ──────────────────────────────────────
-			//
+            // ─── MOVE NUMBER LABEL ──────────────────────────────────────
+            //
 
                 /** Moves the Number Label when the dot is moved */
                 private MoveNumberLabel ( ) {
@@ -388,7 +378,7 @@ module KaryGraph {
                     }
                 }
 
-			// ────────────────────────────────────────────────────────────
+            // ────────────────────────────────────────────────────────────
 
         }
 

@@ -7,16 +7,16 @@
 module KaryGraph.API.StandardLibrary {
 
     //
-	// ─── RND ────────────────────────────────────────────────────────────────────────
-	//
+    // ─── RND ────────────────────────────────────────────────────────────────────────
+    //
 
         export function RND( ) {
-            
+
         }
 
     //
-	// ─── COMPLETE GRAPH ─────────────────────────────────────────────────────────────
-	//
+    // ─── COMPLETE GRAPH ─────────────────────────────────────────────────────────────
+    //
 
         export function CreateCompleteGraph( size: number ) {
             let keys = new Array<string>( );
