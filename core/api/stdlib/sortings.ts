@@ -8,18 +8,18 @@ module KaryGraph.API.StandardLibrary.Sortings {
 
     //
     // ─── CLASSIC TREE ───────────────────────────────────────────────────────
-  	//
+    //
 
         export function Tree( ): boolean {
 
             // vars
             var map = new Map( );
-            var keys = Object.keys( Graph );
+            var keys = Object.keys( Storage.Nodes );
             var layers: number = 0;
 
             // create tree map
             keys.forEach( key => {
-                var dot = <Dot> Graph[ key ];
+                var dot = <Dot> Storage.Nodes[ key ];
                 if ( dot.NumberOfInputs( ) == 0 ) {
                     var children = dot.GetChildren( );
                     if ( children == -1 ) return false;

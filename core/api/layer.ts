@@ -14,14 +14,14 @@
 module KaryGraph.API.AbstractionLayer {
 
     //
-	// ─── TYPES ──────────────────────────────────────────────────────────────────────
-	//
+    // ─── TYPES ──────────────────────────────────────────────────────────────────────
+    //
 
         export type DotObjectOrDotID = Dot | number;
 
     //
-	// ─── DOT BY DOT OR ID ───────────────────────────────────────────────────────────
-	//
+    // ─── DOT BY DOT OR ID ───────────────────────────────────────────────────────────
+    //
 
         export function GetDotByDotOrId( dotOrId: DotObjectOrDotID ): Dot {
             if ( typeof ( dotOrId ) === "number" ) {
@@ -31,10 +31,9 @@ module KaryGraph.API.AbstractionLayer {
             }
         }
 
-
     //
-	// ─── ADD NEW DOT ────────────────────────────────────────────────────────────────
-	//
+    // ─── ADD NEW DOT ────────────────────────────────────────────────────────────────
+    //
 
         /**
          * Generates a new random dot on the screen
@@ -46,15 +45,15 @@ module KaryGraph.API.AbstractionLayer {
         }
 
     //
-	// ─── GET DOT BY NUMBER ID ───────────────────────────────────────────────────────
-	//
+    // ─── GET DOT BY NUMBER ID ───────────────────────────────────────────────────────
+    //
 
         export function GetDotByNumberId( numberId: number ): Dot {
             let dot: Dot;
-            let keys = Object.keys( Graph );
+            let keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-                if ( ( <Dot> Graph[ key ] ).GetNumberId( ) == numberId ) {
-                    dot = Graph[ key ];
+                if ( ( <Dot> Storage.Nodes[ key ] ).GetNumberId( ) == numberId ) {
+                    dot = Storage.Nodes[ key ];
                     return;
                 }
             });
@@ -62,30 +61,30 @@ module KaryGraph.API.AbstractionLayer {
         }
 
     //
-	// ─── GET NUMBER OF VERTICES WITH ODD DEGREE ─────────────────────────────────────
-	//
+    // ─── GET NUMBER OF VERTICES WITH ODD DEGREE ─────────────────────────────────────
+    //
 
         export function NumberOfOddVertices( ): number {
             var verticesWithOddDegree: number = 0;
-            var keys = Object.keys( Graph );
+            var keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-              if ( ( <Dot> Graph[ key ] ).GetDegree() % 2 ) verticesWithOddDegree++;
+              if ( ( <Dot> Storage.Nodes[ key ] ).GetDegree() % 2 ) verticesWithOddDegree++;
             });
             return verticesWithOddDegree;
         }
 
     //
-	// ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
-	//
+    // ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
+    //
 
         export function Reset( ) {
             Dot.ResetNumberIdPlace( );
-            let keys = Object.keys( Graph );
+            let keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-                ( <Dot> Graph[ key ] ).Remove( );
+                ( <Dot> Storage.Nodes[ key ] ).Remove( );
             });
         }
-        
+
     //
     // ─── CREATE MATRIX OF GRAPH ────────────────────────────────────────────────────
     //
@@ -105,8 +104,8 @@ module KaryGraph.API.AbstractionLayer {
         }
 
     //
-	// ─── RENDERING ──────────────────────────────────────────────────────────────────
-	//
+    // ─── RENDERING ──────────────────────────────────────────────────────────────────
+    //
 
         export function Render( text: string ) {
             switch ( text ) {

@@ -7,16 +7,16 @@
 module KaryGraph.API.StandardLibrary {
 
     //
-	// ─── RND ────────────────────────────────────────────────────────────────────────
-	//
+    // ─── RND ────────────────────────────────────────────────────────────────────────
+    //
 
         export function RND( ) {
-            
+
         }
 
     //
-	// ─── COMPLETE GRAPH ─────────────────────────────────────────────────────────────
-	//
+    // ─── COMPLETE GRAPH ─────────────────────────────────────────────────────────────
+    //
 
         export function CreateCompleteGraph( size: number ) {
             let keys = new Array<string>( );
@@ -28,8 +28,8 @@ module KaryGraph.API.StandardLibrary {
             keys.forEach( key => {
                 for ( var index = 0; index < size; index++ ) {
                     var cdot = keys[ index ];
-                    if ( cdot != Graph[ key ] ) {
-                        Graph[ key ].ConnectTo( Graph[ keys[ index] ] );
+                    if ( cdot !== key ) {
+                        Storage.Nodes[ key ].ConnectTo( Storage.Nodes[ keys[ index] ] );
                     }
                 }
             });

@@ -26,18 +26,18 @@ module KaryGraph {
         }
 
     //
-	// ─── DRAG START - REMOVE MODE ───────────────────────────────────────────────────
-	//
+    // ─── DRAG START - REMOVE MODE ───────────────────────────────────────────────────
+    //
 
         export function DragStartFunctionRemoveMode( circle: ISnapObject ) {
-            var dot = ( <Dot> Graph[ circle.id ] );
+            var dot = ( <Dot> Storage.Nodes[ circle.id ] );
             dot.Remove();
             dot = dot;
         }
 
     //
-	// ─── DRAG START - EDIT MOVE ─────────────────────────────────────────────────────
-	//
+    // ─── DRAG START - EDIT MOVE ─────────────────────────────────────────────────────
+    //
 
         export function DragStartFunctionEditMode( circle: ISnapObject ) {
             Circle.ResetCircleColors();
@@ -45,13 +45,13 @@ module KaryGraph {
                 fill: GraphSelectColor
             });
         }
- 
+
     //
-	// ─── DRAG START - SELECT MOVE ───────────────────────────────────────────────────
-	//
+    // ─── DRAG START - SELECT MOVE ───────────────────────────────────────────────────
+    //
 
         export function DragStartFunctionSelectMode( circle: ISnapObject ) {
-            
+
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

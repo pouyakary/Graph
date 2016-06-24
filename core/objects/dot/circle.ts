@@ -16,7 +16,7 @@ module KaryGraph.Circle {
             // the circle
             var circle = <ISnapObject> GraphView.circle( x, y, CircleRadius );
 
-            // adding the drap functions 
+            // adding the drap functions
             circle.drag( CircleDragOnMove, CircleDragOnStart, CircleDragOnStop );
 
             // applying style
@@ -69,9 +69,9 @@ module KaryGraph.Circle {
 	//
 
         export function ForeachCircle( func: ( circle: ISnapObject ) => void ) {
-            var keys = Object.keys( Graph );
+            var keys = Object.keys( Storage.Nodes );
             keys.forEach( dotId => {
-                func( ( <Dot> Graph[ dotId ] ).SnapCircle );
+                func( ( <Dot> Storage.Nodes[ dotId ] ).SnapCircle );
             });
         }
 

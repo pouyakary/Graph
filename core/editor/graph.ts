@@ -84,8 +84,8 @@ module KaryGraph {
 
         /** Picks up a dot randomly */
         function GetRandomDot( ) {
-            var keys = Object.keys( Graph );
-            return Graph[ keys[ Random( keys.length ) ] ];
+            var keys = Object.keys( Storage.Nodes );
+            return Storage.Nodes[ keys[ Random( keys.length ) ] ];
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

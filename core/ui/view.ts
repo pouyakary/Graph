@@ -11,9 +11,9 @@ module KaryGraph {
     // ─── GRAPH ──────────────────────────────────────────────────────────────────────
     //
 
-        /** 
-         * Main ***memory*** containing the graph. Designed in a MVVC model in mind 
-         * structure of this any type is:
+        /**
+         * Main ***memory*** containing the graph. Designed in
+         * a MVVC model in mind structure of this any type is:
          * ```
          * Graph = {
          *    DotObjectId : Dot
@@ -21,13 +21,14 @@ module KaryGraph {
          * ```
          */
         export var Graph: any;
-        
+
     //
     // ─── PAPER ──────────────────────────────────────────────────────────────────────
     //
 
         /**
-         * The **main** view, a ***Snap SVG Paper*** contatining the whole model.
+         * The **main** view, a ***Snap SVG Paper*** contatining 
+         * the whole model.
          */
         export var GraphView: Paper;
 
@@ -41,8 +42,8 @@ module KaryGraph {
         export var GraphMarginTop: number;
 
     //
-	// ─── GROUPS ─────────────────────────────────────────────────────────────────────
-	//
+    // ─── GROUPS ─────────────────────────────────────────────────────────────────────
+    //
 
         /** Where the lines are stored within the paper */
         export var GraphLines: ISnapGroup;
@@ -50,13 +51,13 @@ module KaryGraph {
         /** Where the circles are stored within the paper */
         export var GraphCircles: ISnapGroup;
 
-	//
-	// ─── INIT WINDOW SIZES ──────────────────────────────────────────────────────────
-	//
+    //
+    // ─── INIT WINDOW SIZES ──────────────────────────────────────────────────────────
+    //
 
-        /** 
-         * At the *start* of the windw, this function initilizes the window 
-         * properties.
+        /**
+         * At the *start* of the windw, this function initilizes 
+         * the window properties.
          */
         export function InitScreenInformation ( ) {
 
@@ -79,10 +80,10 @@ module KaryGraph {
             GraphMarginTop = paperObject.getBoundingClientRect().top;
         }
 
-	//
-	// ─── SCREEN CLICK EVENTS ────────────────────────────────────────────────────────
-	//
+    //
+    // ─── SCREEN CLICK EVENTS ────────────────────────────────────────────────────────
+    //
 
     // ────────────────────────────────────────────────────────────────────────────────
-    
+
 }

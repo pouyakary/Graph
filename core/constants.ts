@@ -14,8 +14,8 @@ module KaryGraph {
         export const GraphViewId = 'GraphView';
 
     //
-	// ─── GRAPH ──────────────────────────────────────────────────────────────────────
-	//
+    // ─── GRAPH ──────────────────────────────────────────────────────────────────────
+    //
          
         /** Color of the graph */
         export const GraphColor = 'black';
@@ -48,9 +48,9 @@ module KaryGraph {
         /** Time of changing the size of node circle from drag to normal mode */
         export const CircleAnimationDurationAtStop  = 100;
 
-	//
-	// ─── LINE ───────────────────────────────────────────────────────────────────────
-	//
+    //
+    // ─── LINE ───────────────────────────────────────────────────────────────────────
+    //
 
         /** Wdith of the vertices */
         export const LineWidth = 2;
@@ -87,8 +87,8 @@ module KaryGraph {
         export const ToolbarActiveIconClass = 'icon-active';
 
     //
-	// ─── SELECTIONBOX ───────────────────────────────────────────────────────────────
-	//
+    // ─── SELECTIONBOX ───────────────────────────────────────────────────────────────
+    //
 
         /** Background color of the select box */
         export const SelectBoxColor = "#E2AEFF";
@@ -97,15 +97,15 @@ module KaryGraph {
         export const SelectBoxOpacity = 0.5;
 
     //
-	// ─── CONSOLE ────────────────────────────────────────────────────────────────────
-	//
+    // ─── CONSOLE ────────────────────────────────────────────────────────────────────
+    //
 
         /** Id of the main div containing the console. */
         export const ConsoleId = "console";
 
     //
-	// ─── PROGRAMMER ─────────────────────────────────────────────────────────────────
-	//
+    // ─── PROGRAMMER ─────────────────────────────────────────────────────────────────
+    //
 
         /** Id of the main div containing the notebook. */
         export const NotebookId = "ProgrammerNotebook";
@@ -118,13 +118,13 @@ module KaryGraph {
 
         export const NotebookReseltRowClass = 'notebook-row';
 
-        export const NotebookResultCodeClass = 'notebook-row-code'; 
+        export const NotebookResultCodeClass = 'notebook-row-code';
 
         export const NotebookResultSayBaseCase = 'notebook-row-say-base';
 
     //
-	// ─── SAY IMPLEMENTATIONS ────────────────────────────────────────────────────────
-	//
+    // ─── SAY IMPLEMENTATIONS ────────────────────────────────────────────────────────
+    //
 
         export const SayStringClass = 'say-string';
 
