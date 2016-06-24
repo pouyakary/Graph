@@ -61,7 +61,7 @@ module KaryGraph {
 
                     // registering self
                     Storage.Connections.set(
-                        [ 
+                        [
                             this.StartDot.Id,
                             this.EndDot.Id
                         ],
@@ -77,7 +77,7 @@ module KaryGraph {
                     this.LineObject.remove( );
                     delete this;
                 }
-            
+
             //
             // ─── CREATE LINE OBJECT ─────────────────────────────────────
             //
@@ -124,7 +124,7 @@ module KaryGraph {
                 }
 
             // ────────────────────────────────────────────────────────────
-        
+
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
