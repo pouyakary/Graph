@@ -61,7 +61,7 @@ module KaryGraph.UI.Programmer {
     // ─── START PROMPT ───────────────────────────────────────────────────────────────
     //
 
-        /** Initilizes a prompt into the notebook */
+        /** Initializes a prompt into the notebook */
         function StartPrompt( ) {
             CreateThePrompt( );
             notebook.appendChild( prompt );
@@ -106,7 +106,7 @@ module KaryGraph.UI.Programmer {
 
         function AppendRow( html: string ) {
             let row = document.createElement('div');
-            row.className = NotebookReseltRowClass;
+            row.className = NotebookResultRowClass;
             row.innerHTML = html;
             notebook.insertBefore( row , prompt );
         }
@@ -115,7 +115,7 @@ module KaryGraph.UI.Programmer {
     // ─── FETCH AND RESET INPUT VALUE ────────────────────────────────────────────────
     //
         
-        /** Fetchs and resets the input box value */
+        /** Fetches and resets the input box value */
         function FetchAndResetInput( ): string {
             let result = promptInput.value;
             promptInput.value = '';

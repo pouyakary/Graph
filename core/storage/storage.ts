@@ -12,14 +12,14 @@ module KaryGraph.Storage {
     //
     // ─── CONNECTIONS ────────────────────────────────────────────────────────────────
     //
-        /** Contains all the vector objects assosiated to their ids. */
+        /** Contains all the vector objects associated to their ids. */
         export var Connections: Object = { };
 
     //
     // ─── NODES ──────────────────────────────────────────────────────────────────────
     //
 
-        /** Contains all the dot objects assosiated to their ids. */
+        /** Contains all the dot objects associated to their ids. */
         export var Nodes: Object = { };
 
     // ────────────────────────────────────────────────────────────────────────────────

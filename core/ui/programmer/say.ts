@@ -6,7 +6,7 @@
 
 /**
  * Programmer's ***Notebook View*** must have different ways to 
- * show that viewthis namespace implements different systems for 
+ * show that view. this namespace implements different systems for 
  * the say.
  */
 

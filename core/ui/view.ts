@@ -27,7 +27,7 @@ module KaryGraph {
     //
 
         /**
-         * The **main** view, a ***Snap SVG Paper*** contatining 
+         * The **main** view, a ***Snap SVG Paper*** containing 
          * the whole model.
          */
         export var GraphView: Paper;
@@ -56,7 +56,7 @@ module KaryGraph {
     //
 
         /**
-         * At the *start* of the windw, this function initilizes 
+         * At the *start* of the window, this function initializes 
          * the window properties.
          */
         export function InitScreenInformation ( ) {

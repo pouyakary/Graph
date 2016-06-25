@@ -5,7 +5,7 @@
 //
 
 /**
- * This is a very importantn module. It provides an
+ * This is a very important module. It provides an
  * ***abstraction layer*** over the main `KaryGraph`
  * to create a ***simple functional*** layer over for
  * the API to reduce complexity when scripting
@@ -110,7 +110,7 @@ module KaryGraph.API.AbstractionLayer {
         export function Render( text: string ) {
             switch ( text ) {
                 case 'circle':
-                    Rendering.RenderCircluar();
+                    Rendering.RenderCircular();
                     break;
                 case 'spiral':
                     Rendering.RenderSpiral();

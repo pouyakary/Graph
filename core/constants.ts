@@ -93,7 +93,7 @@ module KaryGraph {
         /** Background color of the select box */
         export const SelectBoxColor = "#E2AEFF";
 
-        /** Opactiy of the *SelectBox* so that the select nodes can be seen */
+        /** Opacity of the *SelectBox* so that the select nodes can be seen */
         export const SelectBoxOpacity = 0.5;
 
     //
@@ -116,7 +116,7 @@ module KaryGraph {
 
         export const NotebookError = "notebook-error";
 
-        export const NotebookReseltRowClass = 'notebook-row';
+        export const NotebookResultRowClass = 'notebook-row';
 
         export const NotebookResultCodeClass = 'notebook-row-code';
 

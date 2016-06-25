@@ -10,7 +10,7 @@ module KaryGraph {
     // ─── DOT OBJECT ─────────────────────────────────────────────────────────────────
     //
 
-        /** Dot object contation information on the nodes of the graph */
+        /** Dot object contains information on the nodes of the graph */
         export class Dot {
 
             //
@@ -39,7 +39,7 @@ module KaryGraph {
                 public NumberLabelDistanceX: number;
 
                 /** Local number label Y distance */
-                public NumberLobelDistanceY: number;
+                public NumberLabelDistanceY: number;
 
                 /**
                  * Keeps the Inputs of the dot
@@ -64,13 +64,13 @@ module KaryGraph {
                 public X: number;
 
                 /**
-                 * Y Coordintaes of the dot
+                 * Y Coordinates of the dot
                  * ***Changing won't make effect, use MoveTo instead***
                  */
                 public Y: number;
 
                 /** Unique number id of the dot */
-                private NumeberId: number;
+                private NumberId: number;
 
                 /** Optional label of the dot */
                 private Label: string;
@@ -89,13 +89,13 @@ module KaryGraph {
                     // generating the circle
                     this.SnapCircle = Circle.Create( x, y );
 
-                    // Initing the ID
+                    // Initializing the ID
                     this.Id = this.SnapCircle.id;
 
                     // number id
-                    this.NumeberId = ++Dot.TotalDots;
+                    this.NumberId = ++Dot.TotalDots;
                     this.NumberLabelDistanceX = DotNumberLabelDisplacementX;
-                    this.NumberLobelDistanceY = DotNumberLabelDisplacementY;
+                    this.NumberLabelDistanceY = DotNumberLabelDisplacementY;
 
                     // the snap svg
                     if ( Dot.DisplayNumberLabels )
@@ -114,7 +114,7 @@ module KaryGraph {
             //
 
                 public GetNumberId( ): number {
-                    return this.NumeberId;
+                    return this.NumberId;
                 }
 
             //
@@ -130,7 +130,7 @@ module KaryGraph {
             //
 
                 /**
-                 * Deconstructs the class. Remove the connections
+                 * Removes the class. Remove the connections
                  * and Snap objects and the other parts
                  */
                 public Remove( ) {
@@ -203,7 +203,7 @@ module KaryGraph {
             //
 
                 /**
-                 * Applis a funnction to a set of ***connections***
+                 * Applies a function to a set of ***connections***
                  * (`this.Inputs` / `this.Outputs`)
                  */
 
@@ -356,7 +356,7 @@ module KaryGraph {
                     var label = <ISnapObject> GraphView.text(
                         this.X - DotNumberLabelDisplacementX,
                         this.Y - DotNumberLabelDisplacementY,
-                        this.NumeberId.toString( )
+                        this.NumberId.toString( )
                     );
                     label.attr({
                         'font-size': DotNumberLabelFontSize,
@@ -374,7 +374,7 @@ module KaryGraph {
                     if ( Dot.DisplayNumberLabels ) {
                         this.SnapNumberLabel.attr({
                             x: this.X - this.NumberLabelDistanceX,
-                            y: this.Y - this.NumberLobelDistanceY
+                            y: this.Y - this.NumberLabelDistanceY
                         });
                     }
                 }

@@ -32,7 +32,7 @@ module KaryGraph {
                 private StartX: number;
 
                 /** Line's start coordintation Y */
-                private StratY: number;
+                private StartY: number;
 
                 /** Line's end coordintation X */
                 private EndX: number;
@@ -49,7 +49,7 @@ module KaryGraph {
                     // start
                     this.StartDot = startDot;
                     this.StartX = startDot.X;
-                    this.StratY = startDot.Y;
+                    this.StartY = startDot.Y;
 
                     // end
                     this.EndDot = endDot;
@@ -80,7 +80,7 @@ module KaryGraph {
                 private CreateLineObject ( ) {
                     this.LineObject = <ISnapObject> GraphView.line(
                         this.StartX,
-                        this.StratY,
+                        this.StartY,
                         this.EndX,
                         this.EndY
                     );
@@ -98,7 +98,7 @@ module KaryGraph {
                 /** Moves the start of the line to _x_ and _y_ */
                 public MoveStart ( x: number, y: number ) {
                     this.StartX = x;
-                    this.StratY = y;
+                    this.StartY = y;
                     this.LineObject.attr({
                         x1: x, y1: y
                     });

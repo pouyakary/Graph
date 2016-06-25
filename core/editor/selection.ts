@@ -7,8 +7,8 @@
 module KaryGraph {
 
     /**
-     * Selection - Creates a selction box and at the end of the selction
-     * creates a list of selcted nodes
+     * Selection - Creates a selection box and at the end of the selection
+     * creates a list of selected nodes
      */
     export class SelectionBox {
 
@@ -48,7 +48,7 @@ module KaryGraph {
 		// ─── INIT THE SNAP BOX ──────────────────────────────────────────────────────────
 		//
 
-            /** Inits the Snap Rect object assosiated with the SelectionBox */
+            /** Inits the Snap Rect object associated with the SelectionBox */
             private InitRect( ) {
                 let rect = <ISnapObject> GraphView.rect( this.X, this.Y, this.Width, this.Height );
                 rect.attr({

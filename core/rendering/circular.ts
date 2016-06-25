@@ -10,8 +10,8 @@ module KaryGraph.Rendering {
     // ─── CIRCULAR RENDERING ─────────────────────────────────────────────────────────
     //
 
-        /** Rearanges the dots in a circular way */
-        export function RenderCircluar( ) {
+        /** Rearranges the dots in a circular way */
+        export function RenderCircular( ) {
             // defs
             let keys = Object.keys( Storage.Nodes );
             let radius = GetRadius( );

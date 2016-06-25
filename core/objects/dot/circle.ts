@@ -16,7 +16,7 @@ module KaryGraph.Circle {
             // the circle
             var circle = <ISnapObject> GraphView.circle( x, y, CircleRadius );
 
-            // adding the drap functions
+            // adding the drag functions
             circle.drag( CircleDragOnMove, CircleDragOnStart, CircleDragOnStop );
 
             // applying style
