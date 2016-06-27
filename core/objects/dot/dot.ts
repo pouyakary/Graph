@@ -157,14 +157,14 @@ module KaryGraph {
                 /** Removes a input connection and lines of the dot */
                 public RemoveInputConnection( ) {
                     this.ForeachConnection( this.Inputs , key => {
-                        this.DisconnectInput( <Dot> Storage.Nodes[ key ] );
+                        this.DisconnectInput( key );
                     });
                 }
 
                 /** Removes a output connection and lines of the dot */
                 public RemoveOutputConnection( ) {
                     this.ForeachConnection( this.Outputs , key => {
-                        this.DisconnectOutput( <Dot> Storage.Nodes[ key ] );
+                        this.DisconnectOutput( key );
                     });
                 }
 
@@ -175,27 +175,27 @@ module KaryGraph {
                 /** Disconnect dot from Dot */
                 public DisconnectFrom( dot: Dot ): boolean {
                     if ( this.Inputs[ dot.Id ] != undefined ) {
-                        this.DisconnectInput( dot );
+                        this.DisconnectInput( dot.Id );
                         return true;
                     } else if ( this.Outputs[ dot.Id ] != undefined ) {
-                        this.DisconnectOutput( dot );
+                        this.DisconnectOutput( dot.Id );
                         return true;
                     }
                     return false;
                 }
 
                 /** Disconnects input dot */
-                private DisconnectInput( dot: Dot ) {
-                    delete Storage.Connections[ dot.Id + this.Id ];
-                    delete dot.Outputs[ this.Id ];
-                    delete this.Inputs[ dot.Id ];
+                private DisconnectInput( dotID: string ) {
+                    ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
+                    delete Storage.Nodes[ dotID ].Outputs[ this.Id ];
+                    delete this.Inputs[ dotID ];
                 }
 
                 /** Disconnects output dot */
-                private DisconnectOutput( dot: Dot ) {
-                    delete Storage.Connections[ this.Id + dot.Id ];
-                    delete dot.Inputs[ this.Id ];
-                    delete this.Outputs[ dot.Id ];
+                private DisconnectOutput( dotID: string ) {
+                    ( <Vertex> Storage.Connections[ this.Id + dotID ] ).Remove( );
+                    delete Storage.Nodes[ dotID ].Inputs[ this.Id ];
+                    delete this.Outputs[ dotID ];
                 }
 
             //
