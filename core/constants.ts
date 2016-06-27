@@ -52,7 +52,7 @@ module KaryGraph {
     // ─── LINE ───────────────────────────────────────────────────────────────────────
     //
 
-        /** Wdith of the vertices */
+        /** Width of the vertices */
         export const LineWidth = 2;
 
     //
