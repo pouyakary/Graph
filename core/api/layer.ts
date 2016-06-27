@@ -78,11 +78,10 @@ module KaryGraph.API.AbstractionLayer {
     //
 
         export function Reset( ) {
-            Dot.ResetNumberIdPlace( );
-            let keys = Object.keys( Storage.Nodes );
-            keys.forEach( key => {
+            Object.keys( Storage.Nodes ).forEach( key => {
                 ( <Dot> Storage.Nodes[ key ] ).Remove( );
             });
+            Dot.ResetNumberIdPlace( );
         }
 
     //
