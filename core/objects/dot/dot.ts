@@ -156,15 +156,15 @@ module KaryGraph {
 
                 /** Removes a input connection and lines of the dot */
                 public RemoveInputConnection( ) {
-                    this.ForeachConnection( this.Inputs , key => {
-                        this.DisconnectInput( key );
+                    this.Inputs.forEach( dotKey => {
+                        this.DisconnectInput( dotKey );
                     });
                 }
 
                 /** Removes a output connection and lines of the dot */
                 public RemoveOutputConnection( ) {
-                    this.ForeachConnection( this.Outputs , key => {
-                        this.DisconnectOutput( key );
+                    this.Outputs.forEach( dotKey => {
+                        this.DisconnectOutput( dotKey );
                     });
                 }
 
@@ -196,22 +196,6 @@ module KaryGraph {
                     ( <Vertex> Storage.Connections[ this.Id + dotID ] ).Remove( );
                     delete Storage.Nodes[ dotID ].Inputs[ this.Id ];
                     delete this.Outputs[ dotID ];
-                }
-
-            //
-            // ─── FOR EACH CONNECTION DO ─────────────────────────────────
-            //
-
-                /**
-                 * Applies a function to a set of ***connections***
-                 * (`this.Inputs` / `this.Outputs`)
-                 */
-
-                public ForeachConnection( connections: any, func: ( connectionKey: string ) => void ) {
-                    var keys = Object.keys( connections );
-                    keys.forEach( connectionKey => {
-                        func( connectionKey );
-                    });
                 }
 
             //
