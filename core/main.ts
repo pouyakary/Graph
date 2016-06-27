@@ -19,8 +19,8 @@ module KaryGraph {
             InitScreenInformation( );
             UI.Programmer.INIT();
             // creating a demo graph
-            API.StandardLibrary.CreateCompleteGraph( 20 );
-            Rendering.RenderCircular();
+            //API.StandardLibrary.CreateCompleteGraph( 20 );
+            //Rendering.RenderCircular();
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
