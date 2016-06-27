@@ -77,7 +77,7 @@ module KaryGraph.API.AbstractionLayer {
     // ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
     //
 
-        export function Reset( ) {
+        export function Reset( ) {  
             Object.keys( Storage.Nodes ).forEach( key => {
                 ( <Dot> Storage.Nodes[ key ] ).Remove( );
             });
@@ -89,12 +89,12 @@ module KaryGraph.API.AbstractionLayer {
     //
 
         export function CreateMatrix( idOrDots: Array<DotObjectOrDotID> ): number[ ][ ] {
-            var idsLeght = idOrDots.length;
-            var matrix: number[ ][ ] = new Array( idsLeght );
-            for ( let row = 0; row < idsLeght; row++ ) {
-                matrix[ row ] = new Array( idsLeght );
+            var idsLength = idOrDots.length;
+            var matrix: number[ ][ ] = new Array( idsLength );
+            for ( let row = 0; row < idsLength; row++ ) {
+                matrix[ row ] = new Array( idsLength );
                 var d1 = GetDotByDotOrId( idOrDots[ row ] );
-                for ( let column = 0; column < idsLeght; column++ ) {
+                for ( let column = 0; column < idsLength; column++ ) {
                     let d2 = GetDotByDotOrId( idOrDots[ column ] );
                     matrix[ row ][ column ] = + d1.IsConnectedTo( d2 );
                 }
