@@ -22,22 +22,22 @@ module KaryGraph {
                 /** Line object representing the line */
                 private LineObject: ISnapObject;
 
-                /** Statirng dot */
+                /** Starting dot */
                 private StartDot: Dot;
 
                 /** Ending dot */
                 private EndDot: Dot;
 
-                /** Line's start coordintation X */
+                /** Line's start coordination X */
                 private StartX: number;
 
-                /** Line's start coordintation Y */
+                /** Line's start coordination Y */
                 private StartY: number;
 
-                /** Line's end coordintation X */
+                /** Line's end coordination X */
                 private EndX: number;
 
-                /** Line's end coordintation Y */
+                /** Line's end coordination Y */
                 private EndY: number;
 
             //
