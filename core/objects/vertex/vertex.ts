@@ -60,7 +60,7 @@ module KaryGraph {
                     this.CreateLineObject( );
 
                     // registering self
-                    Storage.Connections[ this.StartDot.Id + this.EndDot.Id ] = this;
+                    Storage.Connections[ this.GetStorageId( ) ] = this;
                 }
 
             //
@@ -69,7 +69,7 @@ module KaryGraph {
 
                 public Remove ( ) {
                     this.LineObject.remove( );
-                    delete Storage.Connections[ this.StartDot.Id + this.EndDot.Id ];
+                    delete Storage.Connections[ this.GetStorageId( ) ];
                     delete this;
                 }
 
@@ -117,6 +117,14 @@ module KaryGraph {
                     this.LineObject.attr({
                         x2: x, y2: y
                     });
+                }
+
+            //
+            // ─── GET STORAGE ID ─────────────────────────────────────────
+            //
+
+                public GetStorageId( ): string {
+                    return this.StartDot.Id + this.EndDot.Id;
                 }
 
             // ────────────────────────────────────────────────────────────
