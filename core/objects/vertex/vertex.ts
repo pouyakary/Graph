@@ -69,6 +69,7 @@ module KaryGraph {
 
                 public Remove ( ) {
                     this.LineObject.remove( );
+                    delete Storage.Connections[ this.StartDot.Id + this.EndDot.Id ];
                     delete this;
                 }
 
@@ -76,7 +77,7 @@ module KaryGraph {
             // ─── CREATE LINE OBJECT ─────────────────────────────────────
             //
 
-                /** Inits the line object for representing the object */
+                /** Initializes the line object for representing the object */
                 private CreateLineObject ( ) {
                     this.LineObject = <ISnapObject> GraphView.line(
                         this.StartX,
@@ -88,6 +89,7 @@ module KaryGraph {
                         stroke: GraphColor,
                         strokeWidth: LineWidth
                     });
+                    GraphLines.add( this.LineObject );
                     this.Id = this.LineObject.id;
                 }
 
