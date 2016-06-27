@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "electron-prebuilt": "1.2.3",
+    "electron": "*",
     "fs-extra": "0.30.0",
     "gulp": "3.9.1",
     "gulp-cli": "1.2.1",
