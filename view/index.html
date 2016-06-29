@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div class="heading">
-			<div id="header-left">Graph</div>
+			<div id="header-left" class="unselectable">Graph</div>
 
 			<div class="icon icon-active" id="icon-move" 
 				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-move')"
@@ -35,11 +35,11 @@
 
 			<div id="status-view"></div>
 
-            <div id="header-right">
-                <img src="kary-logo.png" id="kf-logo">
-            </div>
+			<div id="header-right">
+				<img src="kary-logo.png" id="kf-logo">
+			</div>
 
-            <div style="clear: both;"></div>
+			<div style="clear: both;"></div>
 		</div>
 		
 		<!-- Main View Goes Here -->
@@ -51,7 +51,7 @@
 				<!-- Programmer -->
 				<div class="inspector-section">
 					<div class="inspector-section-title">
-						<div class="inspector-section-title-text">Programmer</div>
+						<div class="inspector-section-title-text unselectable">Programmer</div>
 						<div style="clear: both;"></div>
 					</div>
 					<div class="inspector-section-body">
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 		
-		<div style="clear: both;"></div>
+		<div style="clear: both;" class="unselectable"></div>
 			
 		<!-- INIT Part -->
 		<script>
