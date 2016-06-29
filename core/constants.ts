@@ -28,10 +28,10 @@ module KaryGraph {
     //
 
         /** Radius of the node circles */
-        export const CircleRadius = 10;
+        export const CircleRadius = 7;
 
         /** Radius of the node circles when draggings */
-        export const CircleRadiusAtDrag = 7;
+        export const CircleRadiusAtDrag = 5;
 
         /** Font size of the don't *number* label */
         export const DotNumberLabelFontSize = 10;
