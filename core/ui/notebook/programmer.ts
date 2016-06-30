@@ -128,7 +128,8 @@ module KaryGraph.UI.Programmer {
 
         function GenerateResultRowHTML ( code: string, result: string ): string {
             let highlightedCode = PrismHighlight( code );
-            return `<div class="${ NotebookResultCodeClass }">${ highlightedCode }</div>${ result }`;
+            return `<div class="${ NotebookResultCodeClass }">${ highlightedCode }` + 
+                   `<div class="${ NotebookSayBoxClass }">${ result }</div></div>`;
         }
 
     //
