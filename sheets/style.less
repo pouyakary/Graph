@@ -30,7 +30,6 @@
 
     @header-padding-top: 4px;
 
-
     @icon-box-size: 30px;
     @icon-size: 23px;
     @active-icon-size: 28px;
@@ -246,6 +245,7 @@
         border-bottom-left-radius: @inspector-border-radius;
         border-bottom-right-radius: @inspector-border-radius;
         overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     .notebook-row {
@@ -254,21 +254,27 @@
         border-left: 2px solid #eee;
         padding-left: 7px;
         margin-bottom: 7px;
-        overflow-x: hidden;
     }
 
     .notebook-row-code {
         color: black;
+        overflow-x: scroll;
+        width: min-content;
     }
 
     .notebook-row-say-base {
         border-left: 2px solid #00A7FF;
         padding-left: 10px;
+        overflow: visible;
+    }
+
+    .notebook-say-row {
+        overflow: scroll;
     }
 
     .notebook-prompt {
         border-left: 2px solid #ccc;
-        padding-left: 7px;   
+        padding-left: 7px;
     }
 
     .notebook-prompt input {
