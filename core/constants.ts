@@ -122,6 +122,8 @@ module KaryGraph {
 
         export const NotebookResultSayBaseCase = 'notebook-row-say-base';
 
+        export const NotebookSayBoxClass = 'notebook-say-row';
+
     //
     // ─── SAY IMPLEMENTATIONS ────────────────────────────────────────────────────────
     //
