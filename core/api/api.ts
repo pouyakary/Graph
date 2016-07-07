@@ -60,6 +60,27 @@
     }
 
 //
+// ─── FOR ALL DOTS DO ────────────────────────────────────────────────────────────
+//
+
+    function foreachdot ( dots: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID>, 
+                          f: ( dot: KaryGraph.Dot ) => void ) {
+        dots.forEach( dotOrId => {
+            f( KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dotOrId ) );
+        });
+    }
+
+//
+// ─── FOR ALL DOTS DO ────────────────────────────────────────────────────────────
+//
+
+    function foralldots ( funk: ( dot: KaryGraph.Dot ) => void ) {
+        Object.keys( KaryGraph.Storage.Nodes ).forEach( key => {
+            funk( KaryGraph.Storage.Nodes[ key ] );
+        });
+    }
+
+//
 // ─── ALL  ───────────────────────────────────────────────────────────────────────
 //
 
