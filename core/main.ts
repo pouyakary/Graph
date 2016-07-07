@@ -13,7 +13,9 @@ module KaryGraph {
     // ─── INIT ───────────────────────────────────────────────────────────────────────
     //
 
-        /** What starts the code when it starts. */
+        /** 
+         *  "T H E   W H O L E   W O R L D   **_S T A R T S_**   F R O M   H E R E"
+         */
         export function INIT ( ) {
             InitScreenInformation( );
             UI.Programmer.INIT( );
@@ -24,8 +26,13 @@ module KaryGraph {
     // ─── INIT GRAPH SCRIPT ──────────────────────────────────────────────────────────
     //
 
+        /** 
+         * A simple script that happens at start of the software so that
+         * user has something to see...
+         */
         function RenderStartingGraph ( ) {
-            Dot.DisplayNumberLabels = false;
+            // Just remember this is the only place that using API 
+            // inside namespace "KaryGraph" is acceptable...
             let numberOfDots = 90;
             newdots( numberOfDots );
             connect( range( 1, numberOfDots ) );
