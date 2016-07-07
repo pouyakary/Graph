@@ -10,7 +10,25 @@
         "Kary",
         "karyfoundation",
         "Toolbar",
-        "Selectbox"
+        "Selectbox",
+        "Eulerian",
+        "newdot",
+        "newdotat",
+        "newdots",
+        "howmuch",
+        "getdot",
+        "getdots",
+        "foreachdot",
+        "foralldots",
+        "graphfrommatrix",
+        "countdots",
+        "movex",
+        "movey",
+        "movebx",
+        "moveby",
+        "Sortings",
+        "eulerianpath",
+        "euleriancycle"
     ],
     // flagWords - list of words to be always considered incorrect
     // This is useful for offensive words and common spelling errors.
