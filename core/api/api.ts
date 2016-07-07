@@ -16,7 +16,7 @@
 //
 
     /**
-     * Creates a new dot at a random coordination. 
+     * Creates a new dot at a random coordination.
      * https://github.com/karyfoundation/graph/wiki/API#new-dot
      */
     function newdot( ): KaryGraph.Dot {
@@ -27,8 +27,8 @@
 // ─── NEW DOT AT ─────────────────────────────────────────────────────────────────
 //
 
-    /** 
-     * Creates a new dot at a specified coordination. 
+    /**
+     * Creates a new dot at a specified coordination.
      * https://github.com/karyfoundation/graph/wiki/API#new-dot-at
      */
     function newdotat( x: number, y: number ): KaryGraph.Dot {
@@ -39,8 +39,8 @@
 // ─── NEW DOTS ───────────────────────────────────────────────────────────────────
 //
 
-    /** 
-     * Creates a number of dots at some random places. 
+    /**
+     * Creates a number of dots at some random places.
      * https://github.com/karyfoundation/graph/wiki/API#new-dots
      */
     function newdots( howmuch: number ): Array<KaryGraph.Dot> {
@@ -55,8 +55,8 @@
 // ─── GETDOT ─────────────────────────────────────────────────────────────────────
 //
 
-    /** 
-     * gets a dot with it's numerical id. 
+    /**
+     * gets a dot with it's numerical id.
      * https://github.com/karyfoundation/graph/wiki/API#get-dot
      */
     function getdot( numberId: number ): KaryGraph.Dot {
@@ -67,8 +67,8 @@
 // ─── GET DOTS ───────────────────────────────────────────────────────────────────
 //
 
-    /** 
-     * returns an array of dots based on the array of their ids. 
+    /**
+     * returns an array of dots based on the array of their ids.
      * https://github.com/karyfoundation/graph/wiki/API#get-dots
      */
     function getdots( ids: Array<number> ): Array<KaryGraph.Dot> {
@@ -83,8 +83,8 @@
 // ─── FOR ALL DOTS DO ────────────────────────────────────────────────────────────
 //
 
-    /** 
-     * Does a function to each dot in the array. 
+    /**
+     * Does a function to each dot in the array.
      */
     function foreachdot ( dots: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID>, 
                           f: ( dot: KaryGraph.Dot ) => void ) {
@@ -97,8 +97,8 @@
 // ─── FOR ALL DOTS DO ────────────────────────────────────────────────────────────
 //
 
-    /** 
-     * Does a function to all the dots around. 
+    /**
+     * Does a function to all the dots around.
      */
     function foralldots ( f: ( dot: KaryGraph.Dot ) => void ) {
         Object.keys( KaryGraph.Storage.Nodes ).forEach( key => {
@@ -110,8 +110,8 @@
 // ─── ALL  ───────────────────────────────────────────────────────────────────────
 //
 
-    /** 
-     * Returns an array of dot's of all the dots. 
+    /**
+     * Returns an array of dot's of all the dots.
      */
     function all( ): Array<number> {
         return range( 1 , KaryGraph.Dot.TotalDots );
@@ -121,8 +121,8 @@
 // ─── CONNECT ────────────────────────────────────────────────────────────────────
 //
 
-    /** 
-     * Connects an array of dots together.
+    /**
+     * Connects an array of dots together
      * https://github.com/karyfoundation/graph/wiki/API#connect
      */
     function connect( args: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): boolean {
@@ -188,7 +188,7 @@
 //
 
     /**
-     * Removes all dots and resets the environment
+     * Removes all dots and resets the environment.
      * https://github.com/karyfoundation/graph/wiki/API#reset
      */
     function reset ( ) {
@@ -200,7 +200,7 @@
 //
 
     /**
-     * Returns the adjacency matrix of the the specified dots in graph
+     * Returns the adjacency matrix of the the specified dots in graph.
      * https://github.com/karyfoundation/graph/wiki/API#matrix
      */
     function matrix ( input?: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID>): number[][] {
@@ -255,7 +255,7 @@
 //
 
     /**
-     * Moves a dot to coordinates (x, y)
+     * Moves a dot to coordinates (x, y).
      * https://github.com/karyfoundation/graph/wiki/API#move
      */
     function move ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number, y: number ) {
@@ -267,7 +267,7 @@
 //
 
     /**
-     * Moves a dot to the given x coordinate
+     * Moves a dot to the given x coordinate.
      * https://github.com/karyfoundation/graph/wiki/API#move-to-x
      */
     function movex ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
@@ -280,7 +280,7 @@
 //
 
     /**
-     * Moves a dot to the given x coordinate
+     * Moves a dot to the given x coordinate.
      * https://github.com/karyfoundation/graph/wiki/API#move-to-y
      */
     function movey( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
@@ -293,7 +293,7 @@
 //
 
     /**
-     * Moves a dot by the given x coordinate
+     * Moves a dot by the given x coordinate.
      * https://github.com/karyfoundation/graph/wiki/API#move-by-x
      */
     function movebx( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
@@ -306,7 +306,7 @@
 //
 
     /**
-     * Moves a dot by the given y coordinate
+     * Moves a dot by the given y coordinate.
      * https://github.com/karyfoundation/graph/wiki/API#move-by-y
      */
     function moveby( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
@@ -327,7 +327,7 @@
 //
 
     /**
-     * Rearranges the (tree-based) graph to a tree
+     * Rearranges the (tree-based) graph to a tree.
      * https://github.com/karyfoundation/graph/wiki/API#tree
      */
     function sort( ) {
@@ -351,7 +351,7 @@
 //
 
     /**
-     * Returns the size of the graph made of the specified dots in array
+     * Returns the size of the graph made of the specified dots in array.
      * https://github.com/karyfoundation/graph/wiki/API#size
      */
     function size( dots?: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): number {
@@ -373,7 +373,7 @@
 //
 
     /**
-     * Returns the degree of a vertex
+     * Returns the degree of a vertex.
      * https://github.com/karyfoundation/graph/wiki/API#degree
      */
     function degree( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): number {
@@ -385,7 +385,7 @@
 //
 
     /**
-     * Checks if two dots are neighbors
+     * Checks if two dots are neighbors.
      * https://github.com/karyfoundation/graph/wiki/API#neighbors
      */
     function neighbors( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID,
@@ -400,7 +400,7 @@
 //
 
     /**
-     * Returns the neighborhood of a dot
+     * Returns the neighborhood of a dot.
      * https://github.com/karyfoundation/graph/wiki/API#get-neighborhood
      */
     function neighborhood( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): KaryGraph.Dot[] {
@@ -412,7 +412,7 @@
 //
 
     /**
-     * Cleans the notebook screen
+     * Cleans the notebook screen.
      * https://github.com/karyfoundation/graph/wiki/API#clear-screen
      */
     function cls( ) {
