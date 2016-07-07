@@ -15,12 +15,21 @@ module KaryGraph {
 
         /** What starts the code when it starts. */
         export function INIT ( ) {
-            // init
             InitScreenInformation( );
-            UI.Programmer.INIT();
-            // creating a demo graph
-            //API.StandardLibrary.CreateCompleteGraph( 20 );
-            //Rendering.RenderCircular();
+            UI.Programmer.INIT( );
+            RenderStartingGraph( );
+        }
+
+    //
+    // ─── INIT GRAPH SCRIPT ──────────────────────────────────────────────────────────
+    //
+
+        function RenderStartingGraph ( ) {
+            Dot.DisplayNumberLabels = false;
+            let numberOfDots = 90;
+            newdots( numberOfDots );
+            connect( range( 1, numberOfDots ) );
+            Rendering.RenderSpiral( );
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
