@@ -5,7 +5,7 @@
 //
 
 /**
- * **Kary Graph** - Full featured Graph Theory Studio
+ * **Kary Graph** - A full featured Graph Theory Studio
  */
 module KaryGraph {
 
