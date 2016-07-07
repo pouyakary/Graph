@@ -318,9 +318,6 @@
 // ─── RENDERING ──────────────────────────────────────────────────────────────────
 //
 
-    /**
-     * 
-     */
     function render( option: string ) {
         KaryGraph.API.AbstractionLayer.Render( option );
     }
@@ -341,6 +338,10 @@
 // ─── GET ORDER OF GRAPH ─────────────────────────────────────────────────────────
 //
 
+    /**
+     * Returns the order of the graph.
+     * https://github.com/karyfoundation/graph/wiki/API#order
+     */
     function order( ): number {
         return countdots();
     }
@@ -452,15 +453,23 @@
 // ─── EULERIAN PATH ? ────────────────────────────────────────────────────────────
 //
 
+    /**
+     * Checks if graph is an Eulerian Path.
+     * https://github.com/karyfoundation/graph/wiki/API#eulerian-path
+     */
     function eulerianpath( ): boolean {
-        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices();
-        return (verticesWithOddDegree == 0 || verticesWithOddDegree == 2);
+        var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices( );
+        return ( verticesWithOddDegree == 0 || verticesWithOddDegree == 2 );
     }
 
 //
 // ─── EULERIAN CYCLE ? ───────────────────────────────────────────────────────────
 //
 
+    /**
+     * Checks if graph is an Eulerian Cycle.
+     * https://github.com/karyfoundation/graph/wiki/API#eulerian-cycle
+     */
     function euleriancycle( ): boolean {
         var verticesWithOddDegree = KaryGraph.API.AbstractionLayer.NumberOfOddVertices( );
         return ( verticesWithOddDegree == 0 );
