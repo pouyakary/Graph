@@ -74,9 +74,9 @@
 // ─── FOR ALL DOTS DO ────────────────────────────────────────────────────────────
 //
 
-    function foralldots ( funk: ( dot: KaryGraph.Dot ) => void ) {
+    function foralldots ( f: ( dot: KaryGraph.Dot ) => void ) {
         Object.keys( KaryGraph.Storage.Nodes ).forEach( key => {
-            funk( KaryGraph.Storage.Nodes[ key ] );
+            f( KaryGraph.Storage.Nodes[ key ] );
         });
     }
 
