@@ -68,7 +68,9 @@ module KaryGraph.API.AbstractionLayer {
             var verticesWithOddDegree: number = 0;
             var keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-              if ( ( <Dot> Storage.Nodes[ key ] ).GetDegree() % 2 ) verticesWithOddDegree++;
+                if ( ( <Dot> Storage.Nodes[ key ] ).GetDegree() % 2 ) { 
+                    verticesWithOddDegree++;
+                }
             });
             return verticesWithOddDegree;
         }
@@ -78,9 +80,9 @@ module KaryGraph.API.AbstractionLayer {
     //
 
         export function Reset( ) {
-            Object.keys( Storage.Nodes ).forEach( key => {
-                ( <Dot> Storage.Nodes[ key ] ).Remove( );
-            });
+            Object.keys( Storage.Nodes ).forEach(
+                key => ( <Dot> Storage.Nodes[ key ] ).Remove( )
+            );
             Dot.ResetNumberIdPlace( );
         }
 
@@ -91,14 +93,17 @@ module KaryGraph.API.AbstractionLayer {
         export function CreateMatrix( idOrDots: Array<DotObjectOrDotID> ): number[ ][ ] {
             var idsLength = idOrDots.length;
             var matrix: number[ ][ ] = new Array( idsLength );
+
             for ( let row = 0; row < idsLength; row++ ) {
                 matrix[ row ] = new Array( idsLength );
                 var d1 = GetDotByDotOrId( idOrDots[ row ] );
+
                 for ( let column = 0; column < idsLength; column++ ) {
                     let d2 = GetDotByDotOrId( idOrDots[ column ] );
                     matrix[ row ][ column ] = + d1.IsConnectedTo( d2 );
                 }
             }
+
             return matrix;
         }
 
