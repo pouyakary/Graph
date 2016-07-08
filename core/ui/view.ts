@@ -27,7 +27,7 @@ module KaryGraph {
     //
 
         /**
-         * The **main** view, a ***Snap SVG Paper*** containing 
+         * The **main** view, a ***Snap SVG Paper*** containing
          * the whole model.
          */
         export var GraphView: Paper;

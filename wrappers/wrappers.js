@@ -6,7 +6,7 @@
 
 //
 // To reduce TypeScript's decleration complexities, these wrappers introduce 
-// simpler ways to model their functionings. 
+// simpler ways to model their functioning. 
 //
 
 //

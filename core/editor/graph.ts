@@ -23,7 +23,7 @@ module KaryGraph {
             var map: Array<number> = CreatePlacesArray( widthUnit, heightUnit );
 
             // funcs
-            function isPlaceNotTakenAt( x: number, y: number ) { 
+            function isPlaceNotTakenAt( x: number, y: number ) {
                 return ( map[ ( widthUnit * y ) + x ] == 0 );
             }
             function takeMapAt( x: number, y: number ) {
@@ -49,7 +49,7 @@ module KaryGraph {
                     takeMapAt( x , y );
                     counter++;
                 }
-            }   
+            }
         }
 
         /** Gets a random number in range of ***0..input*** */
@@ -89,5 +89,5 @@ module KaryGraph {
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
-    
-} 
+
+}

@@ -13,8 +13,8 @@ module KaryGraph {
     export class SelectionBox {
 
         //
-		// ─── DEFS ───────────────────────────────────────────────────────────────────────
-		//
+        // ─── DEFS ───────────────────────────────────────────────────────────────────────
+        //
 
             /** Keeps the *X coordinates* of start of the selection box. */
             private X: number;
@@ -32,8 +32,8 @@ module KaryGraph {
             private Rect: ISnapObject;
 
         //
-		// ─── INIT ───────────────────────────────────────────────────────────────────────
-		//
+        // ─── INIT ───────────────────────────────────────────────────────────────────────
+        //
 
             /** Starts a SelectionBox at the given coordinates. */
             constructor( startingX: number, startingY: number ) {
@@ -45,10 +45,10 @@ module KaryGraph {
             }
 
         //
-		// ─── INIT THE SNAP BOX ──────────────────────────────────────────────────────────
-		//
+        // ─── INIT THE SNAP BOX ──────────────────────────────────────────────────────────
+        //
 
-            /** Inits the Snap Rect object associated with the SelectionBox */
+            /** Initializes the Snap Rect object associated with the SelectionBox */
             private InitRect( ) {
                 let rect = <ISnapObject> GraphView.rect( this.X, this.Y, this.Width, this.Height );
                 rect.attr({
@@ -59,8 +59,8 @@ module KaryGraph {
             }
         
         //
-		// ─── MOVE MOUSE  ────────────────────────────────────────────────────────────────
-		//
+        // ─── MOVE MOUSE  ────────────────────────────────────────────────────────────────
+        //
 
             /** At the point of mouse move event this function must be called. */
             public MoveMouse( mouseX: number, mouseY: number ) {

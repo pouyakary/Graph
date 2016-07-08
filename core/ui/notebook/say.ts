@@ -5,8 +5,8 @@
 //
 
 /**
- * Programmer's ***Notebook View*** must have different ways to 
- * show that view. this namespace implements different systems for 
+ * Programmer's ***Notebook View*** must have different ways to
+ * show that view. this namespace implements different systems for
  * the say.
  */
 
@@ -111,7 +111,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
             for ( let index = 0; index < input.length; index++ ) {
                 row += ( `<td class="say-array-cell">` +
                          `<div class="say-array-index">${ index }</div>`  +
-                         `<div class="say-array-value">${ ArraySayIncoder( input[ index ] ) }<div>` +
+                         `<div class="say-array-value">${ ArraySayEncoder( input[ index ] ) }<div>` +
                          '</td>' );
             }
             return `<table class="say-array"><tr>${ row }</tr></table>`;
@@ -126,8 +126,8 @@ module KaryGraph.UI.Programmer.SayImplementations {
             for ( let rowCounter = 0; rowCounter < input.length; rowCounter++ ) {
                 let row = input[ rowCounter ];
                 let rowHTML = ''
-                for ( let cloumnCounter = 0; cloumnCounter < row.length; cloumnCounter++ ) {
-                    let cell = row[ cloumnCounter ];
+                for ( let columnCounter = 0; columnCounter < row.length; columnCounter++ ) {
+                    let cell = row[ columnCounter ];
                     rowHTML += `<td>${ cell }</td>`
                 }
                 matrixHTML += `<tr>${ rowHTML }</tr>`
@@ -159,7 +159,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
     // ─── ARRAY SWITCHER ─────────────────────────────────────────────────────────────
     //
 
-        function ArraySayIncoder( input: any ): string {
+        function ArraySayEncoder( input: any ): string {
             if ( typeof( input ) === "number" ) {
                 return SayNumber( input );
             }

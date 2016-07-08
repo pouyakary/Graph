@@ -11,7 +11,7 @@ module KaryGraph.VertexStatic {
     //
 
         /**
-         * Returns the id associated to a vertex in `KaryGraph.Storage.Connections` 
+         * Returns the id associated to a vertex in `KaryGraph.Storage.Connections`
          * by ***Starting*** and ***Ending*** dots of the vertex.
          */
         export function GetId ( start: Dot, end: Dot ): string {

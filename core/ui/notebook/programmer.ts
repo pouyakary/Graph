@@ -5,7 +5,7 @@
 //
 
 /**
- * This module is responsible for the 
+ * This module is responsible for the
  */
 module KaryGraph.UI.Programmer {
 
@@ -71,7 +71,7 @@ module KaryGraph.UI.Programmer {
     // ─── CREATE PROMPT ──────────────────────────────────────────────────────────────
     //
 
-        /** Creates the coresponding object that presents the prompt. */
+        /** Creates the corresponding object that presents the prompt. */
         function CreateThePrompt ( ) {
             // Prompt Object
             prompt = document.createElement( 'div' );
@@ -128,7 +128,7 @@ module KaryGraph.UI.Programmer {
 
         function GenerateResultRowHTML ( code: string, result: string ): string {
             let highlightedCode = PrismHighlight( code );
-            return `<div class="${ NotebookResultCodeClass }">${ highlightedCode }` + 
+            return `<div class="${ NotebookResultCodeClass }">${ highlightedCode }` +
                    `<div class="${ NotebookSayBoxClass }">${ result }</div></div>`;
         }
 

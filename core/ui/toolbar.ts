@@ -54,7 +54,7 @@ module KaryGraph.UI.Toolbar {
     // ─── ON TOOLBAR ICON HOVER ──────────────────────────────────────────────────────
     //
 
-        /** What happens after mouse on hower of toolbar icons */
+        /** What happens after mouse on hover of toolbar icons */
         export function OnToolbarIconHover( id: string ) {
             switch ( id ) {
                 case 'icon-move':
@@ -67,7 +67,7 @@ module KaryGraph.UI.Toolbar {
                     ChangeStatusTo('For editing vertices and nodes.');
                     break;
                 case 'icon-select':
-                    ChangeStatusTo('For selectting vertices and nodes.');
+                    ChangeStatusTo('For selecting vertices and nodes.');
                     break;
             }
         }
@@ -116,7 +116,7 @@ module KaryGraph.UI.Toolbar {
                 ToolbarIconMove,    ToolbarIconRemove,
                 ToolbarIconEdit ,   ToolbarIconSelect
             ];
-            // for each 
+            // for each
             icons.forEach( iconId => {
                 var icon = <HTMLDivElement> document.getElementById( iconId );
                 func( icon );

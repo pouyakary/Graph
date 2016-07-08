@@ -16,7 +16,7 @@ module KaryGraph {
     //
     // ─── GRAPH ──────────────────────────────────────────────────────────────────────
     //
-         
+
         /** Color of the graph */
         export const GraphColor = 'black';
 
