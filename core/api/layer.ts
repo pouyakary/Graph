@@ -77,7 +77,7 @@ module KaryGraph.API.AbstractionLayer {
     // ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
     //
 
-        export function Reset( ) {  
+        export function Reset( ) {
             Object.keys( Storage.Nodes ).forEach( key => {
                 ( <Dot> Storage.Nodes[ key ] ).Remove( );
             });
