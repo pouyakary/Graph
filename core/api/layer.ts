@@ -68,7 +68,7 @@ module KaryGraph.API.AbstractionLayer {
             var verticesWithOddDegree: number = 0;
             var keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
-                if ( ( <Dot> Storage.Nodes[ key ] ).GetDegree() % 2 ) { 
+                if ( ( <Dot> Storage.Nodes[ key ] ).GetDegree() % 2 ) {
                     verticesWithOddDegree++;
                 }
             });
