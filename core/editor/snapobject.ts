@@ -10,7 +10,6 @@ module KaryGraph {
     // ─── ATTRIBUTE ──────────────────────────────────────────────────────────────────
     //
 
-
         //
         // Attributes
         //
@@ -18,6 +17,7 @@ module KaryGraph {
             interface ISnapAttributesFunction {
                 ( attributes: any );
             }
+
 
         //
         // Animation
@@ -27,6 +27,7 @@ module KaryGraph {
                 ( attributes: any , duration: number )
             }
 
+
         //
         // Data
         //
@@ -34,6 +35,7 @@ module KaryGraph {
             interface ISnapDataFunction {
                 ( string, any? )
             }
+
 
         //
         // Drag
@@ -84,5 +86,5 @@ module KaryGraph {
             }
 
     // ────────────────────────────────────────────────────────────────────────────────
-    
+
 }

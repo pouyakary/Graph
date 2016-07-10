@@ -26,12 +26,15 @@ module KaryGraph {
             function isPlaceNotTakenAt( x: number, y: number ) {
                 return ( map[ ( widthUnit * y ) + x ] == 0 );
             }
+
             function takeMapAt( x: number, y: number ) {
                 map[ ( widthUnit * y ) + x ] = 1;
             }
+
             function ComputeRealXCoordinate( unit: number ) {
                 return ( GraphWidth / ( widthUnit + 3 * paddingLeftRight ) ) * ( unit + 2 *  paddingLeftRight );
             }
+
             function ComputeRealYCoordinate( unit: number ) {
                 return ( GraphHeight / ( heightUnit + 2 * paddingTopBottom ) ) * ( unit + paddingTopBottom );
             }
