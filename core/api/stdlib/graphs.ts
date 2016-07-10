@@ -20,15 +20,17 @@ module KaryGraph.API.StandardLibrary {
 
         export function CreateCompleteGraph( size: number ) {
             let keys = new Array<string>( );
+
             // creating dots
             for ( var counter = 0; counter < size; counter++ ) {
                 keys.push( API.AbstractionLayer.AddNewDot( ).Id );
             }
+
             // connecting
             keys.forEach( key => {
                 for ( var index = 0; index < size; index++ ) {
-                    var cdot = keys[ index ];
-                    if ( cdot !== key ) {
+                    var currentDot = keys[ index ];
+                    if ( currentDot !== key ) {
                         Storage.Nodes[ key ].ConnectTo( Storage.Nodes[ keys[ index] ] );
                     }
                 }
