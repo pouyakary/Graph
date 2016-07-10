@@ -37,16 +37,29 @@ module KaryGraph.API.StandardLibrary.Sortings {
             dive( map, 1 );
 
             // move dots
-            function moveDots ( map: any, width: number, ypos: number, xoff: number ) {
+            function moveDots ( map: any, width: number, positionY: number, xOff: number ) {
                 var count = map.size;
                 var x = 0;
-                for ( var [ key, value ] of map.entries() ) {
-                    var xpos = width / count * x++ + (width / count / 2) + xoff;
-                    ( <Dot> key ).MoveTo( xpos, ypos );
-                    if ( value.size > 0 ) moveDots( value, width / count, ypos + GraphHeight / layers, xpos - (width / count / 2) );
+                for ( var [ key, value ] of map.entries( ) ) {
+                    var positionX = width / count * x++ + (width / count / 2) + xOff;
+                    ( <Dot> key ).MoveTo( positionX, positionY );
+                    if ( value.size > 0 ) {
+                        moveDots(
+                            value,
+                            width / count,
+                            positionY + GraphHeight / layers,
+                            positionX - (width / count / 2 )
+                        );
+                    }
                 }
             }
-            moveDots( map, GraphWidth, GraphHeight / layers - ( GraphHeight / layers / 2 ), 0 );
+
+            moveDots(
+                map,
+                GraphWidth,
+                GraphHeight / layers - ( GraphHeight / layers / 2 ),
+                0
+            );
 
             return true;
         }
