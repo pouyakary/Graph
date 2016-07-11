@@ -99,7 +99,7 @@ module KaryGraph {
 
                     // the snap svg
                     if ( Dot.DisplayNumberLabels )
-                        this.SnapNumberLabel = this.CreateNumberLabel();
+                        this.SnapNumberLabel = this.CreateNumberLabel( );
 
                     // inputs and outputs
                     this.Inputs = new Array<string> ( );
@@ -113,7 +113,7 @@ module KaryGraph {
             // ─── GET NUMBER ID ──────────────────────────────────────────
             //
 
-                public GetNumberId( ): number {
+                public GetNumberId ( ): number {
                     return this.NumberId;
                 }
 
@@ -121,7 +121,7 @@ module KaryGraph {
             // ─── RESET TOTAL DOTS ───────────────────────────────────────
             //
 
-                public static ResetNumberIdPlace( ) {
+                public static ResetNumberIdPlace ( ) {
                     Dot.TotalDots = 0;
                 }
 
@@ -133,14 +133,14 @@ module KaryGraph {
                  * Removes the class. Remove the connections
                  * and Snap objects and the other parts
                  */
-                public Remove( ) {
+                public Remove ( ) {
 
                     // remove the circle
-                    this.SnapCircle.remove();
+                    this.SnapCircle.remove( );
 
                     // remove the label
                     if ( this.SnapNumberLabel != null )
-                        this.SnapNumberLabel.remove();
+                        this.SnapNumberLabel.remove( );
 
                     // remove the connections
                     this.RemoveInputConnection( );
@@ -155,14 +155,14 @@ module KaryGraph {
             //
 
                 /** Removes a input connection and lines of the dot */
-                public RemoveInputConnection( ) {
+                public RemoveInputConnection ( ) {
                     this.Inputs.forEach( dotKey => {
                         this.DisconnectInput( dotKey );
                     });
                 }
 
                 /** Removes a output connection and lines of the dot */
-                public RemoveOutputConnection( ) {
+                public RemoveOutputConnection ( ) {
                     this.Outputs.forEach( dotKey => {
                         this.DisconnectOutput( dotKey );
                     });
@@ -249,7 +249,7 @@ module KaryGraph {
                     keys.forEach( key => {
                         var dot = <Dot> Storage.Nodes[ key ];
                         if ( this.Outputs[ dot.Id ] != undefined ) {
-                            if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) { 
+                            if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) {
                                 return -1
                             }
                             ids.push( dot.GetNumberId( ) );

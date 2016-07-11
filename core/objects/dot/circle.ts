@@ -12,7 +12,7 @@ module KaryGraph.Circle {
 
         /** Generates a standard circle object */
         export function Create ( x: number, y: number ): ISnapObject {
-            
+
             // the circle
             var circle = <ISnapObject> GraphView.circle( x, y, CircleRadius );
 
@@ -29,8 +29,8 @@ module KaryGraph.Circle {
         }
 
     //
-	// ─── GET ARRAY INDEX ────────────────────────────────────────────────────────────
-	//
+    // ─── GET ARRAY INDEX ────────────────────────────────────────────────────────────
+    //
 
         function GetArrayIndexBasedOnModes( ): number {
             switch ( UI.Toolbar.ToolbarMode ) {
@@ -65,8 +65,8 @@ module KaryGraph.Circle {
         }
 
     //
-	// ─── FOR EACH CIRCLE DO ─────────────────────────────────────────────────────────
-	//
+    // ─── FOR EACH CYCLE DO ──────────────────────────────────────────────────────────
+    //
 
         export function ForeachCircle( func: ( circle: ISnapObject ) => void ) {
             var keys = Object.keys( Storage.Nodes );
@@ -76,9 +76,9 @@ module KaryGraph.Circle {
         }
 
     //
-	// ─── RESET ALL COLORS ───────────────────────────────────────────────────────────
-	//
-        
+    // ─── RESET ALL THE COLORS ───────────────────────────────────────────────────────
+    //
+
         export function ResetCircleColors( ) {
             ForeachCircle( circle => {
                 circle.attr({
