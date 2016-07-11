@@ -11,7 +11,7 @@ module KaryGraph {
     //
 
         /** Generates some random nodes on the screen */
-        export function GenerateSomeRandomNodes( howManyNodes: number ) {
+        export function GenerateSomeRandomNodes ( howManyNodes: number ) {
             // defs
             const baseUnit = 120;
             const widthUnit = Math.floor( GraphWidth / baseUnit );
@@ -23,19 +23,19 @@ module KaryGraph {
             var map: Array<number> = CreatePlacesArray( widthUnit, heightUnit );
 
             // funcs
-            function isPlaceNotTakenAt( x: number, y: number ) {
+            function isPlaceNotTakenAt ( x: number, y: number ) {
                 return ( map[ ( widthUnit * y ) + x ] == 0 );
             }
 
-            function takeMapAt( x: number, y: number ) {
+            function takeMapAt ( x: number, y: number ) {
                 map[ ( widthUnit * y ) + x ] = 1;
             }
 
-            function ComputeRealXCoordinate( unit: number ) {
+            function ComputeRealXCoordinate ( unit: number ) {
                 return ( GraphWidth / ( widthUnit + 3 * paddingLeftRight ) ) * ( unit + 2 *  paddingLeftRight );
             }
 
-            function ComputeRealYCoordinate( unit: number ) {
+            function ComputeRealYCoordinate ( unit: number ) {
                 return ( GraphHeight / ( heightUnit + 2 * paddingTopBottom ) ) * ( unit + paddingTopBottom );
             }
 
@@ -56,7 +56,7 @@ module KaryGraph {
         }
 
         /** Gets a random number in range of ***0..input*** */
-        export function Random( input: number ) {
+        export function Random ( input: number ) {
             return Math.floor( Math.random( ) * input );
         }
 
@@ -77,7 +77,7 @@ module KaryGraph {
         }
 
         /** Populates the places array */
-        function CreatePlacesArray( w: number, h: number ): Array<number> {
+        function CreatePlacesArray ( w: number, h: number ): Array<number> {
             var result = new Array<number> ( );
             for ( var counter = 0; counter < ( w * h ); counter++ ) {
                 result.push( 0 );
@@ -86,7 +86,7 @@ module KaryGraph {
         }
 
         /** Picks up a dot randomly */
-        function GetRandomDot( ) {
+        function GetRandomDot ( ) {
             var keys = Object.keys( Storage.Nodes );
             return Storage.Nodes[ keys[ Random( keys.length ) ] ];
         }

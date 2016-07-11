@@ -5,13 +5,14 @@
 //
 
 module KaryGraph.Rendering {
-
+    
     //
     // ─── CIRCULAR RENDERING ─────────────────────────────────────────────────────────
     //
 
         /** Rearranges the dots in a circular way */
-        export function RenderCircular( ) {
+        export function RenderCircular ( ) {
+
             // defs
             let keys = Object.keys( Storage.Nodes );
             let radius = GetRadius( );
@@ -21,10 +22,11 @@ module KaryGraph.Rendering {
             let unit = 360 / count;
 
             // funcs
-            function computeX( index: number ) {
+            function computeX ( index: number ) {
                 return originX + Math.sin( ToRadians( count * index ) ) * radius;
             }
-            function computeY( index: number ) {
+
+            function computeY ( index: number ) {
                 return originY + Math.cos( ToRadians( count * index ) ) * radius;
             }
 
@@ -40,7 +42,7 @@ module KaryGraph.Rendering {
     // ─── GET RADIUS ─────────────────────────────────────────────────────────────────
     //
 
-        function GetRadius( ): number {
+        function GetRadius ( ): number {
             return 0.35 * Math.min( GraphHeight, GraphWidth );
         }
 

@@ -23,7 +23,7 @@ module KaryGraph.API.AbstractionLayer {
     // ─── DOT BY DOT OR ID ───────────────────────────────────────────────────────────
     //
 
-        export function GetDotByDotOrId( dotOrId: DotObjectOrDotID ): Dot {
+        export function GetDotByDotOrId ( dotOrId: DotObjectOrDotID ): Dot {
             if ( typeof ( dotOrId ) === "number" ) {
                 return GetDotByNumberId( <number> dotOrId );
             } else {
@@ -38,7 +38,7 @@ module KaryGraph.API.AbstractionLayer {
         /**
          * Generates a new random dot on the screen
          */
-        export function AddNewDot( ): Dot {
+        export function AddNewDot ( ): Dot {
             let x = 20 + Random( GraphWidth - 40 );
             let y = 20 + Random( GraphHeight - 40 );
             return new Dot( x, y );
@@ -48,7 +48,7 @@ module KaryGraph.API.AbstractionLayer {
     // ─── GET DOT BY NUMBER ID ───────────────────────────────────────────────────────
     //
 
-        export function GetDotByNumberId( numberId: number ): Dot {
+        export function GetDotByNumberId ( numberId: number ): Dot {
             let dot: Dot;
             let keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
@@ -64,7 +64,7 @@ module KaryGraph.API.AbstractionLayer {
     // ─── GET NUMBER OF VERTICES WITH ODD DEGREE ─────────────────────────────────────
     //
 
-        export function NumberOfOddVertices( ): number {
+        export function NumberOfOddVertices ( ): number {
             var verticesWithOddDegree: number = 0;
             var keys = Object.keys( Storage.Nodes );
             keys.forEach( key => {
@@ -79,7 +79,7 @@ module KaryGraph.API.AbstractionLayer {
     // ─── CLEAR SCREEN ───────────────────────────────────────────────────────────────
     //
 
-        export function Reset( ) {
+        export function Reset ( ) {
             Object.keys( Storage.Nodes ).forEach(
                 key => ( <Dot> Storage.Nodes[ key ] ).Remove( )
             );
@@ -90,7 +90,7 @@ module KaryGraph.API.AbstractionLayer {
     // ─── CREATE MATRIX OF GRAPH ────────────────────────────────────────────────────
     //
 
-        export function CreateMatrix( idOrDots: Array<DotObjectOrDotID> ): number[ ][ ] {
+        export function CreateMatrix ( idOrDots: Array<DotObjectOrDotID> ): number[ ][ ] {
             var idsLength = idOrDots.length;
             var matrix: number[ ][ ] = new Array( idsLength );
 
@@ -111,7 +111,7 @@ module KaryGraph.API.AbstractionLayer {
     // ─── RENDERING ──────────────────────────────────────────────────────────────────
     //
 
-        export function Render( text: string ) {
+        export function Render ( text: string ) {
             switch ( text ) {
                 case 'circle':
                     Rendering.RenderCircular();

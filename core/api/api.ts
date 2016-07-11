@@ -19,7 +19,7 @@
      * Creates a new dot at a random coordination.
      * https://github.com/karyfoundation/graph/wiki/API#new-dot
      */
-    function newdot( ): KaryGraph.Dot {
+    function newdot ( ): KaryGraph.Dot {
         return KaryGraph.API.AbstractionLayer.AddNewDot( );
     }
 
@@ -31,7 +31,7 @@
      * Creates a new dot at a specified coordination.
      * https://github.com/karyfoundation/graph/wiki/API#new-dot-at
      */
-    function newdotat( x: number, y: number ): KaryGraph.Dot {
+    function newdotat ( x: number, y: number ): KaryGraph.Dot {
         return new KaryGraph.Dot( x , y ); 
     }
 
@@ -43,7 +43,7 @@
      * Creates a number of dots at some random places.
      * https://github.com/karyfoundation/graph/wiki/API#new-dots
      */
-    function newdots( howmuch: number ): Array<KaryGraph.Dot> {
+    function newdots ( howmuch: number ): Array<KaryGraph.Dot> {
         var dots = new Array<KaryGraph.Dot>( );
         for ( var counter = 0; counter < howmuch; counter++ ) {
             dots.push( KaryGraph.API.AbstractionLayer.AddNewDot( ) );
@@ -59,7 +59,7 @@
      * gets a dot with it's numerical id.
      * https://github.com/karyfoundation/graph/wiki/API#get-dot
      */
-    function getdot( numberId: number ): KaryGraph.Dot {
+    function getdot ( numberId: number ): KaryGraph.Dot {
         return KaryGraph.API.AbstractionLayer.GetDotByNumberId( numberId );
     }
 
@@ -71,7 +71,7 @@
      * returns an array of dots based on the array of their ids.
      * https://github.com/karyfoundation/graph/wiki/API#get-dots
      */
-    function getdots( ids: Array<number> ): Array<KaryGraph.Dot> {
+    function getdots ( ids: Array<number> ): Array<KaryGraph.Dot> {
         let result = new Array<KaryGraph.Dot>( );
         ids.forEach( id => {
             result.push( getdot( id ) );
@@ -113,7 +113,7 @@
     /**
      * Returns an array of dot's of all the dots.
      */
-    function all( ): Array<number> {
+    function all ( ): Array<number> {
         return range( 1 , KaryGraph.Dot.TotalDots );
     }
 
@@ -125,7 +125,7 @@
      * Connects an array of dots together
      * https://github.com/karyfoundation/graph/wiki/API#connect
      */
-    function connect( args: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): boolean {
+    function connect ( args: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): boolean {
         let result = false;
         for ( var i = 1; i < args.length; i++ ) {
             let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i - 1 ] );
@@ -143,7 +143,7 @@
      * Connects an array of dots like a fan.
      * https://github.com/karyfoundation/graph/wiki/API#fan
      */
-    function fan( args: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): boolean {
+    function fan ( args: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): boolean {
         let result = false;
         for ( var i = 1; i < args.length; i++ ) {
             let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ 0 ] );
@@ -161,8 +161,8 @@
      * Disconnects two dots from each other.
      * https://github.com/karyfoundation/graph/wiki/API#disconnect
      */
-    function disconnect( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, 
-                         b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
+    function disconnect ( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, 
+                          b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
         let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( a );
         let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( b );
         return d1.DisconnectFrom( d2 );
@@ -246,7 +246,7 @@
      * Returns the number of dots.
      * https://github.com/karyfoundation/graph/wiki/API#count-dots
      */
-    function countdots( ): number {
+    function countdots ( ): number {
         return KaryGraph.Dot.TotalDots;
     }
 
@@ -283,7 +283,7 @@
      * Moves a dot to the given x coordinate.
      * https://github.com/karyfoundation/graph/wiki/API#move-to-y
      */
-    function movey( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
+    function movey ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
         let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
         d.MoveTo( d.X, y );
     }
@@ -296,7 +296,7 @@
      * Moves a dot by the given x coordinate.
      * https://github.com/karyfoundation/graph/wiki/API#move-by-x
      */
-    function movebx( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
+    function movebx ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
         let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
         d.MoveTo( d.X + x, d.Y );
     }
@@ -309,7 +309,7 @@
      * Moves a dot by the given y coordinate.
      * https://github.com/karyfoundation/graph/wiki/API#move-by-y
      */
-    function moveby( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
+    function moveby ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
         let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
         d.MoveTo( d.X, d.Y + y );
     }
@@ -318,7 +318,7 @@
 // ─── RENDERING ──────────────────────────────────────────────────────────────────
 //
 
-    function render( option: string ) {
+    function render ( option: string ) {
         KaryGraph.API.AbstractionLayer.Render( option );
     }
 
@@ -330,7 +330,7 @@
      * Rearranges the (tree-based) graph to a tree.
      * https://github.com/karyfoundation/graph/wiki/API#tree
      */
-    function sort( ) {
+    function sort ( ) {
         KaryGraph.API.StandardLibrary.Sortings.Tree( );
     }
 
@@ -342,7 +342,7 @@
      * Returns the order of the graph.
      * https://github.com/karyfoundation/graph/wiki/API#order
      */
-    function order( ): number {
+    function order ( ): number {
         return countdots();
     }
 
@@ -354,7 +354,7 @@
      * Returns the size of the graph made of the specified dots in array.
      * https://github.com/karyfoundation/graph/wiki/API#size
      */
-    function size( dots?: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): number {
+    function size ( dots?: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): number {
         var size: number = 0;
         if ( dots === undefined ) {
             for ( var i = 0; i < KaryGraph.Dot.TotalDots; i++ ) {
@@ -376,7 +376,7 @@
      * Returns the degree of a vertex.
      * https://github.com/karyfoundation/graph/wiki/API#degree
      */
-    function degree( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): number {
+    function degree ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): number {
         return KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot ).GetDegree( );
     }
 
@@ -388,8 +388,8 @@
      * Checks if two dots are neighbors.
      * https://github.com/karyfoundation/graph/wiki/API#neighbors
      */
-    function neighbors( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID,
-                        b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
+    function neighbors ( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID,
+                         b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
         let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( a );
         let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( b );
         return d1.IsConnectedTo( d2 );
@@ -403,7 +403,7 @@
      * Returns the neighborhood of a dot.
      * https://github.com/karyfoundation/graph/wiki/API#get-neighborhood
      */
-    function neighborhood( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): KaryGraph.Dot[] {
+    function neighborhood ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): KaryGraph.Dot[] {
         return KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot ).GetNeighbors( );
     }
 
@@ -415,7 +415,7 @@
      * Cleans the notebook screen.
      * https://github.com/karyfoundation/graph/wiki/API#clear-screen
      */
-    function cls( ) {
+    function cls ( ) {
         KaryGraph.UI.Programmer.ClearNotebookScreen( );
     }
 

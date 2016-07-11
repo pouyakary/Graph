@@ -11,7 +11,7 @@ module KaryGraph.Rendering {
     //
 
         /** Rearrange dots in a spiral way */
-        export function RenderSpiral( ) {
+        export function RenderSpiral ( ) {
 
             // vars
             var x = GraphWidth / 2;
@@ -26,7 +26,7 @@ module KaryGraph.Rendering {
             keys.forEach( key => {
                 var dot: Dot = ( <Dot> Storage.Nodes[ key ] );
                 dot.MoveTo( x, y );
-                switch (direction) {
+                switch ( direction ) {
                     case 0:
                         y -= 40;
                         break;

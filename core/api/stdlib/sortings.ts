@@ -10,7 +10,7 @@ module KaryGraph.API.StandardLibrary.Sortings {
     // ─── CLASSIC TREE ───────────────────────────────────────────────────────
     //
 
-        export function Tree( ): boolean {
+        export function Tree ( ): boolean {
 
             // vars
             var map = new Map( );

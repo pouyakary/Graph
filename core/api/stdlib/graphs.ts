@@ -10,7 +10,7 @@ module KaryGraph.API.StandardLibrary {
     // ─── RND ────────────────────────────────────────────────────────────────────────
     //
 
-        export function RND( ) {
+        export function RND ( ) {
 
         }
 
@@ -18,7 +18,7 @@ module KaryGraph.API.StandardLibrary {
     // ─── COMPLETE GRAPH ─────────────────────────────────────────────────────────────
     //
 
-        export function CreateCompleteGraph( size: number ) {
+        export function CreateCompleteGraph ( size: number ) {
             let keys = new Array<string>( );
 
             // creating dots
