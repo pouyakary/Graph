@@ -13,42 +13,64 @@ module KaryGraph.Rendering {
         /** Rearrange dots in a spiral way */
         export function RenderSpiral ( ) {
 
-            // vars
-            var x = GraphWidth / 2;
-            var y = GraphHeight / 2;
-            var i = 0;
-            var direction = 0;
-            var target = 1;
-            var add = 2;
+            //
+            // ─── ENUMS ───────────────────────────────────────────────────────
+            //
 
-            // move
-            let keys = Object.keys( Storage.Nodes );
-            keys.forEach( key => {
-                var dot: Dot = ( <Dot> Storage.Nodes[ key ] );
-                dot.MoveTo( x, y );
-                switch ( direction ) {
-                    case 0:
-                        y -= 40;
-                        break;
-                    case 1:
-                        x -= 40;
-                        break;
-                    case 2:
-                        y += 40;
-                        break;
-                    case 3:
-                        x += 40;
-                        break;
-                    default:
-                        break;
+                enum Direction {
+                    Top, Left, Down, Right
                 }
-                i++;
-                if ( i == target ) {
-                    direction = ( direction == 3 ) ? direction = 0 : direction += 1;
-                    target += add++;
-                }
-            });
 
+            //
+            // ─── DEFS ────────────────────────────────────────────────────────
+            //
+
+                var x           = GraphWidth / 2;
+                var y           = GraphHeight / 2;
+                var iteration   = 0;
+                var direction   = Direction.Top;
+                var target      = 1;
+                var add         = 2;
+
+            //
+            // ─── MOVE ────────────────────────────────────────────────────────
+            //
+
+                Object.keys( Storage.Nodes ).forEach( key => {
+
+                    // • • • • •
+                    var dot: Dot = ( <Dot> Storage.Nodes[ key ] );
+
+                    // • • • • •
+                    dot.MoveTo( x, y );
+
+                    // • • • • •
+                    switch ( direction ) {
+                        case Direction.Top:
+                            y -= 40;
+                            break;
+                        case Direction.Left:
+                            x -= 40;
+                            break;
+                        case Direction.Down:
+                            y += 40;
+                            break;
+                        case Direction.Right:
+                            x += 40;
+                            break;
+                    }
+
+                    // • • • • •
+                    iteration++;
+
+                    // • • • • •
+                    if ( iteration == target ) {
+                        direction = ( direction == 3 ) ? direction = 0 : direction += 1;
+                        target += add++;
+                    }
+                });
+
+            // ─────────────────────────────────────────────────────────────────
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

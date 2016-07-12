@@ -55,6 +55,10 @@ module KaryGraph {
             }
         }
 
+    //
+    // ─── RANDOM NUMBER GENERATOR ────────────────────────────────────────────────────
+    //
+
         /** Gets a random number in range of ***0..input*** */
         export function Random ( input: number ) {
             return Math.floor( Math.random( ) * input );
@@ -76,6 +80,10 @@ module KaryGraph {
             }
         }
 
+    //
+    // ─── CREATE PLACES ARRAY ────────────────────────────────────────────────────────
+    //
+
         /** Populates the places array */
         function CreatePlacesArray ( w: number, h: number ): Array<number> {
             var result = new Array<number> ( );
@@ -84,6 +92,10 @@ module KaryGraph {
             }
             return result;
         }
+
+    //
+    // ─── GET RANDOM DOT ─────────────────────────────────────────────────────────────
+    //
 
         /** Picks up a dot randomly */
         function GetRandomDot ( ) {

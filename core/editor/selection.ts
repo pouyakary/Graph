@@ -13,7 +13,7 @@ module KaryGraph {
     export class SelectionBox {
 
         //
-        // ─── DEFS ───────────────────────────────────────────────────────────────────────
+        // ─── DEFS ────────────────────────────────────────────────────────
         //
 
             /** Keeps the *X coordinates* of start of the selection box. */
@@ -32,8 +32,7 @@ module KaryGraph {
             private Rect: ISnapObject;
 
         //
-
-        // ─── INIT ───────────────────────────────────────────────────────────────────────
+        // ─── INIT ────────────────────────────────────────────────────────
         //
 
             /** Starts a SelectionBox at the given coordinates. */
@@ -46,7 +45,7 @@ module KaryGraph {
             }
 
         //
-        // ─── INIT THE SNAP BOX ──────────────────────────────────────────────────────────
+        // ─── INIT THE SNAP BOX ───────────────────────────────────────────
         //
 
             /** Initializes the Snap Rect object associated with the SelectionBox */
@@ -60,13 +59,15 @@ module KaryGraph {
             }
 
         //
-        // ─── MOVE MOUSE  ────────────────────────────────────────────────────────────────
+        // ─── MOVE MOUSE ──────────────────────────────────────────────────
         //
 
             /** At the point of mouse move event this function must be called. */
             public MoveMouse( mouseX: number, mouseY: number ) {
 
             }
+
+        // ─────────────────────────────────────────────────────────────────
 
     }
 }
