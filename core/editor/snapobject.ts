@@ -10,9 +10,9 @@ module KaryGraph {
     // ─── ATTRIBUTE ──────────────────────────────────────────────────────────────────
     //
 
-    interface ISnapAttributesFunction {
-        ( attributes: any );
-    }
+        interface ISnapAttributesFunction {
+            ( attributes: any );
+        }
 
     //
     // ─── ANIMATION ──────────────────────────────────────────────────────────────────
