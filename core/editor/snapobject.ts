@@ -11,47 +11,47 @@ module KaryGraph {
     //
 
         //
-        // Attributes
+        // ─── ATTRIBUTES ──────────────────────────────────────────────────
         //
 
             interface ISnapAttributesFunction {
                 ( attributes: any );
             }
 
-
         //
-        // Animation
+        // ─── ANIMATION ───────────────────────────────────────────────────
         //
 
             interface ISnapAnimateFunction {
                 ( attributes: any , duration: number )
             }
 
-
         //
-        // Data
+        // ─── DATA ────────────────────────────────────────────────────────
         //
 
             interface ISnapDataFunction {
                 ( string, any? )
             }
 
-
         //
-        // Drag
+        // ─── DRAG MOVE ───────────────────────────────────────────────────
         //
 
             interface ISnapDragMoveFunction {
                 ( dx: number, dy: number, posx: number, posy: number )
             }
 
+        //
+        // ─── DRAG ────────────────────────────────────────────────────────
+        //
+
             interface ISnapDragFunction {
                 ( move: ISnapDragMoveFunction, start: Function, stop: Function  )
             }
 
-
         //
-        // Snap Object
+        // ─── SNAP OBJECT ─────────────────────────────────────────────────
         //
 
             /** Implements Snap Objects (circle, line,... ) */
@@ -72,9 +72,8 @@ module KaryGraph {
 
             }
 
-
         //
-        // SNAP GROUP
+        // ─── SNAP GROUP ──────────────────────────────────────────────────
         //
 
             interface ISnapAddFunction {
