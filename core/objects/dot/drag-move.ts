@@ -51,7 +51,7 @@ module KaryGraph {
 
         export function DragModeFunctionSelectMode( circle: ISnapObject, dx: number,
                                                     dy: number, posx: number, posy: number ) {
-            
+
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

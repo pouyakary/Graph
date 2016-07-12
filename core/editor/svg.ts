@@ -12,9 +12,9 @@ module KaryGraph {
 
         /** Adds an ***event*** to the ***element*** */
         export function AddEventOnClick ( element: ISnapObject, event: string ) {
-            document.getElementById( element.id ).setAttribute( 'onClick', event ); 
+            document.getElementById( element.id ).setAttribute( 'onClick', event );
         }
 
-    // ────────────────────────────────────────────────────────────────────────────────         
+    // ────────────────────────────────────────────────────────────────────────────────
 
 }

@@ -105,7 +105,7 @@ module KaryGraph {
                     this.Inputs = new Array<string> ( );
                     this.Outputs = new Array<string> ( );
 
-                    // Adding self to the Graph 
+                    // Adding self to the Graph
                     Storage.Nodes[ this.Id ] = this;
                 }
 
@@ -242,8 +242,8 @@ module KaryGraph {
             // ─── GET ALL CHILDREN ───────────────────────────────────────
             //
 
-                public GetChildren( ids?: number[] ): any {
-                    if ( !ids ) var ids: number[] = [];
+                public GetChildren ( ids?: number[ ] ): any {
+                    if ( !ids ) var ids: number[ ] = [ ];
                     var map = new Map();
                     var keys = Object.keys( Storage.Nodes );
                     keys.forEach( key => {
@@ -254,7 +254,7 @@ module KaryGraph {
                             }
                             ids.push( dot.GetNumberId( ) );
                             var children = dot.GetChildren( ids );
-                            if ( children == -1 ) { 
+                            if ( children == -1 ) {
                                 return -1
                             }
                             map.set( dot, children );
@@ -267,7 +267,7 @@ module KaryGraph {
             // ─── DEGREE OF VERTEX ───────────────────────────────────────
             //
 
-                public GetDegree( ): number {
+                public GetDegree ( ): number {
                     return this.NumberOfInputs() + this.NumberOfOutputs();
                 }
 
@@ -275,9 +275,9 @@ module KaryGraph {
             // ─── GET NEIGHBORS ──────────────────────────────────────────
             //
 
-                public GetNeighbors( ): KaryGraph.Dot[] {
+                public GetNeighbors ( ): KaryGraph.Dot[ ] {
 
-                    var neighbors: KaryGraph.Dot[] = [];
+                    var neighbors: KaryGraph.Dot[ ] = [ ];
                     var keys = Object.keys( Storage.Nodes );
                     keys.forEach( key => {
 
@@ -318,14 +318,14 @@ module KaryGraph {
                 }
 
                 /** Transforms the output connections when the dot is moved. */
-                private ApplyTransformationToOutputs( ) {
+                private ApplyTransformationToOutputs ( ) {
                     this.Outputs.forEach( outputID => {
                         Storage.Connections[ this.Id + outputID ].MoveStart( this.X, this.Y );
                     });
                 }
 
                 /** Transforms the input connections when the dot is moved. */
-                private ApplyTransformationToInputs( ) {
+                private ApplyTransformationToInputs ( ) {
                     this.Inputs.forEach( inputID => {
                         Storage.Connections[ inputID + this.Id ].MoveEnd( this.X, this.Y );
                     });

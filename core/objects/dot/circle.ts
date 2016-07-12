@@ -43,7 +43,7 @@ module KaryGraph.Circle {
                 case UI.Toolbar.ToolbarModeEnum.Select:
                     return 3;
             }
-        }  
+        }
 
     //
     // ─── EVENT HANDLERS ─────────────────────────────────────────────────────────────
@@ -60,7 +60,7 @@ module KaryGraph.Circle {
         }
 
         var CircleDragOnStop = function ( ) {
-            var func = DragStopFunctions[ GetArrayIndexBasedOnModes( ) ];   
+            var func = DragStopFunctions[ GetArrayIndexBasedOnModes( ) ];
             func( ( <ISnapObject> this ) );
         }
 

@@ -5,7 +5,7 @@
 //
 
 module KaryGraph.Rendering {
-    
+
     //
     // ─── CIRCULAR RENDERING ─────────────────────────────────────────────────────────
     //

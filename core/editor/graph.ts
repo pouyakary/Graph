@@ -61,9 +61,9 @@ module KaryGraph {
         }
 
     //
-	// ─── CONNECT NODES RANDOMLY ─────────────────────────────────────────────────────
-	//
-        
+    // ─── CONNECT NODES RANDOMLY ─────────────────────────────────────────────────────
+    //
+
         /** Connects some of the dots to each other randomly */
         export function AddRandomConnections ( howManyTimes: number ) {
             // generate

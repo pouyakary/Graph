@@ -64,7 +64,7 @@ module KaryGraph {
 
                 /** removes the object */
                 remove();
-                
+
                 /** drag implementation */
                 drag: ISnapDragFunction;
                 data: ISnapDataFunction;
