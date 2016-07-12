@@ -4,7 +4,8 @@
         "target": "es6",
         "noImplicitAny": false,
         "sourceMap": false,
-        "outFile": "_compiled/core.js"
+        "outFile": "_compiled/core.js",
+        "removeComments": true
     },
     "exclude": [
         "node_modules"
