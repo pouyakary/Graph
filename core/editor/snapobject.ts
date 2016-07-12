@@ -10,79 +10,75 @@ module KaryGraph {
     // ─── ATTRIBUTE ──────────────────────────────────────────────────────────────────
     //
 
-        //
-        // ─── ATTRIBUTES ──────────────────────────────────────────────────
-        //
+    interface ISnapAttributesFunction {
+        ( attributes: any );
+    }
 
-            interface ISnapAttributesFunction {
-                ( attributes: any );
-            }
+    //
+    // ─── ANIMATION ──────────────────────────────────────────────────────────────────
+    //
 
-        //
-        // ─── ANIMATION ───────────────────────────────────────────────────
-        //
+        interface ISnapAnimateFunction {
+            ( attributes: any , duration: number )
+        }
 
-            interface ISnapAnimateFunction {
-                ( attributes: any , duration: number )
-            }
+    //
+    // ─── DATA ───────────────────────────────────────────────────────────────────────
+    //
 
-        //
-        // ─── DATA ────────────────────────────────────────────────────────
-        //
+        interface ISnapDataFunction {
+            ( string, any? )
+        }
 
-            interface ISnapDataFunction {
-                ( string, any? )
-            }
+    //
+    // ─── DRAG MOVE ──────────────────────────────────────────────────────────────────
+    //
 
-        //
-        // ─── DRAG MOVE ───────────────────────────────────────────────────
-        //
+        interface ISnapDragMoveFunction {
+            ( dx: number, dy: number, posx: number, posy: number )
+        }
 
-            interface ISnapDragMoveFunction {
-                ( dx: number, dy: number, posx: number, posy: number )
-            }
+    //
+    // ─── DRAG ───────────────────────────────────────────────────────────────────────
+    //
 
-        //
-        // ─── DRAG ────────────────────────────────────────────────────────
-        //
+        interface ISnapDragFunction {
+            ( move: ISnapDragMoveFunction, start: Function, stop: Function  )
+        }
 
-            interface ISnapDragFunction {
-                ( move: ISnapDragMoveFunction, start: Function, stop: Function  )
-            }
+    //
+    // ─── SNAP OBJECT ────────────────────────────────────────────────────────────────
+    //
 
-        //
-        // ─── SNAP OBJECT ─────────────────────────────────────────────────
-        //
+        /** Implements Snap Objects (circle, line,... ) */
+        export interface ISnapObject {
+            /** Changes the attributes of the object */
+            attr: ISnapAttributesFunction;
 
-            /** Implements Snap Objects (circle, line,... ) */
-            export interface ISnapObject {
-                /** Changes the attributes of the object */
-                attr: ISnapAttributesFunction;
+            /** Animates the object */
+            animate: ISnapAnimateFunction;
 
-                /** Animates the object */
-                animate: ISnapAnimateFunction;
+            /** removes the object */
+            remove();
 
-                /** removes the object */
-                remove();
+            /** drag implementation */
+            drag: ISnapDragFunction;
+            data: ISnapDataFunction;
+            id: string;
 
-                /** drag implementation */
-                drag: ISnapDragFunction;
-                data: ISnapDataFunction;
-                id: string;
+        }
 
-            }
+    //
+    // ─── SNAP GROUP ─────────────────────────────────────────────────────────────────
+    //
 
-        //
-        // ─── SNAP GROUP ──────────────────────────────────────────────────
-        //
+        interface ISnapAddFunction {
+            ( ISnapObject )
+        }
 
-            interface ISnapAddFunction {
-                ( ISnapObject )
-            }
-
-            export interface ISnapGroup {
-                add: ISnapAddFunction
-            }
+        export interface ISnapGroup {
+            add: ISnapAddFunction
+        }
 
     // ────────────────────────────────────────────────────────────────────────────────
 
