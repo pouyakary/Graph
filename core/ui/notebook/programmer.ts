@@ -22,6 +22,12 @@ module KaryGraph.UI.Programmer {
         /** Input of the prompt */
         var promptInput: HTMLInputElement;
 
+        /** Commands History Array */
+        var promptHistory:Array<string>;
+
+        /** Commands History Cursor */
+        var promptHistoryCursor:number;
+
     //
     // ─── WRAPPERS ───────────────────────────────────────────────────────────────────
     //
@@ -65,6 +71,8 @@ module KaryGraph.UI.Programmer {
         function StartPrompt( ) {
             CreateThePrompt( );
             notebook.appendChild( prompt );
+            promptHistory = new Array<string>();
+            promptHistoryCursor = -1;
         }
 
     //
@@ -79,7 +87,9 @@ module KaryGraph.UI.Programmer {
             // Prompt Input Object
             promptInput = document.createElement( 'input' );
             promptInput.className = NotebookPromptInputClass;
+            /** We have two different methods on purpose, do not try to merge them! */
             promptInput.addEventListener( 'keypress' , OnPromptEnterClicked );
+            promptInput.addEventListener( 'keydown' , OnPromptArrowsClicked );
             // Prompt 
             prompt.appendChild( promptInput );
         }
@@ -93,10 +103,53 @@ module KaryGraph.UI.Programmer {
             // if ( !ev.metaKey ) return;
             let key = ev.which || ev.keyCode;
             if ( key === 13 ) {
+                console.log("ENTER");
+                
+                /** Enter/Return Key */
                 let code = FetchAndResetInput( );
+                promptHistory.push(code);
+                promptHistoryCursor++;
                 let result = RunAndGenerateResults( code );
                 let html = GenerateResultRowHTML( code , result );
                 AppendRow( html );
+            }
+        }
+
+    //
+    // ─── ON PROMPT ARROWS ───────────────────────────────────────────────────────────
+    //
+
+
+        /** Starts when the arrow keys is pressed on the input  */
+        function OnPromptArrowsClicked( ev: KeyboardEvent ) {
+            // if ( !ev.metaKey ) return;
+            let key = ev.which || ev.keyCode;
+            if(key === 38)
+            {
+                console.log("UPPPP");
+                
+                /** Up Arrow Key */
+                if(promptHistoryCursor > -1)
+                {
+                    ResetAndSetInput(promptHistory[promptHistoryCursor]);
+                    promptHistoryCursor--;
+                }
+            }
+            else if(key === 40)
+            {
+                console.log("DOOOOWN");
+                
+                /** Down Arrow Key */
+                if(promptHistoryCursor + 2 < promptHistory.length)
+                {
+                    ResetAndSetInput(promptHistory[promptHistoryCursor+2]);
+                    promptHistoryCursor++;
+                }
+                else
+                {
+                    promptHistoryCursor = promptHistory.length-1;
+                    ResetAndSetInput('');
+                }
             }
         }
 
@@ -109,6 +162,15 @@ module KaryGraph.UI.Programmer {
             row.className = NotebookResultRowClass;
             row.innerHTML = html;
             notebook.insertBefore( row , prompt );
+        }
+
+    //
+    // ─── RESET AND SET INPUT VALUSE ─────────────────────────────────────────────────
+    //
+
+        /** Resets and sets the input box value */
+        function ResetAndSetInput(inputValue:string) {
+            promptInput.value = inputValue;
         }
 
     //
