@@ -131,6 +131,8 @@
             let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i - 1 ] );
             let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( args[ i ] );
             d1.ConnectTo( d2 );
+            //FIXME Should be true only if the connection is really established.
+            result = true;
         }
         return result;
     }
