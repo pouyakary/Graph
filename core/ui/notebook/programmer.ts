@@ -68,7 +68,7 @@ module KaryGraph.UI.Programmer {
     //
 
         /** Initializes a prompt into the notebook */
-        function StartPrompt( ) {
+        function StartPrompt ( ) {
             CreateThePrompt( );
             notebook.appendChild( prompt );
             promptHistory = new Array<string>();
@@ -99,7 +99,7 @@ module KaryGraph.UI.Programmer {
     //
 
         /** Starts when the enter key is pressed on the input  */
-        function OnPromptEnterClicked( ev: KeyboardEvent ) {
+        function OnPromptEnterClicked ( ev: KeyboardEvent ) {
             // if ( !ev.metaKey ) return;
             let key = ev.which || ev.keyCode;
             if ( key === 13 ) {
@@ -121,32 +121,21 @@ module KaryGraph.UI.Programmer {
 
 
         /** Starts when the arrow keys is pressed on the input  */
-        function OnPromptArrowsClicked( ev: KeyboardEvent ) {
+        function OnPromptArrowsClicked ( ev: KeyboardEvent ) {
             // if ( !ev.metaKey ) return;
             let key = ev.which || ev.keyCode;
-            if(key === 38)
-            {
-                console.log("UPPPP");
-                
+            if ( key === 38 ) {
                 /** Up Arrow Key */
-                if(promptHistoryCursor > -1)
-                {
-                    ResetAndSetInput(promptHistory[promptHistoryCursor]);
+                if ( promptHistoryCursor > -1 ) {
+                    ResetAndSetInput( promptHistory[ promptHistoryCursor ] );
                     promptHistoryCursor--;
                 }
-            }
-            else if(key === 40)
-            {
-                console.log("DOOOOWN");
-                
+            } else if ( key === 40 ) {
                 /** Down Arrow Key */
-                if(promptHistoryCursor + 2 < promptHistory.length)
-                {
-                    ResetAndSetInput(promptHistory[promptHistoryCursor+2]);
+                if ( promptHistoryCursor + 2 < promptHistory.length ) {
+                    ResetAndSetInput( promptHistory[ promptHistoryCursor + 2 ] );
                     promptHistoryCursor++;
-                }
-                else
-                {
+                } else {
                     promptHistoryCursor = promptHistory.length-1;
                     ResetAndSetInput('');
                 }
@@ -157,7 +146,7 @@ module KaryGraph.UI.Programmer {
     // ─── APPEND ROW ─────────────────────────────────────────────────────────────────
     //
 
-        function AppendRow( html: string ) {
+        function AppendRow ( html: string ) {
             let row = document.createElement('div');
             row.className = NotebookResultRowClass;
             row.innerHTML = html;
@@ -169,7 +158,7 @@ module KaryGraph.UI.Programmer {
     //
 
         /** Resets and sets the input box value */
-        function ResetAndSetInput(inputValue:string) {
+        function ResetAndSetInput ( inputValue: string ) {
             promptInput.value = inputValue;
         }
 
@@ -178,7 +167,7 @@ module KaryGraph.UI.Programmer {
     //
         
         /** Fetches and resets the input box value */
-        function FetchAndResetInput( ): string {
+        function FetchAndResetInput ( ): string {
             let result = promptInput.value;
             promptInput.value = '';
             return result;
@@ -198,7 +187,7 @@ module KaryGraph.UI.Programmer {
     // ─── RUN AND GENERATE RESULTS ───────────────────────────────────────────────────
     //
 
-        function RunAndGenerateResults( code: string ) {
+        function RunAndGenerateResults ( code: string ) {
             let runResults = KaryGraph.ScriptEngine.Run( code );
             if ( ScriptEngine.RunStatus ) {
                 return KaryGraph.UI.Programmer.GenerateSayHTML( runResults );
