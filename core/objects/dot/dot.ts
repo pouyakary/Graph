@@ -179,14 +179,15 @@ module KaryGraph {
 
                 /** Disconnect dot from Dot */
                 public DisconnectFrom( dot: Dot ): boolean {
+                    var res = false;
                     if ( this.Inputs.includes( dot.Id )  ) {
                         this.DisconnectInput( dot.Id );
-                        return true;
+                        res = true;
                     } else if ( this.Outputs.includes( dot.Id ) ) {
                         this.DisconnectOutput( dot.Id );
-                        return true;
+                        res = true;
                     }
-                    return false;
+                    return res;
                 }
 
             //
