@@ -14,7 +14,7 @@ module KaryGraph {
         export class Dot {
 
             //
-            // ─── GLOBALS ────────────────────────────────────────────────
+            // ─── GLOBALS ─────────────────────────────────────────────────────
             //
 
                 /** For counting how many nodes are created. */
@@ -23,7 +23,7 @@ module KaryGraph {
                 static DisplayNumberLabels : boolean = true;
 
             //
-            // ─── DEFS ───────────────────────────────────────────────────
+            // ─── DEFS ────────────────────────────────────────────────────────
             //
 
                 /** To be used as the hash key in dictionaries */
@@ -76,7 +76,7 @@ module KaryGraph {
                 private Label: string;
 
             //
-            // ─── CONSTRUCTOR ────────────────────────────────────────────
+            // ─── CONSTRUCTOR ─────────────────────────────────────────────────
             //
 
                 constructor ( x: number, y: number ) {
@@ -98,8 +98,9 @@ module KaryGraph {
                     this.NumberLabelDistanceY = DotNumberLabelDisplacementY;
 
                     // the snap svg
-                    if ( Dot.DisplayNumberLabels )
+                    if ( Dot.DisplayNumberLabels ) {
                         this.SnapNumberLabel = this.CreateNumberLabel( );
+                    }
 
                     // inputs and outputs
                     this.Inputs = new Array<string> ( );
@@ -110,7 +111,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── GET NUMBER ID ──────────────────────────────────────────
+            // ─── GET NUMBER ID ───────────────────────────────────────────────
             //
 
                 public GetNumberId ( ): number {
@@ -118,7 +119,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── RESET TOTAL DOTS ───────────────────────────────────────
+            // ─── RESET TOTAL DOTS ────────────────────────────────────────────
             //
 
                 public static ResetNumberIdPlace ( ) {
@@ -126,7 +127,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── REMOVER ────────────────────────────────────────────────
+            // ─── REMOVER ─────────────────────────────────────────────────────
             //
 
                 /**
@@ -151,7 +152,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── CONNECTION REMOVERS ────────────────────────────────────
+            // ─── REMOVE CONNECTION FROM INPUT ────────────────────────────────
             //
 
                 /** Removes a input connection and lines of the dot */
@@ -161,6 +162,10 @@ module KaryGraph {
                     });
                 }
 
+            //
+            // ─── REMOVE OUTPUT CONNECTION ────────────────────────────────────
+            //
+
                 /** Removes a output connection and lines of the dot */
                 public RemoveOutputConnection ( ) {
                     this.Outputs.forEach( dotKey => {
@@ -169,7 +174,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── DISCONNECT FROM ────────────────────────────────────────
+            // ─── DISCONNECT FROM ─────────────────────────────────────────────
             //
 
                 /** Disconnect dot from Dot */
@@ -184,12 +189,20 @@ module KaryGraph {
                     return false;
                 }
 
+            //
+            // ─── DISCONNECT INPUT ────────────────────────────────────────────
+            //
+
                 /** Disconnects input dot */
                 private DisconnectInput( dotID: string ) {
                     ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
                     delete Storage.Nodes[ dotID ].Outputs[ this.Id ];
                     delete this.Inputs[ dotID ];
                 }
+
+            //
+            // ─── DISCONNECT OUTPUT ───────────────────────────────────────────
+            //
 
                 /** Disconnects output dot */
                 private DisconnectOutput( dotID: string ) {
@@ -199,7 +212,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── CONNECT TO ─────────────────────────────────────────────
+            // ─── CONNECT TO ──────────────────────────────────────────────────
             //
 
                 /** Connects a ***Dot*** object  */
@@ -210,7 +223,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── CHECK IF CONNECTED TO ──────────────────────────────────
+            // ─── CHECK IF CONNECTED TO ───────────────────────────────────────
             //
 
                 public IsConnectedTo( dot: Dot ): boolean {
@@ -223,7 +236,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── NUMBER OF INPUTS ───────────────────────────────────────
+            // ─── NUMBER OF INPUTS ────────────────────────────────────────────
             //
 
                 public NumberOfInputs( ): number {
@@ -231,7 +244,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── NUMBER OF INPUTS ───────────────────────────────────────
+            // ─── NUMBER OF OUTPUTS ───────────────────────────────────────────
             //
 
                 public NumberOfOutputs( ): number {
@@ -239,7 +252,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── GET ALL CHILDREN ───────────────────────────────────────
+            // ─── GET ALL CHILDREN ────────────────────────────────────────────
             //
 
                 public GetChildren ( ids?: number[ ] ): any {
@@ -264,7 +277,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── DEGREE OF VERTEX ───────────────────────────────────────
+            // ─── DEGREE OF VERTEX ────────────────────────────────────────────
             //
 
                 public GetDegree ( ): number {
@@ -272,7 +285,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── GET NEIGHBORS ──────────────────────────────────────────
+            // ─── GET NEIGHBORS ───────────────────────────────────────────────
             //
 
                 public GetNeighbors ( ): KaryGraph.Dot[ ] {
@@ -299,7 +312,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── MOVE TO ────────────────────────────────────────────────
+            // ─── MOVE TO ─────────────────────────────────────────────────────
             //
 
                 /**
@@ -317,12 +330,20 @@ module KaryGraph {
                     this.ApplyTransformationToInputs( );
                 }
 
+            //
+            // ─── APPLY TRANSFORMATION ON OUTPUTS ─────────────────────────────
+            //
+
                 /** Transforms the output connections when the dot is moved. */
                 private ApplyTransformationToOutputs ( ) {
                     this.Outputs.forEach( outputID => {
                         Storage.Connections[ this.Id + outputID ].MoveStart( this.X, this.Y );
                     });
                 }
+
+            //
+            // ─── APPLY TRANSFORMATION ON INPUTS ──────────────────────────────
+            //
 
                 /** Transforms the input connections when the dot is moved. */
                 private ApplyTransformationToInputs ( ) {
@@ -332,7 +353,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── INIT LABEL ─────────────────────────────────────────────
+            // ─── INIT LABEL ──────────────────────────────────────────────────
             //
 
                 /** Creates a Snap Label object to present the graph node number */
@@ -350,7 +371,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── MOVE NUMBER LABEL ──────────────────────────────────────
+            // ─── MOVE NUMBER LABEL ───────────────────────────────────────────
             //
 
                 /** Moves the Number Label when the dot is moved */
@@ -363,7 +384,7 @@ module KaryGraph {
                     }
                 }
 
-            // ────────────────────────────────────────────────────────────
+            // ─────────────────────────────────────────────────────────────────
 
         }
 
