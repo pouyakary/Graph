@@ -103,8 +103,6 @@ module KaryGraph.UI.Programmer {
             // if ( !ev.metaKey ) return;
             let key = ev.which || ev.keyCode;
             if ( key === 13 ) {
-                console.log("ENTER");
-                
                 /** Enter/Return Key */
                 let code = FetchAndResetInput( );
                 promptHistory.push(code);
@@ -124,30 +122,21 @@ module KaryGraph.UI.Programmer {
         function OnPromptArrowsClicked( ev: KeyboardEvent ) {
             // if ( !ev.metaKey ) return;
             let key = ev.which || ev.keyCode;
-            if(key === 38)
-            {
-                console.log("UPPPP");
-                
+            if ( key === 38 ) {
                 /** Up Arrow Key */
-                if(promptHistoryCursor > -1)
-                {
-                    ResetAndSetInput(promptHistory[promptHistoryCursor]);
+                if ( promptHistoryCursor > -1 ) {
+                    ResetAndSetInput( promptHistory [ promptHistoryCursor ] );
                     promptHistoryCursor--;
                 }
             }
-            else if(key === 40)
-            {
-                console.log("DOOOOWN");
-                
+            else if ( key === 40 ){
                 /** Down Arrow Key */
-                if(promptHistoryCursor + 2 < promptHistory.length)
-                {
-                    ResetAndSetInput(promptHistory[promptHistoryCursor+2]);
+                if ( promptHistoryCursor + 2 < promptHistory.length ){
+                    ResetAndSetInput( promptHistory [ promptHistoryCursor + 2 ] );
                     promptHistoryCursor++;
                 }
-                else
-                {
-                    promptHistoryCursor = promptHistory.length-1;
+                else{
+                    promptHistoryCursor = promptHistory.length - 1;
                     ResetAndSetInput('');
                 }
             }
