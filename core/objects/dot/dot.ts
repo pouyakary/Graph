@@ -186,16 +186,22 @@ module KaryGraph {
 
                 /** Disconnects input dot */
                 private DisconnectInput( dotID: string ) {
-                    ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
-                    delete Storage.Nodes[ dotID ].Outputs[ this.Id ];
+                    if(( <Vertex> Storage.Connections[ dotID + this.Id ] ) != undefined)
+                         ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
+                    if(Storage.Nodes[ dotID ] != undefined && Storage.Nodes[ dotID ].Outputs[ this.Id ] != undefined)
+                        delete Storage.Nodes[ dotID ].Outputs[ this.Id ];
+                    if(this.Inputs[ dotID ] != undefined)
                     delete this.Inputs[ dotID ];
                 }
 
                 /** Disconnects output dot */
                 private DisconnectOutput( dotID: string ) {
-                    ( <Vertex> Storage.Connections[ this.Id + dotID ] ).Remove( );
-                    delete Storage.Nodes[ dotID ].Inputs[ this.Id ];
-                    delete this.Outputs[ dotID ];
+                    if(( <Vertex> Storage.Connections[ this.Id + dotID ] ) != undefined)
+                         ( <Vertex> Storage.Connections[ this.Id + dotID ] ).Remove( );
+                    if(Storage.Nodes[ dotID ] != undefined && Storage.Nodes[ dotID ].Inputs[ this.Id ] != undefined)
+                        delete Storage.Nodes[ dotID ].Inputs[ this.Id ];
+                    if(this.Outputs[ dotID ] != undefined)
+                        delete this.Outputs[ dotID ];
                 }
 
             //
