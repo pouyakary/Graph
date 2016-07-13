@@ -13,7 +13,7 @@ module KaryGraph {
         export class Vertex {
 
             //
-            // ─── VARIABLES ──────────────────────────────────────────────
+            // ─── VARIABLES ───────────────────────────────────────────────────
             //
 
                 /** Unique id of the object */
@@ -41,11 +41,10 @@ module KaryGraph {
                 private EndY: number;
 
             //
-            // ─── CONSTRUCTOR ────────────────────────────────────────────
+            // ─── CONSTRUCTOR ─────────────────────────────────────────────────
             //
 
                 constructor ( startDot: Dot, endDot: Dot ) {
-
                     // start
                     this.StartDot = startDot;
                     this.StartX = startDot.X;
@@ -64,7 +63,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── REMOVER ────────────────────────────────────────────────
+            // ─── REMOVER ─────────────────────────────────────────────────────
             //
 
                 public Remove ( ) {
@@ -74,7 +73,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── CREATE LINE OBJECT ─────────────────────────────────────
+            // ─── CREATE THE OBJECT ───────────────────────────────────────────
             //
 
                 /** Initializes the line object for representing the object */
@@ -94,7 +93,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── MOVE START ─────────────────────────────────────────────
+            // ─── MOVE START ──────────────────────────────────────────────────
             //
 
                 /** Moves the start of the line to _x_ and _y_ */
@@ -107,7 +106,7 @@ module KaryGraph {
                 }
 
             //
-            // ─── MOVE END ───────────────────────────────────────────────
+            // ─── MOVE END POINT ──────────────────────────────────────────────
             //
 
                 /** Moves the end of the line to _x_ and _y_ */
@@ -120,14 +119,14 @@ module KaryGraph {
                 }
 
             //
-            // ─── GET STORAGE ID ─────────────────────────────────────────
+            // ─── GET STORAGE ID ──────────────────────────────────────────────
             //
 
                 public GetStorageId( ): string {
                     return this.StartDot.Id + this.EndDot.Id;
                 }
 
-            // ────────────────────────────────────────────────────────────
+            // ─────────────────────────────────────────────────────────────────
 
         }
 
