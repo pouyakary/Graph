@@ -49,7 +49,7 @@ module KaryGraph.Circle {
     // ─── EVENT HANDLERS ─────────────────────────────────────────────────────────────
     //
 
-        var CircleDragOnMove = function ( dx:number, dy:number, posx:number, posy:number ) {
+        var CircleDragOnMove = function ( dx: number, dy: number, posx: number, posy: number ) {
             var func = DragMoveFunctions[ GetArrayIndexBasedOnModes( ) ];
             func( ( <ISnapObject> this ) , dx, dy, posx, posy );
         }
