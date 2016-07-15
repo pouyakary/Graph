@@ -49,20 +49,38 @@ module KaryGraph.Circle {
     // ─── EVENT HANDLERS ─────────────────────────────────────────────────────────────
     //
 
-        var CircleDragOnMove = function ( dx: number, dy: number, posx: number, posy: number ) {
-            var func = DragMoveFunctions[ GetArrayIndexBasedOnModes( ) ];
-            func( ( <ISnapObject> this ) , dx, dy, posx, posy );
-        }
+        //
+        // ─── ON MOVE ─────────────────────────────────────────────────────
+        //
 
-        var CircleDragOnStart = function ( ) {
-            var func = DragStartFunctions[ GetArrayIndexBasedOnModes( ) ];
-            func( ( <ISnapObject> this ) );
-        }
+            var CircleDragOnMove = function ( dx: number,
+                                              dy: number,
+                                            posx: number,
+                                            posy: number ) {
 
-        var CircleDragOnStop = function ( ) {
-            var func = DragStopFunctions[ GetArrayIndexBasedOnModes( ) ];
-            func( ( <ISnapObject> this ) );
-        }
+                var func = DragMoveFunctions[ GetArrayIndexBasedOnModes( ) ];
+                func( ( <ISnapObject> this ) , dx, dy, posx, posy );
+            }
+
+        //
+        // ─── ON START ────────────────────────────────────────────────────
+        //
+
+            var CircleDragOnStart = function ( ) {
+                var func = DragStartFunctions[ GetArrayIndexBasedOnModes( ) ];
+                func( ( <ISnapObject> this ) );
+            }
+
+        //
+        // ─── ON STOP ─────────────────────────────────────────────────────
+        //
+
+            var CircleDragOnStop = function ( ) {
+                var func = DragStopFunctions[ GetArrayIndexBasedOnModes( ) ];
+                func( ( <ISnapObject> this ) );
+            }
+
+        // ─────────────────────────────────────────────────────────────────
 
     //
     // ─── FOR EACH CYCLE DO ──────────────────────────────────────────────────────────

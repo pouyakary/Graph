@@ -178,12 +178,12 @@ module KaryGraph {
             //
 
                 /** Disconnect dot from Dot */
-                public DisconnectFrom( dot: Dot ): boolean {
+                public DisconnectFrom ( dot: Dot ): boolean {
                     var res = false;
-                    if ( this.Inputs.includes( dot.Id )  ) {
+                    if ( LanguageTools.ArrayExists( this.Inputs, dot.Id ) ) {
                         this.DisconnectInput( dot.Id );
                         res = true;
-                    } else if ( this.Outputs.includes( dot.Id ) ) {
+                    } else if ( LanguageTools.ArrayExists( this.Outputs, dot.Id ) ) {
                         this.DisconnectOutput( dot.Id );
                         res = true;
                     }
@@ -195,13 +195,19 @@ module KaryGraph {
             //
 
                 /** Disconnects input dot */
-                private DisconnectInput( dotID: string ) {
-                    if(( <Vertex> Storage.Connections[ dotID + this.Id ] ) != undefined)
-                         ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
-                    if(Storage.Nodes[ dotID ] != undefined && Storage.Nodes[ dotID ].Outputs[ this.Id ] != undefined)
+                private DisconnectInput ( dotID: string ) {
+                    if ( ( <Vertex> Storage.Connections[ dotID + this.Id ] ) != undefined ) {
+                        ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
+                    }
+
+                    if ( Storage.Nodes[ dotID ] != undefined 
+                         && Storage.Nodes[ dotID ].Outputs[ this.Id ] != undefined ) {
                         delete Storage.Nodes[ dotID ].Outputs[ this.Id ];
-                    if(this.Inputs[ dotID ] != undefined)
-                    delete this.Inputs[ dotID ];
+                    }
+
+                    if ( this.Inputs[ dotID ] != undefined ) {
+                        delete this.Inputs[ dotID ];
+                    }
                 }
 
             //
@@ -209,13 +215,19 @@ module KaryGraph {
             //
 
                 /** Disconnects output dot */
-                private DisconnectOutput( dotID: string ) {
-                    if(( <Vertex> Storage.Connections[ this.Id + dotID ] ) != undefined)
-                         ( <Vertex> Storage.Connections[ this.Id + dotID ] ).Remove( );
-                    if(Storage.Nodes[ dotID ] != undefined && Storage.Nodes[ dotID ].Inputs[ this.Id ] != undefined)
+                private DisconnectOutput ( dotID: string ) {
+                    if ( ( <Vertex> Storage.Connections[ this.Id + dotID ] ) != undefined ) {
+                        ( <Vertex> Storage.Connections[ this.Id + dotID ] ).Remove( );
+                    }
+
+                    if ( Storage.Nodes[ dotID ] != undefined
+                         && Storage.Nodes[ dotID ].Inputs[ this.Id ] != undefined ) {
                         delete Storage.Nodes[ dotID ].Inputs[ this.Id ];
-                    if(this.Outputs[ dotID ] != undefined)
+                    }
+
+                    if ( this.Outputs[ dotID ] != undefined ) {
                         delete this.Outputs[ dotID ];
+                    }
                 }
 
             //
@@ -223,7 +235,7 @@ module KaryGraph {
             //
 
                 /** Connects a ***Dot*** object  */
-                public ConnectTo( dotToBeConnected: Dot ) {
+                public ConnectTo ( dotToBeConnected: Dot ) {
                     let vertex = new Vertex( this, dotToBeConnected );
                     this.Outputs.push( dotToBeConnected.Id );
                     dotToBeConnected.Inputs.push( this.Id );
@@ -233,7 +245,7 @@ module KaryGraph {
             // ─── CHECK IF CONNECTED TO ───────────────────────────────────────
             //
 
-                public IsConnectedTo( dot: Dot ): boolean {
+                public IsConnectedTo ( dot: Dot ): boolean {
                     if ( this.Outputs[ dot.Id ] != undefined ) {
                         return true;
                     } else if ( this.Inputs[ dot.Id ] != undefined ) {
@@ -246,7 +258,7 @@ module KaryGraph {
             // ─── NUMBER OF INPUTS ────────────────────────────────────────────
             //
 
-                public NumberOfInputs( ): number {
+                public NumberOfInputs ( ): number {
                     return Object.keys( this.Inputs ).length;
                 }
 
@@ -254,7 +266,7 @@ module KaryGraph {
             // ─── NUMBER OF OUTPUTS ───────────────────────────────────────────
             //
 
-                public NumberOfOutputs( ): number {
+                public NumberOfOutputs ( ): number {
                     return Object.keys( this.Outputs ).length;
                 }
 
@@ -266,17 +278,21 @@ module KaryGraph {
                     if ( !ids ) var ids: number[ ] = [ ];
                     var map = new Map();
                     var keys = Object.keys( Storage.Nodes );
+
                     keys.forEach( key => {
                         var dot = <Dot> Storage.Nodes[ key ];
                         if ( this.Outputs[ dot.Id ] != undefined ) {
                             if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) {
                                 return -1
                             }
+
                             ids.push( dot.GetNumberId( ) );
                             var children = dot.GetChildren( ids );
+
                             if ( children == -1 ) {
                                 return -1
                             }
+
                             map.set( dot, children );
                         }
                     });
@@ -300,20 +316,19 @@ module KaryGraph {
                     /** FIXME: Current Algorithm is so slow and should be changed in future. */
                     var neighbors: KaryGraph.Dot[ ] = [ ];
                     var keys = Object.keys( Storage.Nodes );
-                    keys.forEach( key => {
 
-                        ( this.Inputs ).forEach( input => {
+                    keys.forEach( key => {
+                        this.Inputs.forEach( input => {
                           if ( ( <Dot> Storage.Nodes[ key ] ).Id == input ) {
                               neighbors.push( Storage.Nodes[ key ] );
                           }
                         });
 
-                        ( this.Outputs ).forEach( output => {
+                        this.Outputs.forEach( output => {
                           if ( ( <Dot> Storage.Nodes[ key ] ).Id == output ) {
                               neighbors.push( Storage.Nodes[ key ] );
                           }
                         });
-
                     });
 
                     return neighbors;
@@ -326,7 +341,7 @@ module KaryGraph {
                 /**
                  * Moves the coordinations of the object.
                  */
-                public MoveTo( x: number, y: number ) {
+                public MoveTo ( x: number, y: number ) {
                     this.X = x;
                     this.Y = y;
                     this.SnapCircle.attr({
@@ -371,10 +386,12 @@ module KaryGraph {
                         this.Y - DotNumberLabelDisplacementY,
                         this.NumberId.toString( )
                     );
+
                     label.attr({
                         'font-size': DotNumberLabelFontSize,
                         'color': GraphColor
                     });
+
                     return label;
                 }
 
