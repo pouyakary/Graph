@@ -51,7 +51,7 @@ module KaryGraph.Rendering {
     //
 
         /** Converts degrees to radians */
-        function ToRadians ( angle: number ) {
+        function ToRadians ( angle: number ): number {
             return angle * ( Math.PI / 180 );
         }
 
