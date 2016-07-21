@@ -4,9 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/**
- * This module is responsible for the
- */
+/** This module is responsible for the */
 module KaryGraph.UI.Programmer {
 
     //

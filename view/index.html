@@ -12,22 +12,22 @@
 		<div class="heading">
 			<div id="header-left" class="unselectable">Graph</div>
 
-			<div class="icon icon-active" id="icon-move" 
+			<div class="icon icon-active" id="icon-move"
 				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-move')"
 				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
 				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-move')">
 			</div>
-			<div class="icon" id="icon-remove" 
+			<div class="icon" id="icon-remove"
 				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-remove')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()" 
+				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
 				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-remove')">
 			</div>
-			<div class="icon" id="icon-edit" 
+			<div class="icon" id="icon-edit"
 				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-edit')"
 				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
 				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-edit')">
 			</div>
-			<div class="icon" id="icon-select" 
+			<div class="icon" id="icon-select"
 				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-select')"
 				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
 				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-select')">
@@ -41,7 +41,7 @@
 
 			<div style="clear: both;"></div>
 		</div>
-		
+
 		<!-- Main View Goes Here -->
 		<div id="MainView">
 			<!--- EDITOR --->
@@ -61,14 +61,14 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div style="clear: both;" class="unselectable"></div>
-			
+
 		<!-- INIT Part -->
 		<script>
 			window.Snap = require('snapsvg');
 			var Prism = require('prismjs');
-			KaryGraph.INIT();;
+			KaryGraph.INIT();
 		</script>
 	</body>
 </html>
