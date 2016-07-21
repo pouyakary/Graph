@@ -23,7 +23,7 @@ module KaryGraph {
                 private SnapArrowEnding: ISnapObject;
 
                 /** Holds the Vertex parts to together */
-                private ISnapGroup: ISnapGroup;
+                private SnapGroup: ISnapGroup;
 
             //
             // ─── CONSTRUCTOR ─────────────────────────────────────────────────
@@ -54,7 +54,8 @@ module KaryGraph {
             //
 
                 public Remove ( ) {
-                    
+                    this.SnapLine.remove( );
+                    this.SnapArrowEnding.remove( );
                 }
 
             //
