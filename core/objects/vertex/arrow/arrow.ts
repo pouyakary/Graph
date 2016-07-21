@@ -7,7 +7,7 @@
 module KaryGraph {
 
     //
-    // ─── ARROW BASE CLASS ───────────────────────────────────────────────────────────
+    // ─── ARROW BASE INTERFACE ───────────────────────────────────────────────────────
     //
 
         /**
@@ -15,26 +15,21 @@ module KaryGraph {
          * to implement a bridge between different arrow objects
          * and the _Vertex_ object.
          */
-        export class ArrowBase {
+        export interface IArrow {
 
             //
-            // ─── DEFS ────────────────────────────────────────────────────────
+            // ─── BASE CLASS TOOLS ────────────────────────────────────────────
             //
 
-                /** Starting position of the Arrow. */
-                public Start: Point;
-
-                /** Ending Position of the Arrow. */
-                public End: Point;
+                Remove ( );
 
             //
-            // ─── CONSTRUCTOR ─────────────────────────────────────────────────
+            // ─── MOVEMENTS ───────────────────────────────────────────────────
             //
 
-                constructor ( start: Point, end: Point ) {
-                    this.Start = start;
-                    this.End = end;
-                }
+                MoveStart ( position: Point );
+
+                MoveEnd ( position: Point );
 
             // ─────────────────────────────────────────────────────────────────
 
