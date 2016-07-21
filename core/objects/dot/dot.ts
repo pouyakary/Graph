@@ -35,12 +35,6 @@ module KaryGraph {
                 /** Snap Label */
                 public SnapNumberLabel: ISnapObject;
 
-                /** Local number label X distance */
-                public NumberLabelDistanceX: number;
-
-                /** Local number label Y distance */
-                public NumberLabelDistanceY: number;
-
                 /**
                  * Keeps the Inputs of the dot
                  * Inputs = {
@@ -87,8 +81,6 @@ module KaryGraph {
 
                     // number id
                     this.NumberId = ++Dot.TotalDots;
-                    this.NumberLabelDistanceX = DotNumberLabelDisplacementX;
-                    this.NumberLabelDistanceY = DotNumberLabelDisplacementY;
 
                     // the snap svg
                     if ( Dot.DisplayNumberLabels ) {
@@ -395,8 +387,8 @@ module KaryGraph {
                 private MoveNumberLabel ( ) {
                     if ( Dot.DisplayNumberLabels ) {
                         this.SnapNumberLabel.attr({
-                            x: this.Position.X - this.NumberLabelDistanceX,
-                            y: this.Position.Y - this.NumberLabelDistanceY
+                            x: this.Position.X - DotNumberLabelDisplacementX,
+                            y: this.Position.Y - DotNumberLabelDisplacementY
                         });
                     }
                 }
