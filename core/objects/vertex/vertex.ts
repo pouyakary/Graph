@@ -72,6 +72,10 @@ module KaryGraph {
                 private InitArrow ( ) {
                     if ( this.EndDot === this.StartDot ) {
 
+                        // / / / / / / / / / / / / / / / / / / /
+                        // to be continued.... (Circular `To self` arrow)
+                        // / / / / / / / / / / / / / / / / / / /
+
                     } else {
                         this.Arrow = new LineArrow( this.Start, this.End );
                     }
@@ -101,7 +105,7 @@ module KaryGraph {
             // ─── GET STORAGE ID ──────────────────────────────────────────────
             //
 
-                public GetStorageId( ): string {
+                public GetStorageId ( ): string {
                     return this.StartDot.Id + this.EndDot.Id;
                 }
 
