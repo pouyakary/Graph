@@ -10,7 +10,7 @@ module KaryGraph {
     // ─── DIRECTED LINE OBJECT ───────────────────────────────────────────────────────
     //
 
-        export class LineArrow extends ArrowBase {
+        export class LineArrow implements IArrow {
 
             //
             // ─── DEFS ────────────────────────────────────────────────────────
@@ -30,19 +30,17 @@ module KaryGraph {
             //
 
                 constructor ( start: Point, end: Point ) {
-                    super ( start, end );
+                    this.InitSnapObject( start, end );
                 }
 
             //
             // ─── INIT LINE OBJECT ────────────────────────────────────────────
             //
 
-                private CreateSnapLineObject( ) {
+                /** Creates an Snap line for the arrow */
+                private InitSnapObject ( start: Point, end: Point ) {
                     this.SnapLine = <ISnapObject> GraphView.line(
-                        this.Start.X,
-                        this.Start.Y,
-                        this.End.X,
-                        this.End.Y
+                        start.X, start.Y, end.X, end.Y
                     );
                     this.SnapLine.attr({
                         stroke: GraphColor,
@@ -52,14 +50,21 @@ module KaryGraph {
                 }
 
             //
+            // ─── REMOVE ──────────────────────────────────────────────────────
+            //
+
+                public Remove ( ) {
+                    
+                }
+
+            //
             // ─── MOVE START OF THE ARROW ─────────────────────────────────────
             //
 
                 /** Moves the start of the vertex to the given Point. */
-                public MoveStart ( newPosition: Point ) {
-                    this.Start = newPosition;
+                public MoveStart ( position: Point ) {
                     this.SnapLine.attr({
-                        x1: this.Start.X, y1: this.Start.Y
+                        x1: position.X, y1: position.Y
                     });
                 }
 
@@ -68,10 +73,9 @@ module KaryGraph {
             //
 
                 /** Moves the end of the vertex to the given Point. */
-                public MoveEnd ( newPosition: Point ) {
-                    this.End = newPosition;
+                public MoveEnd ( position: Point ) {
                     this.SnapLine.attr({
-                        x2: this.End.X, y2: this.End.Y
+                        x2: position.X, y2: position.Y
                     });
                 }
 
