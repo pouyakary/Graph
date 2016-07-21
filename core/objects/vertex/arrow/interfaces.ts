@@ -21,14 +21,17 @@ module KaryGraph {
             // ─── BASE CLASS TOOLS ────────────────────────────────────────────
             //
 
+                /** Removes the Arrow objects and deletes the memory for it. */
                 Remove ( );
 
             //
             // ─── MOVEMENTS ───────────────────────────────────────────────────
             //
 
+                /** Moves _start_ of the arrow object to the given _position_ */
                 MoveStart ( position: Point );
 
+                /** Moves _end_ of the arrow object to the given _position_ */
                 MoveEnd ( position: Point );
 
             // ─────────────────────────────────────────────────────────────────
