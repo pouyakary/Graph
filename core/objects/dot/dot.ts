@@ -61,13 +61,7 @@ module KaryGraph {
                  * X Coordinates of the dot
                  * ***Changing won't make effect, use MoveTo instead***
                  */
-                public X: number;
-
-                /**
-                 * Y Coordinates of the dot
-                 * ***Changing won't make effect, use MoveTo instead***
-                 */
-                public Y: number;
+                public Position: Point;
 
                 /** Unique number id of the dot */
                 private NumberId: number;
@@ -82,8 +76,7 @@ module KaryGraph {
                 constructor ( x: number, y: number ) {
 
                     // basic allocation
-                    this.X = x;
-                    this.Y = y;
+                    this.Position = new Point( x, y );
                     this.Label = '';
 
                     // generating the circle
@@ -342,11 +335,10 @@ module KaryGraph {
                  * Moves the coordinations of the object.
                  */
                 public MoveTo ( x: number, y: number ) {
-                    this.X = x;
-                    this.Y = y;
+                    this.Position.X = x;
+                    this.Position.Y = y;
                     this.SnapCircle.attr({
-                        cx: this.X,
-                        cy: this.Y
+                        cx: x, cy: y
                     });
                     this.MoveNumberLabel();
                     this.ApplyTransformationToOutputs( );
@@ -360,7 +352,7 @@ module KaryGraph {
                 /** Transforms the output connections when the dot is moved. */
                 private ApplyTransformationToOutputs ( ) {
                     this.Outputs.forEach( outputID => {
-                        Storage.Connections[ this.Id + outputID ].MoveStart( this.X, this.Y );
+                        ( <Vertex> Storage.Connections[ this.Id + outputID ]).MoveStart( this.Position );
                     });
                 }
 
@@ -371,7 +363,7 @@ module KaryGraph {
                 /** Transforms the input connections when the dot is moved. */
                 private ApplyTransformationToInputs ( ) {
                     this.Inputs.forEach( inputID => {
-                        Storage.Connections[ inputID + this.Id ].MoveEnd( this.X, this.Y );
+                        ( <Vertex> Storage.Connections[ inputID + this.Id ]).MoveEnd( this.Position );
                     });
                 }
 
@@ -382,8 +374,8 @@ module KaryGraph {
                 /** Creates a Snap Label object to present the graph node number */
                 private CreateNumberLabel ( ) : ISnapObject {
                     var label = <ISnapObject> GraphView.text(
-                        this.X - DotNumberLabelDisplacementX,
-                        this.Y - DotNumberLabelDisplacementY,
+                        this.Position.X - DotNumberLabelDisplacementX,
+                        this.Position.Y - DotNumberLabelDisplacementY,
                         this.NumberId.toString( )
                     );
 
@@ -403,8 +395,8 @@ module KaryGraph {
                 private MoveNumberLabel ( ) {
                     if ( Dot.DisplayNumberLabels ) {
                         this.SnapNumberLabel.attr({
-                            x: this.X - this.NumberLabelDistanceX,
-                            y: this.Y - this.NumberLabelDistanceY
+                            x: this.Position.X - this.NumberLabelDistanceX,
+                            y: this.Position.Y - this.NumberLabelDistanceY
                         });
                     }
                 }

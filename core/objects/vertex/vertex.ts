@@ -41,11 +41,11 @@ module KaryGraph {
                 constructor ( startDot: Dot, endDot: Dot ) {
                     // start
                     this.StartDot = startDot;
-                    this.Start = new Point( startDot.X, startDot.Y );
+                    this.Start = startDot.Position;
 
                     // end
                     this.EndDot = endDot;
-                    this.End = new Point( endDot.X, endDot.Y );
+                    this.End = endDot.Position;
 
                     // init line object
                     this.InitArrow( );
