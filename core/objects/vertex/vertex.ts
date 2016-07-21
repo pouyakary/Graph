@@ -72,9 +72,9 @@ module KaryGraph {
                 private InitArrow ( ) {
                     if ( this.EndDot === this.StartDot ) {
 
-                        // / / / / / / / / / / / / / / / / / / /
-                        // to be continued.... (Circular `To self` arrow)
-                        // / / / / / / / / / / / / / / / / / / /
+                        /* / / / / / / / / / / / / / / / / / / / / / / / / *
+                         *  to be continued.... (Circular `To self` arrow) *
+                         * / / / / / / / / / / / / / / / / / / / / / / / / */
 
                     } else {
                         this.Arrow = new LineArrow( this.Start, this.End );
