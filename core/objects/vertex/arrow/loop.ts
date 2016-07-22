@@ -45,9 +45,9 @@ module KaryGraph {
                         LoopArrowRadius
                     );
                     this.SnapCircle.attr({
-                        fill: "rgba(0, 0, 0, 0)",
-                        stroke: GraphColor,
-                        strokeWidth: LineWidth
+                               fill: 'transparent',
+                        strokeWidth: LineWidth,
+                             stroke: GraphColor
                     });
                     GraphLines.add( this.SnapCircle );
                 }
@@ -67,8 +67,10 @@ module KaryGraph {
 
                 /** Moves the start of the vertex to the given Point. */
                 public MoveStart ( position: Point ) {
+                    console.log( position );
                     this.SnapCircle.attr({
-                        x: position.X, y: position.Y + LoopArrowDisplacementY
+                        cx: position.X,
+                        cy: position.Y + LoopArrowDisplacementY
                     });
                 }
 
@@ -77,7 +79,13 @@ module KaryGraph {
             //
 
                 /** Moves the end of the vertex to the given Point. */
-                public MoveEnd ( position: Point ) { }
+                public MoveEnd ( position: Point ) { 
+                    console.log( position );
+                    this.SnapCircle.attr({
+                        cx: position.X,
+                        cy: position.Y + LoopArrowDisplacementY
+                    });
+                }
 
             // ─────────────────────────────────────────────────────────────────
 

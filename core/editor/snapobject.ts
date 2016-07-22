@@ -11,6 +11,11 @@ module KaryGraph {
     //
 
         interface ISnapAttributes {
+                   fill?: string;
+                 stroke?: string;
+            strokeWidth?: number;
+            'font-size'?: number;
+                  color?: string;
                       x?: number;
                       y?: number;
                      cx?: number;
@@ -19,11 +24,6 @@ module KaryGraph {
                      y1?: number;
                      x2?: number;
                      y2?: number;
-                   fill?: string;
-                 stroke?: string;
-            strokeWidth?: number;
-            'font-size'?: number;
-                  color?: string;
         }
 
     //
