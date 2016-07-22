@@ -7,11 +7,31 @@
 module KaryGraph {
 
     //
+    // ─── SNAP ATTRIBUTES ────────────────────────────────────────────────────────────
+    //
+
+        interface ISnapAttributes {
+                      x?: number;
+                      y?: number;
+                     cx?: number;
+                     cy?: number;
+                     x1?: number;
+                     y1?: number;
+                     x2?: number;
+                     y2?: number;
+                   fill?: string;
+                 stroke?: string;
+            strokeWidth?: number;
+            'font-size'?: number;
+                  color?: string;
+        }
+
+    //
     // ─── ATTRIBUTE ──────────────────────────────────────────────────────────────────
     //
 
         interface ISnapAttributesFunction {
-            ( attributes: any );
+            ( attributes: ISnapAttributes );
         }
 
     //
