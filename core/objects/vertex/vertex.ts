@@ -71,11 +71,7 @@ module KaryGraph {
                 /** Initializes the arrow object for representing the object */
                 private InitArrow ( ) {
                     if ( this.EndDot === this.StartDot ) {
-
-                        /* / / / / / / / / / / / / / / / / / / / / / / / / *
-                         *  to be continued.... (Circular `To self` arrow) *
-                         * / / / / / / / / / / / / / / / / / / / / / / / / */
-
+                        this.Arrow = new LoopArrow( this.Start );
                     } else {
                         this.Arrow = new LineArrow( this.Start, this.End );
                     }
