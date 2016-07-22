@@ -69,7 +69,7 @@ module KaryGraph.UI.Programmer {
         function StartPrompt ( ) {
             CreateThePrompt( );
             notebook.appendChild( prompt );
-            promptHistory = new Array<string>();
+            promptHistory = new Array<string>( );
             promptHistoryCursor = -1;
         }
 
