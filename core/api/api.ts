@@ -32,7 +32,7 @@
      * https://github.com/karyfoundation/graph/wiki/API#new-dot-at
      */
     function newdotat ( x: number, y: number ): KaryGraph.Dot {
-        return new KaryGraph.Dot( x , y ); 
+        return new KaryGraph.Dot( x , y );
     }
 
 //
@@ -274,7 +274,7 @@
      */
     function movex ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
         let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
-        d.MoveTo( x, d.Y );
+        d.MoveTo( x, d.Position.Y );
     }
 
 //
@@ -287,7 +287,7 @@
      */
     function movey ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
         let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
-        d.MoveTo( d.X, y );
+        d.MoveTo( d.Position.X, y );
     }
 
 //
@@ -300,7 +300,7 @@
      */
     function movebx ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, x: number ) {
         let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
-        d.MoveTo( d.X + x, d.Y );
+        d.MoveTo( d.Position.X + x, d.Position.Y );
     }
 
 //
@@ -313,7 +313,7 @@
      */
     function moveby ( dot: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, y: number ) {
         let d = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dot );
-        d.MoveTo( d.X, d.Y + y );
+        d.MoveTo( d.Position.X, d.Position.Y + y );
     }
 
 //
