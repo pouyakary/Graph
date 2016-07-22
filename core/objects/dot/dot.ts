@@ -259,23 +259,28 @@ module KaryGraph {
             // ─── GET ALL CHILDREN ────────────────────────────────────────────
             //
 
-                public GetChildren ( ids?: number[ ] ): any {
-                    if ( !ids ) var ids: number[ ] = [ ];
-                    var map = new Map();
+                public GetChildren ( ids?: number[ ] ): Map<Dot, any> {
+                    // if empty
+                    if ( !ids ) {
+                        var ids: number[ ] = [ ];
+                    }
+
+                    
+                    var map = new Map<Dot, any>( );
                     var keys = Object.keys( Storage.Nodes );
 
                     keys.forEach( key => {
                         var dot = <Dot> Storage.Nodes[ key ];
                         if ( this.Outputs[ dot.Id ] != undefined ) {
                             if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) {
-                                return -1
+                                return null;
                             }
 
                             ids.push( dot.GetNumberId( ) );
                             var children = dot.GetChildren( ids );
 
-                            if ( children == -1 ) {
-                                return -1
+                            if ( children === null ) {
+                                return null;
                             }
 
                             map.set( dot, children );
@@ -289,7 +294,7 @@ module KaryGraph {
             //
 
                 public GetDegree ( ): number {
-                    return this.NumberOfInputs() + this.NumberOfOutputs();
+                    return this.NumberOfInputs( ) + this.NumberOfOutputs( );
                 }
 
             //
