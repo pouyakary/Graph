@@ -40,10 +40,15 @@ module KaryGraph {
                 /** Creates an Snap line for the arrow */
                 private InitSnapObject ( position: Point ) {
                     this.SnapCircle = <ISnapObject> GraphView.circle(
-                        position.X + LoopArrowDisplacementX,
+                        position.X,
                         position.Y + LoopArrowDisplacementY,
                         LoopArrowRadius
                     );
+                    this.SnapCircle.attr({
+                        fill: "rgba(0, 0, 0, 0)",
+                        stroke: GraphColor,
+                        strokeWidth: LineWidth
+                    });
                     GraphLines.add( this.SnapCircle );
                 }
 
@@ -63,7 +68,7 @@ module KaryGraph {
                 /** Moves the start of the vertex to the given Point. */
                 public MoveStart ( position: Point ) {
                     this.SnapCircle.attr({
-                        x1: position.X, y1: position.Y
+                        x: position.X, y: position.Y + LoopArrowDisplacementY
                     });
                 }
 
@@ -72,11 +77,7 @@ module KaryGraph {
             //
 
                 /** Moves the end of the vertex to the given Point. */
-                public MoveEnd ( position: Point ) {
-                    this.SnapCircle.attr({
-                        x2: position.X, y2: position.Y
-                    });
-                }
+                public MoveEnd ( position: Point ) { }
 
             // ─────────────────────────────────────────────────────────────────
 

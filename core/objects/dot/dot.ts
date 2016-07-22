@@ -185,7 +185,7 @@ module KaryGraph {
                         ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
                     }
 
-                    if ( Storage.Nodes[ dotID ] != undefined 
+                    if ( Storage.Nodes[ dotID ] != undefined
                          && Storage.Nodes[ dotID ].Outputs[ this.Id ] != undefined ) {
                         delete Storage.Nodes[ dotID ].Outputs[ this.Id ];
                     }
@@ -355,7 +355,11 @@ module KaryGraph {
                 /** Transforms the input connections when the dot is moved. */
                 private ApplyTransformationToInputs ( ) {
                     this.Inputs.forEach( inputID => {
-                        ( <Vertex> Storage.Connections[ inputID + this.Id ]).MoveEnd( this.Position );
+                        if ( inputID === this.Id ) {
+                            // do nothing
+                        } else {
+                            ( <Vertex> Storage.Connections[ inputID + this.Id ]).MoveEnd( this.Position );
+                        }
                     });
                 }
 
