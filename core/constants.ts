@@ -56,6 +56,16 @@ module KaryGraph {
         export const LineWidth = 2;
 
     //
+    // ─── LOOPARROW ──────────────────────────────────────────────────────────────────
+    //
+
+        export const LoopArrowDisplacementX = -5;
+
+        export const LoopArrowDisplacementY = -5;
+
+        export const LoopArrowRadius = 10;
+
+    //
     // ─── STATUS BAR ─────────────────────────────────────────────────────────────────
     //
 
