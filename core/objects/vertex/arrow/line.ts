@@ -42,10 +42,12 @@ module KaryGraph {
                     this.SnapLine = <ISnapObject> GraphView.line(
                         start.X, start.Y, end.X, end.Y
                     );
+
                     this.SnapLine.attr({
                         stroke: GraphColor,
                         strokeWidth: LineWidth
                     });
+
                     GraphLines.add( this.SnapLine );
                 }
 
@@ -53,6 +55,7 @@ module KaryGraph {
             // ─── REMOVE ──────────────────────────────────────────────────────
             //
 
+                /** Removes the Arrow object. */
                 public Remove ( ) {
                     this.SnapLine.remove( );
                     this.SnapArrowEnding.remove( );
