@@ -1,10 +1,11 @@
 {
-	"editor.fontSize": 				14,
+	"editor.fontSize":              14,
 	"editor.lineHeight":			24,
-	"editor.fontFamily":			"SourceCodePro-Medium",
+	"editor.fontFamily": "SourceCodePro-Medium",
 	"editor.tabSize": 				4,
-	"editor.wrappingColumn": 		0,
+	"editor.wrappingColumn": 		90,
+	"editor.wrappingIndent":        "indent",
 	"editor.quickSuggestionsDelay": 0,
-	"editor.insertSpaces": 			true,
-	"alex.enable": true
+	"editor.renderWhitespace": 		true,
+	"editor.insertSpaces": 			true
 }
