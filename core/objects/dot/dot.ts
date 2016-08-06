@@ -297,24 +297,15 @@ module KaryGraph {
             //
 
                 public GetNeighbors ( ): KaryGraph.Dot[ ] {
-
-                    /** FIXME: Current Algorithm is so slow and should be changed in future. */
                     var neighbors: KaryGraph.Dot[ ] = [ ];
-                    var keys = Object.keys( Storage.Nodes );
 
-                    keys.forEach( key => {
-                        this.Inputs.forEach( input => {
-                          if ( ( <Dot> Storage.Nodes[ key ] ).Id == input ) {
-                              neighbors.push( Storage.Nodes[ key ] );
-                          }
-                        });
-
-                        this.Outputs.forEach( output => {
-                          if ( ( <Dot> Storage.Nodes[ key ] ).Id == output ) {
-                              neighbors.push( Storage.Nodes[ key ] );
-                          }
-                        });
+                    this.Inputs.forEach( input => {
+                        neighbors.push(Storage.Nodes[input]);
                     });
+
+                    this.Outputs.forEach( output => {
+                        neighbors.push(Storage.Nodes[output]);
+                    }); 
 
                     return neighbors;
                 }
