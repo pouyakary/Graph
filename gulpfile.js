@@ -8,30 +8,38 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    var gulp = require('gulp')
-    var exec = require('child_process').exec
-    var util = require('util')
-    var fs   = require('fs-extra')
-    var path = require('path')
-    var ugly = require('gulp-uglify')
-    var less = require('gulp-less')
+    var gulp = require('gulp');
+    var exec = require('child_process').exec;
+    var util = require('util');
+    var fs   = require('fs-extra');
+    var path = require('path');
+    var ugly = require('gulp-uglify');
+    var less = require('less');
+
+//
+// ─── P ──────────────────────────────────────────────────────────────────────────
+//
+
+    function p ( message ) {
+        console.log( message );
+    }
 
 //
 // ─── CONSTS ─────────────────────────────────────────────────────────────────────
 //
 
-    const resultDirPath = '_compiled'
+    const resultDirPath = '_compiled';
 
 //
 // ─── TOOLS ──────────────────────────────────────────────────────────────────────
 //
 
     /** Run shell commands easy! */
-    function shell( command , cb ) {
-        exec(command, function( err ) {
-            if ( err ) return cb( err )
-            cb( )
-        })
+    function shell ( command , callback ) {
+        exec( command, err => {
+            if ( err ) return callback( err );
+            callback( );
+        });
     }
 
 //
@@ -39,34 +47,45 @@
 //
 
     /** Copy to binary from dir */
-    function copyToBinaryFromDir( dir ) {
-        console.log(`Copying files from ${dir} to`)
-        fs.readdir( dir , function ( err , files ) {
+    function copyToBinaryFromDir ( dir ) {
+        fs.readdir( dir , ( err , files ) => {
             // if error
             if ( err ) {
-                console.log(`Could not get files from directory ${dir}`)
+                console.log(`Could not get files from directory ${ dir }`);
             }
             // if right
-            files.forEach( function ( name ) {
+            files.forEach( name => {
                 copyFile(
                     getLocalPath( path.join( dir , name ) ),
                     getLocalPath( path.join( resultDirPath , name ) )
-                )
-            })
-        })
+                );
+            });
+        });
     }
+
+//
+// ─── COPY SINGLE FILE ───────────────────────────────────────────────────────────
+//
 
     /** Copy file `A` to `B` */
-    function copyFile( A , B ) {
-        fs.copy( A, B, function ( err ) {
-            if ( err ) return console.error( err )
-            console.log(`--> Copied ${A} to ${B}`)
-        })
+    function copyFile ( A, B ) {
+        if ( /\.DS_Store/.test( A ) ) {
+            return;
+        }
+        fs.copy( A, B, err => {
+            if ( err ) {
+                console.log(`Could not copy file ${ A }`);
+            }
+        });
     }
 
+//
+// ─── GET LOCAL PATH ─────────────────────────────────────────────────────────────
+//
+
     /** Get Local Path in the current directory */
-    function getLocalPath( adrs ) {
-        return path.join( path.dirname( ) , adrs )
+    function getLocalPath ( address ) {
+        return path.join( __dirname , address );
     }
 
 //
@@ -74,53 +93,68 @@
 //
 
     /** Compiles the TypeScript code */
-    gulp.task('typescript', function( cb ) {
-        shell('tsc', cb)
-    })
+    gulp.task('typescript', callback => {
+        shell('tsc', callback);
+    });
 
 //
 // ─── UGLIFYING ──────────────────────────────────────────────────────────────────
 //
 
-    /** Minifies the result code from TypeScript */
-    gulp.task( 'uglifyjs', ['typescript'], function( cb ) {
-        //return gulp.src( `${ resultDirPath }/*.js` )
-        //  .pipe( ugly( ) )
-        //.pipe( gulp.dest( `${ resultDirPath }` ) )
-        cb()
-    })
+    /** Minify the result code from TypeScript */
+    gulp.task( 'minifyCore', ['typescript'], callback => {
+        callback();
+    });
 
 //
 // ─── COPY FILES ─────────────────────────────────────────────────────────────────
 //
 
     /** Copies static resource files into the result directory */
-    gulp.task( 'copyfiles', function ( cb ) {
-        copyToBinaryFromDir( 'resources' )
-        copyToBinaryFromDir( 'view' )
-        copyToBinaryFromDir( 'electron' )
-        copyToBinaryFromDir( 'wrappers' )
-        copyToBinaryFromDir( 'libs' )
-    })
+    gulp.task( 'copyResourceFiles', callback => {
+        copyToBinaryFromDir( 'resources' );
+        copyToBinaryFromDir( 'view' );
+        copyToBinaryFromDir( 'electron' );
+        copyToBinaryFromDir( 'wrappers' );
+        copyToBinaryFromDir( 'libs' );
+    });
 
 //
 // ─── SHEETS ─────────────────────────────────────────────────────────────────────
 //
 
     /** Compiles the Less style sheets */
-    gulp.task( 'sheets', function( cb ) {
-        return gulp.src( getLocalPath( 'sheets/*.less' ) )
-            .pipe( less ({
-                paths: [ path.join( __dirname , 'sheets' ) ]
-            }))
-            .pipe( gulp.dest( `${ resultDirPath }` ))
-    })
+    gulp.task( 'sheets', callback => {
+        try {
+            let lessSourceCode = fs.readFileSync( 
+                path.join( __dirname, 'sheets', 'ui.less' ), 'utf8' );
+    
+            less.render( lessSourceCode, ( err, output ) => {
+                if ( err ) {
+                    console.log(`Less failure: ${ err }`); return;
+                }
+                fs.writeFile( 
+                    path.join( __dirname, '_compiled/style.css' ), 
+                    output.css,
+                    error => {
+                        if ( error ) {
+                            console.log('could not store the less file');
+                        } else {
+                            console.log('compiled less source codes successfully...');
+                        }
+                    }
+                );
+            });
+        } catch ( err ) {
+            console.log('Compiling less failed ' + err );  
+        }
+    });
 
 //
 // ─── MAIN ───────────────────────────────────────────────────────────────────────
 //
 
     /** Where everything starts */
-    gulp.task('default', ['typescript', 'copyfiles', 'sheets'])
+    gulp.task('default', ['typescript', 'copyResourceFiles', 'sheets']);
 
 // ────────────────────────────────────────────────────────────────────────────────

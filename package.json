@@ -5,7 +5,7 @@
     "fs-extra": "0.30.0",
     "gulp": "3.9.1",
     "gulp-cli": "1.2.1",
-    "gulp-less": "3.1.0",
+    "less": "*",
     "gulp-uglify": "1.5.3",
     "less": "2.7.1",
     "prismjs": "^1.5.1",
