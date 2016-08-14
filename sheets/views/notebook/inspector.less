@@ -1,0 +1,68 @@
+
+//
+// Copyright 2016 Kary Foundation, Inc.
+//   Author: Pouya Kary <k@karyfoundation.org>
+//
+
+//
+// ─── INCLUDES ───────────────────────────────────────────────────────────────────
+//
+
+    @import '../../globals';
+    @import 'sizings';
+
+//
+// ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
+//
+
+    #inspector {
+        width: @inspector-width - 2 * @inspector-width-padding;
+        height: ~'calc( 100vh - 50px )';
+        float: left;
+        padding: @inspector-width-padding;
+        padding-top: 0;
+        background-color: #ddd;
+    }
+
+    .inspector-section {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: @inspector-border-radius;
+    }
+
+    .inspector-section-title {
+        margin-top: @inspector-width-padding;
+        background-color: white;
+        border-top-left-radius: @inspector-border-radius;
+        border-top-right-radius: @inspector-border-radius;
+        border-bottom: 2px solid #eee;
+    }
+
+    .inspector-section-title-text {
+        width: @inspector-width - 100px;
+        padding: 5px;
+        padding-left: 10px;
+        margin-top: 2px;
+        color: #A693D4;
+        font-size: 1.1rem;
+        // text-transform: uppercase;
+        // letter-spacing: 4px;
+        float: left;
+    }
+
+    .inspector-section-title-icon {
+        margin-top: 2px;
+        margin-right: 6px;
+        width: 28px;
+        height: 28px;
+        float: right;
+    }
+
+    .inspector-section-body {
+        background-color: #eee;
+        //padding: 10px;
+        border-bottom-left-radius: @inspector-border-radius;
+        border-bottom-right-radius: @inspector-border-radius;
+        font-size: 1.1rem;
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
