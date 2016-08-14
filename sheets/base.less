@@ -1,0 +1,91 @@
+
+//
+// Copyright 2016 Kary Foundation, Inc.
+//   Author: Pouya Kary <k@karyfoundation.org>
+//
+
+//
+// ─── INCLUDES ───────────────────────────────────────────────────────────────────
+//
+
+    @import 'globals';
+
+//
+// ─── BASE ───────────────────────────────────────────────────────────────────────
+//
+
+    html {
+        background-color: @color-1;
+        font-family: @font-sans-serif;
+        font-size: @base-font-size;
+        overflow: hidden;
+        min-height: 400px;
+        min-width: 300px;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    :focus {
+		outline-color: transparent;
+  		outline-style: none;
+	}
+
+    input {
+        font-size: 1rem;
+    }
+
+//
+// ─── SCROLL BAR ─────────────────────────────────────────────────────────────────
+//
+
+    ::-webkit-scrollbar {
+        width: 18px;
+        height: 18px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        height: 6px;
+        border: 6px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        border-radius: 9px;
+        background-color: #E8E8E8;
+    }
+
+    ::-webkit-scrollbar-button {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+    
+    ::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+
+//
+// ─── UNSELECTABLE ───────────────────────────────────────────────────────────────
+//
+
+    .unselectable {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+//
+// ─── FONTS ──────────────────────────────────────────────────────────────────────
+//
+
+    @font-face {
+        font-family: @mono-type;
+        src: url('sourcecodepro-medium-webfont.woff2') format('woff2'),
+            url('sourcecodepro-medium-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────

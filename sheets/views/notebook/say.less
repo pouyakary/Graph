@@ -1,0 +1,84 @@
+
+//
+// Copyright 2016 Kary Foundation, Inc.
+//   Author: Pouya Kary <k@karyfoundation.org>
+//
+
+//
+// ─── INCLUDES ───────────────────────────────────────────────────────────────────
+//
+
+    @import '../../globals';
+
+//
+// ─── SAY IMPLEMENTATIONS ────────────────────────────────────────────────────────
+//
+
+    .say-dot {
+        width: auto;
+        font-size: 0.8rem;
+        padding-left: 4px;
+    }
+
+    .say-dot-dot {
+        width: 14px;
+        height: 14px;
+        background-color: black;
+        border-radius: 8px;
+        margin-top: 2px;
+    }
+
+    .say-string {
+        color: black;
+        font-size: 1.3rem;
+        font-family: @font-sans-serif;
+    }
+
+    .say-number {
+        font-size: 1.3rem;
+        color: @notebook-blue-color;
+    }
+
+    .say-array {
+        overflow-x: scroll;
+        font-family: @font-sans-serif;
+        border: 0;
+    }
+
+    .say-array-index {
+        color: #C7C7C7;
+        font-size: 0.8rem;
+        font-weight: bold;
+        overflow: hidden;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        text-align: center;
+        padding: 2px;
+    }
+
+    .say-array-cell {
+        position: relative;
+        margin-top: 0;
+        background-color: #F5F5F5;
+        border-radius: 3px;
+        padding-bottom: 6px;
+    }
+
+    .say-array-value {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .say-matrix {
+        text-align: center;
+        font-family: 'GraphSourceCodePro';
+        font-size: 0.9rem;
+        padding-left: 1px;
+        border-image-slice: 22 22 22 22;
+        border-image-width: 20px 20px 20px 20px;
+        border-image-outset: 0px 0px 0px 0px;
+        border-image-repeat: stretch stretch;
+        border-image-source: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAABKCAYAAAA11z32AAAAAXNSR0IArs4c6QAAAJpJREFUaAXt2jEKg0AARUE3t9wT7jENFtO5IEhSPZsHRtkw/NKx1jqPm2vOOW5uv7q1O+vY/vDquOcvX+d/nj/+uyf7E2yTSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAtokkCGibSIKAjt13Vv/82OsLo94UYanCbyYAAAAASUVORK5CYII=");
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
