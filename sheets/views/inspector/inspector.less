@@ -14,24 +14,18 @@
 //
 // ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
 //
-
+ 
     #inspector {
-        width: @inspector-width - 2 * @inspector-width-padding;
+        width: @inspector-width;
         height: ~'calc( 100vh - 50px )';
         float: left;
-        padding: @inspector-width-padding;
-        padding-top: 0;
         background-color: #ddd;
     }
 
     .inspector-section {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: @inspector-border-radius;
     }
 
     .inspector-section-title {
-        margin-top: @inspector-width-padding;
-        background-color: white;
         border-top-left-radius: @inspector-border-radius;
         border-top-right-radius: @inspector-border-radius;
         border-bottom: 2px solid #eee;

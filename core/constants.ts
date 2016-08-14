@@ -18,7 +18,7 @@ module KaryGraph {
     //
 
         /** Color of the graph */
-        export const GraphColor = 'black';
+        export const GraphColor = '#171717';
 
         /** Color of the selected parts of the graph */
         export const GraphSelectColor = '#A200FF';
