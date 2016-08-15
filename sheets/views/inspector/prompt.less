@@ -31,26 +31,40 @@
         border-left: 2px solid #eee;
         padding-left: 7px;
         margin-bottom: 7px;
+        height: fit-content;
+        width: @inspector-width - 2 * @inspector-width-padding;
+        overflow-x: scroll;
     }
 
     .notebook-row-code {
-        color: black;
+        color: @kary-light-foreground;
         overflow-x: scroll;
-        width: min-content;
+        width: max-content;
+        height: fit-content;
+    }
+
+    .notebook-row-result {
+        color: @kary-light-foreground;
+        overflow-x: scroll;
+        width: max-content;
+        height: fit-content;
     }
 
     .notebook-row-say-base {
-        border-left: 2px solid #00A7FF;
+        border-left: 2px solid @kary-light-blue;
         padding-left: 10px;
+        width: fit-content;
         overflow: visible;
+        height: fit-content;
     }
 
     .notebook-say-row {
-        overflow: scroll;
+        height: fit-content;
+        overflow-x: scroll;
     }
 
     .notebook-prompt {
-        border-left: 2px solid #ccc;
+        border-left: 2px solid @kary-light-red;
         padding-left: 7px;
     }
 
@@ -62,7 +76,7 @@
     }
 
     .notebook-error {
-        color: #A80300;
+        color: @kary-light-red;
     }
 
 // ────────────────────────────────────────────────────────────────────────────────ß
