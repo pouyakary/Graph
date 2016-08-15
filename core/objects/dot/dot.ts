@@ -364,7 +364,7 @@ module KaryGraph {
 
                     label.attr({
                         'font-size': DotNumberLabelFontSize,
-                        'color': GraphColor
+                        'fill': GraphColor
                     });
 
                     return label;
