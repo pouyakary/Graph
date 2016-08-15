@@ -10,6 +10,7 @@
 
     @import '../../globals';
     @import 'sizings';
+    @import '../../libs/kary-scheme';
 
 //
 // ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
@@ -32,11 +33,11 @@
     }
 
     .inspector-section-title-text {
-        width: @inspector-width - 100px;
+        background-color: white;
+        width: @inspector-width;
         padding: 5px;
         padding-left: 10px;
-        margin-top: 2px;
-        color: #A693D4;
+        color: @kary-light-magenta;
         font-size: 1.1rem;
         // text-transform: uppercase;
         // letter-spacing: 4px;
