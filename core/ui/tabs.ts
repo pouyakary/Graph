@@ -30,16 +30,16 @@ module KaryGraph.UI.Tabs {
 
         function ChangeToTab ( tab: ETabs ) {
             let tabContainer = <HTMLDivElement> document.getElementById( TabsContainer );
-            let toolbar = <HTMLDivElement> document.getElementById( 'toolbar' );
+            let ribbon = <HTMLDivElement> document.getElementById( 'ribbon' );
             switch ( tab ) {
                 case ETabs.Editor:
                     tabContainer.className = 'editor-tab';
-                    toolbar.style.borderBottomColor = '#799DC4';
+                    ribbon.className = 'ribbon-editor';
                     break;
 
                 case ETabs.Programmer:
                     tabContainer.className = 'programmer-tab';
-                    toolbar.style.borderBottomColor = '#B486A8';
+                    ribbon.className = 'ribbon-programmer';
                     break;
             }
         }
