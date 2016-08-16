@@ -8,8 +8,8 @@
 // ─── INCLUDES ───────────────────────────────────────────────────────────────────
 //
 
-    @import '../globals';
-    @import '../libs/kary-scheme';
+    @import '../../globals';
+    @import '../../libs/kary-scheme';
 
 //
 // ─── HEADING ────────────────────────────────────────────────────────────────────
@@ -17,17 +17,18 @@
 
     .heading {
         background-size: contain;
-        background-position: left;
+        background-position: left bottom;
         background-repeat: no-repeat;
-        padding-top: 5px;
-        padding-bottom: 10px;
+        padding-top: 6px;
+        padding-bottom: 6px;
         padding-left: 20px;
         padding-right: 20px;
         font-size: 2.3rem;
-        color: @kary-light-red;
-        height: 35px;
+        color: @kary-light-foreground;
+        height: 37px;
         background-color: @color-2;
         overflow: hidden;
+        border-bottom: 3px #799DC4 solid;
     }
 
 //
