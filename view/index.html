@@ -9,11 +9,21 @@
 		<link rel="stylesheet" href="prism.css">
 	</head>
 	<body>
-		<div class="heading">
+		<div class="heading" id="toolbar">
 			<div id="header-left" class="unselectable">Graph</div>
 
+			<!-- Tabs -->
 			<div id="header-tabs" class="editor-tab"></div>
 
+			<div id="editor-tab-invisible" 
+				 onclick="KaryGraph.UI.Tabs.EditorTabsOnClick( );">
+			</div>
+
+			<div id="programmer-tab-invisible"
+				 onclick="KaryGraph.UI.Tabs.ProgrammerTabsOnClick( );">
+			</div>
+
+			<!-- Icons -->
 			<div class="icon icon-active" id="icon-move"
 				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-move')"
 				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"

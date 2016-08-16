@@ -140,6 +140,14 @@ module KaryGraph {
 
         export const SayStringClass = 'say-string';
 
+    //
+    // ─── TABS ───────────────────────────────────────────────────────────────────────
+    //
+
+        export const TabsContainer = 'header-tabs';
+
+        export const EditorTabContainerClass = 'editor-tab';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
