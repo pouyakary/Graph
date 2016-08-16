@@ -148,6 +148,10 @@ module KaryGraph {
 
         export const EditorTabContainerClass = 'editor-tab';
 
+        export const EditorTabColor = '#799DC4';
+
+        export const ProgrammerTabColor = '#B486A8';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
