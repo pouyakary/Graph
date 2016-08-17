@@ -152,6 +152,14 @@ module KaryGraph {
 
         export const ProgrammerTabColor = '#B486A8';
 
+    //
+    // ─── TAB VIEWS ──────────────────────────────────────────────────────────────────
+    //
+
+        export const ProgrammerTabId = 'ProgrammerView';
+
+        export const EditorTabId = 'EditorTab';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
