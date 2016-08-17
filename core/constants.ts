@@ -160,6 +160,12 @@ module KaryGraph {
 
         export const EditorTabId = 'EditorTab';
 
+    //
+    // ─── MONACO ─────────────────────────────────────────────────────────────────────
+    //
+
+        export const MonacoPlaceholderDiv = 'monaco-placeholder';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
