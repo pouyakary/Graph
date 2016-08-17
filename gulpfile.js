@@ -117,6 +117,22 @@
         copyToBinaryFromDir( 'electron' );
         copyToBinaryFromDir( 'wrappers' );
         copyToBinaryFromDir( 'libs' );
+        copyToBinaryFromDir( path.join( 'node_modules', 'monaco-editor', 'min' ) );
+        callback();
+    });
+
+//
+// ─── COPY NODE RESOURCES ────────────────────────────────────────────────────────
+//
+
+    gulp.task( 'resources', ['copyResourceFiles'], callback => {
+        // fixing monaco path
+        fs.renameSync( 
+            path.join( resultDirPath , 'vs' ),
+            path.join( resultDirPath , 'monaco' )
+        );
+
+        callback( );
     });
 
 //
@@ -141,6 +157,7 @@
                             console.log('could not store the less file');
                         } else {
                             console.log('compiled less source codes successfully...');
+                            callback();
                         }
                     }
                 );
@@ -155,6 +172,6 @@
 //
 
     /** Where everything starts */
-    gulp.task('default', ['typescript', 'copyResourceFiles', 'sheets']);
+    gulp.task('default', ['typescript', 'resources', 'sheets']);
 
 // ────────────────────────────────────────────────────────────────────────────────
