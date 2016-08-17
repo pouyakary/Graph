@@ -1,4 +1,6 @@
 
+
+
 function GraphInitMonacoOnStart ( ) {
     function uriFromPath(_path) {
         var pathName = path.resolve(_path).replace(/\\/g, '/');
@@ -17,11 +19,19 @@ function GraphInitMonacoOnStart ( ) {
     require(['vs/editor/editor.main'], function() {
         var editor = monaco.editor.create(document.getElementById('monaco-placeholder'), {
             value: [
-                'function x() {',
-                '\tconsole.log("Hello world!");',
-                '}'
+                '',
+                '// We have a very awesome wiki about the graph API here:',
+                '// https://github.com/karyfoundation/graph/wiki/API',
+                "// we're sure you'll love it...",
+                '',
+                'reset( );',
+                'let dots = newdots( 10 );',
+                'connect( range( 1, 10 ) );',
             ].join('\n'),
-            language: 'javascript'
+            language: 'javascript',
+            fontFamily: 'GraphSourceCodePro',
+            fontSize: 13,
+            lineHeight: 24
         });
     });
 }
