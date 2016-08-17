@@ -15,6 +15,7 @@
     var path = require('path');
     var ugly = require('gulp-uglify');
     var less = require('less');
+    var mv   = require('mv');
 
 //
 // ─── P ──────────────────────────────────────────────────────────────────────────
@@ -126,13 +127,20 @@
 //
 
     gulp.task( 'resources', ['copyResourceFiles'], callback => {
-        // fixing monaco path
-        fs.renameSync( 
-            path.join( resultDirPath , 'vs' ),
-            path.join( resultDirPath , 'monaco' )
+        // fixing monaco folders name
+        mv(
+            path.join( resultDirPath , 'vs' ), 
+            path.join( resultDirPath , 'monaco' ),
+            { 
+                mkdirp: true,
+                clobber: false
+            },
+            error => {
+                if ( error ) {
+                    console.log('could not fix the name of monaco folder...');
+                }
+            }
         );
-
-        callback( );
     });
 
 //
