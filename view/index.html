@@ -63,7 +63,7 @@
 
 
 		<!-- Editor View Goes Here -->
-		<div id="EditorView" class="tab-view" style="display: none;">
+		<div id="EditorView" class="tab-view">
 			<!--- EDITOR --->
 			<svg id="GraphView"></svg>
 			<!--- SCRIPT EDITOR --->
@@ -85,20 +85,27 @@
 
 		<!-- Programmer View -->
 		<div id="ProgrammerView" class="tab-view">
-			<div id="monaco-placeholder"></div>
+			<div id="monaco-placeholder" style="width: 100%; height: 100%;"></div>
 		</div>	
 
 
-
-
-
-		<div style="clear: both;" class="unselectable"></div>
-
-		<!-- INIT Part -->
+		<!-- INIT Common Js parts -->
 		<script>
 			window.Snap = require('snapsvg');
 			var Prism = require('prismjs');
 			KaryGraph.INIT();
+			var path = require('path');
+		</script>
+
+
+		<div style="clear: both;" class="unselectable"></div>
+
+
+		<!-- Load Monaco -->
+		<script src="vs/loader.js"></script>
+		<script src="graph-monaco.js"></script>
+		<script>
+			GraphInitMonacoOnStart( );
 		</script>
 	</body>
 </html>

@@ -158,7 +158,7 @@ module KaryGraph {
 
         export const ProgrammerTabId = 'ProgrammerView';
 
-        export const EditorTabId = 'EditorTab';
+        export const EditorTabId = 'EditorView';
 
     //
     // ─── MONACO ─────────────────────────────────────────────────────────────────────

@@ -11,7 +11,7 @@ module KaryGraph.UI.ProgrammerTab {
     //
 
         export function InitTab ( ) {
-            InitMonacoSession( );
+            //InitMonacoSession( );
         }
 
     //
@@ -51,6 +51,7 @@ module KaryGraph.UI.ProgrammerTab {
             monaco.editor.create( document.getElementById( MonacoPlaceholderDiv ), {
                 value: jsCode,
                 language: "javascript"
+                
             });
         }
 

@@ -118,6 +118,7 @@
         copyToBinaryFromDir( 'electron' );
         copyToBinaryFromDir( 'wrappers' );
         copyToBinaryFromDir( 'libs' );
+        copyToBinaryFromDir( 'javascript' );
         copyToBinaryFromDir( path.join( 'node_modules', 'monaco-editor', 'min' ) );
         callback();
     });
