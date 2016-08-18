@@ -41,7 +41,7 @@
                         'let dots = newdots( 10 );',
                         'connect( range( 1, 10 ) );',
                     ].join( '\n' ),
-
+                    automaticLayout: true,
                     language: 'javascript',
                     fontFamily: 'GraphSourceCodePro',
                     fontSize: 13,
