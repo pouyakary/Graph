@@ -12,7 +12,7 @@ module KaryGraph.UI.Events {
     //
 
         window.onresize = event => {
-            KaryGraph.UI.ProgrammerTab.Editor.layout( );
+            ProgrammerTab.Editor.layout( );
         };
     
     // ────────────────────────────────────────────────────────────────────────────────
