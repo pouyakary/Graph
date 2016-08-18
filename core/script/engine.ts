@@ -23,7 +23,7 @@ module KaryGraph.ScriptEngine {
          * was with success or not.
          */
 
-        export function Run( script: string ): any {
+        export function Run ( script: string ): any {
             try {
                 RunStatus = true;
                 return eval( script );

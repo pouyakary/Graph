@@ -19,8 +19,7 @@
         }
 
         require.config({
-            baseUrl: uriFromPath(
-                path.join( __dirname, '../node_modules/monaco-editor/min' ) )
+            baseUrl: uriFromPath( __dirname )
         });
 
         // workaround monaco-css not understanding the environment
