@@ -19,7 +19,6 @@ module KaryGraph {
         export function INIT ( ) {
             InitScreenInformation( );
             UI.Programmer.INIT( );
-            UI.ProgrammerTab.InitTab( );
             RenderStartingGraph( );
         }
 
