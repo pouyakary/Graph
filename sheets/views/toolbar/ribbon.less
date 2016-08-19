@@ -15,12 +15,14 @@
 //
 
     @ribbon-border-size: 4px;
-
+    @ribbon-border-bottom-size: 1px;
     #ribbon {
         width: 100vw;
         border-top-width: @ribbon-border-size;
         border-top-style: solid;
         height: @ribbon-height;
+        background: white;
+        border-bottom: #f5f5f5 1px solid;
     }
 
 //
@@ -28,7 +30,9 @@
 //
 
     .ribbon-editor {
-        border-top-color: #B12CA8;
+        @editor-ribbon-color: #B12CA8;
+        border-top-color: @editor-ribbon-color;
+        background: linear-gradient( @editor-ribbon-color, #EB9003);
     }
 
 //
@@ -36,7 +40,38 @@
 //
 
     .ribbon-programmer {
-        border-top-color: #348ACB;
+        @programmer-ribbon-color: #348ACB;
+        border-top-color: @programmer-ribbon-color;
+        background: linear-gradient( @programmer-ribbon-color, #4FBE1C );
+    }
+
+//
+// ─── RIBBON ICON ────────────────────────────────────────────────────────────────
+//
+
+    .ribbon-icon {
+        background-position: top center;
+        background-size: 40px 40px;
+        background-repeat: no-repeat;
+        margin: 6px;
+        margin-bottom: 0;
+        padding-top: 43px;
+        width: 60px;
+        text-align: center;
+        color: @kary-light-foreground;
+        float: left;
+        padding-bottom: 3px;
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+    }
+
+//
+// ─── RIBBON HOVER ───────────────────────────────────────────────────────────────
+//
+
+    .ribbon-icon:hover {
+        border-bottom-color: #ccc;
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
