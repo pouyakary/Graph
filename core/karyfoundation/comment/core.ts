@@ -22,6 +22,7 @@ module KaryFoundation.Comment {
                             insertSpaces: boolean,
                                    text?: string,
                                    flag?: number ): string {
+
             // here
             oneLineCommentSign          = languageCharacter;
             currentLineString           = text;
@@ -38,6 +39,8 @@ module KaryFoundation.Comment {
 
                 case Style.Ending:
                     return onGenerateLineComment( );
+
+                default: return undefined;
             }
         }
 
