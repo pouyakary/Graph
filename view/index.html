@@ -5,12 +5,16 @@
 		<link rel="stylesheet" href="style.css">
 		<script src="core.js"></script>
 		<script src="wrappers.js"></script>
+		<script src="loading-screen.js"></script>
 		<!-- Prism -->
 		<link rel="stylesheet" href="prism.css">
 	</head>
 
 
 	<body>
+		<!-- This is what you see when the app is loading... -->
+		<div id="loading-view">Graph</div>
+
 		<div class="heading" id="toolbar">
 			<div id="header-left" class="unselectable">Graph</div>
 
@@ -120,6 +124,7 @@
 		<script src="graph-monaco.js"></script>
 		<script>
 			GraphInitMonacoOnStart( );
+			CancelLoadingScreenAfterCompleteLoad( );
 		</script>
 	</body>
 </html>

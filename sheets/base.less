@@ -88,4 +88,27 @@
         font-style: normal;
     }
 
+//
+// ─── LOADING VIEW ───────────────────────────────────────────────────────────────
+//
+
+    #loading-view {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: ~'calc( 50vh - 1.5rem )';
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+        color: @kary-light-red;
+        font-size: 3rem;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .dead-loading-view {
+        opacity: 0;
+        transition-duration: 0.7s;
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────
