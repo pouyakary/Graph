@@ -28,6 +28,9 @@ module KaryFoundation.Comment {
             currentTabSize              = tabSize;
             currentInsertSpacesStatus   = insertSpaces;
 
+            // line processing...
+            processCurrentLine( );
+
             // switcher
             switch ( style ) {
                 case Style.Section:
@@ -259,7 +262,7 @@ module KaryFoundation.Comment {
     //
 
         function generateLineComment ( width ) {
-            return `${ generateIndentation( ) }${ oneLineCommentSign } ${ repeat( commentLineCharacter, width ) }\n`;;
+            return `${ generateIndentation( ) }${ oneLineCommentSign } ${ repeat( commentLineCharacter, width ) }\n`;
         }
 
     //
