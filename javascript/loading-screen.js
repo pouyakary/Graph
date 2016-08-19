@@ -10,10 +10,11 @@
 
     function CancelLoadingScreenAfterCompleteLoad ( ) {
         setTimeout(( ) => {
-            setInterval(( ) => {
+            setTimeout(( ) => {
+                KaryGraph.UI.ProgrammerTab.ApplyAdditionalMonacoInitialization( );
                 let loadingView = document.getElementById('loading-view');
                 loadingView.className = 'dead-loading-view';
-                setInterval(( ) => {
+                setTimeout(( ) => {
                     loadingView.remove( );
                 }, 2000);
             }, 1300 );

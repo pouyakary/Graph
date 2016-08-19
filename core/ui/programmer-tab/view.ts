@@ -12,6 +12,14 @@ module KaryGraph.UI.ProgrammerTab {
 
         export var Editor: monaco.editor.IStandaloneCodeEditor;
 
+    //
+    // ─── INIT MONACO ────────────────────────────────────────────────────────────────
+    //
+
+        export function ApplyAdditionalMonacoInitialization ( ) {
+            KaryFoundation.Monaco.AddSupportingMonacoTools( Editor );
+        }
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
