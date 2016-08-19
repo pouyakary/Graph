@@ -17,37 +17,18 @@
 			<!-- Tabs -->
 			<div id="header-tabs" class="editor-tab"></div>
 
-			<div id="editor-tab-invisible" 
+			<!-- Invisible Buttons -->
+			<div id="editor-tab-invisible" class="invisible-tab"
 				 onclick="KaryGraph.UI.Tabs.EditorTabsOnClick( );">
 			</div>
 
-			<div id="programmer-tab-invisible"
+			<div id="programmer-tab-invisible" class="invisible-tab"
 				 onclick="KaryGraph.UI.Tabs.ProgrammerTabsOnClick( );">
 			</div>
 
-			<!-- Icons -->
-			<!--div class="icon icon-active" id="icon-move"
-				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-move')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
-				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-move')">
+			<div id="preferences-tab-invisible" class="invisible-tab"
+				 onclick="KaryGraph.UI.Tabs.PreferencesTabsOnClick( );">
 			</div>
-			<div class="icon" id="icon-remove"
-				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-remove')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
-				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-remove')">
-			</div>
-			<div class="icon" id="icon-edit"
-				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-edit')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
-				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-edit')">
-			</div>
-			<div class="icon" id="icon-select"
-				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-select')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
-				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-select')">
-			</div>
-
-			<div id="status-view"></div-->
 
 			<div id="header-right">
 				<img src="kary-logo.png" id="kf-logo">
@@ -62,6 +43,12 @@
 		<div id="ribbon" class="ribbon-editor">
 			<!-- Editor Tab Ribbon -->
 			<div id="ribbon-editor">
+				<div id="ribbon-general-new-file" class="ribbon-icon">New</div>
+				<div id="ribbon-general-open-file" class="ribbon-icon">Open</div>
+				<div id="ribbon-general-save-file" class="ribbon-icon">Save</div>
+
+				<div class="ribbon-separator"></div>
+
 				<div id="ribbon-editor-select-icon" class="ribbon-icon">Select</div>
 				<div id="ribbon-editor-connect-icon" class="ribbon-icon">Connect</div>
 				<div id="ribbon-editor-remove-icon" class="ribbon-icon">Remove</div>
@@ -71,8 +58,18 @@
 
 			<!-- Programmer Tab Ribbon -->
 			<div id="ribbon-programmer" hidden="true">
+				<div id="ribbon-general-new-file" class="ribbon-icon">New</div>
+				<div id="ribbon-general-open-file" class="ribbon-icon">Open</div>
+				<div id="ribbon-general-save-file" class="ribbon-icon">Save</div>
+
+				<div class="ribbon-separator"></div>
+
 				<div id="ribbon-programmer-run-icon" class="ribbon-icon">Run</div>
 				<div style="clear: both;"></div>
+			</div>
+
+			<!-- Programmer Tab Ribbon -->
+			<div id="ribbon-preferences" hidden="true">
 			</div>
 		</div>
 

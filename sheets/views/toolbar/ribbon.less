@@ -26,23 +26,19 @@
     }
 
 //
-// ─── RIBBON ON EDITOR ───────────────────────────────────────────────────────────
+// ─── RIBBONS ────────────────────────────────────────────────────────────────────
 //
 
     .ribbon-editor {
-        @editor-ribbon-color: #B12CA8;
-        border-top-color: @editor-ribbon-color;
-        background: linear-gradient( @editor-ribbon-color, #EB9003);
+        border-top-color: #C18000;
     }
 
-//
-// ─── RIBBON ON PROGRAMMER ───────────────────────────────────────────────────────
-//
-
     .ribbon-programmer {
-        @programmer-ribbon-color: #348ACB;
-        border-top-color: @programmer-ribbon-color;
-        background: linear-gradient( @programmer-ribbon-color, #4FBE1C );
+        border-top-color: #CD4602;
+    }
+
+    .ribbon-preferences {
+        border-top-color: #B12CA8;
     }
 
 //
@@ -51,16 +47,16 @@
 
     .ribbon-icon {
         background-position: top center;
-        background-size: 40px 40px;
+        background-size: 34px 34px;
         background-repeat: no-repeat;
-        margin: 6px;
-        margin-bottom: 0;
-        padding-top: 43px;
-        width: 60px;
+        margin: 8px 5px 0 5px;
+        padding-top: 38px;
+        width: max-content;
+        min-width: 46px;
         text-align: center;
         color: @kary-light-foreground;
         float: left;
-        padding-bottom: 3px;
+        padding-bottom: 6px;
         border-bottom-width: 3px;
         border-bottom-style: solid;
         border-bottom-color: transparent;
@@ -72,6 +68,19 @@
 
     .ribbon-icon:hover {
         border-bottom-color: #ccc;
+    }
+
+//
+// ─── SEPARATOR ──────────────────────────────────────────────────────────────────
+//
+
+    .ribbon-separator {
+        @margin-tob-bottom: 8px;
+        width: 2px;
+        height: @ribbon-height - 2 * @margin-tob-bottom;
+        margin: @margin-tob-bottom 8px @margin-tob-bottom 8px;
+        background: #EEE;
+        float: left;
     }
 
 // ────────────────────────────────────────────────────────────────────────────────

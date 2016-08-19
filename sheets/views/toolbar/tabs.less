@@ -21,27 +21,30 @@
         background-position: left;
         background-repeat: no-repeat;
         width: @toolbar-tabs-width;
-        height: 48px;
+        height: @header-height;
     }
 
 //
 // ─── TAB INVISIBLE MAPS ─────────────────────────────────────────────────────────
 //
 
-    #editor-tab-invisible {
-        height: 35px;
-        width: 125px;
+    .invisible-tab {
+        height: 30px;
+        width: 102px;
         position: fixed;
-        top: 15;
-        left: 135px;
+        top: 9;
+    }
+
+    #editor-tab-invisible {
+        left: 99px;
     }
 
     #programmer-tab-invisible {
-        height: 35px;
-        width: 125px;
-        position: fixed;
-        top: 15;
-        left: 273px;
+        left: 201px;
+    }
+
+    #preferences-tab-invisible {
+        left: 303px;
     }
 
 //
@@ -54,6 +57,10 @@
 
     .programmer-tab {
         background-image: url('toolbar-tabs-programmer.png');
+    }
+
+    .preferences-tab {
+        background-image: url('toolbar-tabs-preferences.png');
     }
 
 // ────────────────────────────────────────────────────────────────────────────────

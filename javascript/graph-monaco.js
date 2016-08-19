@@ -40,6 +40,7 @@
                         'reset( );',
                         'let dots = newdots( 10 );',
                         'connect( range( 1, 10 ) );',
+                        ''
                     ].join( '\n' ),
                     language: 'javascript',
                     fontFamily: 'GraphSourceCodePro',

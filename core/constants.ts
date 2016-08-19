@@ -148,10 +148,6 @@ module KaryGraph {
 
         export const EditorTabContainerClass = 'editor-tab';
 
-        export const EditorTabColor = '#799DC4';
-
-        export const ProgrammerTabColor = '#B486A8';
-
     //
     // ─── TAB VIEWS ──────────────────────────────────────────────────────────────────
     //
@@ -159,6 +155,8 @@ module KaryGraph {
         export const ProgrammerTabId = 'ProgrammerView';
 
         export const EditorTabId = 'EditorView';
+
+        export const PreferencesTabId = 'PreferencesView';
 
     //
     // ─── MONACO ─────────────────────────────────────────────────────────────────────
@@ -173,6 +171,8 @@ module KaryGraph {
         export const EditorRibbonIconsId = 'ribbon-editor';
 
         export const ProgrammerRibbonIconsId = 'ribbon-programmer';
+
+        export const PreferencesRibbonIconsId = 'ribbon-preferences';
 
     // ────────────────────────────────────────────────────────────────────────────────
 
