@@ -12,6 +12,7 @@ module KaryFoundation.Monaco {
 
         export function AddSupportingMonacoTools ( editor: monaco.editor.IStandaloneCodeEditor ) {
             AddSectionCommentCommand( editor );
+            AddLineCommentCommand( editor );
         }
 
 
