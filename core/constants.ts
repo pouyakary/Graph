@@ -166,6 +166,14 @@ module KaryGraph {
 
         export const MonacoPlaceholderDiv = 'monaco-placeholder';
 
+    //
+    // ─── RIBBONS ────────────────────────────────────────────────────────────────────
+    //
+
+        export const EditorRibbonIconsId = 'ribbon-editor';
+
+        export const ProgrammerRibbonIconsId = 'ribbon-programmer';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
