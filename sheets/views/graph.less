@@ -11,13 +11,22 @@
     @import '../globals';
 
 //
+// ─── GRAPH AND RIBBON HALF ──────────────────────────────────────────────────────
+//
+
+    #graph-and-ribbon-half {
+        @width: @inspector-width + 2px;
+        width: calc( ~'100vw' - @width );
+        float: left;
+    }
+
+//
 // ─── GRAPH VIEW ─────────────────────────────────────────────────────────────────
 //
 
     #GraphView {
-        width: calc( ~'100vw' - @inspector-width );
+        width: 100%;
         height: ~'calc( 100vh - 110px )';
-        float: left;
     }
 
 // ────────────────────────────────────────────────────────────────────────────────

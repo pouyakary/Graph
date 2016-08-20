@@ -28,17 +28,21 @@
         // workaround monaco-typescript not understanding the environment
         self.process.browser = true;
 
-        require([ 'vs/editor/editor.main' ], function ( ) {
-            KaryGraph.UI.ProgrammerTab.Editor = monaco.editor.create(
-                document.getElementById( 'monaco-placeholder' ), {
-                    value: '',
-                    language: 'javascript',
-                    fontFamily: 'GraphSourceCodePro',
-                    fontSize: 13,
-                    lineHeight: 24
-                }
-            );
-        });
+        try {
+            require([ 'vs/editor/editor.main' ], function ( ) {
+                KaryGraph.UI.ProgrammerTab.Editor = monaco.editor.create(
+                    document.getElementById( 'monaco-placeholder' ), {
+                        value: '',
+                        language: 'javascript',
+                        fontFamily: 'GraphSourceCodePro',
+                        fontSize: 13,
+                        lineHeight: 24
+                    }
+                );
+            });
+        } catch ( error ) {
+            console.log(`could not load monaco: ${ error }`);
+        }
     }
 
 // ────────────────────────────────────────────────────────────────────────────────

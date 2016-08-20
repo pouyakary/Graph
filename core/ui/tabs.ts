@@ -10,7 +10,7 @@ module KaryGraph.UI.Tabs {
     // ─── ENUMS ──────────────────────────────────────────────────────────────────────
     //
 
-        enum TabOptions { Editor, Programmer, Preferences };
+        enum TabOptions { Editor, Programmer, Algorithms };
 
     //
     // ─── TABS ON CLICK ──────────────────────────────────────────────────────────────
@@ -24,8 +24,8 @@ module KaryGraph.UI.Tabs {
             ChangeToTab( TabOptions.Programmer );
         }
 
-        export function PreferencesTabsOnClick ( ) {
-            ChangeToTab( TabOptions.Preferences );
+        export function AlgorithmsTabsOnClick ( ) {
+            ChangeToTab( TabOptions.Algorithms );
         }
 
     //
@@ -34,67 +34,41 @@ module KaryGraph.UI.Tabs {
 
         function ChangeToTab ( tab: TabOptions ) {
             let tabContainer = <HTMLDivElement> document.getElementById( TabsContainer );
-            let ribbon = <HTMLDivElement> document.getElementById( 'ribbon' );
 
             // editor tab
             let editorTabView = document.getElementById( EditorTabId );
-            let ribbonEditor = document.getElementById( EditorRibbonIconsId );
-
-            // programer tab
             let programmerTabView = document.getElementById( ProgrammerTabId );
-            let ribbonProgrammer = document.getElementById( ProgrammerRibbonIconsId );
-
-            // programer tab
-            let preferencesTabView = document.getElementById( PreferencesTabId );
-            let ribbonPreferences = document.getElementById( PreferencesRibbonIconsId );
+            let algorithmsTabView = document.getElementById( AlgorithmsTabId );
 
             // switcher
             switch ( tab ) {
                 // Editor
                 case TabOptions.Editor:
                     tabContainer.className = 'editor-tab';
-                    ribbon.className = 'ribbon-editor';
 
                     editorTabView.hidden = false;
-                    ribbonEditor.hidden = false;
-
                     programmerTabView.hidden = true;
-                    ribbonProgrammer.hidden = true;
-
-                    preferencesTabView.hidden = true;
-                    ribbonPreferences.hidden = true;
+                    algorithmsTabView.hidden = true;
                     break;
 
                 
                 // Programmer
                 case TabOptions.Programmer:
                     tabContainer.className = 'programmer-tab';
-                    ribbon.className = 'ribbon-programmer';
 
                     editorTabView.hidden = true;
-                    ribbonEditor.hidden = true;
-
                     programmerTabView.hidden = false;
-                    ribbonProgrammer.hidden = false;
-
-                    preferencesTabView.hidden = true;
-                    ribbonPreferences.hidden = true;
+                    algorithmsTabView.hidden = true;
                     break;
 
 
                 // Preferences
-                case TabOptions.Preferences:
+                case TabOptions.Algorithms:
                     tabContainer.className = 'preferences-tab';
-                    ribbon.className = 'ribbon-preferences';
 
                     editorTabView.hidden = true;
-                    ribbonEditor.hidden = true;
-
                     programmerTabView.hidden = true;
-                    ribbonProgrammer.hidden = true;
-
-                    preferencesTabView.hidden = false;
-                    ribbonPreferences.hidden = false;
+                    algorithmsTabView.hidden = false;
                     break;
             }
         }

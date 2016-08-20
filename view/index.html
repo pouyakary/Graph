@@ -41,13 +41,11 @@
 			<div style="clear: both;"></div>
 		</div>
 
-
-
-		<!-- Ribbon Bar -->
-		<div class="unselectable">
-			<div id="ribbon" class="ribbon-editor">
-				<!-- Editor Tab Ribbon -->
-				<div id="ribbon-editor">
+		<!-- Editor View Goes Here -->
+		<div id="EditorView" class="tab-view">
+			<!--- EDITOR --->
+			<div id="graph-and-ribbon-half">
+				<div class="ribbon unselectable">
 					<div id="ribbon-general-new-file" class="ribbon-icon">New</div>
 					<div id="ribbon-general-open-file" class="ribbon-icon">Open</div>
 					<div id="ribbon-general-save-file" class="ribbon-icon">Save</div>
@@ -61,42 +59,10 @@
 					<div style="clear: both;"></div>
 				</div>
 
-				<!-- Programmer Tab Ribbon -->
-				<div id="ribbon-programmer" hidden="true">
-					<div id="ribbon-general-new-file" class="ribbon-icon">New</div>
-					<div id="ribbon-general-open-file" class="ribbon-icon">Open</div>
-					<div id="ribbon-general-save-file" class="ribbon-icon">Save</div>
-
-					<div class="ribbon-separator"></div>
-
-					<div id="ribbon-programmer-run-icon" class="ribbon-icon"
-						 onclick="KaryGraph.UI.ProgrammerTab.Ribbon.OnRunButtonClicked( );">
-						 Run</div>
-
-					<div class="ribbon-separator"></div>
-
-					<div id="ribbon-programmer-comment-section" class="ribbon-icon"
-						 onclick="KaryGraph.UI.ProgrammerTab.OnAddSectionCommentButtonClicked( );">Section</div>
-
-					<div id="ribbon-programmer-comment-line" class="ribbon-icon"
-						 onclick="KaryGraph.UI.ProgrammerTab.OnAddEndingCommentButtonClicked ( );">Ending</div>
-
-					<div style="clear: both;"></div>
-				</div>
-
-				<!-- Programmer Tab Ribbon -->
-				<div id="ribbon-preferences" hidden="true">
-				</div>
+				<!--- THE MOST IMPORTANT PART OF THIS DOCUMENT IS THIS SVG -->
+				<svg id="GraphView"></svg>
 			</div>
-		</div>
 
-
-
-
-		<!-- Editor View Goes Here -->
-		<div id="EditorView" class="tab-view">
-			<!--- EDITOR --->
-			<svg id="GraphView"></svg>
 			<!--- SCRIPT EDITOR --->
 			<div id="inspector">
 				<!-- Programmer -->
@@ -116,6 +82,28 @@
 
 		<!-- Programmer View -->
 		<div id="ProgrammerView" class="tab-view">
+			<div class="ribbon unselectable">
+				<div id="ribbon-general-new-file" class="ribbon-icon">New</div>
+				<div id="ribbon-general-open-file" class="ribbon-icon">Open</div>
+				<div id="ribbon-general-save-file" class="ribbon-icon">Save</div>
+
+				<div class="ribbon-separator"></div>
+
+				<div id="ribbon-programmer-run-icon" class="ribbon-icon"
+					onclick="KaryGraph.UI.ProgrammerTab.Ribbon.OnRunButtonClicked( );">
+					Run</div>
+
+				<div class="ribbon-separator"></div>
+
+				<div id="ribbon-programmer-comment-section" class="ribbon-icon"
+					onclick="KaryGraph.UI.ProgrammerTab.OnAddSectionCommentButtonClicked( );">Section</div>
+
+				<div id="ribbon-programmer-comment-line" class="ribbon-icon"
+					onclick="KaryGraph.UI.ProgrammerTab.OnAddEndingCommentButtonClicked ( );">Ending</div>
+
+				<div style="clear: both;"></div>
+			</div>
+
 			<div id="monaco-placeholder" style="width: 100%; height: 100%;"></div>
 		</div>	
 
