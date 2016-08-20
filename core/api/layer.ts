@@ -20,6 +20,22 @@ module KaryGraph.API.AbstractionLayer {
         export type DotObjectOrDotID = Dot | number;
 
     //
+    // ─── GET GRAPH VIEW WIDTH ───────────────────────────────────────────────────────
+    //
+
+        export function GetGraphViewWidth ( ): number {
+            return GraphView.node.getBoundingClientRect( ).width;
+        }
+
+    //
+    // ─── GET GRAPH VIEW HEIGHT ──────────────────────────────────────────────────────
+    //
+
+        export function GetGraphViewHeight ( ): number {
+            return GraphView.node.getBoundingClientRect( ).height;
+        }
+
+    //
     // ─── DOT BY DOT OR ID ───────────────────────────────────────────────────────────
     //
 

@@ -82,6 +82,7 @@ interface Paper extends Snap.Element {
 	gradient(gradient:string):Object;
 	filter(filstr:string):Snap.Element;
 	clear():void;
+	node: Element;
 }
 
 declare function mina(a:number, A:number, b:number, B:number, get:Function, set:Function, easing?:Function):Object;

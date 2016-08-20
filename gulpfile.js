@@ -15,6 +15,7 @@
     var path = require('path');
     var ugly = require('gulp-uglify');
     var less = require('less');
+    var mv   = require('mv');
 
 //
 // ─── P ──────────────────────────────────────────────────────────────────────────
@@ -117,6 +118,30 @@
         copyToBinaryFromDir( 'electron' );
         copyToBinaryFromDir( 'wrappers' );
         copyToBinaryFromDir( 'libs' );
+        copyToBinaryFromDir( 'javascript' );
+        copyToBinaryFromDir( path.join( 'node_modules', 'monaco-editor', 'min' ) );
+        callback();
+    });
+
+//
+// ─── COPY NODE RESOURCES ────────────────────────────────────────────────────────
+//
+
+    gulp.task( 'resources', ['copyResourceFiles'], callback => {
+        // fixing monaco folders name
+        /*mv(
+            path.join( resultDirPath , 'vs' ), 
+            path.join( resultDirPath , 'monaco' ),
+            { 
+                mkdirp: true,
+                clobber: false
+            },
+            error => {
+                if ( error ) {
+                    console.log('could not fix the name of monaco folder...');
+                }
+            }
+        );*/
     });
 
 //
@@ -141,6 +166,7 @@
                             console.log('could not store the less file');
                         } else {
                             console.log('compiled less source codes successfully...');
+                            callback();
                         }
                     }
                 );
@@ -155,6 +181,6 @@
 //
 
     /** Where everything starts */
-    gulp.task('default', ['typescript', 'copyResourceFiles', 'sheets']);
+    gulp.task('default', ['typescript', 'resources', 'sheets']);
 
 // ────────────────────────────────────────────────────────────────────────────────

@@ -27,7 +27,7 @@
         mainWindow = new BrowserWindow({ 
             width:  window_width,   minWidth: window_width - 200,
             height: window_height,  minHeight: window_height - 100,
-            backgroundColor: "#EEEEEE"
+            backgroundColor: 'white'
         });
 
         mainWindow.loadURL( 'file://' + __dirname + '/index.html' );

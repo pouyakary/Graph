@@ -18,7 +18,7 @@ module KaryGraph {
     //
 
         /** Color of the graph */
-        export const GraphColor = 'black';
+        export const GraphColor = '#171717';
 
         /** Color of the selected parts of the graph */
         export const GraphSelectColor = '#A200FF';
@@ -139,6 +139,40 @@ module KaryGraph {
     //
 
         export const SayStringClass = 'say-string';
+
+    //
+    // ─── TABS ───────────────────────────────────────────────────────────────────────
+    //
+
+        export const TabsContainer = 'header-tabs';
+
+        export const EditorTabContainerClass = 'editor-tab';
+
+    //
+    // ─── TAB VIEWS ──────────────────────────────────────────────────────────────────
+    //
+
+        export const ProgrammerTabId = 'ProgrammerView';
+
+        export const EditorTabId = 'EditorView';
+
+        export const AlgorithmsTabId = 'PreferencesView';
+
+    //
+    // ─── MONACO ─────────────────────────────────────────────────────────────────────
+    //
+
+        export const MonacoPlaceholderDiv = 'monaco-placeholder';
+
+    //
+    // ─── RIBBONS ────────────────────────────────────────────────────────────────────
+    //
+
+        export const EditorRibbonIconsId = 'ribbon-editor';
+
+        export const ProgrammerRibbonIconsId = 'ribbon-programmer';
+
+        export const PreferencesRibbonIconsId = 'ribbon-preferences';
 
     // ────────────────────────────────────────────────────────────────────────────────
 

@@ -10,39 +10,35 @@
 
     @import '../../globals';
     @import 'sizings';
+    @import '../../libs/kary-scheme';
 
 //
 // ─── SCRIPT EDITOR ──────────────────────────────────────────────────────────────
 //
-
+ 
     #inspector {
-        width: @inspector-width - 2 * @inspector-width-padding;
-        height: ~'calc( 100vh - 50px )';
+        width: @inspector-width;
+        height: ~'calc( 100vh - 39px )';
         float: left;
-        padding: @inspector-width-padding;
-        padding-top: 0;
         background-color: #ddd;
+        border-left: 2px @kary-light-background solid;
     }
 
     .inspector-section {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: @inspector-border-radius;
     }
 
     .inspector-section-title {
-        margin-top: @inspector-width-padding;
-        background-color: white;
         border-top-left-radius: @inspector-border-radius;
         border-top-right-radius: @inspector-border-radius;
         border-bottom: 2px solid #eee;
     }
 
     .inspector-section-title-text {
-        width: @inspector-width - 100px;
+        background-color: white;
+        width: @inspector-width;
         padding: 5px;
         padding-left: 10px;
-        margin-top: 2px;
-        color: #A693D4;
+        color: @kary-light-magenta;
         font-size: 1.1rem;
         // text-transform: uppercase;
         // letter-spacing: 4px;
@@ -59,9 +55,6 @@
 
     .inspector-section-body {
         background-color: #eee;
-        //padding: 10px;
-        border-bottom-left-radius: @inspector-border-radius;
-        border-bottom-right-radius: @inspector-border-radius;
         font-size: 1.1rem;
     }
 

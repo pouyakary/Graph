@@ -14,6 +14,16 @@ module KaryGraph.ScriptEngine {
         export var RunStatus: boolean = true;
 
     //
+    // ─── RUNTIME RESULTS ────────────────────────────────────────────────────────────
+    //
+
+        export interface ICodeRuntimeResults {
+            result?: any;
+            error?: string;
+            success: boolean;
+        }
+
+    //
     // ─── RUNNER ─────────────────────────────────────────────────────────────────────
     //
 
@@ -23,13 +33,18 @@ module KaryGraph.ScriptEngine {
          * was with success or not.
          */
 
-        export function Run( script: string ): any {
+        export function Run ( script: string ): ICodeRuntimeResults {
             try {
                 RunStatus = true;
-                return eval( script );
+                return {
+                    success: true,
+                    result: eval( script )
+                }
             } catch ( err ) {
-                RunStatus = false;
-                return err.toString( );
+                return {
+                    success: false,
+                    error: err.toString( )
+                }
             }
         }
 

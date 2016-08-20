@@ -5,35 +5,34 @@
 		<link rel="stylesheet" href="style.css">
 		<script src="core.js"></script>
 		<script src="wrappers.js"></script>
+		<script src="loading-screen.js"></script>
 		<!-- Prism -->
 		<link rel="stylesheet" href="prism.css">
 	</head>
+
+
 	<body>
-		<div class="heading">
+		<!-- This is what you see when the app is loading... -->
+		<div id="loading-view">Graph</div>
+
+		<div class="heading" id="toolbar">
 			<div id="header-left" class="unselectable">Graph</div>
 
-			<div class="icon icon-active" id="icon-move"
-				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-move')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
-				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-move')">
-			</div>
-			<div class="icon" id="icon-remove"
-				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-remove')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
-				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-remove')">
-			</div>
-			<div class="icon" id="icon-edit"
-				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-edit')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
-				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-edit')">
-			</div>
-			<div class="icon" id="icon-select"
-				 onmouseover="KaryGraph.UI.Toolbar.OnToolbarIconHover('icon-select')"
-				 onmouseout="KaryGraph.UI.Toolbar.ClearStuatus()"
-				 onclick="KaryGraph.UI.Toolbar.OnIconClick('icon-select')">
+			<!-- Tabs -->
+			<div id="header-tabs" class="editor-tab"></div>
+
+			<!-- Invisible Buttons -->
+			<div id="editor-tab-invisible" class="invisible-tab"
+				 onclick="KaryGraph.UI.Tabs.EditorTabsOnClick( );">
 			</div>
 
-			<div id="status-view"></div>
+			<div id="programmer-tab-invisible" class="invisible-tab"
+				 onclick="KaryGraph.UI.Tabs.ProgrammerTabsOnClick( );">
+			</div>
+
+			<div id="preferences-tab-invisible" class="invisible-tab"
+				 onclick="KaryGraph.UI.Tabs.PreferencesTabsOnClick( );">
+			</div>
 
 			<div id="header-right">
 				<img src="kary-logo.png" id="kf-logo">
@@ -42,33 +41,91 @@
 			<div style="clear: both;"></div>
 		</div>
 
-		<!-- Main View Goes Here -->
-		<div id="MainView">
+		<!-- Editor View Goes Here -->
+		<div id="EditorView" class="tab-view">
 			<!--- EDITOR --->
-			<svg id="GraphView"></svg>
+			<div id="graph-and-ribbon-half">
+				<div class="ribbon unselectable">
+					<div id="ribbon-general-new-file" class="ribbon-icon">New</div>
+					<div id="ribbon-general-open-file" class="ribbon-icon">Open</div>
+					<div id="ribbon-general-save-file" class="ribbon-icon">Save</div>
+
+					<div class="ribbon-separator"></div>
+
+					<div id="ribbon-editor-select-icon" class="ribbon-icon">Select</div>
+					<div id="ribbon-editor-connect-icon" class="ribbon-icon">Connect</div>
+					<div id="ribbon-editor-remove-icon" class="ribbon-icon">Remove</div>
+					<div id="ribbon-editor-add-loop-icon" class="ribbon-icon">Add Loop</div>
+					<div style="clear: both;"></div>
+				</div>
+
+				<!--- THE MOST IMPORTANT PART OF THIS DOCUMENT IS THIS SVG -->
+				<svg id="GraphView"></svg>
+			</div>
+
 			<!--- SCRIPT EDITOR --->
 			<div id="inspector">
 				<!-- Programmer -->
 				<div class="inspector-section">
 					<div class="inspector-section-title">
-						<div class="inspector-section-title-text unselectable">Programmer</div>
+						<div class="inspector-section-title-text unselectable">Notebook</div>
 						<div style="clear: both;"></div>
 					</div>
 					<div class="inspector-section-body">
 						<div id="ProgrammerNotebook" class="notebook"></div>
-						<div id="console-bottom"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div style="clear: both;" class="unselectable"></div>
 
-		<!-- INIT Part -->
+
+		<!-- Programmer View -->
+		<div id="ProgrammerView" class="tab-view">
+			<div class="ribbon unselectable">
+				<div id="ribbon-general-new-file" class="ribbon-icon">New</div>
+				<div id="ribbon-general-open-file" class="ribbon-icon">Open</div>
+				<div id="ribbon-general-save-file" class="ribbon-icon">Save</div>
+
+				<div class="ribbon-separator"></div>
+
+				<div id="ribbon-programmer-run-icon" class="ribbon-icon"
+					onclick="KaryGraph.UI.ProgrammerTab.Ribbon.OnRunButtonClicked( );">
+					Run</div>
+
+				<div class="ribbon-separator"></div>
+
+				<div id="ribbon-programmer-comment-section" class="ribbon-icon"
+					onclick="KaryGraph.UI.ProgrammerTab.OnAddSectionCommentButtonClicked( );">Section</div>
+
+				<div id="ribbon-programmer-comment-line" class="ribbon-icon"
+					onclick="KaryGraph.UI.ProgrammerTab.OnAddEndingCommentButtonClicked ( );">Ending</div>
+
+				<div style="clear: both;"></div>
+			</div>
+
+			<div id="monaco-placeholder" style="width: 100%; height: 100%;"></div>
+		</div>	
+
+
+		<!-- INIT Common Js parts -->
 		<script>
 			window.Snap = require('snapsvg');
 			var Prism = require('prismjs');
 			KaryGraph.INIT();
+			var path = require('path');
+		</script>
+
+
+		<div style="clear: both;" class="unselectable"></div>
+
+
+		<!-- Load Monaco -->
+		<script src="vs/loader.js"></script>
+		<script src="graph-monaco.js"></script>
+		<script>
+			GraphInitMonacoOnStart( );
+			CancelLoadingScreenAfterCompleteLoad( );
 		</script>
 	</body>
 </html>

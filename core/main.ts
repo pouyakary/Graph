@@ -33,10 +33,7 @@ module KaryGraph {
         function RenderStartingGraph ( ) {
             // Just remember this is the only place that using API
             // inside namespace "KaryGraph" is acceptable...
-            let numberOfDots = 90;
-            newdots( numberOfDots );
-            connect( range( 1, numberOfDots ) );
-            Rendering.RenderSpiral( );
+            API.KaryFoundation.CreateKaryHorseGraph( );
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

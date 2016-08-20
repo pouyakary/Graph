@@ -103,6 +103,7 @@ module KaryGraph.UI.Programmer {
             if ( key === 13 ) {
                 /** Enter/Return Key */
                 let code = FetchAndResetInput( );
+                if ( code === '' ) return;
                 promptHistory.push(code);
                 promptHistoryCursor++;
                 let result = RunAndGenerateResults( code );
@@ -185,10 +186,10 @@ module KaryGraph.UI.Programmer {
 
         function RunAndGenerateResults ( code: string ) {
             let runResults = KaryGraph.ScriptEngine.Run( code );
-            if ( ScriptEngine.RunStatus ) {
-                return KaryGraph.UI.Programmer.GenerateSayHTML( runResults );
+            if ( runResults.success ) {
+                return KaryGraph.UI.Programmer.GenerateSayHTML( runResults.result );
             } else {
-                return `<div class="${ NotebookError }">${ runResults }</div>`
+                return `<div class="${ NotebookError }">${ runResults.error }</div>`
             }
         }
 
