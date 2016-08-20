@@ -103,6 +103,7 @@ module KaryGraph.UI.Programmer {
             if ( key === 13 ) {
                 /** Enter/Return Key */
                 let code = FetchAndResetInput( );
+                if ( code === '' ) return;
                 promptHistory.push(code);
                 promptHistoryCursor++;
                 let result = RunAndGenerateResults( code );
