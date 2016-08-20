@@ -22,6 +22,20 @@ module KaryGraph.UI.ProgrammerTab {
         }
 
     //
+    // ─── ADD COMMENT BUTTONS ────────────────────────────────────────────────────────
+    //
+
+        export function OnAddSectionCommentButtonClicked ( ) {
+            KaryFoundation.Monaco.ExecuteAddComment( Editor, KaryFoundation.Comment.Style.Section );
+            Editor.focus( );
+        }
+
+        export function OnAddEndingCommentButtonClicked ( ) {
+            KaryFoundation.Monaco.ExecuteAddComment( Editor, KaryFoundation.Comment.Style.Ending );
+            Editor.focus( );          
+        }
+
+    //
     // ─── GENERATE SAMPLE CODE ───────────────────────────────────────────────────────
     //
 
