@@ -129,7 +129,7 @@
 
     gulp.task( 'resources', ['copyResourceFiles'], callback => {
         // fixing monaco folders name
-        mv(
+        /*mv(
             path.join( resultDirPath , 'vs' ), 
             path.join( resultDirPath , 'monaco' ),
             { 
@@ -141,7 +141,7 @@
                     console.log('could not fix the name of monaco folder...');
                 }
             }
-        );
+        );*/
     });
 
 //
