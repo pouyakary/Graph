@@ -12,10 +12,13 @@ module KaryGraph.UI.ProgrammerTab.Ribbon {
 
         /** Run Button */
         export function OnRunButtonClicked ( ) {
-            KaryGraph.ScriptEngine.Run(
+            let runResult = ScriptEngine.Run(
                 UI.ProgrammerTab.Editor.getValue( )
             );
             UI.Tabs.EditorTabsOnClick( );
+            if ( !runResult.success ) {
+                alert( runResult.error );
+            }
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
