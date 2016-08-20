@@ -37,12 +37,7 @@ module KaryFoundation.Monaco {
                 },
 
                 run: function ( ed ) {
-                    makeCommentWithFormula( ed, line => {
-                        return KaryFoundation.Comment.Generate(
-                            KaryFoundation.Comment.Style.Section,
-                            '//', 4, true, line
-                        )
-                    });
+                    ExecuteAddComment( ed, Comment.Style.Section );
                     return null;
                 }
             });
@@ -63,15 +58,34 @@ module KaryFoundation.Monaco {
                 },
 
                 run: function ( ed ) {
-                    makeCommentWithFormula( ed, line => {
-                        return KaryFoundation.Comment.Generate(
-                            KaryFoundation.Comment.Style.Ending,
-                            '//', 4, true, line
-                        )
-                    });
+                    ExecuteAddComment( ed, Comment.Style.Ending );
                     return null;
                 }
             });
+        }
+
+    //
+    // ─── ADD COMMENT TO MONACO ──────────────────────────────────────────────────────
+    //
+
+        export function ExecuteAddComment ( editor: monaco.editor.ICommonCodeEditor, 
+                                             style: Comment.Style ) {
+
+            if ( Comment.Style.Section === style ) {
+                makeCommentWithFormula( editor, line => {
+                    return Comment.Generate(
+                        Comment.Style.Section,
+                        '//', 4, true, line
+                    )
+                });
+            } else {
+                makeCommentWithFormula( editor, line => {
+                    return Comment.Generate(
+                        Comment.Style.Ending,
+                        '//', 4, true, line
+                    )
+                });
+            }
         }
 
     //
@@ -79,7 +93,7 @@ module KaryFoundation.Monaco {
     //
 
         function makeCommentWithFormula ( ed: monaco.editor.ICommonCodeEditor,
-                                     formula: ( line: string ) => string ) {
+                                            formula: ( line: string ) => string ) {
             
             // env info
             let position = ed.getPosition( ); 
