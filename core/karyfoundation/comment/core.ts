@@ -265,7 +265,7 @@ module KaryFoundation.Comment {
     //
 
         function generateLineComment ( width ) {
-            return `${ generateIndentation( ) }${ oneLineCommentSign } ${ repeat( commentLineCharacter, width ) }\n`;
+            return `${ generateIndentation( ) }${ oneLineCommentSign } ${ repeat( commentLineCharacter, width - 1) }\n`;
         }
 
     //
