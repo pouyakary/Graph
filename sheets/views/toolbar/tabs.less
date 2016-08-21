@@ -35,16 +35,19 @@
         top: 9;
     }
 
+    @tab-x-difference: 102px;
+    @tab-x-start: 27px;
+
     #editor-tab-invisible {
-        left: 99px;
+        left: @tab-x-start;
     }
 
     #programmer-tab-invisible {
-        left: 201px;
+        left: @tab-x-start + @tab-x-difference;
     }
 
     #preferences-tab-invisible {
-        left: 303px;
+        left: @tab-x-start + 2 * @tab-x-difference;
     }
 
 //
