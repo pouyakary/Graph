@@ -20,6 +20,7 @@ module KaryGraph {
             InitScreenInformation( );
             UI.Programmer.INIT( );
             RenderStartingGraph( );
+            UI.LoadImagesAtStart( );
         }
 
     //
