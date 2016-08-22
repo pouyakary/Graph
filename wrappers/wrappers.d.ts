@@ -22,7 +22,9 @@
 
     declare function ReadDirSync ( address: string ): string[ ];
 
-    declare function FSStats ( address: string ): IFSStatsResult;
+    declare function FSStatsSync ( address: string ): IFSStatsResult;
+
+    declare function FSExistsSync ( address: string ): boolean;
 
 //
 // ─── PRISM JS ───────────────────────────────────────────────────────────────────

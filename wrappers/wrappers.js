@@ -40,6 +40,10 @@
 // ─── NODE READ FILE ─────────────────────────────────────────────────────────────
 //
 
+    function ReadFile ( address, callback ) {
+        fs.readFile( address, 'utf8 ', callback );
+    }
+
     function ReadFileSync ( address ) {
         return fs.readFileSync( address, 'utf8' );
     }
@@ -48,16 +52,29 @@
 // ─── GET DIRECTORY ──────────────────────────────────────────────────────────────
 //
 
+
+    function ReadFile ( address, callback ) {
+        fs.readDir( address , callback );
+    }
+
     function ReadDirSync ( address ) {
         return fs.readDirSync( address );
     }
 
 //
-// ─── FS READ FILE ───────────────────────────────────────────────────────────────
+// ─── FS STATS ───────────────────────────────────────────────────────────────────
 //
 
-    function ReadFile ( address, callback ) {
-        fs.readFile( address, 'utf8 ', callback );
+    function FSStatsSync ( address ) {
+        return fs.statSync( address );
+    }
+
+//
+// ─── FS EXISTS ──────────────────────────────────────────────────────────────────
+//
+
+    function FSExistsSync ( address ) {
+        return fs.existsSync( address );
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
