@@ -27,12 +27,6 @@ module KaryGraph.UI.Programmer {
         var promptHistoryCursor:number;
 
     //
-    // ─── WRAPPERS ───────────────────────────────────────────────────────────────────
-    //
-
-        declare function PrismHighlight ( code: string ) : string;
-
-    //
     // ─── INIT NOTEBOOK ──────────────────────────────────────────────────────────────
     //
 
