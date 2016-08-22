@@ -48,7 +48,7 @@
 // ─── GET DIRECTORY ──────────────────────────────────────────────────────────────
 //
 
-    function ReadFile ( address, callback ) {
+    function ReadDir ( address, callback ) {
         fs.readdir( address , callback );
     }
 
