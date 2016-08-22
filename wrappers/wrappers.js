@@ -10,13 +10,6 @@
 //
 
 //
-// ─── IMPORTS ────────────────────────────────────────────────────────────────────
-//
-
-    const fs    = require('fs');
-    const path  = require('path');
-
-//
 // ─── PRISM HIGHLIGHTING WRAPPER ─────────────────────────────────────────────────
 //
 
@@ -30,7 +23,7 @@
 
     function JoinPath ( addresses ) {
         let result = '';
-        result.forEach( address => {
+        addresses.forEach( address => {
             result = path.join( result , address );
         });
         return result;

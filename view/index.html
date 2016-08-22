@@ -113,13 +113,18 @@
 
 		</div>
 
-
 		<!-- INIT Common Js parts -->
 		<script>
+			// common js loads:
+			const Prism = require('prismjs');
+			const path  = require('path');
+			const fs    = require('fs');
+
+			// defs
 			window.Snap = require('snapsvg');
-			var Prism = require('prismjs');
+
+			// Core INIT
 			KaryGraph.INIT();
-			var path = require('path');
 		</script>
 
 
@@ -131,6 +136,7 @@
 		<script src="graph-monaco.js"></script>
 		<script>
 			GraphInitMonacoOnStart( );
+			KaryGraph.ScriptEngine.Algorithms.LoadAlgorithmsAsync( );
 			CancelLoadingScreenAfterCompleteLoad( );
 		</script>
 	</body>
