@@ -10,19 +10,33 @@
 
     declare function JoinPath ( addresses: string[ ] ): string;
 
+// ────────────────────────────────────────────────────────────────────────────────
+
     declare function ReadFile ( address: string, 
-                                   func: ( error: NodeJS.ErrnoException, data: string ) => void
+                                   func: ( error: NodeJS.ErrnoException,
+                                            data: string ) => void
                               );
+
+// ────────────────────────────────────────────────────────────────────────────────
 
     declare function ReadFileSync ( address: string ): string;
 
+// ────────────────────────────────────────────────────────────────────────────────
+
     declare function ReadDir ( address: string, 
-                                  func: ( error: NodeJS.ErrnoException, files: string[] ) => void
+                                  func: ( error: NodeJS.ErrnoException, 
+                                          files: string[] ) => void
                               );
+
+// ────────────────────────────────────────────────────────────────────────────────
 
     declare function ReadDirSync ( address: string ): string[ ];
 
+// ────────────────────────────────────────────────────────────────────────────────
+
     declare function FSStatsSync ( address: string ): IFSStatsResult;
+
+// ────────────────────────────────────────────────────────────────────────────────
 
     declare function FSExistsSync ( address: string ): boolean;
 
@@ -38,6 +52,12 @@
 
     declare function GetHomeDir ( ): string;
 
+//
+// ─── NODE REQUIRE ───────────────────────────────────────────────────────────────
+//
+
+    declare function NodeRequire ( ): Object;
+
 // ────────────────────────────────────────────────────────────────────────────────
 
 
@@ -47,13 +67,13 @@
 //
 
     interface IFSStatsResult {
-        isFile(): boolean;
-        isDirectory(): boolean;
-        isBlockDevice(): boolean;
-        isCharacterDevice(): boolean;
-        isSymbolicLink(): boolean;
-        isFIFO(): boolean;
-        isSocket(): boolean;
+                   isFile ( ): boolean;
+              isDirectory ( ): boolean;
+            isBlockDevice ( ): boolean;
+        isCharacterDevice ( ): boolean;
+           isSymbolicLink ( ): boolean;
+                   isFIFO ( ): boolean;
+                 isSocket ( ): boolean;
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
