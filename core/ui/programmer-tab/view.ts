@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph.UI.ProgrammerTab {
+namespace KaryGraph.UI.ProgrammerTab {
 
     //
     // ─── GLOBALS ────────────────────────────────────────────────────────────────────

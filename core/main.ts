@@ -7,7 +7,7 @@
 /**
  * **Kary Graph** - A full featured Graph Theory Studio
  */
-module KaryGraph {
+namespace KaryGraph {
 
     //
     // ─── INIT ───────────────────────────────────────────────────────────────────────

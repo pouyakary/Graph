@@ -5,7 +5,7 @@
 //
 
 /** This module is responsible for the */
-module KaryGraph.UI.Programmer {
+namespace KaryGraph.UI.Programmer {
 
     //
     // ─── DEFS ───────────────────────────────────────────────────────────────────────

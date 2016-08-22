@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryFoundation.Comment {
+namespace KaryFoundation.Comment {
 
     //
     // ─── GLOBALS ────────────────────────────────────────────────────────────────────

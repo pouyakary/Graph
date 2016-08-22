@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph.Circle {
+namespace KaryGraph.Circle {
 
     //
     // ─── GENERATOR ──────────────────────────────────────────────────────────────────

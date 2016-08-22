@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph {
+namespace KaryGraph {
 
     //
     // ─── DOT OBJECT ─────────────────────────────────────────────────────────────────

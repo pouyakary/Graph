@@ -7,7 +7,7 @@
 /**
  * This name space is used to store all the Graph's ***model information***.
  */
-module KaryGraph.Storage {
+namespace KaryGraph.Storage {
 
     //
     // ─── CONNECTIONS ────────────────────────────────────────────────────────────────

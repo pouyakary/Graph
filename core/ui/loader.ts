@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph.UI {
+namespace KaryGraph.UI {
 
     //
     // ─── LOAD IMAGES ────────────────────────────────────────────────────────────────
@@ -13,8 +13,8 @@ module KaryGraph.UI {
         /** Loads some of the necessary images to remove image loading lags. */
         export function LoadImagesAtStart ( ) {
             const listOfImages = [
-                GetPath('toolbar-tabs-algorithms.png'),
-                GetPath('toolbar-tabs-programmer.png'),
+                'toolbar-tabs-algorithms.png',
+                'toolbar-tabs-programmer.png',
             ];
             listOfImages.forEach( imageResource => {
                 let tempImage = new Image( );

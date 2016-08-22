@@ -11,7 +11,7 @@
  */
 
 
-module KaryGraph.UI.Programmer {
+namespace KaryGraph.UI.Programmer {
 
     //
     // ─── SAY MAIN ───────────────────────────────────────────────────────────────────
@@ -59,7 +59,7 @@ module KaryGraph.UI.Programmer {
 
 
 
-module KaryGraph.UI.Programmer.SayImplementations {
+namespace KaryGraph.UI.Programmer.SayImplementations {
 
     //
     // ────────────────────────────────────────────────────────────────────────────── I ──────────

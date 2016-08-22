@@ -4,7 +4,7 @@
 //   Author: Sina Bakhtiari <s@karyfoundation.org>
 //
 
-module KaryGraph.API.StandardLibrary.Algorithms {
+namespace KaryGraph.API.StandardLibrary.Algorithms {
 
     //
     // ─── BFS ────────────────────────────────────────────────────────────────────────

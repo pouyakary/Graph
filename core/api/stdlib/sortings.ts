@@ -4,7 +4,7 @@
 //   Author: Micha Hanselmann <m@karyfoundation.org>
 //
 
-module KaryGraph.API.StandardLibrary.Sortings {
+namespace KaryGraph.API.StandardLibrary.Sortings {
 
     //
     // ─── CLASSIC TREE ───────────────────────────────────────────────────────
