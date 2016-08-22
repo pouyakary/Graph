@@ -19,8 +19,9 @@ namespace KaryGraph {
         export function INIT ( ) {
             InitScreenInformation( );
             UI.Programmer.INIT( );
-            RenderStartingGraph( );
             UI.LoadImagesAtStart( );
+            ScriptEngine.Algorithms.LoadAlgorithms( );
+            RenderStartingGraph( );
         }
 
     //
