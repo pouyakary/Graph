@@ -64,7 +64,7 @@ module KaryGraph.UI.Tabs {
 
                 // Preferences
                 case TabOptions.Algorithms:
-                    tabContainer.className = 'preferences-tab';
+                    tabContainer.className = 'algorithms-tab';
 
                     editorTabView.hidden = true;
                     programmerTabView.hidden = true;

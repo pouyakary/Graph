@@ -156,7 +156,7 @@ module KaryGraph {
 
         export const EditorTabId = 'EditorView';
 
-        export const AlgorithmsTabId = 'PreferencesView';
+        export const AlgorithmsTabId = 'AlgorithmsView';
 
     //
     // ─── MONACO ─────────────────────────────────────────────────────────────────────
@@ -171,8 +171,6 @@ module KaryGraph {
         export const EditorRibbonIconsId = 'ribbon-editor';
 
         export const ProgrammerRibbonIconsId = 'ribbon-programmer';
-
-        export const PreferencesRibbonIconsId = 'ribbon-preferences';
 
     // ────────────────────────────────────────────────────────────────────────────────
 
