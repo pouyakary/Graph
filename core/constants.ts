@@ -66,11 +66,12 @@ module KaryGraph {
         export const LoopArrowRadius = 10;
 
     //
-    // ─── STATUS BAR ─────────────────────────────────────────────────────────────────
+    // ─── GRAPH USER FOLDER ──────────────────────────────────────────────────────────
     //
 
-        /** Id of the status bar */
-        export const StatusbarId = 'status-view';
+        export const GraphUserFolderPath = '.graph';
+
+        export const GraphUserFolderForAlgorithms = 'algorithms';
 
     //
     // ─── TOOLBAR ────────────────────────────────────────────────────────────────────
