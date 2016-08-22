@@ -72,4 +72,14 @@
         return fs.existsSync( address );
     }
 
+//
+// ─── GET HOME DIR ───────────────────────────────────────────────────────────────
+//
+
+    function GetHomeDir ( ) {
+        var path = require('path');
+        var home = process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
+        return username ? path.resolve(path.dirname(home), username) : home;
+    }
+
 // ────────────────────────────────────────────────────────────────────────────────

@@ -30,7 +30,13 @@
 // ─── PRISM JS ───────────────────────────────────────────────────────────────────
 //
 
-    declare function PrismHighlight ( code: string ): string;  
+    declare function PrismHighlight ( code: string ): string;
+
+//
+// ─── GET HOME DIR ───────────────────────────────────────────────────────────────
+//
+
+    declare function GetHomeDir ( ): string;
 
 // ────────────────────────────────────────────────────────────────────────────────
 
