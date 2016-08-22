@@ -5,15 +5,18 @@
 //
 
 //
-// To reduce TypeScript's decleration complexities, these wrappers introduce 
-// simpler ways to model their functioning. 
+// ─── VERY IMPORTANT MESSAGE ─────────────────────────────────────────────────────
+// Graph uses TypeScript's own module system not CommonJS and that makes loading &
+// using node modules impossible inside the 'KaryGraph' and other modules of the
+// same kind. Hence this wrappers are used to provide a very simple bridge for
+// providing node functionality inside the core modules.
 //
 
 //
 // ─── PRISM HIGHLIGHTING WRAPPER ─────────────────────────────────────────────────
 //
 
-    function PrismHighlight( code ) {
+    function PrismHighlight ( code ) {
         return Prism.highlight( code, Prism.languages.javascript );
     }
 
@@ -45,13 +48,12 @@
 // ─── GET DIRECTORY ──────────────────────────────────────────────────────────────
 //
 
-
     function ReadFile ( address, callback ) {
-        fs.readDir( address , callback );
+        fs.readdir( address , callback );
     }
 
     function ReadDirSync ( address ) {
-        return fs.readDirSync( address );
+        return fs.readdirSync( address );
     }
 
 //

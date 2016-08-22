@@ -11,8 +11,8 @@
 // ─── DEFS ───────────────────────────────────────────────────────────────────────
 //
 
-    const electron = require( 'electron' );
-    const app = electron.app;
+    const electron      = require( 'electron' );
+    const app           = electron.app;
     const BrowserWindow = electron.BrowserWindow;
 
 //
@@ -29,6 +29,8 @@
             height: window_height,  minHeight: window_height - 100,
             backgroundColor: 'white'
         });
+
+        mainWindow.openDevTools( );
 
         mainWindow.loadURL( 'file://' + __dirname + '/index.html' );
 

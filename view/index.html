@@ -3,9 +3,6 @@
 		<title>Graph</title>
 		<!-- Main Graph Tools -->
 		<link rel="stylesheet" href="style.css">
-		<script src="core.js"></script>
-		<script src="wrappers.js"></script>
-		<script src="loading-screen.js"></script>
 		<!-- Prism -->
 		<link rel="stylesheet" href="prism.css">
 	</head>
@@ -113,30 +110,31 @@
 
 		</div>
 
-		<!-- INIT Common Js parts -->
-		<script>
-			// common js loads:
-			const Prism = require('prismjs');
-			const path  = require('path');
-			const fs    = require('fs');
-
-			// defs
-			window.Snap = require('snapsvg');
-
-			// Core INIT
-			KaryGraph.INIT();
-		</script>
-
-
 		<div style="clear: both;" class="unselectable"></div>
 
 
-		<!-- Load Monaco -->
+
+
+
+		<!-- Common JS Parts -->
+		<script src="core.js"></script>
+		<script src="wrappers.js"></script>
+		<script src="loading-screen.js"></script>
+		<script>
+			const Prism         = require('prismjs');
+			const path          = require('path');
+			const fs            = require('fs');
+			const GetHomeDir    = require('homedir');
+			window.Snap 		= require('snapsvg');
+			KaryGraph.INIT();
+		</script>
+
+		<!-- AMD Parts -->
 		<script src="vs/loader.js"></script>
 		<script src="graph-monaco.js"></script>
 		<script>
+			//KaryGraph.ScriptEngine.Algorithms.LoadAlgorithmsAsync( );
 			GraphInitMonacoOnStart( );
-			KaryGraph.ScriptEngine.Algorithms.LoadAlgorithmsAsync( );
 			CancelLoadingScreenAfterCompleteLoad( );
 		</script>
 	</body>
