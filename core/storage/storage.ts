@@ -22,6 +22,13 @@ namespace KaryGraph.Storage {
         /** Contains all the dot objects associated to their ids. */
         export var Nodes: Object = { };
 
+    //
+    // ─── ALGORITHMS ─────────────────────────────────────────────────────────────────
+    //
+
+        /** Contains all the algorithm extension objects. */
+        export var Algorithms: Object = { };
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
