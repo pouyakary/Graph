@@ -10,10 +10,20 @@ namespace KaryGraph.ScriptEngine.Algorithms {
     // ─── INTERFACES ─────────────────────────────────────────────────────────────────
     //
 
-        interface IAlgorithmManifest {
+        export interface IAlgorithmManifest {
+            handle: string;
             name: string;
             main: string;
             author: string;
+        }
+
+        export interface IAlgorithm {
+            start: ( args: Object ) => void;
+        }
+
+        export interface IAlgorithmObject {
+            manifest: IAlgorithmManifest;
+            algorithm: IAlgorithm;
         }
 
     //
@@ -50,10 +60,23 @@ namespace KaryGraph.ScriptEngine.Algorithms {
     //
 
         function LoadAlgorithm ( address: string ) {
+            // getting the manifest
             let manifest = LoadAlgorithmsManifest( address );
-            if ( FSExistsSync( JoinPath([ address, manifest.name ]))) {
 
-            }
+            // loading the algorithm
+            let mainFilePath = JoinPath([ address, manifest.main ]);
+            if ( !FSExistsSync( mainFilePath ) ) return;
+            let algorithm = <IAlgorithm> NodeRequire( mainFilePath );
+            let algorithmObject: IAlgorithmObject = {
+                algorithm: algorithm,
+                manifest: manifest
+            };
+
+            // storing the algorithm
+            Storage.Algorithms[ manifest.handle ] = algorithmObject;
+
+            // making a control
+            UI.AlgorithmsTab.MakeAlgorithmControlView( algorithmObject );
         }
 
     //
