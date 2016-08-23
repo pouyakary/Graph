@@ -31,21 +31,41 @@ namespace KaryGraph.UI.AlgorithmsTab {
         function MakeViewForAlgorithm (
             algorithmObject: ScriptEngine.Algorithms.IAlgorithmObject ) {
 
+            // main box
             let controller = document.createElement('div');
             controller.className = AlgorithmsControllerClass;
             controller.id = GetControllerId( algorithmObject.manifest.handle );
 
-                let title = document.createElement('div');
-                title.className = AlgorithmsControllerTitleClass;
-                title.innerText = algorithmObject.manifest.name;
-                controller.appendChild( title );
+                // Title
+                controller.appendChild( MakeElement(
+                    AlgorithmsControllerTitleClass,
+                    algorithmObject.manifest.name
+                ));
 
-                let author = document.createElement('div');
-                author.className = AlgorithmsControllerAuthorClass;
-                author.innerText = `By ${ algorithmObject.manifest.author }`;
-                controller.appendChild( author );
+                // Author
+                controller.appendChild( MakeElement(
+                    AlgorithmsControllerAuthorClass,
+                    algorithmObject.manifest.author
+                ));
+
+                // Description
+                controller.appendChild( MakeElement(
+                    AlgorithmsControllerDescriptionClass,
+                    algorithmObject.manifest.description
+                ));
 
             return controller;
+        }
+
+    //
+    // ─── MAKE ELEMENT ───────────────────────────────────────────────────────────────
+    //
+
+        function MakeElement ( cls: string, text: string ) {
+            let element = document.createElement('div');
+            element.className = cls;
+            element.innerText = text;
+            return element;
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

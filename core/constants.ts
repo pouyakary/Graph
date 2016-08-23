@@ -187,6 +187,8 @@ namespace KaryGraph {
 
         export const AlgorithmsControllerAuthorClass = 'algorithm-controller-author';
 
+        export const AlgorithmsControllerDescriptionClass = 'algorithm-controller-description';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }

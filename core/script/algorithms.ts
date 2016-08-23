@@ -15,6 +15,7 @@ namespace KaryGraph.ScriptEngine.Algorithms {
             name: string;
             main: string;
             author: string;
+            description: string;
         }
 
         export interface IAlgorithm {
@@ -66,17 +67,31 @@ namespace KaryGraph.ScriptEngine.Algorithms {
             // loading the algorithm
             let mainFilePath = JoinPath([ address, manifest.main ]);
             if ( !FSExistsSync( mainFilePath ) ) return;
-            let algorithm = <IAlgorithm> NodeRequire( mainFilePath );
+
+            // algorithms
+            let algorithm: IAlgorithm;
+            try {
+                algorithm = <IAlgorithm> NodeRequire( mainFilePath );
+            } catch ( error ) {
+                console.error("Couldn't load the algorithm script");
+                return;
+            }
+
             let algorithmObject: IAlgorithmObject = {
                 algorithm: algorithm,
                 manifest: manifest
             };
 
             // storing the algorithm
-            Storage.Algorithms[ manifest.handle ] = algorithmObject;
+            Storage.Algorithms[ NormalizeHandle( manifest.handle ) ] = algorithmObject;
 
             // making a control
-            UI.AlgorithmsTab.MakeAlgorithmControlView( algorithmObject );
+            try {
+                UI.AlgorithmsTab.MakeAlgorithmControlView( algorithmObject );
+            } catch ( error ) {
+                console.log(`Couldn't make controller view for ${ manifest.name }.`);
+                console.log( error );
+            }
         }
 
     //
@@ -90,6 +105,14 @@ namespace KaryGraph.ScriptEngine.Algorithms {
             } else {
                 return undefined;
             }
+        }
+
+    //
+    // ─── NORMALIZE HANDLE ───────────────────────────────────────────────────────────
+    //
+
+        function NormalizeHandle ( handle: string ) {
+            return handle.replace( /\./g , '-' );
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
