@@ -12,7 +12,7 @@
 
 // ────────────────────────────────────────────────────────────────────────────────
 
-    declare function ReadFile ( address: string, 
+    declare function ReadFile ( address: string,
                                    func: ( error: NodeJS.ErrnoException,
                                             data: string ) => void
                               );
@@ -23,8 +23,8 @@
 
 // ────────────────────────────────────────────────────────────────────────────────
 
-    declare function ReadDir ( address: string, 
-                                  func: ( error: NodeJS.ErrnoException, 
+    declare function ReadDir ( address: string,
+                                  func: ( error: NodeJS.ErrnoException,
                                           files: string[] ) => void
                               );
 
@@ -56,7 +56,7 @@
 // ─── NODE REQUIRE ───────────────────────────────────────────────────────────────
 //
 
-    declare function NodeRequire ( ): Object;
+    declare function NodeRequire ( module: string ): Object;
 
 // ────────────────────────────────────────────────────────────────────────────────
 

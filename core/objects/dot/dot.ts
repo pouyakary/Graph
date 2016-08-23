@@ -185,7 +185,7 @@ namespace KaryGraph {
                         ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
                     }
 
-                    if ( Storage.Nodes[ dotID ] != undefined 
+                    if ( Storage.Nodes[ dotID ] != undefined
                          && Storage.Nodes[ dotID ].Outputs[ this.Id ] != undefined ) {
                         delete Storage.Nodes[ dotID ].Outputs[ this.Id ];
                     }
