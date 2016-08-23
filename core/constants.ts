@@ -69,7 +69,7 @@ namespace KaryGraph {
     // ─── GRAPH USER FOLDER ──────────────────────────────────────────────────────────
     //
 
-        export const GraphUserFolderPath = '.graph';
+        export const GraphUserFolderPath = 'Graph';
 
         export const GraphUserFolderForAlgorithms = 'algorithms';
 
