@@ -14,7 +14,7 @@ namespace KaryGraph.UI.Events {
         window.onresize = event => {
             ProgrammerTab.Editor.layout( );
         };
-    
+
     // ────────────────────────────────────────────────────────────────────────────────
-    
+
 }

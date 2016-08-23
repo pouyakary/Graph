@@ -51,7 +51,7 @@ namespace KaryGraph.UI.Tabs {
                     algorithmsTabView.hidden = true;
                     break;
 
-                
+
                 // Programmer
                 case TabOptions.Programmer:
                     tabContainer.className = 'programmer-tab';

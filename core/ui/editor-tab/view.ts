@@ -6,7 +6,7 @@
 //
 
 namespace KaryGraph {
-    
+
     //
     // ─── GRAPH ──────────────────────────────────────────────────────────────────────
     //
@@ -56,7 +56,7 @@ namespace KaryGraph {
     //
 
         /**
-         * At the *start* of the window, this function initializes 
+         * At the *start* of the window, this function initializes
          * the window properties.
          */
         export function InitScreenInformation ( ) {

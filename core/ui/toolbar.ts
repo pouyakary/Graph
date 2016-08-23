@@ -12,7 +12,7 @@ namespace KaryGraph.UI.Toolbar {
     // ─── TOOLBAR MODE ───────────────────────────────────────────────────────────────
     //
 
-        export enum ToolbarModeEnum { 
+        export enum ToolbarModeEnum {
             Move, Remove, Edit, Select
         }
 

@@ -7,24 +7,38 @@
 namespace KaryGraph.ScriptEngine.Algorithms {
 
     //
+    // ─── INTERFACES ─────────────────────────────────────────────────────────────────
+    //
+
+        interface IAlgorithmManifest {
+            name: string;
+            main: string;
+            author: string;
+        }
+
+    //
     // ─── LOAD ALGORITHMS ────────────────────────────────────────────────────────────
     //
 
-        export function LoadAlgorithmsAsync ( ) {
-            let algDir = JoinPath([ 
+        export function LoadAlgorithms ( ) {
+            let algDir = JoinPath([
                 GetHomeDir( ), GraphUserFolderPath, GraphUserFolderForAlgorithms ]);
 
             if ( FSExistsSync( algDir ) ) {
                 ReadDir( algDir, ( err, directories ) => {
                     if ( err ) {
-                        console.error('Could not load algorithms.'); 
+                        console.error('Could not load algorithms.');
                         return;
                     }
 
                     directories.forEach( dir => {
                         let fullPath = JoinPath([ algDir, dir ]);
                         if ( FSStatsSync( fullPath ).isDirectory( ) ) {
-                            LoadAlgorithm( fullPath );
+                            try {
+                                LoadAlgorithm( fullPath );
+                            } catch ( err ) {
+                                console.error(`Couldn't load algorithm: ${ dir }`);
+                            }
                         }
                     });
                 });
@@ -36,7 +50,23 @@ namespace KaryGraph.ScriptEngine.Algorithms {
     //
 
         function LoadAlgorithm ( address: string ) {
-            console.log( address );            
+            let manifest = LoadAlgorithmsManifest( address );
+            if ( FSExistsSync( JoinPath([ address, manifest.name ]))) {
+
+            }
+        }
+
+    //
+    // ─── LOAD PREFERENCES ───────────────────────────────────────────────────────────
+    //
+
+        function LoadAlgorithmsManifest ( algorithmsAddress: string ) {
+            let manifestPath = JoinPath([ algorithmsAddress, AlgorithmsPackageName ]);
+            if ( FSExistsSync( manifestPath ) ) {
+                return <IAlgorithmManifest> JSON.parse( ReadFileSync( manifestPath ) );
+            } else {
+                return undefined;
+            }
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

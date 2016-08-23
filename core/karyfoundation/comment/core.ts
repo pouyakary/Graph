@@ -16,7 +16,7 @@ namespace KaryFoundation.Comment {
     // ─── MAIN ───────────────────────────────────────────────────────────────────────
     //
 
-        export function Generate ( style: Style, 
+        export function Generate ( style: Style,
                        languageCharacter: string,
                                  tabSize: number,
                             insertSpaces: boolean,
@@ -293,4 +293,4 @@ namespace KaryFoundation.Comment {
 
     // ────────────────────────────────────────────────────────────────────────────────
 
-} 
+}

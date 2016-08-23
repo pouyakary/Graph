@@ -305,7 +305,7 @@ namespace KaryGraph {
 
                     this.Outputs.forEach( output => {
                         neighbors.push(Storage.Nodes[output]);
-                    }); 
+                    });
 
                     return neighbors;
                 }

@@ -82,10 +82,10 @@ namespace KaryGraph.UI.Programmer {
             /** We have two different methods on purpose, do not try to merge them! */
             promptInput.addEventListener( 'keypress' , OnPromptEnterClicked );
             promptInput.addEventListener( 'keydown' , OnPromptArrowsClicked );
-            // Prompt 
+            // Prompt
             prompt.appendChild( promptInput );
         }
-    
+
     //
     // ─── ON PROMPT ENTER ────────────────────────────────────────────────────────────
     //
@@ -156,7 +156,7 @@ namespace KaryGraph.UI.Programmer {
     //
     // ─── FETCH AND RESET INPUT VALUE ────────────────────────────────────────────────
     //
-        
+
         /** Fetches and resets the input box value */
         function FetchAndResetInput ( ): string {
             let result = promptInput.value;

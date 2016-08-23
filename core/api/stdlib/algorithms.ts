@@ -8,9 +8,9 @@ namespace KaryGraph.API.StandardLibrary.Algorithms {
 
     //
     // ─── BFS ────────────────────────────────────────────────────────────────────────
-    //
+    // 
 
-        export function BFS ( start: Dot, steps: number ){
+        export function BFS ( start: Dot, steps: number ) {
             let bfs = new Array<Array<Dot>>( );
             let checked = new Array<Boolean>( );
 

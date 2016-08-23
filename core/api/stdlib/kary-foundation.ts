@@ -10,7 +10,7 @@ namespace KaryGraph.API.KaryFoundation {
     // ─── THE KARY GRAPH ─────────────────────────────────────────────────────────────
     //
 
-        /** 
+        /**
          * Pretty fun easter that generates a Kary Horse Logo with exact
          * properties as the real logo in the center of the screen.
          */
@@ -30,7 +30,7 @@ namespace KaryGraph.API.KaryFoundation {
             // Creating dots
             dots[ 0 ] = createFromOrigin( -185 , -51  ); // 1
             dots[ 1 ] = createFromOrigin( -103 , -142 ); // 2
-            dots[ 2 ] = createFromOrigin( -65  ,  5   ); // 3  
+            dots[ 2 ] = createFromOrigin( -65  ,  5   ); // 3
             dots[ 3 ] = createFromOrigin(  118 ,  5   ); // 4
             dots[ 4 ] = createFromOrigin(  161 ,  -44 ); // 5
             dots[ 5 ] = createFromOrigin( -139 ,  135 ); // 6
@@ -43,7 +43,7 @@ namespace KaryGraph.API.KaryFoundation {
             connect([ dots[ 5 ], dots[ 2 ], dots[ 6 ]]);
             connect([ dots[ 7 ], dots[ 3 ], dots[ 8 ]]);
         }
-    
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }

@@ -18,7 +18,7 @@ namespace KaryGraph.UI.Programmer {
     //
 
         export function GenerateSayHTML ( input: any ): string {
-            
+
             // if were going to have an undefined type.
             if ( input == undefined ) {
                 return SayImplementations.SayUndefined( );
@@ -92,7 +92,7 @@ namespace KaryGraph.UI.Programmer.SayImplementations {
 
         export function SayString ( input: string ): string {
             return `<div class="say-string">"${ input }"</div>`;
-        } 
+        }
 
     //
     // ─── NUMBER ─────────────────────────────────────────────────────────────────────
