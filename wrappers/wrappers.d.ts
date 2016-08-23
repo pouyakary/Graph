@@ -40,6 +40,10 @@
 
     declare function FSExistsSync ( address: string ): boolean;
 
+// ────────────────────────────────────────────────────────────────────────────────
+
+    declare function MakeDirSync ( address );
+
 //
 // ─── PRISM JS ───────────────────────────────────────────────────────────────────
 //
