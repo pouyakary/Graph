@@ -19,12 +19,22 @@ namespace KaryGraph.ScriptEngine.Algorithms {
         }
 
         export interface IAlgorithm {
-            start: ( args: Object ) => void;
+            ( args: Object ): void;
         }
 
         export interface IAlgorithmObject {
             manifest: IAlgorithmManifest;
             algorithm: IAlgorithm;
+        }
+
+    //
+    // ─── EXECUTE ALGORITHM ──────────────────────────────────────────────────────────
+    //
+
+        export function ExecuteAlgorithm ( handle: string ) {
+            console.log('here');
+            let algorithm = <IAlgorithm> Storage.Algorithms[ handle ];
+            algorithm({ });
         }
 
     //
@@ -52,6 +62,9 @@ namespace KaryGraph.ScriptEngine.Algorithms {
                             }
                         }
                     });
+
+                    document.getElementById( AlgorithmsControlContainerId ).innerHTML +=
+                        '<div style="clear: both;"></div>';
                 });
             }
         }
@@ -83,7 +96,7 @@ namespace KaryGraph.ScriptEngine.Algorithms {
             };
 
             // storing the algorithm
-            Storage.Algorithms[ NormalizeHandle( manifest.handle ) ] = algorithmObject;
+            Storage.Algorithms[ NormalizeHandle( manifest.handle ) ] = algorithm;
 
             // making a control
             try {
@@ -111,7 +124,7 @@ namespace KaryGraph.ScriptEngine.Algorithms {
     // ─── NORMALIZE HANDLE ───────────────────────────────────────────────────────────
     //
 
-        function NormalizeHandle ( handle: string ) {
+        export function NormalizeHandle ( handle: string ) {
             return handle.replace( /\./g , '-' );
         }
 

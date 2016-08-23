@@ -54,7 +54,28 @@ namespace KaryGraph.UI.AlgorithmsTab {
                     algorithmObject.manifest.description
                 ));
 
+                // Run Button
+                controller.appendChild(
+                    MakeRunButton( algorithmObject.manifest.handle )
+                );
+
             return controller;
+        }
+
+    //
+    // ─── RUN BUTTON ─────────────────────────────────────────────────────────────────
+    //
+
+        function MakeRunButton ( handle: string ) {
+            let button = document.createElement('div');
+            button.className = AlgorithmsControllerRunButtonClass;
+            button.innerText = 'Run';
+
+            let normalHandle = ScriptEngine.Algorithms.NormalizeHandle( handle );
+            button.setAttribute('onclick',
+                `KaryGraph.ScriptEngine.Algorithms.ExecuteAlgorithm("${ normalHandle }");`
+            );
+            return button;
         }
 
     //

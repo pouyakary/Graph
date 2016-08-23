@@ -179,7 +179,7 @@ namespace KaryGraph {
 
         export const AlgorithmsPackageName = 'graph.json';
 
-        export const AlgorithmsControlContainerId = 'controls-container';
+        export const AlgorithmsControlContainerId = 'controllers-container';
 
         export const AlgorithmsControllerClass = 'algorithm-controller';
 
@@ -188,6 +188,8 @@ namespace KaryGraph {
         export const AlgorithmsControllerAuthorClass = 'algorithm-controller-author';
 
         export const AlgorithmsControllerDescriptionClass = 'algorithm-controller-description';
+
+        export const AlgorithmsControllerRunButtonClass = 'algorithm-controller-run-button';
 
     // ────────────────────────────────────────────────────────────────────────────────
 
