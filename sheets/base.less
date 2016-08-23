@@ -37,33 +37,6 @@
     }
 
 //
-// ─── SCROLL BAR ─────────────────────────────────────────────────────────────────
-//
-
-    ::-webkit-scrollbar {
-       width: 1px;
-       height: 1px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        height: 6px;
-        border: 6px solid rgba(0, 0, 0, 0);
-        background-clip: padding-box;
-        border-radius: 9px;
-        background-color: @kary-light-green;
-    }
-
-    ::-webkit-scrollbar-button {
-        width: 0;
-        height: 0;
-        display: none;
-    }
-    
-    ::-webkit-scrollbar-corner {
-        background-color: transparent;
-    }
-
-//
 // ─── UNSELECTABLE ───────────────────────────────────────────────────────────────
 //
 
@@ -84,7 +57,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        padding-top: ~'calc( 50vh - 3rem )';
+        padding-top: ~'calc( 50vh - 60px )';
         height: 100vh;
         width: 100vw;
         background-color: white;

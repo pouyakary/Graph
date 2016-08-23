@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph.Rendering {
+namespace KaryGraph.Rendering {
 
     //
     // ─── CIRCULAR RENDERING ─────────────────────────────────────────────────────────

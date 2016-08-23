@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph.UI.Tabs {
+namespace KaryGraph.UI.Tabs {
 
     //
     // ─── ENUMS ──────────────────────────────────────────────────────────────────────
@@ -51,7 +51,7 @@ module KaryGraph.UI.Tabs {
                     algorithmsTabView.hidden = true;
                     break;
 
-                
+
                 // Programmer
                 case TabOptions.Programmer:
                     tabContainer.className = 'programmer-tab';
@@ -64,7 +64,7 @@ module KaryGraph.UI.Tabs {
 
                 // Preferences
                 case TabOptions.Algorithms:
-                    tabContainer.className = 'preferences-tab';
+                    tabContainer.className = 'algorithms-tab';
 
                     editorTabView.hidden = true;
                     programmerTabView.hidden = true;

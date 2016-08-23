@@ -11,7 +11,7 @@
  * the API to reduce complexity when scripting
  */
 
-module KaryGraph.API.AbstractionLayer {
+namespace KaryGraph.API.AbstractionLayer {
 
     //
     // ─── TYPES ──────────────────────────────────────────────────────────────────────

@@ -36,8 +36,8 @@
     }
   },
   "dependencies": {
-    "prismjs": "^1.5.1",
     "monaco-editor": "^0.5.3",
+    "prismjs": "^1.5.1",
     "snapsvg": "^0.4.0"
   },
   "devDependencies": {

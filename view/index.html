@@ -3,17 +3,18 @@
 		<title>Graph</title>
 		<!-- Main Graph Tools -->
 		<link rel="stylesheet" href="style.css">
-		<script src="core.js"></script>
-		<script src="wrappers.js"></script>
-		<script src="loading-screen.js"></script>
 		<!-- Prism -->
 		<link rel="stylesheet" href="prism.css">
+		<!-- System.Js -->
+		<script src="system.js"></script>
 	</head>
 
 
 	<body>
 		<!-- This is what you see when the app is loading... -->
-		<div id="loading-view">Graph</div>
+		<div id="loading-view">
+			<img src="opening-logo.png" width="120">
+		</div>
 
 		<div class="heading" id="toolbar">
 			<!--div id="header-left" class="unselectable">Graph</div-->
@@ -31,7 +32,7 @@
 			</div>
 
 			<div id="preferences-tab-invisible" class="invisible-tab"
-				 onclick="KaryGraph.UI.Tabs.PreferencesTabsOnClick( );">
+				 onclick="KaryGraph.UI.Tabs.AlgorithmsTabsOnClick( );">
 			</div>
 
 			<div id="header-right">
@@ -105,22 +106,35 @@
 			</div>
 
 			<div id="monaco-placeholder" style="width: 100%; height: 100%;"></div>
-		</div>	
+		</div>
+
+		<div style="clear: both;"></div>
+
+		<!-- Algorithms Tab -->
+		<div id="AlgorithmsView" class="tab-view">
+			<div id="controllers-container">
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+
+		<div style="clear: both;"></div>
 
 
-		<!-- INIT Common Js parts -->
+
+		<!-- Common JS Parts -->
+		<script src="core.js"></script>
+		<script src="wrappers.js"></script>
+		<script src="loading-screen.js"></script>
 		<script>
-			window.Snap = require('snapsvg');
-			var Prism = require('prismjs');
+			const Prism         = require('prismjs');
+			const path          = require('path');
+			const fs            = require('fs');
+			window.Snap 		= require('snapsvg');
+
 			KaryGraph.INIT();
-			var path = require('path');
 		</script>
 
-
-		<div style="clear: both;" class="unselectable"></div>
-
-
-		<!-- Load Monaco -->
+		<!-- AMD Parts -->
 		<script src="vs/loader.js"></script>
 		<script src="graph-monaco.js"></script>
 		<script>

@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph {
+namespace KaryGraph {
 
     //
     // ─── GRAPH VIEW ─────────────────────────────────────────────────────────────────
@@ -66,11 +66,12 @@ module KaryGraph {
         export const LoopArrowRadius = 10;
 
     //
-    // ─── STATUS BAR ─────────────────────────────────────────────────────────────────
+    // ─── GRAPH USER FOLDER ──────────────────────────────────────────────────────────
     //
 
-        /** Id of the status bar */
-        export const StatusbarId = 'status-view';
+        export const GraphUserFolderPath = 'graph';
+
+        export const GraphUserFolderForAlgorithms = 'algorithms';
 
     //
     // ─── TOOLBAR ────────────────────────────────────────────────────────────────────
@@ -78,7 +79,7 @@ module KaryGraph {
 
         /** Id of the move icon */
         export const ToolbarIconMove = 'icon-move';
-        
+
         /** Id of the remove icon */
         export const ToolbarIconRemove = 'icon-remove';
 
@@ -88,7 +89,7 @@ module KaryGraph {
         /** Id of the select icon */
         export const ToolbarIconSelect = 'icon-select';
 
-        /** 
+        /**
          * Applying this class to an icon will make the icon will make the
          * icon look big to indicate it's active state. Use the function:
          * `KaryGraph.UI.Toolbar.ChangeIconToActiveMode( iconId: string )`
@@ -156,7 +157,7 @@ module KaryGraph {
 
         export const EditorTabId = 'EditorView';
 
-        export const AlgorithmsTabId = 'PreferencesView';
+        export const AlgorithmsTabId = 'AlgorithmsView';
 
     //
     // ─── MONACO ─────────────────────────────────────────────────────────────────────
@@ -172,7 +173,23 @@ module KaryGraph {
 
         export const ProgrammerRibbonIconsId = 'ribbon-programmer';
 
-        export const PreferencesRibbonIconsId = 'ribbon-preferences';
+    //
+    // ─── ALGORITHMS ─────────────────────────────────────────────────────────────────
+    //
+
+        export const AlgorithmsPackageName = 'graph.json';
+
+        export const AlgorithmsControlContainerId = 'controllers-container';
+
+        export const AlgorithmsControllerClass = 'algorithm-controller';
+
+        export const AlgorithmsControllerTitleClass = 'algorithm-controller-title';
+
+        export const AlgorithmsControllerAuthorClass = 'algorithm-controller-author';
+
+        export const AlgorithmsControllerDescriptionClass = 'algorithm-controller-description';
+
+        export const AlgorithmsControllerRunButtonClass = 'algorithm-controller-run-button';
 
     // ────────────────────────────────────────────────────────────────────────────────
 

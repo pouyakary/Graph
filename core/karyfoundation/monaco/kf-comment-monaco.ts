@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryFoundation.Monaco {
+namespace KaryFoundation.Monaco {
 
     //
     // ─── MAIN ───────────────────────────────────────────────────────────────────────
@@ -68,7 +68,7 @@ module KaryFoundation.Monaco {
     // ─── ADD COMMENT TO MONACO ──────────────────────────────────────────────────────
     //
 
-        export function ExecuteAddComment ( editor: monaco.editor.ICommonCodeEditor, 
+        export function ExecuteAddComment ( editor: monaco.editor.ICommonCodeEditor,
                                              style: Comment.Style ) {
 
             if ( Comment.Style.Section === style ) {
@@ -94,11 +94,11 @@ module KaryFoundation.Monaco {
 
         function makeCommentWithFormula ( ed: monaco.editor.ICommonCodeEditor,
                                             formula: ( line: string ) => string ) {
-            
+
             // env info
-            let position = ed.getPosition( ); 
+            let position = ed.getPosition( );
             let line = getLine( ed.getValue( ), position.lineNumber );
-            
+
             // running generator
             let comment = formula( line );
 
@@ -117,14 +117,14 @@ module KaryFoundation.Monaco {
                           lineNumber: number ) {
 
             ed.executeEdits( "org.karyfoundation.comment-monaco", [{
-                identifier: { 
-                    major: 0, 
-                    minor: 0 
+                identifier: {
+                    major: 0,
+                    minor: 0
                 },
 
-                range: new monaco.Range( 
-                    lineNumber, 0, 
-                    lineNumber, lineLength 
+                range: new monaco.Range(
+                    lineNumber, 0,
+                    lineNumber, lineLength
                 ),
 
                 text: comment,

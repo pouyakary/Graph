@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph.API.StandardLibrary {
+namespace KaryGraph.API.StandardLibrary {
 
     //
     // ─── RND ────────────────────────────────────────────────────────────────────────

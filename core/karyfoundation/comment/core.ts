@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryFoundation.Comment {
+namespace KaryFoundation.Comment {
 
     //
     // ─── GLOBALS ────────────────────────────────────────────────────────────────────
@@ -16,7 +16,7 @@ module KaryFoundation.Comment {
     // ─── MAIN ───────────────────────────────────────────────────────────────────────
     //
 
-        export function Generate ( style: Style, 
+        export function Generate ( style: Style,
                        languageCharacter: string,
                                  tabSize: number,
                             insertSpaces: boolean,
@@ -293,4 +293,4 @@ module KaryFoundation.Comment {
 
     // ────────────────────────────────────────────────────────────────────────────────
 
-} 
+}

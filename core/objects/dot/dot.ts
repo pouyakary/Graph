@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph {
+namespace KaryGraph {
 
     //
     // ─── DOT OBJECT ─────────────────────────────────────────────────────────────────
@@ -185,7 +185,7 @@ module KaryGraph {
                         ( <Vertex> Storage.Connections[ dotID + this.Id ] ).Remove( );
                     }
 
-                    if ( Storage.Nodes[ dotID ] != undefined 
+                    if ( Storage.Nodes[ dotID ] != undefined
                          && Storage.Nodes[ dotID ].Outputs[ this.Id ] != undefined ) {
                         delete Storage.Nodes[ dotID ].Outputs[ this.Id ];
                     }
@@ -305,7 +305,7 @@ module KaryGraph {
 
                     this.Outputs.forEach( output => {
                         neighbors.push(Storage.Nodes[output]);
-                    }); 
+                    });
 
                     return neighbors;
                 }

@@ -4,33 +4,37 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-//
-// ─── POINT OBJECT ───────────────────────────────────────────────────────────────
-//
+namespace KaryGraph {
 
-    class Point {
+    //
+    // ─── POINT OBJECT ───────────────────────────────────────────────────────────────
+    //
 
-        //
-        // ─── DEFS ────────────────────────────────────────────────────────
-        //
+        export class Point {
 
-            /** _Horizontal_ coordinate of the point. */
-            public X: number;
+            //
+            // ─── DEFS ────────────────────────────────────────────────────────
+            //
 
-            /** _Vertical_ coordinate of the point. */
-            public Y: number;
+                /** _Horizontal_ coordinate of the point. */
+                public X: number;
 
-        //
-        // ─── CONSTRUCTOR ─────────────────────────────────────────────────
-        //
+                /** _Vertical_ coordinate of the point. */
+                public Y: number;
 
-            constructor ( x: number, y: number ) {
-                this.X = x;
-                this.Y = y;
-            }
+            //
+            // ─── CONSTRUCTOR ─────────────────────────────────────────────────
+            //
 
-        // ─────────────────────────────────────────────────────────────────
+                constructor ( x: number, y: number ) {
+                    this.X = x;
+                    this.Y = y;
+                }
 
-    }
+            // ─────────────────────────────────────────────────────────────────
 
-// ────────────────────────────────────────────────────────────────────────────────
+        }
+
+    // ────────────────────────────────────────────────────────────────────────────────
+
+}

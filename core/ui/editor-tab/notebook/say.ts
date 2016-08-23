@@ -11,14 +11,14 @@
  */
 
 
-module KaryGraph.UI.Programmer {
+namespace KaryGraph.UI.Programmer {
 
     //
     // ─── SAY MAIN ───────────────────────────────────────────────────────────────────
     //
 
         export function GenerateSayHTML ( input: any ): string {
-            
+
             // if were going to have an undefined type.
             if ( input == undefined ) {
                 return SayImplementations.SayUndefined( );
@@ -59,7 +59,7 @@ module KaryGraph.UI.Programmer {
 
 
 
-module KaryGraph.UI.Programmer.SayImplementations {
+namespace KaryGraph.UI.Programmer.SayImplementations {
 
     //
     // ────────────────────────────────────────────────────────────────────────────── I ──────────
@@ -92,7 +92,7 @@ module KaryGraph.UI.Programmer.SayImplementations {
 
         export function SayString ( input: string ): string {
             return `<div class="say-string">"${ input }"</div>`;
-        } 
+        }
 
     //
     // ─── NUMBER ─────────────────────────────────────────────────────────────────────

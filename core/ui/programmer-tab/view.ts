@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-module KaryGraph.UI.ProgrammerTab {
+namespace KaryGraph.UI.ProgrammerTab {
 
     //
     // ─── GLOBALS ────────────────────────────────────────────────────────────────────
@@ -32,7 +32,7 @@ module KaryGraph.UI.ProgrammerTab {
 
         export function OnAddEndingCommentButtonClicked ( ) {
             KaryFoundation.Monaco.ExecuteAddComment( Editor, KaryFoundation.Comment.Style.Ending );
-            Editor.focus( );          
+            Editor.focus( );
         }
 
     //

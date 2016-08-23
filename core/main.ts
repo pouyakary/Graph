@@ -7,7 +7,7 @@
 /**
  * **Kary Graph** - A full featured Graph Theory Studio
  */
-module KaryGraph {
+namespace KaryGraph {
 
     //
     // ─── INIT ───────────────────────────────────────────────────────────────────────
@@ -19,8 +19,10 @@ module KaryGraph {
         export function INIT ( ) {
             InitScreenInformation( );
             UI.Programmer.INIT( );
-            RenderStartingGraph( );
             UI.LoadImagesAtStart( );
+            ScriptEngine.Algorithms.LoadAlgorithms( );
+            Installer.ConfigureGraphFolder( );
+            RenderStartingGraph( );
         }
 
     //

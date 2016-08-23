@@ -5,7 +5,7 @@
 //
 
 /** This module is responsible for the */
-module KaryGraph.UI.Programmer {
+namespace KaryGraph.UI.Programmer {
 
     //
     // ─── DEFS ───────────────────────────────────────────────────────────────────────
@@ -25,12 +25,6 @@ module KaryGraph.UI.Programmer {
 
         /** Commands History Cursor */
         var promptHistoryCursor:number;
-
-    //
-    // ─── WRAPPERS ───────────────────────────────────────────────────────────────────
-    //
-
-        declare function PrismHighlight ( code: string ) : string;
 
     //
     // ─── INIT NOTEBOOK ──────────────────────────────────────────────────────────────
@@ -88,10 +82,10 @@ module KaryGraph.UI.Programmer {
             /** We have two different methods on purpose, do not try to merge them! */
             promptInput.addEventListener( 'keypress' , OnPromptEnterClicked );
             promptInput.addEventListener( 'keydown' , OnPromptArrowsClicked );
-            // Prompt 
+            // Prompt
             prompt.appendChild( promptInput );
         }
-    
+
     //
     // ─── ON PROMPT ENTER ────────────────────────────────────────────────────────────
     //
@@ -162,7 +156,7 @@ module KaryGraph.UI.Programmer {
     //
     // ─── FETCH AND RESET INPUT VALUE ────────────────────────────────────────────────
     //
-        
+
         /** Fetches and resets the input box value */
         function FetchAndResetInput ( ): string {
             let result = promptInput.value;
