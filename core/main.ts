@@ -21,6 +21,7 @@ namespace KaryGraph {
             UI.Programmer.INIT( );
             UI.LoadImagesAtStart( );
             ScriptEngine.Algorithms.LoadAlgorithms( );
+            Installer.ConfigureGraphFolder( );
             RenderStartingGraph( );
         }
 

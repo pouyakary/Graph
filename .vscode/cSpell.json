@@ -40,7 +40,8 @@
         "Standalone",
         "onresize",
         "prismjs",
-        "Script's"
+        "Script's",
+        "subdirs"
     ],
     // flagWords - list of words to be always considered incorrect
     // This is useful for offensive words and common spelling errors.
