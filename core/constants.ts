@@ -173,6 +173,12 @@ namespace KaryGraph {
 
         export const ProgrammerRibbonIconsId = 'ribbon-programmer';
 
+    //
+    // ─── ALGORITHMS ─────────────────────────────────────────────────────────────────
+    //
+
+        export const AlgorithmsPackageName = 'graph.json';
+
     // ────────────────────────────────────────────────────────────────────────────────
 
 }
