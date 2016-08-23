@@ -79,7 +79,7 @@ namespace KaryGraph {
 
         /** Id of the move icon */
         export const ToolbarIconMove = 'icon-move';
-        
+
         /** Id of the remove icon */
         export const ToolbarIconRemove = 'icon-remove';
 
@@ -89,7 +89,7 @@ namespace KaryGraph {
         /** Id of the select icon */
         export const ToolbarIconSelect = 'icon-select';
 
-        /** 
+        /**
          * Applying this class to an icon will make the icon will make the
          * icon look big to indicate it's active state. Use the function:
          * `KaryGraph.UI.Toolbar.ChangeIconToActiveMode( iconId: string )`
@@ -178,6 +178,14 @@ namespace KaryGraph {
     //
 
         export const AlgorithmsPackageName = 'graph.json';
+
+        export const AlgorithmsControlContainerId = 'controls-container';
+
+        export const AlgorithmsControllerClass = 'algorithm-controller';
+
+        export const AlgorithmsControllerTitleClass = 'algorithm-controller-title';
+
+        export const AlgorithmsControllerAuthorClass = 'algorithm-controller-author';
 
     // ────────────────────────────────────────────────────────────────────────────────
 
