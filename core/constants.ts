@@ -73,6 +73,8 @@ namespace KaryGraph {
 
         export const GraphUserFolderForAlgorithms = 'algorithms';
 
+        export const GraphUserFolderForLibraries = 'libs';
+
     //
     // ─── TOOLBAR ────────────────────────────────────────────────────────────────────
     //

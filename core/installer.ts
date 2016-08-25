@@ -14,7 +14,8 @@ namespace KaryGraph.Installer {
         export function ConfigureGraphFolder ( ) {
             let base = JoinPath([ GetHomeDir( ), GraphUserFolderPath ]);
             CheckAndCreateDir( base );
-            CheckAndCreateDir( JoinPath([ base, GraphUserFolderForAlgorithms ]) );
+            CheckAndCreateDir( JoinPath([ base, GraphUserFolderForAlgorithms ]));
+            CheckAndCreateDir( JoinPath([ base, GraphUserFolderForLibraries ]));
         }
 
     //
