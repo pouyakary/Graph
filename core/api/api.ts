@@ -86,7 +86,7 @@
     /**
      * Does a function to each dot in the array.
      */
-    function foreachdot ( dots: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID>, 
+    function foreachdot ( dots: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID>,
                           f: ( dot: KaryGraph.Dot ) => void ) {
         dots.forEach( dotOrId => {
             f( KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dotOrId ) );
@@ -163,7 +163,7 @@
      * Disconnects two dots from each other.
      * https://github.com/karyfoundation/graph/wiki/API#disconnect
      */
-    function disconnect ( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, 
+    function disconnect ( a: KaryGraph.API.AbstractionLayer.DotObjectOrDotID,
                           b: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ): boolean {
         let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( a );
         let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( b );
@@ -178,7 +178,7 @@
      * Checks if two dots are connected to each other.
      * https://github.com/karyfoundation/graph/wiki/API#has-edge
      */
-    function hasEdge ( start: KaryGraph.API.AbstractionLayer.DotObjectOrDotID, 
+    function hasEdge ( start: KaryGraph.API.AbstractionLayer.DotObjectOrDotID,
                          end: KaryGraph.API.AbstractionLayer.DotObjectOrDotID ) {
           let d1 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( start );
           let d2 = KaryGraph.API.AbstractionLayer.GetDotByDotOrId( end );
