@@ -25,6 +25,8 @@ namespace KaryGraph {
                                                   dy: number, posx: number, posy: number ) {
             posy -= GraphMarginTop;
             ( <Dot> Storage.Nodes[ circle.id ] ).MoveTo( posx , posy );
+
+            ScriptEngine.EventHandler.RunEvents( 'OnMove', circle.id );
         }
 
     //
@@ -34,6 +36,7 @@ namespace KaryGraph {
         export function DragModeFunctionRemoveMode( circle: ISnapObject, dx: number,
                                                     dy: number, posx: number, posy: number ) {
 
+            ScriptEngine.EventHandler.RunEvents( 'OnRemove', circle.id );
         }
 
     //
@@ -43,6 +46,7 @@ namespace KaryGraph {
         export function DragModeFunctionEditMode( circle: ISnapObject, dx: number,
                                                   dy: number, posx: number, posy: number ) {
 
+            ScriptEngine.EventHandler.RunEvents( 'OnMove', circle.id );
         }
 
     //
@@ -52,6 +56,7 @@ namespace KaryGraph {
         export function DragModeFunctionSelectMode( circle: ISnapObject, dx: number,
                                                     dy: number, posx: number, posy: number ) {
 
+            ScriptEngine.EventHandler.RunEvents( 'OnSelect', circle.id );
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
