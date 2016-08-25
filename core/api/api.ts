@@ -573,3 +573,20 @@
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
+
+
+
+//
+// ─── LANGUAGE EXTENSIONS ────────────────────────────────────────────────────────
+//
+
+    function using ( library: string ) {
+        return NodeRequire( JoinPath([
+                GetHomeDir( ),
+                KaryGraph.GraphUserFolderPath,
+                KaryGraph.GraphUserFolderForLibraries,
+                library
+        ]));
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
