@@ -41,7 +41,8 @@
         "onresize",
         "prismjs",
         "Script's",
-        "subdirs"
+        "subdirs",
+        "subfolder"
     ],
     // flagWords - list of words to be always considered incorrect
     // This is useful for offensive words and common spelling errors.

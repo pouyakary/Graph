@@ -355,7 +355,7 @@ namespace KaryGraph {
             //
 
                 /** Creates a Snap Label object to present the graph node number */
-                private CreateNumberLabel ( ) : ISnapObject {
+                private CreateNumberLabel ( ): ISnapObject {
                     var label = <ISnapObject> GraphView.text(
                         this.Position.X - DotNumberLabelDisplacementX,
                         this.Position.Y - DotNumberLabelDisplacementY,

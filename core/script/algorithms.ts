@@ -32,7 +32,6 @@ namespace KaryGraph.ScriptEngine.Algorithms {
     //
 
         export function ExecuteAlgorithm ( handle: string ) {
-            console.log('here');
             let algorithm = <IAlgorithm> Storage.Algorithms[ handle ];
             algorithm({ });
         }
