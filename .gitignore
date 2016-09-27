@@ -4,3 +4,4 @@ _documentation/*
 node_modules/*
 npm-debug.log
 www/*
+.vscode/.browse.VC.db
