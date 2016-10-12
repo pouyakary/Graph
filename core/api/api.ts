@@ -1,7 +1,9 @@
 
 //
 // Copyright 2016 Kary Foundation, Inc.
-//   Author: Pouya Kary <k@karyfoundation.org>
+//   Authors: Pouya Kary <k@karyfoundation.org>
+//            Micha Hanselmann <h@karyfoundation.org>
+//            Sina Bakhtiari <sinabakh@karyfoundation.org>
 //
 
 
