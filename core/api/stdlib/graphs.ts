@@ -7,14 +7,6 @@
 namespace KaryGraph.API.StandardLibrary {
 
     //
-    // ─── RND ────────────────────────────────────────────────────────────────────────
-    //
-
-        export function RND ( ) {
-
-        }
-
-    //
     // ─── COMPLETE GRAPH ─────────────────────────────────────────────────────────────
     //
 
@@ -22,19 +14,25 @@ namespace KaryGraph.API.StandardLibrary {
             let keys = new Array<string>( );
 
             // creating dots
-            for ( var counter = 0; counter < size; counter++ ) {
+            for ( var counter = 0; counter < size; counter++ )
                 keys.push( API.AbstractionLayer.AddNewDot( ).Id );
-            }
 
             // connecting
             keys.forEach( key => {
                 for ( var index = 0; index < size; index++ ) {
                     var currentDot = keys[ index ];
-                    if ( currentDot !== key ) {
-                        Storage.Nodes[ key ].ConnectTo( Storage.Nodes[ keys[ index] ] );
-                    }
+                    if ( currentDot !== key )
+                        Storage.Nodes[ key ].ConnectTo( Storage.Nodes[ keys[ index ] ] );
                 }
             });
+        }
+
+    //
+    // ─── RND ────────────────────────────────────────────────────────────────────────
+    //
+
+        export function RND ( ) {
+
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

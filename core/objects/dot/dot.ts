@@ -263,24 +263,18 @@ namespace KaryGraph {
                     if ( !ids ) var ids: number[ ] = [ ];
                     var map = new Map();
                     var keys = Object.keys( Storage.Nodes );
-
-                    keys.forEach( key => {
+                    for ( let key of keys ) {
                         var dot = <Dot> Storage.Nodes[ key ];
                         if ( this.Outputs[ dot.Id ] != undefined ) {
-                            if ( ids.indexOf( dot.GetNumberId( ) ) != -1 ) {
+                            if ( ids.indexOf( dot.GetNumberId( ) ) != -1 )
                                 return -1
-                            }
-
                             ids.push( dot.GetNumberId( ) );
                             var children = dot.GetChildren( ids );
-
-                            if ( children == -1 ) {
+                            if ( children == -1 )
                                 return -1
-                            }
-
                             map.set( dot, children );
                         }
-                    });
+                    };
                     return map;
                 }
 

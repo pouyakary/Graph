@@ -45,9 +45,8 @@
      */
     function newdots ( howmuch: number ): Array<KaryGraph.Dot> {
         var dots = new Array<KaryGraph.Dot>( );
-        for ( var counter = 0; counter < howmuch; counter++ ) {
+        for ( var counter = 0; counter < howmuch; counter++ )
             dots.push( KaryGraph.API.AbstractionLayer.AddNewDot( ) );
-        }
         return dots;
     }
 
@@ -73,9 +72,8 @@
      */
     function getdots ( ids: Array<number> ): Array<KaryGraph.Dot> {
         let result = new Array<KaryGraph.Dot>( );
-        ids.forEach( id => {
+        for ( let id of ids )
             result.push( getdot( id ) );
-        });
         return result;
     }
 
@@ -88,9 +86,8 @@
      */
     function foreachdot ( dots: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID>,
                           f: ( dot: KaryGraph.Dot ) => void ) {
-        dots.forEach( dotOrId => {
+        for ( let dotOrId of dots )
             f( KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dotOrId ) );
-        });
     }
 
 //
@@ -358,15 +355,12 @@
      */
     function size ( dots?: Array<KaryGraph.API.AbstractionLayer.DotObjectOrDotID> ): number {
         var size: number = 0;
-        if ( dots === undefined ) {
-            for ( var i = 0; i < KaryGraph.Dot.TotalDots; i++ ) {
+        if ( dots === undefined )
+            for ( var i = 0; i < KaryGraph.Dot.TotalDots; i++ )
                 size += getdot(i + 1).NumberOfInputs();
-            }
-        } else {
-            for ( var i = 0; i < dots.length; i++ ) {
+        else
+            for ( var i = 0; i < dots.length; i++ )
                 size += KaryGraph.API.AbstractionLayer.GetDotByDotOrId( dots[ i ] ).NumberOfInputs( );
-            }
-        }
         return size;
     }
 
@@ -439,7 +433,7 @@
 //
 
     function range( start: number, end: number ): Array<number> {
-        return Array.from( new Array( end - start + 1 ), ( x, i ) => i + start )
+        return Array.from( new Array( end - start + 1 ), ( x, i ) => i + start );
     }
 
 //
@@ -499,7 +493,7 @@
 // ─── RND ────────────────────────────────────────────────────────────────────────
 //
 
-    function rnd( num: number ): number {
+    function rnd ( num: number ): number {
         return KaryGraph.Random( num );
     }
 
@@ -507,7 +501,7 @@
 // ─── RADIAN ─────────────────────────────────────────────────────────────────────
 //
 
-    function radian( num: number ): number {
+    function radian ( num: number ): number {
         return num * ( Math.PI / 180 );
     }
 
@@ -515,7 +509,7 @@
 // ─── SIN ────────────────────────────────────────────────────────────────────────
 //
 
-    function sin( num: number ): number {
+    function sin ( num: number ): number {
         return Math.sin( radian( num ) );
     }
 
@@ -523,7 +517,7 @@
 // ─── COS ────────────────────────────────────────────────────────────────────────
 //
 
-    function cos( num: number ): number {
+    function cos ( num: number ): number {
         return Math.cos( radian( num ) );
     }
 

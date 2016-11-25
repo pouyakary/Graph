@@ -8,7 +8,7 @@ namespace KaryGraph.API.StandardLibrary.Algorithms {
 
     //
     // ─── BFS ────────────────────────────────────────────────────────────────────────
-    // 
+    //
 
         export function BFS ( start: Dot, steps: number ) {
             let bfs = new Array<Array<Dot>>( );
@@ -29,7 +29,6 @@ namespace KaryGraph.API.StandardLibrary.Algorithms {
                     let neighbors = bfs[ bfs.length-1 ][ it ].GetNeighbors( );
 
                     for ( let nit = 0; nit < neighbors.length; nit++ ) {
-
                         if ( checked[ neighbors[ nit ].GetNumberId( ) ] == false ) {
                             checked[ neighbors[ nit ].GetNumberId( ) ] = true;
                             tmp.push( neighbors[ nit ] );

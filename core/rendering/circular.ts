@@ -34,7 +34,7 @@ namespace KaryGraph.Rendering {
             for ( var i = 0; i < count; i++ ) {
                 let x = computeX( i );
                 let y = computeY( i );
-                ( <Dot> Storage.Nodes[ keys[ i ] ] ).MoveTo( x, y );
+                ( Storage.Nodes[ keys[ i ] ] as Dot ).MoveTo( x, y );
             }
         }
 

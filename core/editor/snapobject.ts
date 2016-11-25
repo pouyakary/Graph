@@ -19,7 +19,7 @@ namespace KaryGraph {
     //
 
         interface ISnapAnimateFunction {
-            ( attributes: any , duration: number )
+            ( attributes: any , duration: number );
         }
 
     //
@@ -27,7 +27,7 @@ namespace KaryGraph {
     //
 
         interface ISnapDataFunction {
-            ( string, any? )
+            ( string, any? );
         }
 
     //
@@ -35,7 +35,7 @@ namespace KaryGraph {
     //
 
         interface ISnapDragMoveFunction {
-            ( dx: number, dy: number, posx: number, posy: number )
+            ( dx: number, dy: number, posx: number, posy: number );
         }
 
     //
@@ -43,7 +43,7 @@ namespace KaryGraph {
     //
 
         interface ISnapDragFunction {
-            ( move: ISnapDragMoveFunction, start: Function, stop: Function  )
+            ( move: ISnapDragMoveFunction, start: Function, stop: Function  );
         }
 
     //
@@ -59,7 +59,7 @@ namespace KaryGraph {
             animate: ISnapAnimateFunction;
 
             /** removes the object */
-            remove();
+            remove( ): void;
 
             /** drag implementation */
             drag: ISnapDragFunction;
