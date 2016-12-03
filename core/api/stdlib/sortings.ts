@@ -4,7 +4,7 @@
 //   Author: Micha Hanselmann <m@karyfoundation.org>
 //
 
-namespace KaryGraph.API.StandardLibrary.Sortings {
+namespace Graph.API.StandardLibrary.Sortings {
 
     //
     // ─── CLASSIC TREE ───────────────────────────────────────────────────────
@@ -18,22 +18,21 @@ namespace KaryGraph.API.StandardLibrary.Sortings {
             var layers: number = 0;
 
             // create tree map
-            keys.forEach( key => {
+            for ( let key of keys ) {
                 var dot = <Dot> Storage.Nodes[ key ];
                 if ( dot.NumberOfInputs( ) == 0 ) {
                     var children = dot.GetChildren( );
-                    if ( children == -1 ) return false;
-                    map.set( dot, children );
-                }
-            });
+                    if ( children == -1 )
+                        return false;
+                    map.set( dot, children ); } }
 
             // count layers
             function dive ( map: any, layer: number ) {
-                if (layer > layers) layers = layer;
-                for ( var [ key, value ] of map.entries() ) {
-                    if ( value.size > 0 ) dive( value, layer + 1 );
-                }
-            }
+                if ( layer > layers ) layers = layer;
+                for ( var [ key, value ] of map.entries( ) )
+                    if ( value.size > 0 )
+                        dive( value, layer + 1 ) }
+
             dive( map, 1 );
 
             // move dots
@@ -41,18 +40,17 @@ namespace KaryGraph.API.StandardLibrary.Sortings {
                 var count = map.size;
                 var x = 0;
                 for ( var [ key, value ] of map.entries( ) ) {
-                    var positionX = width / count * x++ + (width / count / 2) + xOff;
+                    var positionX = width / count * x++ + ( width / count / 2 ) + xOff;
+
                     ( <Dot> key ).MoveTo( positionX, positionY );
+
                     if ( value.size > 0 ) {
                         moveDots(
                             value,
                             width / count,
                             positionY + GraphHeight / layers,
-                            positionX - (width / count / 2 )
-                        );
-                    }
-                }
-            }
+                            positionX - ( width / count / 2 )
+                        )}}}
 
             moveDots(
                 map,

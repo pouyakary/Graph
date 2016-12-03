@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.UI.ProgrammerTab.Ribbon {
+namespace Graph.UI.ProgrammerTab.Ribbon {
 
     //
     // ─── ON RUN BUTTON CLICKED ──────────────────────────────────────────────────────

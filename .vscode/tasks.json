@@ -3,6 +3,6 @@
     "command": "bash",
     "isShellCommand": false,
     "args": [ "build.sh" ],
-    "showOutput": "silent",
+    "showOutput": "never",
     "echoCommand": false
 }

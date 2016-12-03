@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.UI.AlgorithmsTab {
+namespace Graph.UI.AlgorithmsTab {
 
     //
     // ─── MAKE AN ALGORITHM CONTROL VIEW ─────────────────────────────────────────────

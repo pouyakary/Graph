@@ -4,17 +4,17 @@
 //   Author: Sina Bakhtiari <s@karyfoundation.org>
 //
 
-namespace KaryGraph.API.StandardLibrary.Algorithms {
+namespace Graph.API.StandardLibrary.Algorithms {
 
     //
     // ─── BFS ────────────────────────────────────────────────────────────────────────
-    // 
+    //
 
         export function BFS ( start: Dot, steps: number ) {
             let bfs = new Array<Array<Dot>>( );
             let checked = new Array<Boolean>( );
 
-            for ( let it = 0; it < KaryGraph.Dot.TotalDots; it++ ) {
+            for ( let it = 0; it < Graph.Dot.TotalDots; it++ ) {
                 checked.push( false );
             }
 
@@ -29,7 +29,6 @@ namespace KaryGraph.API.StandardLibrary.Algorithms {
                     let neighbors = bfs[ bfs.length-1 ][ it ].GetNeighbors( );
 
                     for ( let nit = 0; nit < neighbors.length; nit++ ) {
-
                         if ( checked[ neighbors[ nit ].GetNumberId( ) ] == false ) {
                             checked[ neighbors[ nit ].GetNumberId( ) ] = true;
                             tmp.push( neighbors[ nit ] );

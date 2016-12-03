@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph {
+namespace Graph {
 
     //
     // ─── DRAG START FUNCTION LIST ───────────────────────────────────────────────────

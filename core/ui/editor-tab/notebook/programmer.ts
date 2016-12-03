@@ -5,7 +5,7 @@
 //
 
 /** This module is responsible for the */
-namespace KaryGraph.UI.Programmer {
+namespace Graph.UI.Programmer {
 
     //
     // ─── DEFS ───────────────────────────────────────────────────────────────────────
@@ -179,9 +179,9 @@ namespace KaryGraph.UI.Programmer {
     //
 
         function RunAndGenerateResults ( code: string ) {
-            let runResults = KaryGraph.ScriptEngine.Run( code );
+            let runResults = Graph.ScriptEngine.Run( code );
             if ( runResults.success ) {
-                return KaryGraph.UI.Programmer.GenerateSayHTML( runResults.result );
+                return Graph.UI.Programmer.GenerateSayHTML( runResults.result );
             } else {
                 return `<div class="${ NotebookError }">${ runResults.error }</div>`
             }

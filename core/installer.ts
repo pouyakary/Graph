@@ -3,7 +3,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.Installer {
+namespace Graph.Installer {
 
     //
     // ─── INSTALL OUTER DEPENDENCIES ─────────────────────────────────────────────────

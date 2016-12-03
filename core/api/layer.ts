@@ -11,7 +11,7 @@
  * the API to reduce complexity when scripting
  */
 
-namespace KaryGraph.API.AbstractionLayer {
+namespace Graph.API.AbstractionLayer {
 
     //
     // ─── TYPES ──────────────────────────────────────────────────────────────────────
@@ -40,11 +40,10 @@ namespace KaryGraph.API.AbstractionLayer {
     //
 
         export function GetDotByDotOrId ( dotOrId: DotObjectOrDotID ): Dot {
-            if ( typeof ( dotOrId ) === "number" ) {
+            if ( typeof ( dotOrId ) === "number" )
                 return GetDotByNumberId( <number> dotOrId );
-            } else {
+            else
                 return <Dot> dotOrId;
-            }
         }
 
     //
@@ -65,15 +64,10 @@ namespace KaryGraph.API.AbstractionLayer {
     //
 
         export function GetDotByNumberId ( numberId: number ): Dot {
-            let dot: Dot;
-            let keys = Object.keys( Storage.Nodes );
-            keys.forEach( key => {
-                if ( ( <Dot> Storage.Nodes[ key ] ).GetNumberId( ) == numberId ) {
-                    dot = Storage.Nodes[ key ];
-                    return;
-                }
-            });
-            return dot;
+            for ( let key of Object.keys( Storage.Nodes ) )
+                if ( ( <Dot> Storage.Nodes[ key ] ).GetNumberId( ) === numberId )
+                    return Storage.Nodes[ key ];
+            return null;
         }
 
     //
@@ -82,12 +76,9 @@ namespace KaryGraph.API.AbstractionLayer {
 
         export function NumberOfOddVertices ( ): number {
             var verticesWithOddDegree: number = 0;
-            var keys = Object.keys( Storage.Nodes );
-            keys.forEach( key => {
-                if ( ( <Dot> Storage.Nodes[ key ] ).GetDegree() % 2 ) {
+            for ( let key of Object.keys( Storage.Nodes ) )
+                if ( ( <Dot> Storage.Nodes[ key ] ).GetDegree() % 2 )
                     verticesWithOddDegree++;
-                }
-            });
             return verticesWithOddDegree;
         }
 
@@ -96,9 +87,8 @@ namespace KaryGraph.API.AbstractionLayer {
     //
 
         export function Reset ( ) {
-            Object.keys( Storage.Nodes ).forEach(
-                key => ( <Dot> Storage.Nodes[ key ] ).Remove( )
-            );
+            for ( let key of Object.keys( Storage.Nodes ) )
+                ( <Dot> Storage.Nodes[ key ] ).Remove( );
             Dot.ResetNumberIdPlace( );
         }
 
@@ -130,16 +120,18 @@ namespace KaryGraph.API.AbstractionLayer {
         export function Render ( text: string ) {
             switch ( text ) {
                 case 'circle':
-                    Rendering.RenderCircular();
+                    Rendering.RenderCircular( );
                     break;
+
                 case 'spiral':
-                    Rendering.RenderSpiral();
+                    Rendering.RenderSpiral( );
                     break;
+
                 case 'order':
-                    KaryGraph.API.StandardLibrary.Sortings.Tree( );
+                    Graph.API.StandardLibrary.Sortings.Tree( );
                     break;
+
                 default:
-                    // UI.Console.PrintError(`Graph API: No rendering option ${text}`);
                     break;
             }
         }

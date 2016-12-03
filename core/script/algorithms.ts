@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.ScriptEngine.Algorithms {
+namespace Graph.ScriptEngine.Algorithms {
 
     //
     // ─── INTERFACES ─────────────────────────────────────────────────────────────────
@@ -32,8 +32,7 @@ namespace KaryGraph.ScriptEngine.Algorithms {
     //
 
         export function ExecuteAlgorithm ( handle: string ) {
-            console.log('here');
-            let algorithm = <IAlgorithm> Storage.Algorithms[ handle ];
+            let algorithm = Storage.Algorithms[ handle ] as IAlgorithm;
             algorithm({ });
         }
 
@@ -114,7 +113,7 @@ namespace KaryGraph.ScriptEngine.Algorithms {
         function LoadAlgorithmsManifest ( algorithmsAddress: string ) {
             let manifestPath = JoinPath([ algorithmsAddress, AlgorithmsPackageName ]);
             if ( FSExistsSync( manifestPath ) ) {
-                return <IAlgorithmManifest> JSON.parse( ReadFileSync( manifestPath ) );
+                return JSON.parse( ReadFileSync( manifestPath ) ) as IAlgorithmManifest;
             } else {
                 return undefined;
             }

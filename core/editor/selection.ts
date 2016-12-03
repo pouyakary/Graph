@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph {
+namespace Graph {
 
     /**
      * Selection - Creates a selection box and at the end of the selection

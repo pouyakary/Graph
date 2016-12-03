@@ -48,17 +48,25 @@
 //
 
     /** Copy to binary from dir */
-    function copyToBinaryFromDir ( dir ) {
+    function copyToBinaryFromDir ( dir, subfolder ) {
         fs.readdir( dir , ( err , files ) => {
             // if error
             if ( err ) {
                 console.log(`Could not get files from directory ${ dir }`);
             }
+
             // if right
             files.forEach( name => {
+                let dest;
+                if ( !( subfolder === undefined || subfolder === '' || subfolder === null ) ) {
+                    dest = path.join( resultDirPath , subfolder , name );
+                } else {
+                    dest = path.join( resultDirPath , name );
+                }
+
                 copyFile(
                     getLocalPath( path.join( dir , name ) ),
-                    getLocalPath( path.join( resultDirPath , name ) )
+                    getLocalPath( dest )
                 );
             });
         });
@@ -113,6 +121,12 @@
 
     /** Copies static resource files into the result directory */
     gulp.task( 'copyResourceFiles', callback => {
+
+        function copyNodeModules ( handle ) {
+            let address = path.join( 'node_modules', handle );
+            copyToBinaryFromDir( address, address );
+        }
+
         copyToBinaryFromDir( 'resources' );
         copyToBinaryFromDir( 'view' );
         copyToBinaryFromDir( 'electron' );
@@ -120,6 +134,15 @@
         copyToBinaryFromDir( 'libs' );
         copyToBinaryFromDir( 'javascript' );
         copyToBinaryFromDir( path.join( 'node_modules', 'monaco-editor', 'min' ) );
+
+        copyNodeModules( 'prismjs' );
+        copyNodeModules( 'snapsvg' );
+        copyNodeModules( 'eve' );
+
+        copyFile(
+            getLocalPath( 'package.json' ),
+            getLocalPath( path.join( resultDirPath , 'package.json' ) )
+        );
         callback();
     });
 
@@ -130,9 +153,9 @@
     gulp.task( 'resources', ['copyResourceFiles'], callback => {
         // fixing monaco folders name
         /*mv(
-            path.join( resultDirPath , 'vs' ), 
+            path.join( resultDirPath , 'vs' ),
             path.join( resultDirPath , 'monaco' ),
-            { 
+            { \
                 mkdirp: true,
                 clobber: false
             },
@@ -151,15 +174,15 @@
     /** Compiles the Less style sheets */
     gulp.task( 'sheets', callback => {
         try {
-            let lessSourceCode = fs.readFileSync( 
+            let lessSourceCode = fs.readFileSync(
                 path.join( __dirname, 'sheets', 'ui.less' ), 'utf8' );
-    
+
             less.render( lessSourceCode, ( err, output ) => {
                 if ( err ) {
                     console.log(`Less failure: ${ err }`); return;
                 }
-                fs.writeFile( 
-                    path.join( __dirname, '_compiled/style.css' ), 
+                fs.writeFile(
+                    path.join( __dirname, '_compiled/style.css' ),
                     output.css,
                     error => {
                         if ( error ) {
@@ -172,7 +195,7 @@
                 );
             });
         } catch ( err ) {
-            console.log('Compiling less failed ' + err );  
+            console.log('Compiling less failed ' + err );
         }
     });
 
