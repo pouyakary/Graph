@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph {
+namespace Graph {
 
     //
     // ─── DOT OBJECT ─────────────────────────────────────────────────────────────────
@@ -290,8 +290,8 @@ namespace KaryGraph {
             // ─── GET NEIGHBORS ───────────────────────────────────────────────
             //
 
-                public GetNeighbors ( ): KaryGraph.Dot[ ] {
-                    var neighbors: KaryGraph.Dot[ ] = [ ];
+                public GetNeighbors ( ): Graph.Dot[ ] {
+                    var neighbors: Graph.Dot[ ] = [ ];
 
                     this.Inputs.forEach( input => {
                         neighbors.push(Storage.Nodes[input]);

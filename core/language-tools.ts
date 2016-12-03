@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.LanguageTools {
+namespace Graph.LanguageTools {
 
     //
     // ─── ARRAY EXISTS ───────────────────────────────────────────────────────────────

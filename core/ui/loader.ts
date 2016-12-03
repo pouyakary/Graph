@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.UI {
+namespace Graph.UI {
 
     //
     // ─── LOAD IMAGES ────────────────────────────────────────────────────────────────

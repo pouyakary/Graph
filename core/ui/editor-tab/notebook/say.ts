@@ -11,7 +11,7 @@
  */
 
 
-namespace KaryGraph.UI.Programmer {
+namespace Graph.UI.Programmer {
 
     //
     // ─── SAY MAIN ───────────────────────────────────────────────────────────────────
@@ -59,7 +59,7 @@ namespace KaryGraph.UI.Programmer {
 
 
 
-namespace KaryGraph.UI.Programmer.SayImplementations {
+namespace Graph.UI.Programmer.SayImplementations {
 
     //
     // ────────────────────────────────────────────────────────────────────────────── I ──────────

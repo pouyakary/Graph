@@ -11,7 +11,7 @@
  * the API to reduce complexity when scripting
  */
 
-namespace KaryGraph.API.AbstractionLayer {
+namespace Graph.API.AbstractionLayer {
 
     //
     // ─── TYPES ──────────────────────────────────────────────────────────────────────
@@ -128,7 +128,7 @@ namespace KaryGraph.API.AbstractionLayer {
                     break;
 
                 case 'order':
-                    KaryGraph.API.StandardLibrary.Sortings.Tree( );
+                    Graph.API.StandardLibrary.Sortings.Tree( );
                     break;
 
                 default:

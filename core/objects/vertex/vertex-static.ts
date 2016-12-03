@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.VertexStatic {
+namespace Graph.VertexStatic {
 
     //
     // ─── GENERATE VERTEX ID ─────────────────────────────────────────────────────────

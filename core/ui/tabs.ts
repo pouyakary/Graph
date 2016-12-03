@@ -4,7 +4,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.UI.Tabs {
+namespace Graph.UI.Tabs {
 
     //
     // ─── ENUMS ──────────────────────────────────────────────────────────────────────

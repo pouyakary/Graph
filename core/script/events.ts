@@ -5,7 +5,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.ScriptEngine.EventHandler {
+namespace Graph.ScriptEngine.EventHandler {
 
     //
     // ─── INTERFACES ─────────────────────────────────────────────────────────────────

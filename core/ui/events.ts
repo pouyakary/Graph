@@ -5,7 +5,7 @@
 //   Author: Pouya Kary <k@karyfoundation.org>
 //
 
-namespace KaryGraph.UI.Events {
+namespace Graph.UI.Events {
 
     //
     // ─── WINDOW RESIZE ──────────────────────────────────────────────────────────────

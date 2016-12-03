@@ -7,7 +7,7 @@
 /**
  * **Kary Graph** - A full featured Graph Theory Studio
  */
-namespace KaryGraph {
+namespace Graph {
 
     //
     // ─── INIT ───────────────────────────────────────────────────────────────────────
@@ -36,7 +36,21 @@ namespace KaryGraph {
         function RenderStartingGraph ( ) {
             // Just remember this is the only place that using API
             // inside namespace "KaryGraph" is acceptable...
-            API.KaryFoundation.CreateKaryHorseGraph( );
+            //API.KaryFoundation.CreateKaryHorseGraph( );
+
+            newdots( 15 );
+            connect( range( 1, 15 ) );
+
+            let ys = [ 93, 171, 134, 271, 167, 134, 91, 169, 87, 130, 173, 281, 120, 81, 160 ];
+            let counter = 0;
+
+            foralldots( dot => {
+                dot.MoveTo(
+                    ( counter + 1 ) * 50,
+                    ys[ counter ]
+                )
+                counter++;
+            })
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

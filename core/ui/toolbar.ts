@@ -6,7 +6,7 @@
 
 /// <reference path="../constants.ts" />
 
-namespace KaryGraph.UI.Toolbar {
+namespace Graph.UI.Toolbar {
 
     //
     // ─── TOOLBAR MODE ───────────────────────────────────────────────────────────────

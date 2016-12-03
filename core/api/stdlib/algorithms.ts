@@ -4,7 +4,7 @@
 //   Author: Sina Bakhtiari <s@karyfoundation.org>
 //
 
-namespace KaryGraph.API.StandardLibrary.Algorithms {
+namespace Graph.API.StandardLibrary.Algorithms {
 
     //
     // ─── BFS ────────────────────────────────────────────────────────────────────────
@@ -14,7 +14,7 @@ namespace KaryGraph.API.StandardLibrary.Algorithms {
             let bfs = new Array<Array<Dot>>( );
             let checked = new Array<Boolean>( );
 
-            for ( let it = 0; it < KaryGraph.Dot.TotalDots; it++ ) {
+            for ( let it = 0; it < Graph.Dot.TotalDots; it++ ) {
                 checked.push( false );
             }
 

@@ -4,7 +4,7 @@
 //   Author: Micha Hanselmann <m@karyfoundation.org>
 //
 
-namespace KaryGraph.Rendering {
+namespace Graph.Rendering {
 
     //
     // ─── SPIRAL RENDERING ───────────────────────────────────────────────────────────
